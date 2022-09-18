@@ -1,0 +1,47 @@
+# Common
+.DS_Store
+
+# Bunlder
+/configs/bundle/cache
+
+# Git
+/configs/git/*
+!/configs/git/config
+
+# Karabiner-Elements
+/configs/karabiner/assets/*
+/configs/karabiner/automatic_backups/*
+
+# Neovim
+/configs/nvim/plugged
+/configs/nvim/plugged_dev
+/configs/nvim/vim-plug
+/configs/nvim/after
+/configs/nvim/init.vim
+/configs/nvim/vimrc.plugins
+/configs/nvim/plugin/**
+/configs/nvim/snippets_private
+
+# tmux
+/configs/tmux/plugins
+
+# trf
+/configs/trf/bookmarks
+/configs/trf/view_option.yml
+
+# Vim
+/configs/vim/plugged
+/configs/vim/plugged_dev
+/configs/vim/vim-plug
+/configs/vim/snippets_private
+
+# w3m
+/configs/w3m/*
+!/configs/w3m/keymap
+
+# WezTerm
+/configs/wezterm/colors/nightfox_wezterm.toml
+
+# Zsh
+/configs/zsh/.chpwd-recent-dirs
+/configs/zsh/.zcompdump
