@@ -1,0 +1,21 @@
+if has('gui_macvim')
+  set guioptions-=m    " メニューバー非表示
+  set guioptions-=e    " GUIのタブを使用しない
+  set guioptions-=T    " ツールバー非表示
+  set guioptions-=r    " 右スクロールバー非表示
+  set guioptions-=R    " 右スクロールバー非表示
+  set guioptions-=l    " 左スクロールバー非表示
+  set guioptions-=L    " 左スクロールバー非表示
+  set antialias        " アンチエイリアス
+  set nobackup         " バックアップなし
+  set visualbell t_vb= " ビープ音なし
+  set columns=100       " 横幅
+  set lines=35          " 行数
+
+  colorscheme solarized
+  set background=dark
+
+  " フォント設定
+  set guifontwide=UDEV\ Gothic\ NF:h14
+  set guifont=UDEV\ Gothic\ NF:h14
+endif

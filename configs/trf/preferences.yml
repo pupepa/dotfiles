@@ -1,0 +1,3 @@
+use_nerd_fonts: false
+# You must set a timestamp format that is the same length.
+timestamp_format: "%Y-%m-%d %H:%M:%S"

@@ -1,0 +1,49 @@
+{
+  "plugins": [
+    "asciidoctor"
+  ],
+  "rules": {
+    "prh": {
+      "rulePaths": [
+        "~/prh.yml"
+      ]
+    },
+    "max-kanji-continuous-len": {
+      "max" : 5
+    },
+    "preset-jtf-style": {
+      "1.2.1.句点(。)と読点(、)": false,
+      "3.1.1.全角文字と半角文字の間": false,
+      "3.3.かっこ類と隣接する文字の間のスペースの有無": false,
+      "4.1.3.ピリオド(.)、カンマ(,)": false,
+      "4.2.2.疑問符(?)": false,
+      "4.2.7.コロン(：)": false,
+      "4.2.8.セミコロン(;)": false,
+      "4.3.1.丸かっこ（）": false,
+      "4.3.2.大かっこ［］": false,
+    },
+    "no-mix-dearu-desumasu": {
+      "preferInHeader": "である",
+      "preferInBody": "である",
+      "preferInList": "である",
+      "strict": true
+    },
+    "max-ten": {
+      "max" : 5
+    },
+    "no-doubled-conjunctive-particle-ga": true,
+    "no-doubled-conjunction": true,
+    "no-double-negative-ja": true,
+    "no-doubled-joshi": {
+      "min_interval" : 1,
+      "strict": false,
+      "allow": []
+    },
+    "sentence-length": {
+      "max": 100
+    },
+    "no-dropping-the-ra": true,
+    "prefer-tari-tari": true
+  }
+}
+

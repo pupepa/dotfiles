@@ -1,0 +1,38 @@
+{
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact"
+  ],
+  "eslint.autoFixOnSave": true,
+  "eslint.nodePath": ".yarn/sdks",
+  "eslint.packageManager": "yarn",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "languageserver": {
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["markdown", "asciidoc"]
+    }
+  },
+  "solargraph.diagnostics": true,
+  "prettier.onlyUseLocalVersion": true,
+  "prettier.statusItemText": "",
+  "diagnostic.displayByAle": false,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.noselect": false,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.snippetIndicator": " ►",
+  "sumneko-lua.enableNvimLuaDev": true,
+  "tsserver.formatOnType": true,
+  "tsserver.tsdk": ".yarn/sdks/typescript/lib",
+  "workspace.workspaceFolderCheckCwd": false
+}

@@ -1,0 +1,483 @@
+if has('nvim')
+
+" Neovim Plugins
+
+" A snazzy bufferline for Neovim
+" https://github.com/akinsho/bufferline.nvim
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
+" REPL/debug console for nvim lua plugins
+" https://github.com/bfredl/nvim-luadev
+Plug 'bfredl/nvim-luadev'
+
+" A better user experience for viewing and interacting with Vim marks.
+" https://github.com/chentau/marks.nvim
+Plug 'chentau/marks.nvim'
+
+" A better annotation generator.
+" Supports multiple languages and annotation conventions.
+" https://github.com/danymat/neogen
+Plug 'danymat/neogen'
+
+" A highly customizable theme for vim and neovim with support for lsp, treesitter and a variety of plugins.
+" https://github.com/EdenEast/nightfox.nvim
+Plug 'EdenEast/nightfox.nvim'
+
+" Better quickfix window in Neovim, polish old quickfix window.
+" https://github.com/kevinhwang91/nvim-bqf
+Plug 'kevinhwang91/nvim-bqf'
+
+" Hlsearch Lens for Neovim
+" https://github.com/kevinhwang91/nvim-hlslens
+Plug 'kevinhwang91/nvim-hlslens'
+
+" Git integration for buffers
+" https://github.com/lewis6991/gitsigns.nvim
+Plug 'lewis6991/gitsigns.nvim'
+
+" Indent guides for Neovim
+" https://github.com/lukas-reineke/indent-blankline.nvim
+Plug 'lukas-reineke/indent-blankline.nvim'
+
+" lua `fork` of vim-web-devicons for neovim
+" https://github.com/kyazdani42/nvim-web-devicons
+Plug 'kyazdani42/nvim-web-devicons'
+
+" UI Component Library for Neovim.
+" https://github.com/MunifTanjim/nui.nvim
+Plug 'MunifTanjim/nui.nvim'
+
+" Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
+" Use release branch (recommend)
+" https://github.com/neoclide/coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" A blazing fast and easy to configure neovim statusline plugin written in pure lua.
+" https://github.com/nvim-lualine/lualine.nvim
+Plug 'nvim-lualine/lualine.nvim'
+
+" Nvim Treesitter configurations and abstraction layer
+" https://github.com/nvim-treesitter/nvim-treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" A fancy, configurable, notification manager for NeoVim
+" https://github.com/rcarriga/nvim-notify
+Plug 'rcarriga/nvim-notify'
+
+" plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+" https://github.com/nvim-lua/plenary.nvim
+Plug 'nvim-lua/plenary.nvim'
+
+" [WIP] An implementation of the Popup API from vim in Neovim. Hope to upstream when complete
+" https://github.com/nvim-lua/popup.nvim
+Plug 'nvim-lua/popup.nvim'
+
+" Extensible Neovim Scrollbar
+" https://github.com/petertriho/nvim-scrollbar
+Plug 'petertriho/nvim-scrollbar'
+
+" A generic and modular lua sidebar for Neovim
+" https://github.com/sidebar-nvim/sidebar.nvim
+Plug 'sidebar-nvim/sidebar.nvim'
+
+" Neovim plugin to preview the contents of the registers
+" https://github.com/tversteeg/registers.nvim
+Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+
+" Use treesitter to auto close and auto rename html tag
+" https://github.com/windwp/nvim-ts-autotag
+Plug 'windwp/nvim-ts-autotag'
+
+else
+
+" Vim Plugins
+
+" A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
+" https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'
+
+" Auto close (X)HTML tags
+" https://github.com/alvan/vim-closetag
+Plug 'alvan/vim-closetag', { 'for': ['html', 'xml', 'jsx', 'tsx', 'javascriptreact', 'typescriptreact'] }
+
+" A light and configurable statusline/tabline plugin for Vim
+" https://github.com/gonzoooooo/lightline.vim
+Plug 'gonzoooooo/lightline.vim', { 'branch': 'solarized-patch' }
+
+" precision colorscheme for the vim text editor
+" https://github.com/gonzoooooo/vim-colors-solarized
+Plug 'gonzoooooo/vim-colors-solarized'
+
+" Make the yanked region apparent!
+" https://github.com/machakann/vim-highlightedyank
+Plug 'machakann/vim-highlightedyank'
+
+" Auto configurations for Language Server for vim-lsp
+" https://github.com/mattn/vim-lsp-settings
+Plug 'mattn/vim-lsp-settings'
+
+" A lightweight plugin to display the list of buffers in the lightline vim plugin
+" https://github.com/mengelbrecht/lightline-bufferline
+Plug 'mengelbrecht/lightline-bufferline'
+
+" normalize async job control api for vim and neovim
+" https://github.com/prabirshrestha/async.vim
+Plug 'prabirshrestha/async.vim'
+
+" async completion in pure vim script for vim8 and neovim
+" https://github.com/prabirshrestha/asyncomplete.vim
+Plug 'prabirshrestha/asyncomplete.vim'
+
+" provides buffer autocomplete for asyncomplete.vim
+" https://github.com/prabirshrestha/asyncomplete-buffer.vim
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+
+" provides file autocomplete for asyncomplete.vim
+" https://github.com/prabirshrestha/asyncomplete-file.vim
+Plug 'prabirshrestha/asyncomplete-file.vim'
+
+Plug 'gonzoooooo/asyncomplete-look.vim'
+
+" https://github.com/prabirshrestha/asyncomplete-lsp.vim
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+" provides neosnippet autocomplete for asyncomplete.vim
+" https://github.com/prabirshrestha/asyncomplete-neosnippet.vim
+Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
+
+" async language server protocol plugin for vim and neovim
+" https://github.com/prabirshrestha/vim-lsp
+Plug 'prabirshrestha/vim-lsp'
+
+" A solid language pack for Vim.
+" https://github.com/sheerun/vim-polyglot
+Plug 'sheerun/vim-polyglot'
+
+" Interactive command execution in Vim.
+" https://github.com/Shougo/vimproc.vim
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+
+endif
+
+" Common Plugins
+
+" Changes Vim working directory to project root
+" https://github.com/airblade/vim-rooter
+Plug 'airblade/vim-rooter'
+
+" A vim plugin to perform diffs on blocks of code
+" https://github.com/AndrewRadev/linediff.vim
+Plug 'AndrewRadev/linediff.vim'
+
+" A simple Vim plugin to switch segments of text with predefined replacements
+" https://github.com/AndrewRadev/switch.vim
+Plug 'AndrewRadev/switch.vim'
+
+" vim match-up: even better % 👊 navigate and highlight matching words 👊 modern matchit and matchparen replacement
+" https://github.com/andymass/vim-matchup
+Plug 'andymass/vim-matchup'
+
+" もどるとすすむくん
+" https://github.com/Bakudankun/BackAndForward.vim
+Plug 'Bakudankun/BackAndForward.vim'
+
+" A vim script to provide CamelCase motion through words
+" https://github.com/bkad/CamelCaseMotion
+Plug 'bkad/CamelCaseMotion'
+
+" Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
+" https://github.com/bronson/vim-trailing-whitespace
+Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+
+" Seamless navigation between tmux panes and vim splits
+" https://github.com/christoomey/vim-tmux-navigator
+Plug 'christoomey/vim-tmux-navigator'
+
+" A powerful Git log viewer
+" https://github.com/cohama/agit.vim
+Plug 'cohama/agit.vim', { 'on': ['Agit'] }
+
+" Auto close parentheses and repeat by dot dot dot...
+" https://github.com/cohama/lexima.vim
+Plug 'cohama/lexima.vim'
+
+" Efficient Todo.txt management in vim
+" https://gitlab.com/dbeniamine/todo.txt-vim
+Plug 'gonzoooooo/todo.txt-vim', { 'for': 'todo', 'branch': 'weekday-recurrence-support' }
+
+" Control Xcode from Vim
+" https://github.com/gonzoooooo/vim-xcode-control
+Plug 'gonzoooooo/vim-xcode-control', { 'for': ['swift', 'objc'] }
+
+" simple memo plugin for Vim.
+" https://github.com/glidenote/memolist.vim
+Plug 'glidenote/memolist.vim', { 'on': ['MemoNew', 'MemoList', 'MemoGrep'] }
+
+" *-Improved
+" https://github.com/haya14busa/vim-asterisk
+Plug 'haya14busa/vim-asterisk'
+
+" enhanced f/t
+" https://github.com/hrsh7th/vim-eft
+" Plug 'hrsh7th/vim-eft'
+
+"URL highlight everywhere
+" https://github.com/itchyny/vim-highlighturl
+Plug 'itchyny/vim-highlighturl'
+
+" An efficient alternative to the standard matchparen plugin
+" https://github.com/itchyny/vim-parenmatch
+Plug 'itchyny/vim-parenmatch'
+
+" Run your tests at the speed of thought
+" https://github.com/janko/vim-test
+Plug 'janko-m/vim-test', { 'on': ['TestNearest', 'TestFile', 'TestSuite', 'TestLast', 'TestVisit'] }
+
+" A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
+" https://github.com/Julian/vim-textobj-variable-segment
+Plug 'julian/vim-textobj-variable-segment'
+
+" A command-line fuzzy finder
+" https://github.com/junegunn/fzf
+Plug 'junegunn/fzf', { 'do': './install --all' }
+
+" fzf ❤️ vim
+" https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf.vim'
+
+" A Vim alignment plugin
+" https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Directory viewer for Vim
+" https://github.com/justinmk/vim-dirvish
+Plug 'justinmk/vim-dirvish'
+
+" A simple Vimscript test framework
+" https://github.com/junegunn/vader.vim
+Plug 'junegunn/vader.vim', { 'on': ['Vader', 'Vader!'] }
+
+" Vim plugin: Switch to the missing file without interaction
+" https://github.com/kana/vim-altr
+Plug 'kana/vim-altr'
+
+" https://github.com/kana/vim-niceblock
+Plug 'kana/vim-niceblock'
+
+" Vim plugin: Text objects for date and time
+" https://github.com/kana/vim-textobj-datetime
+Plug 'kana/vim-textobj-datetime'
+
+" Vim plugin: Text objects for entire buffer
+" https://github.com/kana/vim-textobj-entire
+Plug 'kana/vim-textobj-entire'
+
+" Vim plugin: Text objects for the current line
+" https://github.com/kana/vim-textobj-line
+Plug 'kana/vim-textobj-line'
+
+" Vim plugin: Define your own operator easily
+" https://github.com/kana/vim-operator-user
+Plug 'kana/vim-operator-user'
+
+" Vim plugin: Operator to replace text with register content
+" https://github.com/yuki-yano/vim-operator-replace
+" Plug 'kana/vim-operator-replace'
+Plug 'yuki-yano/vim-operator-replace'
+
+" https://github.com/kana/vim-textobj-indent
+Plug 'kana/vim-textobj-indent'
+
+" Vim plugin: Create your own submodes
+" https://github.com/kana/vim-submode
+Plug 'kana/vim-submode'
+
+" Vim plugin: Create your own text objects
+" https://github.com/kana/vim-textobj-user
+Plug 'kana/vim-textobj-user'
+
+" Wrapper of some vim/neovim's :terminal functions.
+" https://github.com/kassio/neoterm
+Plug 'kassio/neoterm'
+
+" Automatically insert a leading backslash when editing Vim scripts
+" https://github.com/lambdalisue/vim-backslash
+Plug 'lambdalisue/vim-backslash'
+
+" Viewer & Finder for LSP symbols and tags
+" https://github.com/liuchengxu/vista.vim
+Plug 'liuchengxu/vista.vim'
+
+" The set of operator and textobject plugins to search/select/edit sandwiched textobjects.
+" https://github.com/machakann/vim-sandwich
+Plug 'machakann/vim-sandwich'
+
+" Reorder delimited items.
+" https://github.com/machakann/vim-swap
+Plug 'machakann/vim-swap'
+
+" The vim textobject plugin to treat function-call regions.
+" https://github.com/machakann/vim-textobj-functioncall
+Plug 'machakann/vim-textobj-functioncall'
+
+" Range, pattern and substitute preview for Vim
+" https://github.com/markonm/traces.vim
+Plug 'markonm/traces.vim'
+
+" https://github.com/mattn/vim-maketable
+Plug 'mattn/vim-maketable', { 'on': 'MakeTable' }
+
+" https://github.com/mattn/vim-textobj-url
+Plug 'mattn/vim-textobj-url'
+
+" vim interface to Web API
+" https://github.com/mattn/webapi-vim
+Plug 'mattn/webapi-vim'
+
+" Rainbow CSV - Vim plugin: Highlight columns in CSV and TSV files and run queries in SQL-like language
+" https://github.com/mechatroner/rainbow_csv
+Plug 'mechatroner/rainbow_csv' , { 'for': 'csv' }
+
+" Vim plugin for the Perl module / CLI script 'ack'
+" https://github.com/mileszs/ack.vim
+Plug 'mileszs/ack.vim'
+
+" a Vim plugin to provide some operators to convert a word case.
+" https://github.com/mopp/vim-operator-convert-case
+Plug 'mopp/vim-operator-convert-case'
+
+" Vim search status.
+" https://github.com/osyo-manga/vim-anzu
+Plug 'osyo-manga/vim-anzu'
+
+" Smart line joint vim plugin.
+" https://github.com/osyo-manga/vim-jplus
+Plug 'osyo-manga/vim-jplus'
+
+" https://github.com/osyo-manga/vim-textobj-multiblock
+Plug 'osyo-manga/vim-textobj-multiblock'
+
+" https://github.com/pocke/vim-textobj-markdown
+Plug 'pocke/vim-textobj-markdown'
+
+" Realtime preview by Vim. (Markdown, reStructuredText, textile)
+" https://github.com/previm/previm
+Plug 'previm/previm', { 'for': ['md', 'markdown', 'asciidoc'] }
+
+" Git repo for http://www.vim.org/scripts/script.php?script_id=1147
+" https://github.com/qpkorr/vim-bufkill
+Plug 'qpkorr/vim-bufkill'
+
+" jump to the Vim script's last error
+" https://github.com/rbtnn/vim-vimscript_lasterror
+Plug 'rbtnn/vim-vimscript_lasterror', { 'on': ['VimscriptLastError'] }
+
+" Zoom in/out of windows (toggle between one window and multi-window)
+" https://github.com/regedarek/ZoomWin
+Plug 'regedarek/ZoomWin'
+
+" Extended f, F, t and T key mappings for Vim.
+" https://github.com/rhysd/clever-f.vim
+Plug 'rhysd/clever-f.vim'
+
+" Make text objects with various ruby block structures.
+" https://github.com/rhysd/vim-textobj-ruby
+Plug 'rhysd/vim-textobj-ruby'
+
+" Vim plugin for generating images of source code using https://github.com/Aloxaf/silicon
+" https://github.com/segeljakt/vim-silicon
+Plug 'segeljakt/vim-silicon', { 'on': 'Silicon' }
+
+" Context filetype library for Vim script
+" https://github.com/Shougo/context_filetype.vim
+Plug 'Shougo/context_filetype.vim'
+
+" neo-snippet plugin
+" https://github.com/Shougo/neosnippet.vim
+Plug 'Shougo/neosnippet.vim'
+
+" A fork of textobj-parameter 0.1.0
+" https://github.com/sgur/vim-textobj-parameter
+Plug 'sgur/vim-textobj-parameter'
+
+" Ctags generator for Vim
+" https://github.com/szw/vim-tags
+Plug 'szw/vim-tags', { 'on': 'TagsGenerate' }
+
+" quickly highlight <cword> or visually selected word</cword>
+" https://github.com/t9md/vim-quickhl
+Plug 't9md/vim-quickhl', { 'on': ['<Plug>(quickhl-manual-this)'] }
+
+" Edits part of buffer by another buffer.
+" https://github.com/thinca/vim-partedit
+Plug 'thinca/vim-partedit'
+
+" Perform the replacement in quickfix.
+" https://github.com/thinca/vim-qfreplace
+Plug 'thinca/vim-qfreplace'
+
+" Run commands quickly.
+" https://github.com/thinca/vim-quickrun
+Plug 'thinca/vim-quickrun', { 'on': 'QuickRun' }
+
+" Integrated reference viewer.
+" https://github.com/thinca/vim-ref
+Plug 'thinca/vim-ref', { 'on': 'Ref' }
+
+" dispatch.vim: Asynchronous build and test dispatcher
+" https://github.com/tpope/vim-dispatch
+Plug 'tpope/vim-dispatch'
+
+" fugitive.vim: A Git wrapper so awesome, it should be illegal
+" https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-fugitive', { 'on': ['Gstatus', 'Gcommit', 'Gwrite', 'Gdiff', 'Gblame', 'Gmerge'] }
+
+" repeat.vim: enable repeating supported plugin maps with "."
+" https://github.com/tpope/vim-repeat
+Plug 'tpope/vim-repeat'
+
+" rhubarb.vim: GitHub extension for fugitive.vim
+" https://github.com/tpope/vim-rhubarb
+Plug 'tpope/vim-rhubarb'
+
+" speeddating.vim: use CTRL-A/CTRL-X to increment dates, times, and more
+" https://github.com/tpope/vim-speeddating
+Plug 'tpope/vim-speeddating'
+
+" Vim comment plugin: supported operator/non-operator mappings, repeatable by dot-command, 300+ filetypes
+" https://github.com/tyru/caw.vim
+Plug 'tyru/caw.vim'
+
+if executable("curl") && executable("openssl")
+  " Twitter client for Vim
+  " https://github.com/twitvim/twitvim
+  Plug 'twitvim/twitvim', { 'on': ['PosttoTwitter', 'CPosttoTwitter', 'BPosttoTwitter', 'FriendsTwitter', 'UserTwitter', 'MentionsTwitter', 'PublicTwitter', 'DMTwitter', 'SearchTwitter', 'SetLoginTwitter'] }
+endif
+
+" Show Ex command output in buffer
+" https://github.com/tyru/capture.vim
+Plug 'tyru/capture.vim', { 'on': ['Capture'] }
+
+" Open URI with your favorite browser from your most favorite editor
+" https://github.com/tyru/open-browser.vim
+Plug 'tyru/open-browser.vim'
+
+" Open GitHub URL of current file, etc. from Vim editor (supported GitHub Enterprise)
+" https://github.com/tyru/open-browser-github.vim
+Plug 'tyru/open-browser-github.vim', { 'on': ['OpenGithubFile', 'OpenGithubIssue', 'OpenGithubPullReq', 'OpenGithubProject'] }
+
+" A project which translate Vim documents into Japanese.
+" https://github.com/vim-jp/vimdoc-ja
+Plug 'vim-jp/vimdoc-ja'
+
+" Vim plugin for insert mode completion of words in adjacent tmux panes
+" https://github.com/wellle/tmux-complete.vim
+Plug 'wellle/tmux-complete.vim'
+
+" Swap your windows without ruining your layout
+" https://github.com/wesQ3/vim-windowswap
+Plug 'wesQ3/vim-windowswap'
+
+" w3m plugin for vim
+" https://github.com/yuratomo/w3m.vim
+Plug 'yuratomo/w3m.vim', { 'on': ['W3m', 'W3mSplit', 'W3mVSplit'] }

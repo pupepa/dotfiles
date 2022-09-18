@@ -1,0 +1,43 @@
+set blinkcursor
+set clipboard=unnamed " clipboard共有を有効にする
+set incsearch
+set ignorecase
+set smartcase
+
+nmap ; :
+nmap <CR> o<Esc>
+" nmap <c-n> :xccmd jumpToNextCounterpart<CR>
+nmap ,d :xccmd jumpToDefinition<CR>
+nmap ,h :xccmd toggleDebuggerVisibility<CR>
+nmap == :xccmd indentSelection<CR>
+nmap ,o :xccmd openQuickly<CR>
+nmap <c-c><c-l> :xccmd cleanActiveRunContext<CR>
+nmap ,r :xccmd refactorRename<CR>
+
+" ウィンドウ移動系に s を使う
+nmap s <Nop>
+nmap sj <C-w>j
+nmap sk <C-w>k
+nmap sl <C-w>l
+nmap sh <C-w>h
+nmap sJ <C-w>J
+nmap sK <C-w>K
+nmap sL <C-w>L
+nmap sH <C-w>H
+
+nmap s] :xccmd selectNextTab<CR>
+nmap s[ :xccmd selectPreviousTab<CR>
+nmap st :xccmd newTab<CR>
+
+nmap H :xccmd goBackInHistoryByCommand<CR>
+nmap L :xccmd goForwardInHistoryByCommand<CR>
+
+noremap ,b :xccmd toggleBreakpointAtCurrentLine<CR>
+
+nnoremap gcc :xccmd commentAndUncommentCurrentLines<CR>
+vnoremap gc :xccmd commentAndUncommentCurrentLines<CR>
+
+nmap P "0p
+
+inoremap jj <Esc>
+inoremap jk <Esc>

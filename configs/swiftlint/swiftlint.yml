@@ -1,0 +1,784 @@
+disabled_rules:
+# Swift 3.2 以降で使用可能な Block ベースの KVO が望ましい
+# https://realm.github.io/SwiftLint/block_based_kvo.html
+# - block_based_kvo
+#
+# 定数をクロージャのキャプチャリストに入れない
+# https://realm.github.io/SwiftLint/capture_variable.html
+# - capture_variable
+#
+# Delegate Protocol (名前の末尾が Delegate となる Protocol) は weak で保持される可能性があるため
+# class-only な Protocol であるべき
+# https://realm.github.io/SwiftLint/class_delegate_protocol.html
+# - class_delegate_protocol
+#
+# `}` の後に `)` が続く場合、それらの間に空白があるべきでない
+# https://realm.github.io/SwiftLint/closing_brace.html
+# - closing_brace
+#
+# クロージャの終端 `}` は開始した行と同じインデントにしなければならない
+# https://realm.github.io/SwiftLint/closure_end_indentation.html
+# - closure_end_indentation
+#
+# クロージャの引数リストはクロージャの始まり `{` と同じ行にあるべき
+# https://realm.github.io/SwiftLint/closure_parameter_position.html
+# - closure_parameter_position
+#
+# クロージャの `{}` の内側にスペースを入れる
+# https://realm.github.io/SwiftLint/closure_spacing.html
+# - closure_spacing
+#
+# コレクション・リテラルのすべての要素は、縦に並べなければならない
+# https://realm.github.io/SwiftLint/collection_alignment.html
+# - collection_alignment
+#
+# `:` は変数名の直後に書き、型名はその後に1スペース開けて書くべき
+# また、Dictionary は key の直後に `:` を書き、value はその後に1つのスペースを開けて書くべき
+# https://realm.github.io/SwiftLint/colon.html
+# - colon
+#
+# `,` の前にはスペースを入れず `,` の後には1つのスペースを入れるべき
+# https://realm.github.io/SwiftLint/comma.html
+# - comma
+#
+# スラッシュ (`/`) のあとにスペースを入れなければならない
+# https://realm.github.io/SwiftLint/comment_spacing.html
+# - comment_spacing
+#
+# リテラルを直接書き並べて初期化するタイプの initializer は直接呼び出すべきではない
+# https://realm.github.io/SwiftLint/compiler_protocol_init.html
+# e.g. Set(arrayLiteral: 1, 2)
+# - compiler_protocol_init
+#
+# Computed Properties の getter / setter メソッドは一貫した順番で記述しなければならない
+# https://realm.github.io/SwiftLint/computed_accessors_order.html
+# - computed_accessors_order
+#
+# 条件文は常に次の行に記述すること
+# `guard true else { return }` のような書き方をしたいので除外
+# https://realm.github.io/SwiftLint/conditional_returns_on_newline.html
+  - conditional_returns_on_newline
+#
+# `filter(where:).count` を `0` と比較するよりも、`contains` を優先する
+# https://realm.github.io/SwiftLint/contains_over_filter_count.html
+# - contains_over_filter_count
+#
+# filter(where:).isEmpty よりも `contains` を優先する
+# https://realm.github.io/SwiftLint/contains_over_filter_is_empty.html
+# - contains_over_filter_is_empty
+#
+# `first(where:) != nil` や `firstIndex(where:) != nil` よりも `contains` を優先する
+# https://realm.github.io/SwiftLint/contains_over_first_not_nil.html
+# - contains_over_first_not_nil
+#
+# range(of:) != nil` や `range(of) != nil` よりも `contains` を優先する
+# https://realm.github.io/SwiftLint/contains_over_range_nil_comparison.html
+# - contains_over_range_nil_comparison
+#
+# `if`, `for`, `guard`, `switch`, `while`, `catch` 文は条件文や引数を不必要に括弧で囲むべきではない
+# https://realm.github.io/SwiftLint/control_statement.html
+# - control_statement
+#
+# Static なメンバのみを管理する場合は、クラスではなく Enum を使う
+# https://realm.github.io/SwiftLint/convenience_type.html
+# - convenience_type
+#
+# `.siwftlint.yml` に記述された custome_rules を実行する．
+# https://realm.github.io/SwiftLint/custom_rules.html
+# - custom_rules
+#
+# 関数の複雑さを制限する
+# https://realm.github.io/SwiftLint/cyclomatic_complexity.html
+  - cyclomatic_complexity
+#
+# Availability をチェックする `@available` などに古いバージョンを指定してはいけない?
+# https://realm.github.io/SwiftLint/deployment_target.html
+# - deployment_target
+#
+# Block を使って通知を登録する場合、通知を取り消せるようにしなければならない
+# https://realm.github.io/SwiftLint/discarded_notification_center_observer.html
+# - discarded_notification_center_observer
+#
+# `assert(false)` よりも `assertionFailure()` や `preconditionFailure()` を優先する
+# https://realm.github.io/SwiftLint/discouraged_assert.html
+# - discouraged_assert
+#
+# `UIDevice` や `Bundle` のような有害な可能性がある型を直接初期化すべきではない
+# https://realm.github.io/SwiftLint/discouraged_direct_init.html
+# - discouraged_direct_init
+#
+# `Optional<T>.none` と衝突する `none` を使ってはいけない
+# https://realm.github.io/SwiftLint/discouraged_none_name.html
+# - discouraged_none_name
+#
+# オブジェクトリテラルよりもイニシャライザを優先する
+# https://realm.github.io/SwiftLint/discouraged_object_literal.html
+# - discouraged_object_literal
+#
+# enum に重複する case を定義してはいけない
+# https://realm.github.io/SwiftLint/duplicate_enum_cases.html
+# - duplicate_enum_cases
+#
+# `import` の内容はユニークにする
+# https://realm.github.io/SwiftLint/duplicate_imports.html
+# - duplicate_imports
+#
+# `@inline` と `dynamic` を同時に使わない
+# - dynamic_inline
+#
+# 関連する値を持つ列挙型を照合する際に、使用しない場合は引数を省略できる
+# https://realm.github.io/SwiftLint/empty_enum_arguments.html
+# - empty_enum_arguments
+#
+# 関数の引数がない時は `Void ->` でなく `() ->` を用いる
+# https://realm.github.io/SwiftLint/empty_parameters.html
+# - empty_parameters
+#
+# Trailing Closures を使う時にメソッド名の後の空括弧は避けるべき
+# https://realm.github.io/SwiftLint/empty_parentheses_with_trailing_closure.html
+# - empty_parentheses_with_trailing_closure
+#
+# 1 ファイルの行数は多くなりすぎないように
+# https://realm.github.io/SwiftLint/file_length.html
+# - file_length
+#
+# `for` の中に `if` を 1 つ入れるよりも `where` が好まれる
+# https://realm.github.io/SwiftLint/for_where.html
+  - for_where
+#
+# `as!` を避けるべき
+# https://realm.github.io/SwiftLint/force_cast.html
+  - force_cast
+#
+# `try!` を避けるべき
+# https://realm.github.io/SwiftLint/force_try.html
+  - force_try
+#
+# 関数の行数は長くなりすぎないように
+# https://realm.github.io/SwiftLint/function_body_length.html
+  - function_body_length
+#
+# 関数の引数は少なくすべき
+# https://realm.github.io/SwiftLint/function_parameter_count.html
+  - function_parameter_count
+#
+# Generics の型名は大文字の英数字のみを使用し、長さは 1 〜 20 文字とする
+# https://realm.github.io/SwiftLint/generic_type_name.html
+# - generic_type_name
+#
+# 識別子の名前は、英数字のみを含み、小文字で始まるか、大文字のみを含むものとします。
+# 例外として、変数が static および immutable と宣言されている場合は、変数名の先頭に大文字を使用してもかまいません。
+# 変数名は長すぎても短すぎてもいけません。
+# https://realm.github.io/SwiftLint/identifier_name.html
+  - identifier_name
+#
+# read-only なプロパティは、`get` キーワードを書くべきではない
+# https://realm.github.io/SwiftLint/implicit_getter.html
+# - implicit_getter
+#
+# 識別子に差別的な名前をつけるべきではない
+# https://realm.github.io/SwiftLint/inclusive_language.html
+# - inclusive_language
+#
+# `defer` が親スコープの最後にある場合は、とにかくその場所で実行される
+# https://realm.github.io/SwiftLint/inert_defer.html
+# - inert_defer
+#
+# `Set.intersection(_:).isEmpty` よりも、`Set.isDisjoint(with:)` の方が使いやすい
+# https://realm.github.io/SwiftLint/is_disjoint.html
+# - is_disjoint
+#
+# Tuple のメンバは多くならないように
+# https://realm.github.io/SwiftLint/large_tuple.html
+# - large_tuple
+#
+# ファイルの先頭に空白文字を含むべきではない
+# https://realm.github.io/SwiftLint/leading_whitespace.html
+# - leading_whitespace
+#
+# `CGRectGetWidth` のようなレガシーな `CGGeometry` 関数よりも `CGRect.width` のような関数を使うことが望ましい
+# https://realm.github.io/SwiftLint/legacy_cggeometry_functions.html
+# - legacy_cggeometry_functions
+#
+# `CGRectZero` のようなレガシーな定数よりも `CGRect.zero` のような定数を使うことが望ましい
+# https://realm.github.io/SwiftLint/legacy_constant.html
+# - legacy_constant
+#
+# `CGPointMake()` のようなレガシーなコンストラクタよりも、`CGPoint()` のようなコンストラクタを使うことが望ましい
+# https://realm.github.io/SwiftLint/legacy_constructor.html
+# - legacy_constructor
+#
+# `hashValue` をオーバーライドするのではなく `hash(into:)` を使用することを推奨する
+# https://realm.github.io/SwiftLint/legacy_hashing.html
+# - legacy_hashing
+#
+# `NSWidth(rect)` のようなレガシーな `NSGeometry` 関数よりも `rect.width` のような関数を使うことが望ましい
+# https://realm.github.io/SwiftLint/legacy_nsgeometry_functions.html
+# - legacy_nsgeometry_functions
+#
+# arc4random のようなレガシーな乱数生成の関数よりも type.random(in:) を使うことが望ましい
+# https://realm.github.io/SwiftLint/legacy_random.html
+# - legacy_random
+#
+# 1 行における文字数は長くなりすぎないように
+# https://realm.github.io/SwiftLint/line_length.html
+# - line_length
+#
+# MARK コメントは正しいフォーマットで記載すべき
+# https://realm.github.io/SwiftLint/mark.html
+# - mark
+#
+# 複数のクロージャを引数に渡す場合、末尾のクロージャ構文を使用しない
+# https://realm.github.io/SwiftLint/multiple_closures_with_trailing_closure.html
+# - multiple_closures_with_trailing_closure
+#
+# 型は最大で 1 レベル、文は最大で 5 レベルの入れ子にする必要がある
+# https://realm.github.io/SwiftLint/nesting.html
+# - nesting
+#
+# `fallthrough` は case の中に 1 行以上のステートメントがある時だけ使用する
+# https://realm.github.io/SwiftLint/no_fallthrough_only.html
+# - no_fallthrough_only
+#
+# メソッド名と丸括弧 `()` の間にスペースを入れない
+# https://realm.github.io/SwiftLint/no_space_in_method_call.html
+# - no_space_in_method_call
+#
+# `NSNotificationCenter` で登録した `Observer` は `deinit` で `removeObserver` を呼んでで削除すべき
+# https://realm.github.io/SwiftLint/notification_center_detachment.html
+# - notification_center_detachment
+#
+# NSObject のサブクラスは `==` よりも `isEqual` を実装すべき
+# https://realm.github.io/SwiftLint/nsobject_prefer_isequal.html
+# - nsobject_prefer_isequal
+#
+# 波括弧 `{}` の前には半角スペースを入れ、宣言と同じ行に記述する
+# https://realm.github.io/SwiftLint/opening_brace.html
+# - opening_brace
+#
+# 演算子を定義する場合は、演算子の前後に半角スペースを入れる必要がある
+# https://realm.github.io/SwiftLint/operator_whitespace.html
+# - operator_whitespace
+#
+# 宣言には doc コメントをつけるべき
+# https://realm.github.io/SwiftLint/orphaned_doc_comment.html
+# - orphaned_doc_comment
+#
+# `fileprivate` よりも `private` が望ましい
+# https://realm.github.io/SwiftLint/private_over_fileprivate.html
+# - private_over_fileprivate
+#
+# Private のテストはスキップされる
+# https://realm.github.io/SwiftLint/private_unit_test.html
+# - private_unit_test
+#
+# プロトコルのプロパティアクセサは `get` `set` の順番で記述する必要がある
+# https://realm.github.io/SwiftLint/protocol_property_accessors_order.html
+# - protocol_property_accessors_order
+#
+# `reduce(true)` や `reduce(false)` ではなく、`.allSatisfy()` や `.contains()` の使用を推奨します。
+# https://realm.github.io/SwiftLint/reduce_boolean.html
+# - reduce_boolean
+#
+# `let _ = foo()` よりも `_ = foo()` が望ましい (不要な `let` を書かない)
+# https://realm.github.io/SwiftLint/redundant_discardable_let.html
+# - redundant_discardable_let
+#
+# 冗長な @objc は使用しない
+# https://realm.github.io/SwiftLint/redundant_objc_attribute.html
+# - redundant_objc_attribute
+#
+# Optional な変数を `nil` で初期化するのは冗長
+# https://realm.github.io/SwiftLint/redundant_optional_initialization.html
+# - redundant_optional_initialization
+#
+# プロパティの setter が変数のアクセスレベルと同じであれば、定義すべきではない
+# e.g. private(set) private var foo: Int
+# https://realm.github.io/SwiftLint/redundant_set_access_control.html
+# - redundant_set_access_control
+#
+# String 型の enum の値は、enumcase の値と同じであれば省略できる
+# https://realm.github.io/SwiftLint/redundant_string_enum_value.html
+# - redundant_string_enum_value
+#
+# Void を返却する関数定義は冗長
+# e.g. `func call() -> Void`
+# https://realm.github.io/SwiftLint/redundant_void_return.html
+# - redundant_void_return
+#
+# 関数の戻り値を示す `->` と戻り値の型の前後に半角スペースを入れるか、別の行にする
+# https://realm.github.io/SwiftLint/return_arrow_whitespace.html
+# - return_arrow_whitespace
+#
+# `addTarget` などの引数に指定する `self` は `NSObject.self()` メソッドを想定外に参照している
+# `lazy` で遅延させるか `ClassName.self` を使用する
+# https://realm.github.io/SwiftLint/self_in_property_initialization.html
+# - self_in_property_initialization
+#
+# 演算して代入するよりも省略可能な演算子のほうが望ましい
+# e.g. foo = foo + 1  ->  foo += 1
+# https://realm.github.io/SwiftLint/shorthand_operator.html
+# - shorthand_operator
+#
+# `else` と `catch` は同じ行に書き、直前に半角スペースを 1 つ入れるべき
+# https://realm.github.io/SwiftLint/statement_position.html
+# - statement_position
+#
+# https://realm.github.io/SwiftLint/superfluous_disable_command.html
+# - superfluous_disable_command
+#
+# case は switch と同じインデントにすべき
+# https://realm.github.io/SwiftLint/switch_case_alignment.html
+# - switch_case_alignment
+#
+# `Array` や `Dictionary` でシンタックスシュガーを使うべき
+# e.g. `Array<Int>` ではなく `[Int]` を使う
+# https://realm.github.io/SwiftLint/syntactic_sugar.html
+# - syntactic_sugar
+#
+# TODO や FIXME コメントは避けるべき
+# https://realm.github.io/SwiftLint/todo.html
+  - todo
+#
+# Array や Dictionary の末尾にカンマを付与しない / 付与すべき
+# https://realm.github.io/SwiftLint/trailing_comma.html
+# - trailing_comma
+#
+# ファイルの末尾に空行を 1 つだけ入れるべき
+# https://realm.github.io/SwiftLint/trailing_newline.html
+# - trailing_newline
+#
+# 行の末尾にセミコロンを付与すべきではない
+# https://realm.github.io/SwiftLint/trailing_semicolon.html
+# - trailing_semicolon
+#
+# スペースだけが入った行を作るべきではない
+# https://realm.github.io/SwiftLint/trailing_whitespace.html
+# - trailing_whitespace
+#
+# 型の本体の行数は多くなりすぎないように
+# https://realm.github.io/SwiftLint/type_body_length.html
+  - type_body_length
+#
+# 型名は大文字から始まる英数字のみで、長さは 3 ～ 40 文字とする
+# https://realm.github.io/SwiftLint/type_name.html
+  - type_name
+#
+# 不要な break は使用しない
+# https://realm.github.io/SwiftLint/unneeded_break_in_switch.html
+# - unneeded_break_in_switch
+#
+# キャプチャリスト内で使わない参照は定義しない
+# https://realm.github.io/SwiftLint/unused_capture_list.html
+# - unused_capture_list
+#
+# 未使用のクロージャの変数は `_` に置き換えるべき
+# https://realm.github.io/SwiftLint/unused_closure_parameter.html
+# - unused_closure_parameter
+#
+# 必要な時だけラベル付きループを使う
+# https://realm.github.io/SwiftLint/unused_control_flow_label.html
+# - unused_control_flow_label
+#
+# index や item を使用しない場合は `.enumerated()` を記述しない
+# https://realm.github.io/SwiftLint/unused_enumerated.html
+# - unused_enumerated
+#
+# `let _ =` による Optional Binding より `!= nil` が望ましい
+# https://realm.github.io/SwiftLint/unused_optional_binding.html
+  - unused_optional_binding
+#
+# プロパティアクセサの `set` では `newValue` を使用する
+# https://realm.github.io/SwiftLint/unused_setter_value.html
+# - unused_setter_value
+#
+# https://realm.github.io/SwiftLint/valid_ibinspectable.html
+# - valid_ibinspectable
+#
+# 関数のパラメータが複数行ある場合、縦に並べるべき
+# https://realm.github.io/SwiftLint/vertical_parameter_alignment.html
+# - vertical_parameter_alignment
+#
+# 空行は 1 行にすべき
+# https://realm.github.io/SwiftLint/vertical_whitespace.html
+# - vertical_whitespace
+#
+# `-> ()` より `-> Void` が望ましい
+# https://realm.github.io/SwiftLint/void_return.html
+# - void_return
+#
+# XCTFail にはアサーションの内容を含めるべき
+# https://realm.github.io/SwiftLint/xctfail_message.html
+# - xctfail_message
+
+opt_in_rules:
+# Imageにはアクセシビリティラベルを付けるべき
+# https://realm.github.io/SwiftLint/accessibility_label_for_image.html
+# - accessibility_label_for_image
+#
+# 複数行のクロージャでは名前付きの変数を使うべき
+# https://realm.github.io/SwiftLint/anonymous_argument_in_multiline_closure.html
+# - anonymous_argument_in_multiline_closure
+#
+# クラス定義のためのプロトコルは `class` より `AnyObject` を使うべき
+# https://realm.github.io/SwiftLint/anyobject_protocol.html
+# - anyobject_protocol
+#
+# Prefer using Array(seq) over seq.map { $0 } to convert a sequence into an Array.
+# https://realm.github.io/SwiftLint/array_init.html
+# - array_init
+#
+# Attributesは関数や型では同じ行に記述し、変数やimportでは同じ行に書くべき
+# https://realm.github.io/SwiftLint/attributes.html
+# - attributes
+#
+# `setUp` や `tearDown` 関数はバランスよく記述すべきではある
+# https://realm.github.io/SwiftLint/balanced_xctest_lifecycle.html
+# - balanced_xctest_lifecycle
+#
+# クロージャが変数をキャプチャする際の混乱を避けるため、定数ではない変数はクロージャのキャプチャリストに含めるべきではない
+# https://realm.github.io/SwiftLint/capture_variable.html
+# - capture_variable
+#
+# クロージャの行は長くならないようにする
+# https://realm.github.io/SwiftLint/closure_body_length.html
+# - closure_body_length
+#
+# クロージャーの終端は、開始した行と同じインデントでなければならない
+# https://realm.github.io/SwiftLint/closure_end_indentation.html
+  - closure_end_indentation
+#
+# クロージャでは、ブレースの内側に空白を1つ入れるべき
+# https://realm.github.io/SwiftLint/closure_spacing.html
+  - closure_spacing
+#
+# コレクションリテラルの要素は、垂直方向に整列させる必要がある
+# https://realm.github.io/SwiftLint/collection_alignment.html
+  - collection_alignment
+#
+# 条件式は常に次の行で返却すること
+# https://realm.github.io/SwiftLint/conditional_returns_on_newline.html
+# - conditional_returns_on_newline
+#
+# `contains` よりも `filter(where:).count` を使うべき
+# https://realm.github.io/SwiftLint/contains_over_filter_count.html
+# - contains_over_filter_count
+#
+# `contains` よりも `filter(where:).isEmpty` を使うべき
+# https://realm.github.io/SwiftLint/contains_over_filter_is_empty.html
+# - contains_over_filter_is_empty
+#
+# `contains` よりも `filter(where:) != nil` や `firstIndex(where:) != nil` を使うべき
+# https://realm.github.io/SwiftLint/contains_over_first_not_nil.html
+# - contains_over_first_not_nil
+#
+# `contains` よりも `range(of:) != nil` や `range(of:) == nil` を使うべき
+# https://realm.github.io/SwiftLint/contains_over_range_nil_comparison.html
+# - contains_over_range_nil_comparison
+#
+# static変数のみホストする場合、インスタンス化を避けるためにstructやclassではなくenumで定義すべき
+# https://realm.github.io/SwiftLint/convenience_type.html
+  - convenience_type
+#
+# ブロックを使って通知を登録する場合、返却されるopaque observerはあとで削除できるよう保存しておく必要がある
+# https://realm.github.io/SwiftLint/discarded_notification_center_observer.html
+# - discarded_notification_center_observer
+#
+# `assert(false)` よりも `assertionFailure()` や `preconditionFailure()` を使うべき
+# https://realm.github.io/SwiftLint/discouraged_assert.html
+  - discouraged_assert
+#
+# `Optional<T>.none` と衝突する可能性のあるネームケースや静的メンバの `none` を排除する
+# https://realm.github.io/SwiftLint/discouraged_none_name.html
+# - discouraged_none_name
+#
+# オブジェクトリテラルよりイニシャライザーを優先する
+# https://realm.github.io/SwiftLint/discouraged_object_literal.html
+  - discouraged_object_literal
+#
+# NullableなBooleanは使うべきではない
+# https://realm.github.io/SwiftLint/discouraged_optional_boolean.html
+  - discouraged_optional_boolean
+#
+# Nullableなコレクション型は使うべきではない
+# https://realm.github.io/SwiftLint/discouraged_optional_collection.html
+# - discouraged_optional_collection
+#
+# コレクションを空の配列や辞書と比較するより、 `isEmpty` を使うべき
+# https://realm.github.io/SwiftLint/empty_collection_literal.html
+  - empty_collection_literal
+#
+# `count = 0` で比較するよりも、 `isEmpty` を使うべき
+# https://realm.github.io/SwiftLint/empty_count.html
+  - empty_count
+#
+# 文字列を `== ""` で比較するよりも、 `isEmpty` を使うべき
+# https://realm.github.io/SwiftLint/empty_string.html
+  - empty_string
+# 
+# 空のXCTestメソッドを作らない
+# https://realm.github.io/SwiftLint/empty_xctest_method.html
+# - empty_xctest_method
+#
+# enumのcaseの引数は少なくすべき
+# https://realm.github.io/SwiftLint/enum_case_associated_values_count.html
+# - enum_case_associated_values_count
+#
+# TODOとFIXMEは期限を指定して期限内に解決すべき
+# https://realm.github.io/SwiftLint/expiring_todo.html
+# - expiring_todo
+#
+# すべての宣言はのスコープは明示すべき
+# https://realm.github.io/SwiftLint/explicit_acl.html
+# - explicit_acl
+#
+# enumのcaseは値が明示されるべき
+# https://realm.github.io/SwiftLint/explicit_enum_raw_value.html
+# - explicit_enum_raw_value
+#
+# `.init()` の呼び出しは避けるべき
+# https://realm.github.io/SwiftLint/explicit_init.html
+# - explicit_init
+#
+# インスタンス変数や関数は常に `self.` を付与してアクセスすべき
+# - explicit_self
+#
+# トップレベルの宣言では、スコープを明示すべき
+# https://realm.github.io/SwiftLint/explicit_top_level_acl.html
+# - explicit_top_level_acl
+#
+# プロパティの型は常に明示すべき
+# https://realm.github.io/SwiftLint/explicit_type_interface.html
+# - explicit_type_interface
+#
+# extension access modifiersの使用が望ましい
+# https://realm.github.io/SwiftLint/extension_access_modifier.html
+# - extension_access_modifier
+#
+# enumのfallthroughを使わない
+# https://realm.github.io/SwiftLint/fallthrough.html
+# - fallthrough
+#
+# fatalErrorに必ずメッセージをつける
+# https://realm.github.io/SwiftLint/fatal_error_message.html
+# - fatal_error_message
+#
+# ヘッダーコメントはプロジェクトのパターンと合致させる
+# https://realm.github.io/SwiftLint/file_header.html
+# - file_header
+#
+# ファイル名は、型やExtensionと合わせる必要がある
+# https://realm.github.io/SwiftLint/file_name.html
+# - file_name
+#
+# ファイル名にはスペースを含めるべきではない
+# https://realm.github.io/SwiftLint/file_name_no_space.html
+# - file_name_no_space
+#
+# ファイル内の型の並びを指定する
+# https://realm.github.io/SwiftLint/file_types_order.html
+# - file_types_order
+#
+# コレクションで `.filter { }.first` よりも `.first(where:)` を使うべき
+# https://realm.github.io/SwiftLint/first_where.html
+# - first_where
+#
+# `map` の後に `reduce([], +)` するよりも `flatMap` を使うべき
+# https://realm.github.io/SwiftLint/flatmap_over_map_reduce.html
+# - flatmap_over_map_reduce
+#
+# 強制アンラップを避ける
+# https://realm.github.io/SwiftLint/force_unwrapping.html
+# - force_unwrapping
+#
+# デフォルト値が設定された引数は、引数リストの末尾に定義する
+# https://realm.github.io/SwiftLint/function_default_parameter_at_end.html
+# - function_default_parameter_at_end
+#
+# Extensionに `@IBInspectable` を追加すべきではない
+# https://realm.github.io/SwiftLint/ibinspectable_in_extension.html
+# - ibinspectable_in_extension
+#
+# 同一のオペランドを比較すべきではない
+# https://realm.github.io/SwiftLint/identical_operands.html
+# - identical_operands
+#
+# クロージャや関数、ゲッターメソッドでは暗黙のreturnを用いる
+# https://realm.github.io/SwiftLint/implicit_return.html
+# - implicit_return
+#
+# 強制アンラップは避けるべき
+# https://realm.github.io/SwiftLint/implicitly_unwrapped_optional.html
+# - implicitly_unwrapped_optional
+#
+# インデントには、タブ1つ、または設定したスペース数を使用し、前のインデントと一致するようにアンインデントする
+# 最初の行はインデントしない
+# https://realm.github.io/SwiftLint/indentation_width.html
+# - indentation_width
+#
+# 引数のデフォルト値は明示すべきではない
+# https://realm.github.io/SwiftLint/joined_default_parameter.html
+# - joined_default_parameter
+#
+# コレクションで `.filter { }.last` よりも `.last(where:)` を使うべき
+# https://realm.github.io/SwiftLint/last_where.html
+# - last_where
+#
+# 余りを求めるときに `%` よりも `isMultiple(of:)` を使うべき
+# https://realm.github.io/SwiftLint/legacy_multiple.html
+# - legacy_multiple
+#
+# ブリッジされたObjective-C参照型よりもSwiftの値型を使うべき
+# https://realm.github.io/SwiftLint/legacy_objc_type.html
+# - legacy_objc_type
+#
+# `let` や `var` は他のステートメントから空白行で区切る必要がある
+# https://realm.github.io/SwiftLint/let_var_whitespace.html
+# - let_var_whitespace
+#
+# 配列と辞書のリテラル終了は、開始した行と同じインデントにする必要がある
+# https://realm.github.io/SwiftLint/literal_expression_end_indentation.html
+  - literal_expression_end_indentation
+# 
+# 子はつねに親よりも狭いスコープになるようにする
+# https://realm.github.io/SwiftLint/lower_acl_than_parent.html
+  - lower_acl_than_parent
+#
+# 宣言は文書化されるべき
+# https://realm.github.io/SwiftLint/missing_docs.html
+# - missing_docs
+#
+# 修飾子の並び順は一貫性があるべき
+# https://realm.github.io/SwiftLint/modifier_order.html
+  - modifier_order
+#
+# 引数は同じ行にあるか、1行に1つずつあるべき
+# https://realm.github.io/SwiftLint/multiline_arguments.html
+  - multiline_arguments
+#
+# 複数行の引数は、周囲の括弧を新しい行にする必要がある
+# https://realm.github.io/SwiftLint/multiline_arguments_brackets.html
+  - multiline_arguments_brackets
+# 
+# メソッドチェーンは、同じ行または1行に1つずつ行うべき
+# https://realm.github.io/SwiftLint/multiline_function_chains.html
+  - multiline_function_chains
+#
+# 複数行リテラルは、周囲の括弧を新しい行にすべき
+# https://realm.github.io/SwiftLint/multiline_literal_brackets.html
+  - multiline_literal_brackets
+# 
+# 関数とメソッドのパラメータは、同じ行にあるか、1行に1つずつ行うべき
+# https://realm.github.io/SwiftLint/multiline_parameters.html
+  - multiline_parameters
+# 
+# 複数行のパラメータは、周囲の括弧を新しい行にすべき
+# https://realm.github.io/SwiftLint/multiline_parameters_brackets.html
+  - multiline_parameters_brackets
+#
+# https://realm.github.io/SwiftLint/nimble_operator.html
+# - nimble_operator
+#
+# extensionにアクセス修飾子を使わない
+# https://realm.github.io/SwiftLint/no_extension_access_modifier.html
+# - no_extension_access_modifier
+#
+# extensionは、同じソースファイル内のコードをグループ化するために使用すべきではない
+# https://realm.github.io/SwiftLint/no_grouping_extension.html
+# - no_grouping_extension
+#
+# NSLocalizedStringのキー/コメントには、genstrings が機能するために、静的な文字列を使用するべき
+# https://realm.github.io/SwiftLint/nslocalizedstring_key.html
+# - nslocalizedstring_key
+# 
+# NSLocalizedStringを使うときはbundleを指定する必要がある
+# https://realm.github.io/SwiftLint/nslocalizedstring_require_bundle.html
+# - nslocalizedstring_require_bundle
+#
+# アンダースコアは、小数点以下で千の区切り文字として使用する必要がある
+# https://realm.github.io/SwiftLint/number_separator.html
+# - number_separator
+#
+# https://realm.github.io/SwiftLint/object_literal.html
+# - object_literal
+#
+# 演算子を使うときは前後に半角スペースを入れる必要がある
+# https://realm.github.io/SwiftLint/operator_usage_whitespace.html
+  - operator_usage_whitespace
+#
+# https://realm.github.io/SwiftLint/optional_enum_case_matching.html
+# - optional_enum_case_matching
+#
+# 一部のオーバライドされたメソッドでは必ずsuperを呼ばなければならない
+# https://realm.github.io/SwiftLint/overridden_super_call.html
+# - overridden_super_call
+#
+# Extensionで既存のメソッドをオーバライドしてはいけない
+# https://realm.github.io/SwiftLint/override_in_extension.html
+# - override_in_extension
+# - pattern_matching_keywords
+# - prefer_nimble
+# - prefer_self_type_over_type_of_self
+# - prefer_zero_over_explicit_init
+# - prefixed_toplevel_constant
+# - private_action
+# - private_outlet
+# - private_subject
+# - prohibited_interface_builder
+# - prohibited_super_call
+# - quick_discouraged_call
+# - quick_discouraged_focused_test
+# - quick_discouraged_pending_test
+# - raw_value_for_camel_cased_codable_enum
+# - reduce_into
+# - redundant_nil_coalescing
+# - redundant_type_annotation
+# - required_deinit
+# - required_enum_case
+# - single_test_class
+# - sorted_first_last
+# - sorted_imports
+# - static_operator
+# - strict_fileprivate
+# - strong_iboutlet
+# - switch_case_on_newline
+# - test_case_accessibility
+# - toggle_bool
+# - trailing_closure
+# - type_contents_order
+# - unavailable_function
+# - unneeded_parentheses_in_closure_argument
+# - unowned_variable_capture
+# - untyped_error_in_catch
+# - unused_declaration
+# - unused_import
+# - vertical_parameter_alignment_on_call
+# - vertical_whitespace_between_cases
+  - vertical_whitespace_closing_braces
+  - vertical_whitespace_opening_braces
+#
+# 循環参照を避けるため、Delegate は weak で保持されるべき
+#   - weak_delegate
+  - xct_specific_matcher
+# - yoda_condition
+
+included:
+  - CatalogPocket
+
+excluded:
+  - Pods
+  - Carthage
+  - SourcePackages
+  - Generated
+
+file_length:
+  warning: 500
+  error: 2000
+
+line_length:
+  warning: 200
+  error: 300
+
+identifier_name:
+  min_length:
+    warning: 1 # `r` `g` `b` などを使いたいため

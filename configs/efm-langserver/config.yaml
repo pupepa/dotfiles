@@ -1,0 +1,27 @@
+version: 2
+
+tools:
+  textlint: &textlint
+    lint-command: 'textlint -f unix --stdin ${INPUT}'
+    lint-stdin: true
+    lint-ignore-exit-code: true
+    lint-formats:
+        - '%f:%l:%c: %m [%trror/%r]'
+    root-markers:
+        - .textlintrc
+  swiftlint: &swiftlint
+    lint-command: 'swiftlint lint --quiet'
+    lint-stdin: false
+    lint-ignore-exit-code: true
+    lint-formats:
+      - '%f:%l:%c: %trror: %m'
+      - '%f:%l:%c: %tarning: %m'
+
+languages:
+  asciidoc:
+    - <<: *textlint
+  markdown:
+    - <<: *textlint
+  swift:
+    - <<: *swiftlint
+

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+CHARGER=$(ioreg -rn AppleSmartBattery | grep '"AdapterDetails"' | perl -pe 's/^.*"Watts"=(\d+).*$/$1/g;')
+
+if $(echo ${CHARGER} | grep '"FamilyCode"=0' > /dev/null); then
+  echo "none"
+else
+  echo "${CHARGER}W"
+fi

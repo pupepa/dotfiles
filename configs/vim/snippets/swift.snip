@@ -1,0 +1,111 @@
+snippet Button
+        Button {
+            ${1}
+        } label: {
+            ${2}
+        }
+
+snippet ButtonWithRole
+        Button(role: ${1}) {
+            ${2}
+        } label: {
+            ${3}
+        }
+
+snippet @State
+        @State
+        var ${0}
+
+snippet @StateObject
+        @StateObject
+        var ${0}
+
+snippet presentationMode
+        @Environment(\.presentationMode) var presentationMode
+
+snippet observed
+        @ObservedObject var ${1}
+
+snippet textfield
+        TextField("${1:title}", text: ${2})
+
+snippet textfield_full
+        TextField("${1:title}", text: ${2}, onCommit: ${3}, onEditingChanged: ${4}
+
+snippet .navigationTitle
+        .navigationTitle("${0}")
+
+snippet .navigationBarTitleDisplayMode
+        .navigationBarTitleDisplayMode(.inline)
+
+snippet .navigationBarItems
+        .navigationBarItems(leading: ${1}, trailing: ${2})
+
+snippet some
+        some View
+
+snippet body
+        var body: some View {
+            ${1}
+        }
+
+snippet VStack
+        VStack() {
+            ${1}
+        }
+
+snippet VstackFull
+        VStack(alignment: ${1:.leading}, spacing: ${2:0}) {
+            ${3}
+        }
+
+snippet Hstack
+        HStack() {
+            ${1}
+        }
+
+snippet HstackFull
+        HStack(alignment: ${1:.center}, spacing: ${2:0}) {
+            ${3}
+        }
+
+snippet .padding
+        .padding(${1})
+
+snippet .padding_all
+        .padding(.init(top: ${1}, leading: ${2}, bottom: ${3}, trailing: ${4}))
+
+snippet toolbarItem
+        ToolbarItem(placement: ${1:.bottomBar}) {
+            ${2}
+        }
+
+snippet ToolbarItemGroup
+        ToolbarItemGroup(placement: ${1:.bottomBar}) {
+            ${2}
+        }
+
+snippet Store
+        Store(
+            initialState: ${1},
+            reducer: ${2},
+            environment: ${3},
+        )
+
+snippet WithViewStore
+        WithViewStore(store) { viewStore in
+            ${1}
+        }
+
+snippet IfLetStore
+        IfLetStore(
+            store.scope(
+                state: { ${1} },
+                action: ${2}(action:)
+            ),
+            then: { store in
+                NavigationView {
+                    ${3}(store: store)
+                }
+            }
+        )

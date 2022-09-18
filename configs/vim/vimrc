@@ -1,0 +1,430 @@
+if &compatible
+  set nocompatible
+endif
+
+filetype off
+
+let mapleader=","
+let maplocalleader=","
+
+if has('nvim')
+  let $MYVIMCONFIG = stdpath('config')
+else
+  let $MYVIMCONFIG = $HOME . '/.vim'
+endif
+
+if has('nvim')
+  let g:did_install_default_menus = 1
+  let g:did_install_syntax_menu   = 1
+  let g:did_indent_on             = 1
+  let g:did_load_filetypes        = 1
+  let g:loaded_2html_plugin       = 1
+  let g:loaded_gzip               = 1
+  let g:loaded_man                = 1
+  let g:loaded_matchit            = 1
+  let g:loaded_matchparen         = 1
+  let g:loaded_netrwPlugin        = 1
+  let g:loaded_remote_plugins     = 1
+  let g:loaded_shada_plugin       = 1
+  let g:loaded_spellfile_plugin   = 1
+  let g:loaded_tarPlugin          = 1
+  let g:loaded_tutor_mode_plugin  = 1
+  let g:loaded_zipPlugin          = 1
+  let g:skip_loading_mswin        = 1
+endif
+
+if has('vim_starting')
+  set encoding=utf-8
+
+  " ベルを鳴らさないようにする
+  set noerrorbells
+  set novisualbell t_vb=
+  if exists('&belloff')
+    set belloff=all
+  endif
+
+  set timeout
+  set timeoutlen=750
+  set ttimeout
+  set ttimeoutlen=50    " Normal モードへの切り替えの遅延をなくす
+endif
+
+let g:polyglot_disabled = ['swift']
+
+" -----------------------------------------------------------------------------
+" vim-plug
+" -----------------------------------------------------------------------------
+
+let s:home = has('nvim') ? expand('~/.config/nvim') : expand('~/.vim')
+let g:plug_home = s:home . '/plugged'
+call mkdir(g:plug_home, 'p')
+
+let s:vim_plug_home = s:home . '/vim-plug'
+if !isdirectory(s:vim_plug_home)
+  execute '!git clone https://github.com/junegunn/vim-plug ' . s:vim_plug_home . '/autoload'
+endif
+
+if !exists(':Plug')
+  execute 'set runtimepath+=' . s:vim_plug_home
+endif
+
+call plug#begin(g:plug_home)
+
+let s:vimrc_plugins = expand(s:home . '/vimrc.plugins')
+if filereadable(s:vimrc_plugins)
+  execute 'source ' . s:vimrc_plugins
+endif
+
+call plug#end()
+
+" -----------------------------------------------------------------------------
+" General
+" -----------------------------------------------------------------------------
+
+if has('gui_macvim')
+  set clipboard=unnamed,autoselect " コピー、ヤンクにクリップボードを使う
+elseif has('mac')
+  set clipboard^=unnamed " コピー、ヤンクにクリップボードを使う
+else
+  set clipboard^=unnamedplus " コピー、ヤンクにクリップボードを使う
+endif
+
+set incsearch         " インクリメンタルサーチを行う
+set expandtab         " タブの代わりに空白文字を挿入する
+set tabstop=2         " タブサイズ
+set imdisable         " IME OFF
+set nowrapscan        " 検索をファイルの先頭へループしない
+set shiftwidth=2      " シフト移動幅
+set smarttab          " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
+set backspace=indent,eol,start " バックスペースでインデントや改行を削除できるようにする
+set nofoldenable      " 折りたたみを使用しない
+set display=lastline  " 1 行の文字数が多くても表示
+set pumheight=10      " 補完メニューの高さ
+set showmatch         " 括弧を入力した時に対応する括弧へ一瞬ジャンプする
+set matchtime=1       " showmatch の秒数
+set hidden            " バッファを保存せずに切り替える
+set ignorecase        " 検索時の大文字小文字を区別しない
+set smartcase         " 検索文字列に大文字小文字の両方が含まれる場合、区別する
+set wildignore=*.pyc,*.o,*.lo,*.la,*.exe,*.swp,*.db,*.bak,*.old,*.dat,*.,tmp,*.mdb,*~,~*
+set wildignorecase    " 補完の時に大文字小文字を無視する
+set wildmenu          " 補完の時に大文字小文字を無視する
+set number            " 行番号表示
+set list              " タブ文字、行末など不可視文字を表示する
+set t_Co=256          " 256色を使う
+
+set shortmess+=c      " 補完関連のメッセージを非表示にする
+set helplang=ja
+set signcolumn=yes    " SignColumn を常に表示
+set splitbelow
+set cursorline
+
+set ambiwidth=single
+
+set noshowmode    " インサートモードなどの文字を非表示にする
+set laststatus=2  " 下部のステータスラインを常に表示
+set showtabline=2 " タブページを常に表示
+set hlsearch
+set history=10000
+set lazyredraw    " 再描画のタイミングを遅らせてスクロール速度を速くする
+
+set completeopt-=preview
+
+if has('nvim')
+  " for coc.nvim
+  set nobackup
+  set nowritebackup
+
+  " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+  " delays and poor user experience.
+  set updatetime=300
+
+  " ヤンクした時にハイライトする
+  augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank{ higroup="Visual", timeout=300 }
+  augroup END
+endif
+
+" 永続アンドゥ
+set undofile
+let s:undo_dir = has('nvim') ? expand('~/.cache/nvim/undodir') : expand('~/.cache/vim/undodir')
+call mkdir(s:undo_dir, 'p')
+execute 'set undodir=' . s:undo_dir
+
+" autocmd を解除
+augroup vimrc
+  autocmd!
+augroup end
+
+" md as markdown, instead of modula2
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+
+" 自動改行を無効にする
+autocmd FileType text setlocal textwidth=0
+
+" JSON のダブルクォーテーションを表示する
+autocmd BufRead,BufNewFile *.json set filetype=json
+autocmd FileType json setlocal conceallevel=0
+
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
+
+autocmd FileType swift setlocal omnifunc=lsp#complete
+
+" テキスト挿入中の自動折り返しを日本語に対応させる
+augroup vimrc-formatoptions
+  autocmd FileType * setlocal formatoptions+=mM
+augroup END
+
+" -----------------------------------------------------------------------------
+" file path
+" -----------------------------------------------------------------------------
+
+"swap ファイルを置く場所
+set swapfile
+set directory=~/.vimswap
+
+" -----------------------------------------------------------------------------
+" lib paths
+" -----------------------------------------------------------------------------
+
+if has('nvim')
+  let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python3'
+  let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
+endif
+
+" if has('gui_macvim')
+"   if has('python3')
+"   endif
+" endif
+
+" -----------------------------------------------------------------------------
+" Key mapping
+" -----------------------------------------------------------------------------
+tnoremap <Esc><Esc> <C-\><C-n>
+
+
+" text edit
+noremap <CR> i<CR><ESC>
+nnoremap : ;
+nnoremap ; :
+
+" buffer
+nnoremap <silent> <Leader>bp :bprevious<CR>
+nnoremap <silent> <Leader>bn :bnext<CR>
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> <Leader>[B :bfirst<CR>
+nnoremap <silent> <Leader>]B :blast<CR>
+nnoremap <silent> <Leader>bu :b #<CR>
+
+" ウィンドウ移動に s を使う
+nnoremap s <Nop>
+
+" <C-w>HJKL は分割を変更する
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+" nnoremap ss :<C-u>sp<CR>
+nnoremap sc :close<CR>
+nnoremap ss :<C-u>split<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap st :<C-u>tabnew<CR>
+nnoremap so <C-w>o
+nnoremap sx <C-w>x
+nnoremap s] gt
+nnoremap s[ gT
+"
+nnoremap s= <C-w>=
+
+" ハイライトを消す
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" .vimrc を開く
+nnoremap <Space>. :<C-u>edit $MYVIMRC<CR>
+nnoremap <Space>, :<C-u>edit $MYVIMCONFIG/vimrc.plugins<CR>
+
+" 空行の追加
+nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+" 検索結果が画面の真ん中に来るように
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+
+" ヤンクした文字列を貼り付ける
+" nnoremap P "0p
+
+" ZZ の終了を無効にする
+nnoremap ZZ <Nop>
+
+inoremap <silent> jj <Esc>
+
+" 全角英数字 -> 半角英数字変換
+nnoremap <Leader>zh :HzjaConvert han_eisu
+vnoremap <Leader>zh :HzjaConvert han_eisu
+
+nnoremap <Leader>b :b todo.txt<CR>
+
+" Quickfix
+nnoremap Q q
+nnoremap q <NOP>
+nnoremap ]q :cnext<CR>
+nnoremap [q :cNext<CR>
+
+nmap + <C-a>
+nmap - <C-x>
+
+" tmux で画面分割してシェルを開く
+nnoremap <silent><Leader>tm :<C-u>!tmux splitw -h<CR><CR>
+nnoremap <silent><Leader>tb :<C-u>!tmux splitw -vf<CR><CR>
+
+" ファイル名を表示
+nnoremap <Leader>pp :<C-u>echo expand("%:p")<CR>
+
+" コマンドラインモードでパスをペーストする
+cnoremap <c-x> <c-r>=expand('%:p')<cr>
+
+" 開いているファイルのディレクトリに移動
+nnoremap <Leader>lc :<C-u>lcd %:h<CR>
+
+nnoremap <silent> <Space><Space> @:
+
+" "foo" で `da"` をすると削除できる
+onoremap a" 2i"
+onoremap a' 2i'
+onoremap a` 2i`
+
+" 句読点に移動する
+nnoremap <Leader>f, f、
+nnoremap <Leader>f. f。
+
+" ヘルプを開く
+nnoremap <Leader>hh :h <C-r>=expand("<cword>")<CR><CR>
+
+" 0 と ^ を意識しない
+nnoremap <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
+
+noremap <Space>j 10j
+noremap <Space>k 10k
+
+nnoremap <Leader>ld :<C-u>lcd $HOME/ghq/github.com/dre-jp/dotfiles<CR>
+
+" 検索時の nN コマンドを自然にする
+nnoremap <expr> n 'Nn'[v:searchforward]
+nnoremap <expr> N 'nN'[v:searchforward]
+
+" x をレジスタに入れない
+nnoremap x "_x
+nnoremap X "_X
+
+" インサートモードで <C-a> <C-e> で行頭と行末にそれぞれ移動
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+
+" インサートモード時のインデントが Tmux の Prefix と同じなので変更
+imap <C-f> <C-t>
+
+" ファイルタイプのプラグインファイルを開く
+function! s:open_filetype_plugin()
+  let s:home = has('nvim') ? expand('~/.config/nvim') : expand('~/.vim')
+  let s:path = s:home . '/after/ftplugin/' . &filetype . '.vim'
+
+  if filereadable(s:path)
+    exec 'edit ' . s:path
+  else
+    echo s:path . ' is not found.'
+  endif
+endfunction
+command! OpenFiletypePlugin call s:open_filetype_plugin()
+
+" -----------------------------------------------------------------------------
+" Ex Command
+" -----------------------------------------------------------------------------
+
+" .vimrc をリロード
+:command! ReloadVimrc source $MYVIMRC
+
+" 一時ファイルを作成して開く
+:command! Tempfile :edit `=expand("~/.vimtmp/" . strftime("%Y-%m-%d_%H%M%S"))` | setf markdown
+
+:command! PrettyXML :%s/></>\r</g | setf xml | normal gg=G
+
+:command! Tig call system("tmux splitw -hf 'tig'")
+:command! Trf call system("tmux splitw -vf 'trf'")
+
+if executable('mutt')
+  :command! Mutt call system("tmux splitw -vf 'mutt'")
+endif
+:command! GLogAll call system("tmux splitw -hf 'git lga'")
+
+"------------------------------------
+" for Diff
+"------------------------------------
+
+" 編集前の状態と Diff する
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+endif
+
+function! s:delete_space_between_hankaku_and_zenkaku()
+    %s/\([\x01-\x7E]\@<= [^\x01-\x7E]\@=\|[^\x01-\x7E]\@<= [\x01-\x7E]\@=\)//cg
+endfunction
+command! DeleteSpaceBetweenHankakuAndZenkaku call s:delete_space_between_hankaku_and_zenkaku()
+
+if !has('nvim')
+  au TerminalOpen * if &buftype == 'terminal' | set filetype=terminal | endif
+endif
+
+if has('nvim')
+  hi NormalFloat ctermfg=12 ctermbg=0
+endif
+
+call map(sort(split(globpath(&runtimepath, 'after/*.vim'))), {->[execute('exec "so" v:val')]})
+
+" vim-highlightedyank
+if isdirectory(g:plug_home . '/vim-highlightedyank')
+  highlight HighlightedyankRegion cterm=reverse gui=reverse
+endif
+
+filetype plugin indent on
+filetype indent on
+syntax enable
+
+execute 'set runtimepath+=' . s:home . '/plugged_dev/fzf-launcher.vim'
+
+" ファイルを開いたときに前回のカーソル位置に戻す
+" https://zenn.dev/4513echo/articles/2021-12-11-vim-restore-cursor-ext
+augroup restore-cursor
+  autocmd!
+  autocmd BufReadPost *
+        \ : if line("'\"") >= 1 && line("'\"") <= line("$")
+        \ |   exe "normal! g`\""
+        \ | endif
+  autocmd BufWinEnter *
+        \ : if empty(&buftype) && line('.') > winheight(0) / 3 * 2
+        \ |   execute 'normal! zz' .. repeat("\<C-y>", winheight(0) / 6)
+        \ | endif
+augroup END
+
+if (has("termguicolors"))
+  set termguicolors
+
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+" 行表示の切り替え
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set relativenumber!
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <Leader>r :call NumberToggle()<CR>

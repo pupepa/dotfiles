@@ -1,0 +1,33 @@
+--append=yes
+--recurse=yes
+
+--exclude=.git
+--exclude=log
+--exclude=node_modules
+--exclude=tmp
+
+--ruby-kinds=cfm
+--langmap=ruby:+.rake
+--regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
+--regex-ruby=/(^|;)[ \t]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/f,function,association/
+--regex-ruby=/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_]+)/\3/f,function,named_scope/
+--regex-ruby=/(^|;)[ \t]*expose\(? *:([[:alnum:]_]+)/\2/f,function,exposure/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2/f,function,aasm_event/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2!/f,function,aasm_event/
+--regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2?/f,function,aasm_event/
+
+--langdef=asciidoc
+--langmap=asciidoc:.ad.adoc.asciidoc
+--regex-asciidoc=/^=[ \t]+(.*)/# \1/h,heading1/
+--regex-asciidoc=/^==[ \t]+(.*)/  \1/h,heading2/
+--regex-asciidoc=/^===[ \t]+(.*)/    \1/h,heading3/
+--regex-asciidoc=/^====[ \t]+(.*)/      \1/h,heading4/
+--regex-asciidoc=/^=====[ \t]+(.*)/        \1/h,heading5/
+--regex-asciidoc=/^======[ \t]+(.*)/        \1/h,heading6/
+--regex-asciidoc=/^=======[ \t]+(.*)/        \1/h,heading7/
+--regex-asciidoc=/\[\[([^]]+)\]\]/\1/a/
+--regex-asciidoc=/^\.([^ \t].+)/\1/t/
+--regex-asciidoc=/image::([^\[]+)/\1/i/
+--regex-asciidoc=/image:([^:][^\[]+)/\1/I/
+--regex-asciidoc=/include::([^\[]+)/\1/n/
+

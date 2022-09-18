@@ -1,0 +1,9 @@
+brew "mutt"
+brew "quicklookapk"
+brew "sequel"-ace
+brew "sqlite"
+
+cask "android-studio"
+cask "appcleaner"
+cask "diskwave"
+cask "vivaldi"

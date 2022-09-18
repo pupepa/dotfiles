@@ -1,0 +1,42 @@
+command_line:
+  fg: white
+  bg: transparent
+command_error:
+  fg: red
+  bg: transparent
+panel_directory:
+  fg: cyan
+  bg: transparent
+panel_file:
+  fg: white
+  bg: transparent
+panel_symlink:
+  fg: magenta
+  bg: transparent
+panel_empty:
+  fg: red
+  bg: transparent
+panel_file_current_inactive:
+  fg: white
+  bg: transparent
+panel_header_active:
+  fg: yellow
+  bg: transparent
+panel_header_inactive:
+  fg: black
+  bg: transparent
+status_command:
+  fg: white
+  bg: yellow
+status_safe:
+  fg: white
+  bg: blue
+status_line:
+  fg: white
+  bg: black
+bookmarks_header:
+  fg: white
+  bg: transparent
+bookmarks_text:
+  fg: white
+  bg: transparent

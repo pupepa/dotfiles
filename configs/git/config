@@ -1,0 +1,53 @@
+[include]
+    path = .gitconfig.local
+[core]
+  excludesfile = $HOME/.gitignore
+  quotepath = false
+  editor = nvim
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+[diff "localizablestrings"]
+  textconv = "iconv -f utf-16 -t utf-8"
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
+[diff]
+  compactionHeuristic = true
+[diff "xlsx"]
+  binary = true
+  textconv = $GOPATH/bin/git-xlsx-textconv
+[merge]
+  ff = false
+  tool = vimdiff
+  conflictstyle = diff3
+[push]
+  default = simple
+[alias]
+  a = add
+  b = branch
+  co = checkout
+  cb = checkout -b
+  c = commit -v
+  commit = commit -v
+  pr = pull-request
+  l = log --decorate --stat
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
+  lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
+  purge = !git reset --hard HEAD && git clean -fd
+  pr = pull-request
+  ll = lga
+  update = pull --ff --ff-only
+[color]
+  ui = true
+[mergetool]
+  prompt = false
+[interactive]
+  diffFilter = diff-highlight
+[pull]
+  rebase = false
+[init]
+  defaultBranch = main

@@ -1,0 +1,44 @@
+snippet today
+abbr Today
+options word
+  `strftime("%Y/%m/%d", localtime())`
+
+snippet yesterday
+abbr Yesterday
+options word
+  `strftime("%Y/%m/%d", localtime() - 60 * 60 * 24)`
+
+snippet mon
+abbr Next Monday
+options word
+  `strftime("%Y/%m/%d (%a)", localtime() + (60 * 60 * 24) * (1 - (strftime("%w")) <= 0 ? (8 - strftime("%w")) : (1 - strftime("%w"))))`
+
+snippet tue
+abbr Next Tuesday
+options word
+  `strftime("%Y/%m/%d (%a)", localtime() + (60 * 60 * 24) * (2 - (strftime("%w")) <= 0 ? (9 - strftime("%w")) : (2 - strftime("%w"))))`
+
+snippet wed
+abbr Next Wednesday
+options word
+  `strftime("%Y/%m/%d (%a)", localtime() + (60 * 60 * 24) * (3 - (strftime("%w")) <= 0 ? (10 - strftime("%w")) : (3 - strftime("%w"))))`
+
+snippet thu
+abbr Next Thursday
+options word
+  `strftime("%Y/%m/%d (%a)", localtime() + (60 * 60 * 24) * (4 - (strftime("%w")) <= 0 ? (11 - strftime("%w")) : (4 - strftime("%w"))))`
+
+snippet fri
+abbr Next Friday
+options word
+  `strftime("%Y/%m/%d (%a)", localtime() + (60 * 60 * 24) * (5 - (strftime("%w")) <= 0 ? (12 - strftime("%w")) : (5 - strftime("%w"))))`
+
+snippet sat
+abbr Next Saturday
+options word
+  `strftime("%Y/%m/%d (%a)", localtime() + (60 * 60 * 24) * (6 - (strftime("%w")) <= 0 ? (13 - strftime("%w")) : (6 - strftime("%w"))))`
+
+snippet sun
+abbr Next Sunday
+options word
+  `strftime("%Y/%m/%d (%a)", localtime() + (60 * 60 * 24) * (0 - (strftime("%w")) <= 0 ? (14 - strftime("%w")) : (7 - strftime("%w"))))`
