@@ -80,7 +80,3 @@ vim.keymap.set('n', '<Leader>pp', ':<C-u>echo expand("%:p")<CR>')
 
 -- 開いているファイルのディレクトリに移動
 vim.keymap.set('n', '<Leader>lc', ':<C-u>lcd %:h<CR>', { silent = true })
-
--- インクリメント設定
-vim.keymap.set({ "n", "x" }, "+", "<C-a>", { silent = true })
-vim.keymap.set({ "n", "x" }, "-", "<C-x>", { silent = true })
