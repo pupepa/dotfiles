@@ -127,10 +127,6 @@ return require("packer").startup(function(use)
   -- https://github.com/f3fora/cmp-spell
   -- use({ "f3fora/cmp-spell", after = "nvim-cmp" })
 
-  -- mocword completion source for nvim-cmp.
-  -- https://github.com/yutkat/cmp-mocword
-  use({ "yutkat/cmp-mocword", after = "nvim-cmp" })
-
   -- cmp source for treesitter
   -- https://github.com/ray-x/cmp-treesitter
   use({ "ray-x/cmp-treesitter", after = "nvim-cmp" })
