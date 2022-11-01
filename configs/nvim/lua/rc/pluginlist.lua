@@ -209,17 +209,6 @@ return require("packer").startup(function(use)
     end,
   })
 
-  -- Easy management of a toolwindow.
-  -- https://github.com/EthanJWright/toolwindow.nvim
-  use({
-    "EthanJWright/toolwindow.nvim",
-    requires = { { "akinsho/toggleterm.nvim", opt = true, event = "VimEnter" } },
-    after = { "trouble.nvim", "toggleterm.nvim" },
-    config = function()
-      require("rc/pluginconfig/toolwindow")
-    end,
-  })
-
   -- Standalone UI for nvim-lsp progress
   -- https://github.com/j-hui/fidget.nvim
   use({
