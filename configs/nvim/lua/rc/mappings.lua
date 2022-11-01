@@ -52,10 +52,9 @@ vim.keymap.set("n", "<Leader>hh", ':h <C-r>=expand("<cword>")<CR><CR>')
 vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p')<CR>")
 
 -- " 0 と ^ を意識しない
-vim.keymap.set('n', '0', function()
-  return string.match(vim.fn.getline('.'):sub(0, vim.fn.col('.') - 1), '^%s+$') and '0' or '^'
-end, { expr = true, silent = true }
-)
+vim.keymap.set("n", "0", function()
+  return string.match(vim.fn.getline("."):sub(0, vim.fn.col(".") - 1), "^%s+$") and "0" or "^"
+end, { expr = true, silent = true })
 
 vim.keymap.set("n", "<Space>j", "10j")
 vim.keymap.set("n", "<Space>k", "10k")
@@ -76,7 +75,7 @@ vim.keymap.set("i", "<C-f>", "<C-t>")
 vim.keymap.set("n", "<Leader>r", ":NumberToggle<CR>")
 
 -- ファイル名を表示
-vim.keymap.set('n', '<Leader>pp', ':<C-u>echo expand("%:p")<CR>')
+vim.keymap.set("n", "<Leader>pp", ':<C-u>echo expand("%:p")<CR>')
 
 -- 開いているファイルのディレクトリに移動
-vim.keymap.set('n', '<Leader>lc', ':<C-u>lcd %:h<CR>', { silent = true })
+vim.keymap.set("n", "<Leader>lc", ":<C-u>lcd %:h<CR>", { silent = true })
