@@ -11,7 +11,7 @@ local on_attach = function(client, bufnr)
 end
 M.on_attach = on_attach
 
-local capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lspconfig.sourcekit.setup({
   capabilities = capabilities,
