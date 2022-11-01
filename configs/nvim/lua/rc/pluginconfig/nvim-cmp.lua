@@ -69,6 +69,8 @@ cmp.setup({
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif snippy.can_expand_or_advance() then
+        snippy.previous()
       else
         fallback()
       end
