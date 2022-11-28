@@ -9,6 +9,7 @@ local sources = {
   }),
   null_ls.builtins.diagnostics.eslint.with({
     prefer_local = "node_modules/.bin",
+    method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
   }),
   null_ls.builtins.formatting.eslint.with({
     prefer_local = "node_modules/.bin",
@@ -17,9 +18,21 @@ local sources = {
     condition = function()
       return vim.fn.executable("prettier") > 0
     end,
+    extra_filetypes = { "ruby" },
     prefer_local = "node_modules/.bin",
   }),
-  null_ls.builtins.diagnostics.textlint.with({ filetypes = { "markdown" } }),
+  null_ls.builtins.diagnostics.textlint.with({
+    filetypes = { "markdown" },
+    prefer_local = "$HOME/.asdf/shims/",
+    timeout = 10000,
+    method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+  }),
+  null_ls.builtins.formatting.rubocop.with({
+    condition = function()
+      return vim.fn.executable("rubocop") > 0
+    end,
+    extra_args = { "-A" },
+  }),
 }
 
 null_ls.setup({
