@@ -56,8 +56,8 @@ vim.keymap.set("n", "0", function()
   return string.match(vim.fn.getline("."):sub(0, vim.fn.col(".") - 1), "^%s+$") and "0" or "^"
 end, { expr = true, silent = true })
 
-vim.keymap.set("n", "<Space>j", "10j")
-vim.keymap.set("n", "<Space>k", "10k")
+vim.keymap.set({ "n", "v" }, "<Space>j", "10j")
+vim.keymap.set({ "n", "v" }, "<Space>k", "10k")
 
 -- Do not set register
 vim.keymap.set("n", "x", '"_x')
