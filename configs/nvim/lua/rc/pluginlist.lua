@@ -125,7 +125,7 @@ return require("packer").startup(function(use)
 
   -- spell source for nvim-cmp based on vim's spellsuggest.
   -- https://github.com/f3fora/cmp-spell
-  -- use({ "f3fora/cmp-spell", after = "nvim-cmp" })
+  use({ "f3fora/cmp-spell", after = "nvim-cmp" })
 
   -- cmp source for treesitter
   -- https://github.com/ray-x/cmp-treesitter

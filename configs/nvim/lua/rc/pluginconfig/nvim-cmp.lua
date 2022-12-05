@@ -121,6 +121,7 @@ cmp.setup({
     { name = "treesitter" },
     { name = "dictionary" },
     { name = "mocword" },
+    { name = "spell" },
     { name = "tmux" },
   }),
 })

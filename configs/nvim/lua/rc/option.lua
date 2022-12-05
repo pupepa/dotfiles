@@ -80,6 +80,8 @@ vim.opt.visualbell = false
 -- Complete
 vim.opt.complete:append("kspell")
 vim.opt.completeopt = "menuone,noselect"
+vim.opt.spell = true
+vim.opt.spelllang = "en,cjk"
 
 -- Undo
 vim.opt.undofile = true

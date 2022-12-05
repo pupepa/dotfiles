@@ -28,3 +28,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 vim.cmd([[
   command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 ]])
+
+-- 先頭大文字のスペルチェックのハイライトをオフにする
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  group = group_name,
+  pattern = "*",
+  callback = function()
+    vim.cmd([[hi clear SpellCap]])
+  end,
+  once = true,
+})
