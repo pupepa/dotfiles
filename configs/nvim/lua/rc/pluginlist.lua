@@ -326,12 +326,12 @@ return require("packer").startup(function(use)
   -- https://github.com/tversteeg/registers.nvim
   use({ "tversteeg/registers.nvim", branch = "main" })
 
-  -- Viewer & Finder for LSP symbols and tags
-  -- https://github.com/liuchengxu/vista.vim
+  -- Neovim plugin for a code outline window
+  -- https://github.com/stevearc/aerial.nvim
   use({
-    "liuchengxu/vista.vim",
+    "stevearc/aerial.nvim",
     config = function()
-      require("rc/pluginconfig/vista")
+      require("rc/pluginconfig/aerial")
     end,
   })
 
