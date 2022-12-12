@@ -441,15 +441,6 @@ return require("packer").startup(function(use)
   -- https://github.com/tyru/caw.vim
   use({ "tyru/caw.vim" })
 
-  -- A simple Vim plugin to switch segments of text with predefined replacements
-  -- https://github.com/AndrewRadev/switch.vim
-  use({
-    "AndrewRadev/switch.vim",
-    config = function()
-      require("rc/pluginconfig/switch")
-    end,
-  })
-
   -- Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
   -- https://github.com/bronson/vim-trailing-whitespace
   use({
@@ -489,21 +480,21 @@ return require("packer").startup(function(use)
   -- https://github.com/tpope/vim-repeat
   use({ "tpope/vim-repeat" })
 
-  -- speeddating.vim: use CTRL-A/CTRL-X to increment dates, times, and more
-  -- https://github.com/tpope/vim-speeddating
-  use({
-    "tpope/vim-speeddating",
-    config = function()
-      require("rc/pluginconfig/vim-speeddating")
-    end,
-  })
-
   -- Use treesitter to auto close and auto rename html tag
   -- https://github.com/windwp/nvim-ts-autotag
   use({
     "windwp/nvim-ts-autotag",
     config = function()
       require("rc/pluginconfig/nvim-ts-autotag")
+    end,
+  })
+
+  -- enhanced increment/decrement plugin for Neovim.
+  -- https://github.com/monaqa/dial.nvim
+  use({
+    "monaqa/dial.nvim",
+    config = function()
+      require("rc/pluginconfig/dial")
     end,
   })
 
