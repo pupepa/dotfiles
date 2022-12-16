@@ -11,6 +11,7 @@ vim.keymap.set(
   "<Space>]",
   "<Cmd>lua require'fzf-lua'.files({ prompt='GHQ> ', cmd = 'ghq list', cwd='~/ghq' })<CR>"
 )
+vim.keymap.set("n", "<Space>w", "<Cmd>FzfLua grep_cword<CR>")
 -- nnoremap <silent> <Space>f :<C-u>FzfRg<CR>
 -- nnoremap <silent> <Space>g :<C-u>FzfGitFiles<CR>
 -- nnoremap <silent><expr> <Space>L ":<C-u>call fzf#vim#lines(expand('<cword>'), {'options': ['--layout=reverse', '--info=inline']})<CR>"
