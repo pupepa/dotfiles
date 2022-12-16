@@ -1,4 +1,5 @@
 vim.opt.imdisable = true -- IME OFF
+vim.opt.cmdheight = 0
 vim.opt.pumheight = 10 -- 補完メニューの高さ
 vim.opt.history = 10000
 vim.opt.helplang = "ja"
