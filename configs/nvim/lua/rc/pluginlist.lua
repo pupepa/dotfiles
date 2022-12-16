@@ -524,12 +524,12 @@ return require("packer").startup(function(use)
   -- File Management
   --------------------------------------------------------------------------------
 
-  -- Vim plugin: Switch to the missing file without interaction
-  -- https://github.com/kana/vim-altr
+  -- Open alternative files for the current buffer
+  -- https://github.com/rgroli/other.nvim
   use({
-    "kana/vim-altr",
+    "rgroli/other.nvim",
     config = function()
-      require("rc/pluginconfig/vim-altr")
+      require("rc/pluginconfig/other")
     end,
   })
 
