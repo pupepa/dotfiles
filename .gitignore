@@ -21,6 +21,7 @@
 /configs/nvim/vimrc.plugins
 /configs/nvim/plugin/**
 /configs/nvim/snippets_private
+/configs/nvim/spell
 
 # tmux
 /configs/tmux/plugins
