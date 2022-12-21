@@ -1,9 +1,17 @@
-brew "mutt"
-brew "quicklookapk"
-brew "sequel"-ace
-brew "sqlite"
+brew "connect"
 
 cask "android-studio"
 cask "appcleaner"
 cask "diskwave"
+cask "macdown"
+cask "onyx"
+cask "pgadmin4"
+cask "postman"
+cask "quicklookapk"
+cask "sequel-ace"
 cask "vivaldi"
+
+mas "Azure VPN Client", id: 1553936137
+mas "Disk Graph Lite", id: 1489333198
+mas "Forklift", id 412448059
+mas "Reeder 4", id: 1449412482
