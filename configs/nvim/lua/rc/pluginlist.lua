@@ -520,6 +520,17 @@ return require("packer").startup(function(use)
     end,
   })
 
+  -- Escape from insert mode without delay when typing
+  -- https://github.com/max397574/better-escape.nvim
+  use({
+    "max397574/better-escape.nvim",
+    opt = true,
+    event = "BufReadPost",
+    config = function()
+      require("rc/pluginconfig/better-escape")
+    end,
+  })
+
   -----------------------------------------------------------------------------------------
   -- Moving Cursor
   -----------------------------------------------------------------------------------------

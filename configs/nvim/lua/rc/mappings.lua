@@ -33,7 +33,8 @@ vim.keymap.set("n", "<Space>.", ":<C-u>edit $MYVIMRC<CR>")
 
 vim.keymap.set("n", "ZZ", "<Nop>")
 
-vim.keymap.set("i", "jj", "<Esc>")
+-- Use better-escape
+-- vim.keymap.set("i", "jj", "<Esc>")
 
 -- Quickfix
 vim.keymap.set("n", "Q", "q")
