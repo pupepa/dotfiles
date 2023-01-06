@@ -381,39 +381,39 @@ return require("packer").startup(function(use)
     requires = {
       -- Vim plugin: Text objects for entire buffer
       -- https://github.com/kana/vim-textobj-entire
-      { "kana/vim-textobj-entire", opt = true, after = "vim-textobj-user" },
+      { "kana/vim-textobj-entire", opt = true },
 
       -- Vim plugin: Text objects for the current line
       -- https://github.com/kana/vim-textobj-line
-      { "kana/vim-textobj-line", opt = true, after = "vim-textobj-user" },
+      { "kana/vim-textobj-line", opt = true },
 
       -- https://github.com/kana/vim-textobj-indent
-      { "kana/vim-textobj-indent", opt = true, after = "vim-textobj-user" },
+      { "kana/vim-textobj-indent", opt = true },
 
       -- The vim textobject plugin to treat function-call regions.
       -- https://github.com/machakann/vim-textobj-functioncall
-      { "machakann/vim-textobj-functioncall", opt = true, after = "vim-textobj-user" },
+      { "machakann/vim-textobj-functioncall", opt = true },
 
       -- https://github.com/mattn/vim-textobj-url
-      { "mattn/vim-textobj-url", opt = true, after = "vim-textobj-user" },
+      { "mattn/vim-textobj-url", opt = true },
 
       -- https://github.com/osyo-manga/vim-textobj-multiblock
-      { "osyo-manga/vim-textobj-multiblock", opt = true, after = "vim-textobj-user" },
+      { "osyo-manga/vim-textobj-multiblock", opt = true },
 
       -- https://github.com/pocke/vim-textobj-markdown
-      { "pocke/vim-textobj-markdown", opt = true, after = "vim-textobj-user" },
+      { "pocke/vim-textobj-markdown", opt = true },
 
       -- A fork of textobj-parameter 0.1.0
       -- https://github.com/sgur/vim-textobj-parameter
-      { "sgur/vim-textobj-parameter", opt = true, after = "vim-textobj-user" },
+      { "sgur/vim-textobj-parameter", opt = true },
 
       -- A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
       -- https://github.com/Julian/vim-textobj-variable-segment
-      { "julian/vim-textobj-variable-segment", opt = true, after = "vim-textobj-user" },
+      { "julian/vim-textobj-variable-segment", opt = true },
 
       -- Vim plugin: Text objects for date and time
       -- https://github.com/kana/vim-textobj-datetime
-      { "kana/vim-textobj-datetime", opt = true, after = "vim-textobj-user" },
+      { "kana/vim-textobj-datetime", opt = true },
     },
   })
 
