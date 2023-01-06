@@ -787,4 +787,14 @@ return require("packer").startup(function(use)
       require("rc/pluginconfig/vim-startuptime")
     end,
   })
+
+  -- A neovim lua plugin to help easily manage multiple terminal windows
+  -- https://github.com/akinsho/toggleterm.nvim
+  use({
+    "akinsho/toggleterm.nvim",
+    tag = "*",
+    config = function()
+      require("rc/pluginconfig/toggleterm")
+    end,
+  })
 end)
