@@ -72,6 +72,16 @@ return require("packer").startup(function(use)
     end,
   })
 
+  -- https://github.com/jay-babu/mason-null-ls.nvim
+  use({
+    "jayp0521/mason-null-ls.nvim",
+    after = "null-ls.nvim",
+    opt = true,
+    config = function()
+      require("mason-null-ls").setup()
+    end,
+  })
+
   -- A completion plugin for neovim coded in Lua.
   -- https://github.com/hrsh7th/nvim-cmp
   use({
