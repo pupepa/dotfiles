@@ -744,4 +744,14 @@ return require("packer").startup(function(use)
     "yuratomo/w3m.vim",
     cmd = { "W3m", "W3mSplit", "W3mVSplit" },
   })
+
+  -- A plugin for profiling Vim and Neovim startup time.
+  -- https://github.com/dstein64/vim-startuptime
+  use({
+    "dstein64/vim-startuptime",
+    cmd = { "StartupTime" },
+    config = function()
+      require("rc/pluginconfig/vim-startuptime")
+    end,
+  })
 end)
