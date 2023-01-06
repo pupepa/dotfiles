@@ -508,6 +508,18 @@ return require("packer").startup(function(use)
     end,
   })
 
+  -- tabout plugin for neovim
+  -- https://github.com/abecodes/tabout.nvim
+  use({
+    "abecodes/tabout.nvim",
+    opt = true,
+    event = "InsertEnter",
+    after = "nvim-cmp",
+    config = function()
+      require("rc/pluginconfig/tabout")
+    end,
+  })
+
   -----------------------------------------------------------------------------------------
   -- Moving Cursor
   -----------------------------------------------------------------------------------------
