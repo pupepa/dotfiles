@@ -76,7 +76,6 @@ return require("packer").startup(function(use)
   use({
     "jayp0521/mason-null-ls.nvim",
     after = "null-ls.nvim",
-    opt = true,
     config = function()
       require("mason-null-ls").setup()
     end,
@@ -86,6 +85,7 @@ return require("packer").startup(function(use)
   -- https://github.com/hrsh7th/nvim-cmp
   use({
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     config = function()
       require("rc/pluginconfig/nvim-cmp")
     end,
@@ -183,6 +183,7 @@ return require("packer").startup(function(use)
   -- https://github.com/neovim/nvim-lspconfig
   use({
     "neovim/nvim-lspconfig",
+    opt = false,
     config = function()
       require("rc/pluginconfig/nvim-lspconfig")
     end,
@@ -192,7 +193,8 @@ return require("packer").startup(function(use)
   -- https://github.com/glepnir/lspsaga.nvim
   use({
     "glepnir/lspsaga.nvim",
-    after = "mason.nvim",
+    opt = false,
+    after = { "nvim-lspconfig" },
     config = function()
       require("rc/pluginconfig/lspsaga")
     end,
@@ -209,7 +211,8 @@ return require("packer").startup(function(use)
   -- https://github.com/folke/trouble.nvim
   use({
     "folke/trouble.nvim",
-    after = { "mason.nvim" },
+    opt = true,
+    cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
     config = function()
       require("rc/pluginconfig/trouble")
     end,
@@ -233,6 +236,8 @@ return require("packer").startup(function(use)
   -- https://github.com/nvim-treesitter/nvim-treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
+    opt = true,
+    event = "BufReadPost",
     run = ":TSUpdate",
     config = function()
       require("rc/pluginconfig/nvim-treesitter")
@@ -270,6 +275,8 @@ return require("packer").startup(function(use)
   -- https://github.com/nvim-lualine/lualine.nvim
   use({
     "nvim-lualine/lualine.nvim",
+    opt = false,
+    after = { "nvim-lspconfig", "lspsaga.nvim" },
     config = function()
       require("rc/pluginconfig/lualine")
     end,
@@ -280,6 +287,8 @@ return require("packer").startup(function(use)
   use({
     "akinsho/bufferline.nvim",
     tag = "v2.*",
+    event = "BufReadPost",
+    opt = true,
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("rc/pluginconfig/bufferline")
@@ -309,6 +318,7 @@ return require("packer").startup(function(use)
   -- https://github.com/lewis6991/gitsigns.nvim
   use({
     "lewis6991/gitsigns.nvim",
+    event = { "FocusLost", "CursorHold" },
     config = function()
       require("rc/pluginconfig/gitsigns")
     end,
@@ -318,6 +328,8 @@ return require("packer").startup(function(use)
   -- https://github.com/lukas-reineke/indent-blankline.nvim
   use({
     "lukas-reineke/indent-blankline.nvim",
+    opt = true,
+    event = "BufReadPost",
     config = function()
       require("rc/pluginconfig/indent-blankline")
     end,
@@ -349,27 +361,49 @@ return require("packer").startup(function(use)
   -- textobj
   -----------------------------------------------------------------------------------------
 
-  -- The set of operator and textobject plugins to search/select/edit sandwiched textobjects.
-  -- https://github.com/machakann/vim-sandwich
+  -- Vim plugin: Create your own text objects
+  -- https://github.com/kana/vim-textobj-user
   use({
-    "machakann/vim-sandwich",
-    config = function()
-      require("rc/pluginconfig/vim-sandwich")
-    end,
-  })
+    "kana/vim-textobj-user",
+    opt = true,
+    event = "BufEnter",
+    requires = {
+      -- Vim plugin: Text objects for entire buffer
+      -- https://github.com/kana/vim-textobj-entire
+      { "kana/vim-textobj-entire", opt = true, after = "vim-textobj-user" },
 
-  -- Vim plugin: Text objects for entire buffer
-  -- https://github.com/kana/vim-textobj-entire
-  use({
-    "kana/vim-textobj-entire",
-    requires = "kana/vim-textobj-user",
-  })
+      -- Vim plugin: Text objects for the current line
+      -- https://github.com/kana/vim-textobj-line
+      { "kana/vim-textobj-line", opt = true, after = "vim-textobj-user" },
 
-  -- Vim plugin: Text objects for the current line
-  -- https://github.com/kana/vim-textobj-line
-  use({
-    "kana/vim-textobj-line",
-    requires = "kana/vim-textobj-user",
+      -- https://github.com/kana/vim-textobj-indent
+      { "kana/vim-textobj-indent", opt = true, after = "vim-textobj-user" },
+
+      -- The vim textobject plugin to treat function-call regions.
+      -- https://github.com/machakann/vim-textobj-functioncall
+      { "machakann/vim-textobj-functioncall", opt = true, after = "vim-textobj-user" },
+
+      -- https://github.com/mattn/vim-textobj-url
+      { "mattn/vim-textobj-url", opt = true, after = "vim-textobj-user" },
+
+      -- https://github.com/osyo-manga/vim-textobj-multiblock
+      { "osyo-manga/vim-textobj-multiblock", opt = true, after = "vim-textobj-user" },
+
+      -- https://github.com/pocke/vim-textobj-markdown
+      { "pocke/vim-textobj-markdown", opt = true, after = "vim-textobj-user" },
+
+      -- A fork of textobj-parameter 0.1.0
+      -- https://github.com/sgur/vim-textobj-parameter
+      { "sgur/vim-textobj-parameter", opt = true, after = "vim-textobj-user" },
+
+      -- A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
+      -- https://github.com/Julian/vim-textobj-variable-segment
+      { "julian/vim-textobj-variable-segment", opt = true, after = "vim-textobj-user" },
+
+      -- Vim plugin: Text objects for date and time
+      -- https://github.com/kana/vim-textobj-datetime
+      { "kana/vim-textobj-datetime", opt = true, after = "vim-textobj-user" },
+    },
   })
 
   -- Vim plugin: Operator to replace text with register content
@@ -382,62 +416,13 @@ return require("packer").startup(function(use)
     end,
   })
 
-  -- https://github.com/kana/vim-textobj-indent
+  -- The set of operator and textobject plugins to search/select/edit sandwiched textobjects.
+  -- https://github.com/machakann/vim-sandwich
   use({
-    "kana/vim-textobj-indent",
-    requires = "kana/vim-textobj-user",
-  })
-
-  -- The vim textobject plugin to treat function-call regions.
-  -- https://github.com/machakann/vim-textobj-functioncall
-  use({
-    "machakann/vim-textobj-functioncall",
-    requires = "kana/vim-textobj-user",
-  })
-
-  -- https://github.com/mattn/vim-textobj-url
-  use({
-    "mattn/vim-textobj-url",
-    requires = "kana/vim-textobj-user",
-  })
-
-  -- https://github.com/osyo-manga/vim-textobj-multiblock
-  use({
-    "osyo-manga/vim-textobj-multiblock",
-    requires = "kana/vim-textobj-user",
-  })
-
-  -- https://github.com/pocke/vim-textobj-markdown
-  use({
-    "pocke/vim-textobj-markdown",
-    requires = "kana/vim-textobj-user",
-  })
-
-  -- Make text objects with various ruby block structures.
-  -- https://github.com/rhysd/vim-textobj-ruby
-  use({
-    "rhysd/vim-textobj-ruby",
-    requires = "kana/vim-textobj-user",
-  })
-
-  -- A fork of textobj-parameter 0.1.0
-  -- https://github.com/sgur/vim-textobj-parameter
-  use({
-    "sgur/vim-textobj-parameter",
-    requires = "kana/vim-textobj-user",
-  })
-
-  -- A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
-  -- https://github.com/Julian/vim-textobj-variable-segment
-  use({
-    "julian/vim-textobj-variable-segment",
-  })
-
-  -- Vim plugin: Text objects for date and time
-  -- https://github.com/kana/vim-textobj-datetime
-  use({
-    "kana/vim-textobj-datetime",
-    requires = "kana/vim-textobj-user",
+    "machakann/vim-sandwich",
+    config = function()
+      require("rc/pluginconfig/vim-sandwich")
+    end,
   })
 
   -- https://github.com/kana/vim-niceblock
@@ -449,7 +434,7 @@ return require("packer").startup(function(use)
 
   -- Vim comment plugin: supported operator/non-operator mappings, repeatable by dot-command, 300+ filetypes
   -- https://github.com/tyru/caw.vim
-  use({ "tyru/caw.vim" })
+  use({ "tyru/caw.vim", opt = true, event = "BufReadPost" })
 
   -- Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
   -- https://github.com/bronson/vim-trailing-whitespace
@@ -494,6 +479,8 @@ return require("packer").startup(function(use)
   -- https://github.com/windwp/nvim-ts-autotag
   use({
     "windwp/nvim-ts-autotag",
+    opt = true,
+    after = "nvim-treesitter",
     config = function()
       require("rc/pluginconfig/nvim-ts-autotag")
     end,
@@ -503,6 +490,8 @@ return require("packer").startup(function(use)
   -- https://github.com/monaqa/dial.nvim
   use({
     "monaqa/dial.nvim",
+    opt = true,
+    keys = { "<C-a>", "<C-x>", "+", "-" },
     config = function()
       require("rc/pluginconfig/dial")
     end,
@@ -539,6 +528,8 @@ return require("packer").startup(function(use)
   -- https://github.com/rhysd/clever-f.vim
   use({
     "rhysd/clever-f.vim",
+    opt = true,
+    event = "BufReadPost",
     config = function()
       require("rc/pluginconfig/clever-f")
     end,
@@ -572,6 +563,8 @@ return require("packer").startup(function(use)
   -- https://github.com/rgroli/other.nvim
   use({
     "rgroli/other.nvim",
+    opt = true,
+    cmd = { "Other" },
     config = function()
       require("rc/pluginconfig/other")
     end,
@@ -581,6 +574,8 @@ return require("packer").startup(function(use)
   -- https://github.com/justinmk/vim-dirvish
   use({
     "justinmk/vim-dirvish",
+    opt = true,
+    keys = { "<C-n>" },
     config = function()
       require("rc/pluginconfig/vim-dirvish")
     end,
@@ -636,7 +631,7 @@ return require("packer").startup(function(use)
 
   -- vim match-up: even better % 👊 navigate and highlight matching words 👊 modern matchit and matchparen replacement
   -- https://github.com/andymass/vim-matchup
-  use({ "andymass/vim-matchup" })
+  use({ "andymass/vim-matchup", opt = true, after = "nvim-treesitter" })
 
   -- Efficient Todo.txt management in vim
   -- https://gitlab.com/dbeniamine/todo.txt-vim
@@ -683,6 +678,8 @@ return require("packer").startup(function(use)
   -- https://github.com/kana/vim-submode
   use({
     "kana/vim-submode",
+    opt = true,
+    event = "BufReadPost",
     config = function()
       require("rc/pluginconfig/vim-submode")
     end,
