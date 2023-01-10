@@ -368,6 +368,14 @@ return require("packer").startup(function(use)
     end,
   })
 
+  use({
+    "rcarriga/nvim-notify",
+    opt = false,
+    config = function()
+      require("rc/pluginconfig/nvim-notify")
+    end,
+  })
+
   -----------------------------------------------------------------------------------------
   -- textobj
   -----------------------------------------------------------------------------------------
