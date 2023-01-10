@@ -560,17 +560,6 @@ return require("packer").startup(function(use)
     end,
   })
 
-  -- A neovim plugin to accelerate up-down moving!
-  -- https://github.com/rainbowhxch/accelerated-jk.nvim
-  use({
-    "rainbowhxch/accelerated-jk.nvim",
-    opt = true,
-    event = "BufWinEnter",
-    config = function()
-      require("rc/pluginconfig/accelerated-jk")
-    end,
-  })
-
   -- A vim script to provide CamelCase motion through words
   -- https://github.com/bkad/CamelCaseMotion
   -- use({
