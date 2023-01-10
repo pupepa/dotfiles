@@ -346,7 +346,13 @@ return require("packer").startup(function(use)
 
   -- Neovim plugin to preview the contents of the registers
   -- https://github.com/tversteeg/registers.nvim
-  use({ "tversteeg/registers.nvim", branch = "main" })
+  use({
+    "tversteeg/registers.nvim",
+    branch = "main",
+    config = function()
+      require("rc/pluginconfig/registers")
+    end,
+  })
 
   -- Neovim plugin for a code outline window
   -- https://github.com/stevearc/aerial.nvim
