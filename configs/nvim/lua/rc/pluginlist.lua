@@ -645,7 +645,14 @@ return require("packer").startup(function(use)
 
   -- vim match-up: even better % 👊 navigate and highlight matching words 👊 modern matchit and matchparen replacement
   -- https://github.com/andymass/vim-matchup
-  use({ "andymass/vim-matchup", opt = true, after = "nvim-treesitter" })
+  use({
+    "andymass/vim-matchup",
+    opt = true,
+    after = "nvim-treesitter",
+    config = function()
+      require("rc/pluginconfig/vim-matchup")
+    end,
+  })
 
   -- Efficient Todo.txt management in vim
   -- https://gitlab.com/dbeniamine/todo.txt-vim
