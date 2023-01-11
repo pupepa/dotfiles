@@ -641,7 +641,7 @@ return require("packer").startup(function(use)
 
   -- A vim plugin to perform diffs on blocks of code
   -- https://github.com/AndrewRadev/linediff.vim
-  use({ "AndrewRadev/linediff.vim" })
+  use({ "AndrewRadev/linediff.vim", opt = true, cmd = { "Linediff" } })
 
   -- vim match-up: even better % 👊 navigate and highlight matching words 👊 modern matchit and matchparen replacement
   -- https://github.com/andymass/vim-matchup
