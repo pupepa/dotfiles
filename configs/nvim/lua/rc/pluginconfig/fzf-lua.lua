@@ -5,7 +5,7 @@ vim.keymap.set("n", "<Space>c", "<Cmd>FzfLua commands<CR>")
 vim.keymap.set("n", "<Space>l", "<Cmd>FzfLua blines<CR>")
 vim.keymap.set("n", "<Space>f", "<Cmd>FzfLua grep<CR>")
 vim.keymap.set("n", "<Space>F", "<Cmd>FzfLua grep_last<CR>")
-vim.keymap.set("n", "<Space><Space>", "<Cmd>FzfLua resume<CR>")
+vim.keymap.set("n", "<Space>h", "<Cmd>FzfLua resume<CR>")
 vim.keymap.set(
   "n",
   "<Space>]",
