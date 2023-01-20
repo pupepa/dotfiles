@@ -529,6 +529,7 @@ return require("packer").startup(function(use)
     opt = true,
     event = "InsertEnter",
     after = "nvim-cmp",
+    wants = { "nvim-treesitter" },
     config = function()
       require("rc/pluginconfig/tabout")
     end,
