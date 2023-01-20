@@ -13,5 +13,5 @@ cask "vivaldi"
 
 mas "Azure VPN Client", id: 1553936137
 mas "Disk Graph Lite", id: 1489333198
-mas "Forklift", id 412448059
+mas "Forklift", id: 412448059
 mas "Reeder 4", id: 1449412482

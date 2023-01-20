@@ -14,9 +14,9 @@ else
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-brew bundle install --file "${DOTFILES_DIR}/config/homebrew/Brewfile.common" --no-lock --verbose
+brew bundle install --file "${DOTFILES_DIR}/configs/homebrew/Brewfile.common" --no-lock --verbose
 if [ $HOMEBREW_WORK ]; then
-  brew bundle install --file "${DOTFILES_DIR}/config/homebrew/Brewfile.work" --no-lock --verbose
+  brew bundle install --file "${DOTFILES_DIR}/configs/homebrew/Brewfile.work" --no-lock --verbose
 else
-  brew bundle install --file "${DOTFILES_DIR}/config/homebrew/Brewfile.home" --no-lock --verbose
+  brew bundle install --file "${DOTFILES_DIR}/configs/homebrew/Brewfile.home" --no-lock --verbose
 fi
