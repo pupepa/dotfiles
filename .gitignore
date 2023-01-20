@@ -46,3 +46,4 @@
 # Zsh
 /configs/zsh/.chpwd-recent-dirs
 /configs/zsh/.zcompdump
+/configs/zsh/.zsh_sessions
