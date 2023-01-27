@@ -1,8 +1,4 @@
-local status, saga = pcall(require, "lspsaga")
-
-if not status then
-  return
-end
+require("lspsaga").setup({})
 
 vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", { silent = true })
 vim.keymap.set("n", "gn", "<Cmd>Lspsaga code_action<CR>", { silent = true })
