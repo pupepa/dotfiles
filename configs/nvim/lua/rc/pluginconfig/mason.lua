@@ -9,11 +9,11 @@ mason_lspconfig.setup({
     "html",
     "jsonls",
     "solargraph",
-    "sumneko_lua",
+    "lua_ls",
     "tailwindcss",
     "tsserver",
-    "vimls"
-  }
+    "vimls",
+  },
 })
 mason_lspconfig.setup_handlers({
   function(server_name)
@@ -21,7 +21,7 @@ mason_lspconfig.setup_handlers({
 
     local settings = {}
 
-    if server_name == "sumneko_lua" then
+    if server_name == "lua_ls" then
       settings = {
         Lua = {
           diagnostics = {
