@@ -836,4 +836,13 @@ return require("packer").startup(function(use)
       require("rc/pluginconfig/toggleterm")
     end,
   })
+
+  use({
+    "chomosuke/term-edit.nvim",
+    tag = "1.*",
+    ft = "toggleterm",
+    config = function()
+      require("rc/pluginconfig/term-edit")
+    end,
+  })
 end)
