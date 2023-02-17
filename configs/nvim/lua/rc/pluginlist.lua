@@ -228,6 +228,15 @@ return require("packer").startup(function(use)
     end,
   })
 
+  -- https://github.com/hrsh7th/nvim-gtd
+  -- LSP's Go to definition plugin for neovim.
+  use({
+    "hrsh7th/nvim-gtd",
+    config = function()
+      require("rc/pluginconfig/nvim-gtd")
+    end,
+  })
+
   -----------------------------------------------------------------------------------------
   -- Treesitter
   -----------------------------------------------------------------------------------------
