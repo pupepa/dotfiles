@@ -463,9 +463,14 @@ return require("packer").startup(function(use)
   -- Editing
   -----------------------------------------------------------------------------------------
 
-  -- Vim comment plugin: supported operator/non-operator mappings, repeatable by dot-command, 300+ filetypes
-  -- https://github.com/tyru/caw.vim
-  use({ "tyru/caw.vim", opt = true, event = "BufReadPost" })
+  --  🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
+  -- https://github.com/numToStr/Comment.nvim
+  use({
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  })
 
   -- Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
   -- https://github.com/bronson/vim-trailing-whitespace
