@@ -412,7 +412,13 @@ return require("packer").startup(function(use)
       { "mattn/vim-textobj-url", opt = true },
 
       -- https://github.com/osyo-manga/vim-textobj-multiblock
-      { "osyo-manga/vim-textobj-multiblock", opt = true },
+      {
+        "osyo-manga/vim-textobj-multiblock",
+        opt = true,
+        config = function()
+          require("rc/pluginconfig/vim-textobj-multiblock")
+        end,
+      },
 
       -- https://github.com/pocke/vim-textobj-markdown
       { "pocke/vim-textobj-markdown", opt = true },

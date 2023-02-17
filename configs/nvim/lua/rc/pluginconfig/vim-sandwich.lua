@@ -24,3 +24,7 @@ vim.g["sandwich#recipes"] = vim.tbl_extend("force", vim.deepcopy(vim.g["sandwich
     filetype = { "markdown" },
   },
 })
+
+vim.cmd([[
+let g:textobj_sandwich_no_default_key_mappings = 1
+]])
