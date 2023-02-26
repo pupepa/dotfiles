@@ -257,14 +257,70 @@ return require("packer").startup(function(use)
   -- Fuzzy Finder
   -----------------------------------------------------------------------------------------
 
-  -- mproved fzf.vim written in lua
-  -- https://github.com/ibhagwan/fzf-lua
+  -- Find, Filter, Preview, Pick. All lua, all the time.
+  -- https://github.com/nvim-telescope/telescope.nvim
   use({
-    "ibhagwan/fzf-lua",
-    requires = { "kyazdani42/nvim-web-devicons" },
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.1",
+    requires = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("rc/pluginconfig/fzf-lua")
+      require("rc/pluginconfig/telescope")
     end,
+  })
+
+  -- A telescope.nvim extension that offers intelligent prioritization when selecting files from your editing history.
+  -- https://github.com/nvim-telescope/telescope-frecency.nvim
+  use({
+    "nvim-telescope/telescope-frecency.nvim",
+    requires = { "kkharji/sqlite.lua" },
+  })
+
+  -- A Telescope extension that provides extra functionality for Packer.nvim
+  -- https://github.com/nvim-telescope/telescope-packer.nvim
+  use({
+    "nvim-telescope/telescope-packer.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-telescope/telescope-file-browser.nvim" },
+  })
+
+  use({
+    "neanias/telescope-lines.nvim",
+    requires = "nvim-telescope/telescope.nvim",
+  })
+
+  -- File Browser extension for telescope.nvim
+  -- https://github.com/nvim-telescope/telescope-file-browser.nvim
+  use({
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  })
+
+  use({
+    "nvim-telescope/telescope-ghq.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+    },
+  })
+
+  -- Integration with github cli
+  -- https://github.com/nvim-telescope/telescope-github.nvim
+  use({
+    "nvim-telescope/telescope-github.nvim",
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+      { "nvim-lua/plenary.nvim" },
+    },
+  })
+
+  -- https://github.com/nvim-telescope/telescope-ui-select.nvim
+  use({
+    "nvim-telescope/telescope-ui-select.nvim",
+  })
+
+  -- FZF sorter for telescope written in c
+  -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
+  use({
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
   })
 
   -----------------------------------------------------------------------------------------
@@ -602,27 +658,6 @@ return require("packer").startup(function(use)
     cmd = { "Other" },
     config = function()
       require("rc/pluginconfig/other")
-    end,
-  })
-
-  -- Directory viewer for Vim
-  -- https://github.com/justinmk/vim-dirvish
-  use({
-    "justinmk/vim-dirvish",
-    opt = true,
-    keys = { "<C-n>" },
-    config = function()
-      require("rc/pluginconfig/vim-dirvish")
-    end,
-  })
-
-  -- File manipulation commands for vim-dirvish
-  -- https://github.com/roginfarrer/vim-dirvish-dovish
-  use({
-    "roginfarrer/vim-dirvish-dovish",
-    after = "vim-dirvish",
-    config = function()
-      require("rc/pluginconfig/vim-dirvish-dovish")
     end,
   })
 
