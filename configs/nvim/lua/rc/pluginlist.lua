@@ -880,4 +880,14 @@ return require("packer").startup(function(use)
       require("rc/pluginconfig/term-edit")
     end,
   })
+
+  --  Neovim plugin that evaluates code blocks inside documents
+  -- https://github.com/jubnzv/mdeval.nvim
+  use({
+    "jubnzv/mdeval.nvim",
+    ft = { "markdown" },
+    config = function()
+      require("rc/pluginconfig/mdeval")
+    end,
+  })
 end)
