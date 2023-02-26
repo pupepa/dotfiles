@@ -43,8 +43,8 @@ vim.keymap.set("n", "]q", ":cnext<CR>")
 vim.keymap.set("n", "[q", ":cNext<CR>")
 
 -- Split window by tmux
-vim.keymap.set("n", "<Leader>tv", ":<C-u>!tmux splitw -h<CR><CR>", { silent = true })
-vim.keymap.set("n", "<Leader>th", ":<C-u>!tmux splitw -vf<CR><CR>", { silent = true })
+vim.cmd([[ nnoremap <Leader>tv :!tmux splitw -h -c %:p:h <CR><CR> ]])
+vim.cmd([[ nnoremap <Leader>th :!tmux splitw -vf -c %:p:h <CR><CR> ]])
 
 -- Look up a keyword on cursor with help
 vim.keymap.set("n", "<Leader>hh", ':h <C-r>=expand("<cword>")<CR><CR>')
