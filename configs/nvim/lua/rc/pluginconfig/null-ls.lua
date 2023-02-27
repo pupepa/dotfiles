@@ -18,6 +18,7 @@ local sources = {
     condition = function()
       return vim.fn.executable("prettier") > 0
     end,
+    disabled_filetypes = { "markdown" },
     extra_filetypes = { "ruby" },
     prefer_local = "node_modules/.bin",
   }),
