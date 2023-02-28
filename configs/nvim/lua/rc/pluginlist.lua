@@ -809,12 +809,12 @@ return require("packer").startup(function(use)
     ft = { "markdown", "asciidoc" },
   })
 
-  -- Git repo for http://www.vim.org/scripts/script.php?script_id=1147
-  -- https://github.com/qpkorr/vim-bufkill
+  -- Delete Neovim buffers without losing window layout
+  -- https://github.com/famiu/bufdelete.nvim
   use({
-    "qpkorr/vim-bufkill",
+    "famiu/bufdelete.nvim",
     config = function()
-      require("rc/pluginconfig/vim-bufkill")
+      require("rc/pluginconfig/bufdelete")
     end,
   })
 
