@@ -1,4 +1,5 @@
 local fb_actions = require("telescope").extensions.file_browser.actions
+local actions = require("telescope.actions")
 
 require("telescope").setup({
   defaults = {
@@ -13,6 +14,14 @@ require("telescope").setup({
       vertical = { mirror = false },
       width = 0.8,
       height = 0.7,
+    },
+    mappings = {
+      i = {
+        ["qq"] = actions.close,
+      },
+      n = {
+        ["q"] = actions.close,
+      },
     },
   },
   extensions = {
