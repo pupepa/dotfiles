@@ -672,6 +672,40 @@ return require("packer").startup(function(use)
     end,
   })
 
+  --------------------------------------------------------------------------------
+  -- Window
+  --------------------------------------------------------------------------------
+
+  -- Automatically expand width of the current window. Maximizes and restore it. And all this with nice animations!
+  -- https://github.com/anuvyklack/windows.nvim
+  use({
+    "anuvyklack/windows.nvim",
+    requires = {
+      "anuvyklack/middleclass",
+    },
+    config = function()
+      require("rc/pluginconfig/windows")
+    end,
+  })
+
+  -- Rearrange your windows with ease.
+  -- https://github.com/sindrets/winshift.nvim
+  use({
+    "sindrets/winshift.nvim",
+    config = function()
+      require("rc/pluginconfig/winshift")
+    end,
+  })
+
+  -- Make your nvim window separators colorful
+  -- https://github.com/nvim-zh/colorful-winsep.nvim
+  use({
+    "nvim-zh/colorful-winsep.nvim",
+    config = function()
+      require("colorful-winsep").setup()
+    end,
+  })
+
   -----------------------------------------------------------------------------------------
   -- Utility
   -----------------------------------------------------------------------------------------
@@ -748,17 +782,6 @@ return require("packer").startup(function(use)
     cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
     config = function()
       require("rc/pluginconfig/vim-test")
-    end,
-  })
-
-  -- Vim plugin: Create your own submodes
-  -- https://github.com/kana/vim-submode
-  use({
-    "kana/vim-submode",
-    opt = true,
-    event = "BufReadPost",
-    config = function()
-      require("rc/pluginconfig/vim-submode")
     end,
   })
 
