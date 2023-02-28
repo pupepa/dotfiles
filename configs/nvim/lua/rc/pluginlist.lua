@@ -646,6 +646,17 @@ return require("packer").startup(function(use)
   --   end,
   -- })
 
+  -- Incremental fuzzy search motion plugin for Neovim
+  -- https://github.com/rlane/pounce.nvim
+  use({
+    "rlane/pounce.nvim",
+    opt = true,
+    event = "BufReadPost",
+    config = function()
+      require("rc/pluginconfig/pounce")
+    end,
+  })
+
   --------------------------------------------------------------------------------
   -- File Management
   --------------------------------------------------------------------------------
