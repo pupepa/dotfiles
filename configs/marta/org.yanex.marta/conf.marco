@@ -1,0 +1,60 @@
+environment {
+    textEditor "CotEditor"
+}
+
+behavior {
+    theme "Kon"
+    
+    layout {
+        showActionBar false
+    }
+    
+    dateFormat {
+        normal "%Y-%m-%d"
+    }
+    
+    timeFormat {
+        separator " "
+        normal "%H:%M:%S"
+    }
+    
+    quickSelect {
+        activateOnAnyCharacter false
+    }
+    
+    table {
+        circularSelection true
+    }
+}
+
+fonts {
+    actionBar [ "UDEV Gothic NF" 13 ]
+    breadcrumbs [ "UDEV Gothic NF" 13 ]
+    virtualTabs [ "UDEV Gothic NF" 13 ]
+    files [ "UDEV Gothic NF" 14 ]
+    statusBar [ "UDEV Gothic NF" 12 ]
+    tableHeader [ "UDEV Gothic NF" 12 ]
+    tabs [ "UDEV Gothic NF" 13 ]
+    preferences [ "UDEV Gothic NF" 13 ]
+}
+
+keyBindings {
+    "F" "core.favorites"
+    "H" "core.go.up"
+    "L" "core.open.folder"
+    "K" "core.move.up"
+    "J" "core.move.down"
+    "E" "core.edit"
+    "M" "core.move"
+    "C" "core.copy"
+    "Shift+D" "core.delete"
+    "Shift+P" "core.compress"
+    "W" "core.duplicate"
+    "U" "core.extract"
+    "D" "core.trash"
+    "I" "core.new.file"
+    "Shift+I" "core.new.folder"
+    "R" "core.rename"
+    "Space" "core.select"
+    ":" "core.recent"
+}
