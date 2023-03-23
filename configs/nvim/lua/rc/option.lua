@@ -93,3 +93,6 @@ vim.fn.mkdir(undodir, "p")
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.opt.updatetime = 300
+
+vim.g.markdown_fenced_languages =
+{ "ruby", "python", "sql", "swift", "typescript", "typescriptreact", "javascript", "javascriptreact", "sh" }
