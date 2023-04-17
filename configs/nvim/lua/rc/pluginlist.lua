@@ -376,7 +376,6 @@ return require("lazy").setup({
   -- https://github.com/kevinhwang91/nvim-hlslens
   {
     "kevinhwang91/nvim-hlslens",
-    dependencies = "haya14busa/vim-asterisk",
     config = function()
       require("rc/pluginconfig/nvim-hlslens")
     end,
