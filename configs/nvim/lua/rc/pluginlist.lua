@@ -116,6 +116,8 @@ return require("lazy").setup({
       "andersevenrud/cmp-tmux",
 
       "windwp/nvim-autopairs",
+
+      "roobert/tailwindcss-colorizer-cmp.nvim",
     },
     config = function()
       require("rc/pluginconfig/nvim-cmp")
@@ -232,6 +234,16 @@ return require("lazy").setup({
     keys = { "gf", "gfv", "gfs" },
     config = function()
       require("rc/pluginconfig/nvim-gtd")
+    end,
+  },
+
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    lazy = true,
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+      })
     end,
   },
 

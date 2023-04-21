@@ -33,6 +33,7 @@ cmp.setup({
         cmdline_history = "[History]",
         tmux = "[tmux]",
       },
+      before = require("tailwindcss-colorizer-cmp").formatter,
     }),
   },
   mapping = {
