@@ -79,7 +79,7 @@ telescope.setup({
       },
       n = {
         ["q"] = actions.close,
-        ["<C-d>"] = actions.delete_buffer,
+        ["<dd>"] = actions.delete_buffer,
       },
     },
   },
