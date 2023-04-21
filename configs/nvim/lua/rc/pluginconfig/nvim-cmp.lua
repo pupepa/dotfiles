@@ -54,17 +54,13 @@ cmp.setup({
       end
     end, { "i" }),
 
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif snippy.can_expand_or_advance() then
-    --     snippy.expand_or_advance()
-    --   elseif has_words_before() then
-    --     cmp.complete()
-    --   else
-    --     fallback()
-    --   end
-    -- end, { "i", "s" }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if require("copilot.suggestion").is_visible() then
+        require("copilot.suggestion").accept()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
     --
     -- ["<S-Tab>"] = cmp.mapping(function(fallback)
     --   if cmp.visible() then

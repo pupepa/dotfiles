@@ -670,6 +670,15 @@ return require("lazy").setup({
     end,
   },
 
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = { "Copilot" },
+    event = "InsertEnter",
+    config = function()
+      require("rc/pluginconfig/copilot")
+    end,
+  },
+
   --------------------------------------------------------------------------------
   -- File Management
   --------------------------------------------------------------------------------
