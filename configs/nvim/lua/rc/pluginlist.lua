@@ -115,8 +115,6 @@ return require("lazy").setup({
 
       "andersevenrud/cmp-tmux",
 
-      "windwp/nvim-autopairs",
-
       "roobert/tailwindcss-colorizer-cmp.nvim",
     },
     config = function()
@@ -159,16 +157,6 @@ return require("lazy").setup({
   -- nvim-cmp comparator function for completion items that start with one or more underlines
   -- https://github.com/lukas-reineke/cmp-under-comparator
   { "lukas-reineke/cmp-under-comparator", module = "cmp-under-comparator" },
-
-  -- autopairs for neovim written by lua
-  -- https://github.com/windwp/nvim-autopairs
-  {
-    "windwp/nvim-autopairs",
-    lazy = true,
-    config = function()
-      require("rc/pluginconfig/nvim-autopairs")
-    end,
-  },
 
   -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
   -- https://github.com/williamboman/mason-lspconfig.nvim
@@ -688,6 +676,16 @@ return require("lazy").setup({
     event = "InsertEnter",
     config = function()
       require("rc/pluginconfig/copilot")
+    end,
+  },
+
+  -- Flexible key mapping manager.
+  -- https://github.com/hrsh7th/nvim-insx
+  {
+    "hrsh7th/nvim-insx",
+    event = "VimEnter",
+    config = function()
+      require("rc/pluginconfig/nvim-insx")
     end,
   },
 
