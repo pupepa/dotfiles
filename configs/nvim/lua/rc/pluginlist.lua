@@ -761,9 +761,13 @@ return require("lazy").setup({
     cmd = { "OpenGithubFile", "OpenGithubIssue", "OpenGithubPullReq", "OpenGithubProject" },
   },
 
-  -- Seamless navigation between tmux panes and vim splits
-  -- https://github.com/christoomey/vim-tmux-navigator
-  { "christoomey/vim-tmux-navigator" },
+  {
+    "aserowy/tmux.nvim",
+    keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
+    config = function()
+      require("rc/pluginconfig/tmux")
+    end,
+  },
 
   -- Changes Vim working directory to project root
   -- https://github.com/airblade/vim-rooter
