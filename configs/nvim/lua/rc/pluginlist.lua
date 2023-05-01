@@ -536,7 +536,7 @@ return require("lazy").setup({
   {
     "machakann/vim-sandwich",
     lazy = true,
-    keys = { "sa" },
+    keys = { "sa", "sr" },
     config = function()
       require("rc/pluginconfig/vim-sandwich")
     end,
