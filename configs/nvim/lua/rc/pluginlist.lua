@@ -659,14 +659,34 @@ return require("lazy").setup({
   --   end,
   -- },
 
-  -- Incremental fuzzy search motion plugin for Neovim
-  -- https://github.com/rlane/pounce.nvim
+  -- https://github.com/yuki-yano/fuzzy-motion.vim
   {
-    "rlane/pounce.nvim",
-    opt = true,
-    event = "BufReadPost",
+    "yuki-yano/fuzzy-motion.vim",
+    dependencies = {
+      { "vim-denops/denops.vim" },
+      { "yuki-yano/denops-lazy.nvim" },
+      { "lambdalisue/kensaku.vim" },
+    },
+    cmd = { "FuzzyMotion" },
+    init = function()
+      vim.g.fuzzy_motion_matchers = { "fzf", "kensaku" }
+      vim.keymap.set({ "n", "x" }, "<Leader>s", "<Cmd>FuzzyMotion<CR>")
+    end,
     config = function()
-      require("rc/pluginconfig/pounce")
+      require("denops-lazy").load("fuzzy-motion.vim", { wait_load = false })
+    end,
+  },
+
+  -- 🔍 Search Japanese text in Vim's buffer with Roma-ji by Migemo
+  -- https://github.com/lambdalisue/kensaku.vim
+  {
+    "lambdalisue/kensaku.vim",
+    dependencies = {
+      { "vim-denops/denops.vim" },
+      { "yuki-yano/denops-lazy.nvim" },
+    },
+    config = function()
+      require("denops-lazy").load("kensaku.vim", { wait_load = false })
     end,
   },
 
