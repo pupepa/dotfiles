@@ -10,8 +10,6 @@ alias ..='cd ../'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias be='bundle exec'
-
 alias tree='pwd;find . | sort | sed "1d;s,[^/]*/,|    ,g;s/..//;s/[^ ]*$/|-- &/"'
 
 alias c=clear
@@ -26,14 +24,6 @@ cdt() {
   fi
   cd $HOME/tmp/$(date "+%y%m%d")
 }
-
-alias r='bin/rails'
-
-alias dk='docker'
-alias dkc='docker compose'
-alias dks='docker-sync'
-
-alias g='git'
 
 alias ssh='SHELL=/bin/bash ssh'
 
