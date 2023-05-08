@@ -278,6 +278,7 @@ return require("lazy").setup({
       "nvim-telescope/telescope-github.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
+      "Allianaab2m/telescope-kensaku.nvim",
     },
     config = function()
       require("rc/pluginconfig/telescope")
