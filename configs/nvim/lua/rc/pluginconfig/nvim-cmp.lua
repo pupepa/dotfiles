@@ -58,6 +58,8 @@ cmp.setup({
     ["<Tab>"] = cmp.mapping(function(fallback)
       if require("copilot.suggestion").is_visible() then
         require("copilot.suggestion").accept()
+      elseif cmp.visible() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
       else
         fallback()
       end
@@ -120,5 +122,28 @@ cmp.setup({
     { name = "mocword" },
     { name = "spell" },
     { name = "tmux" },
+  }),
+})
+
+-- `/` cmdline setup.
+cmp.setup.cmdline("/", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = "buffer" },
+  },
+})
+
+-- `:` cmdline setup.
+cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = "path" },
+  }, {
+    {
+      name = "cmdline",
+      option = {
+        ignore_cmds = { "Man", "!" },
+      },
+    },
   }),
 })

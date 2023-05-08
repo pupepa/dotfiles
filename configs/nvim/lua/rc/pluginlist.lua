@@ -116,6 +116,10 @@ return require("lazy").setup({
       "andersevenrud/cmp-tmux",
 
       "roobert/tailwindcss-colorizer-cmp.nvim",
+
+      -- nvim-cmp source for vim's cmdline
+      -- https://github.com/hrsh7th/cmp-cmdline
+      { "hrsh7th/cmp-cmdline" },
     },
     config = function()
       require("rc/pluginconfig/nvim-cmp")
