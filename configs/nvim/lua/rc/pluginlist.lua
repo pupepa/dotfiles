@@ -464,6 +464,16 @@ return require("lazy").setup({
     end,
   },
 
+  -- Prismatic line decorations for the adventurous vim user
+  -- https://github.com/mvllow/modes.nvim
+  {
+    "mvllow/modes.nvim",
+    event = "ModeChanged",
+    config = function()
+      require("modes").setup()
+    end,
+  },
+
   -----------------------------------------------------------------------------------------
   -- textobj
   -----------------------------------------------------------------------------------------
