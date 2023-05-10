@@ -295,6 +295,7 @@ return require("lazy").setup({
   -- https://github.com/nvim-telescope/telescope-frecency.nvim
   {
     "nvim-telescope/telescope-frecency.nvim",
+    lazy = true,
     dependencies = { "kkharji/sqlite.lua" },
   },
 
