@@ -279,6 +279,12 @@ return require("lazy").setup({
       "nvim-telescope/telescope-ui-select.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
       "Allianaab2m/telescope-kensaku.nvim",
+      "nvim-telescope/telescope-frecency.nvim",
+      -- Telescope extension that provides handy functionality about plugins installed via lazy.nvim
+      -- https://github.com/tsakirist/telescope-lazy.nvim
+      {
+        "tsakirist/telescope-lazy.nvim",
+      },
     },
     config = function()
       require("rc/pluginconfig/telescope")
