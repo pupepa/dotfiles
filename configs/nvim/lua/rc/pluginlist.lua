@@ -569,14 +569,14 @@ return require("lazy").setup({
     end,
   },
 
-  -- Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
-  -- https://github.com/bronson/vim-trailing-whitespace
+  -- This plugin trims trailing whitespace and lines.
+  -- https://github.com/cappyzawa/trim.nvim
   {
-    "bronson/vim-trailing-whitespace",
-    cmd = { "FixWhitespace" },
+    "cappyzawa/trim.nvim",
+    cmd = { "TrimToggle", "Trim" },
     keys = { "<Leader>tr" },
     config = function()
-      require("rc/pluginconfig/vim-trailing-whitespace")
+      require("rc/pluginconfig/trim")
     end,
   },
 
