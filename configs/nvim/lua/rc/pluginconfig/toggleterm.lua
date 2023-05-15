@@ -7,14 +7,12 @@ require("toggleterm").setup({
       return vim.o.columns * 0.40
     end
   end,
-
   on_open = function()
     -- Prevent infinite calls from freezing neovim.
     -- Only set these options specific to this terminal buffer.
     vim.api.nvim_set_option_value("foldmethod", "manual", { scope = "local" })
     vim.api.nvim_set_option_value("foldexpr", "0", { scope = "local" })
   end,
-
   open_mapping = false, -- [[<c-\>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
@@ -27,3 +25,21 @@ require("toggleterm").setup({
   close_on_exit = true, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
 })
+
+local Terminal = require("toggleterm.terminal").Terminal
+
+local tig = Terminal:new({ cmd = "tig", hidden = true, direction = "float" })
+
+function _tig_toggle()
+  tig:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _tig_toggle()<CR>", { noremap = true, silent = true })
+
+local trf = Terminal:new({ cmd = "trf", hidden = true, direction = "float" })
+
+function _trf_toggle()
+  trf:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>tf", "<cmd>lua _trf_toggle()<CR>", { noremap = true, silent = true })
