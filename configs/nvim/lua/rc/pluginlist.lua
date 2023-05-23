@@ -475,7 +475,7 @@ return require("lazy").setup({
   },
 
   -- A better user experience for viewing and interacting with Vim marks.
-  https://github.com/chentoast/marks.nvim
+  -- https://github.com/chentoast/marks.nvim
   {
     "chentoast/marks.nvim",
     event = "VeryLazy",
