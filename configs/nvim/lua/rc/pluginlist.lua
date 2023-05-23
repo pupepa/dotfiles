@@ -474,6 +474,16 @@ return require("lazy").setup({
     end,
   },
 
+  -- A better user experience for viewing and interacting with Vim marks.
+  https://github.com/chentoast/marks.nvim
+  {
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("rc/pluginconfig/marks")
+    end,
+  },
+
   -----------------------------------------------------------------------------------------
   -- textobj
   -----------------------------------------------------------------------------------------
