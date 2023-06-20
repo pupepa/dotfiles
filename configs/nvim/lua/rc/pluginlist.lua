@@ -273,7 +273,6 @@ return require("lazy").setup({
       "nvim-telescope/telescope-frecency.nvim",
       "neanias/telescope-lines.nvim",
       "neanias/telescope-lines.nvim",
-      "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-ghq.nvim",
       "nvim-telescope/telescope-github.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
@@ -301,13 +300,6 @@ return require("lazy").setup({
 
   {
     "neanias/telescope-lines.nvim",
-    lazy = true,
-  },
-
-  -- File Browser extension for telescope.nvim
-  -- https://github.com/nvim-telescope/telescope-file-browser.nvim
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
     lazy = true,
   },
 

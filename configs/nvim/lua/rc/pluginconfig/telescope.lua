@@ -4,7 +4,6 @@ if not status then
   return
 end
 
-local fb_actions = require("telescope").extensions.file_browser.actions
 local actions = require("telescope.actions")
 
 telescope.setup({
@@ -84,20 +83,6 @@ telescope.setup({
     },
   },
   extensions = {
-    file_browser = {
-      hijack_netrw = true,
-      mappings = {
-        ["i"] = {
-          ["<C-h>"] = fb_actions.goto_parent_dir,
-        },
-        ["n"] = {
-          ["h"] = fb_actions.goto_parent_dir,
-          ["l"] = require("telescope.actions").select_default,
-          ["."] = fb_actions.toggle_hidden,
-          ["~"] = fb_actions.goto_home_dir,
-        },
-      },
-    },
     fzf = {
       fuzzy = true, -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
@@ -133,13 +118,6 @@ vim.keymap.set("n", "<C-p>", function()
   builtin.find_files({ hidden = true })
 end, { silent = true })
 
-vim.keymap.set("n", "<C-n>", function()
-  telescope.extensions.file_browser.file_browser({
-    hidden = true,
-    hide_parent_dir = true,
-  })
-end, { silent = true })
--- vim.keymap.set("n", "<C-n>", ":Telescope file_browser<CR>", { silent = true })
 vim.keymap.set("n", "<Space>g", builtin.live_grep, {})
 vim.keymap.set("n", "<Space>b", builtin.buffers, {})
 vim.keymap.set("n", "<Space>c", builtin.command_history, {})
@@ -150,7 +128,6 @@ vim.keymap.set("n", "<Space>l", "<Cmd>lua require('telescope').extensions.lines.
 
 require("telescope").load_extension("frecency")
 require("telescope").load_extension("lines")
-require("telescope").load_extension("file_browser")
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("ghq")
 require("telescope").load_extension("gh")
