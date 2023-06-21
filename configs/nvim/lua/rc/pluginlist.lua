@@ -748,6 +748,29 @@ return require("lazy").setup({
     end,
   },
 
+  -- Directory viewer for Vim
+  -- https://github.com/justinmk/vim-dirvish
+  {
+    "justinmk/vim-dirvish",
+    opt = true,
+    keys = { "<C-n>" },
+    cmd = { "Dirvish" },
+    dependencies = {
+      { "roginfarrer/vim-dirvish-dovish" },
+    },
+    config = function()
+      require("rc/pluginconfig/vim-dirvish")
+    end,
+  },
+
+  {
+    "roginfarrer/vim-dirvish-dovish",
+    lazy = true,
+    config = function()
+      require("rc/pluginconfig/vim-dirvish-dovish")
+    end,
+  },
+
   --------------------------------------------------------------------------------
   -- Window
   --------------------------------------------------------------------------------
