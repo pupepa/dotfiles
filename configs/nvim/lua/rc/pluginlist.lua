@@ -214,6 +214,7 @@ return require("lazy").setup({
   -- https://github.com/j-hui/fidget.nvim
   {
     "j-hui/fidget.nvim",
+    tag = "legacy",
     config = function()
       require("rc/pluginconfig/fidget")
     end,
