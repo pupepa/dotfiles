@@ -734,6 +734,16 @@ return require("lazy").setup({
     end,
   },
 
+  -- Use the w, e, b motions like a spider. Move by subwords and skip insignificant punctuation.
+  -- https://github.com/chrisgrieser/nvim-spider
+  {
+    "chrisgrieser/nvim-spider",
+    event = "VeryLazy",
+    config = function()
+      require("rc/pluginconfig/nvim-spider")
+    end,
+  },
+
   --------------------------------------------------------------------------------
   -- File Management
   --------------------------------------------------------------------------------
