@@ -556,7 +556,7 @@ return require("lazy").setup({
   },
 
   -- https://github.com/kana/vim-niceblock
-  { "kana/vim-niceblock",            lazy = true, keys = { "v" } },
+  { "kana/vim-niceblock",       lazy = true, keys = { "v" } },
 
   -----------------------------------------------------------------------------------------
   -- Editing
@@ -859,7 +859,7 @@ return require("lazy").setup({
 
   -- A vim plugin to perform diffs on blocks of code
   -- https://github.com/AndrewRadev/linediff.vim
-  { "AndrewRadev/linediff.vim", opt = true, cmd = { "Linediff" } },
+  { "AndrewRadev/linediff.vim", opt = true,  cmd = { "Linediff" } },
 
   -- Efficient Todo.txt management in vim
   -- https://gitlab.com/dbeniamine/todo.txt-vim
@@ -1025,6 +1025,16 @@ return require("lazy").setup({
     ft = "toggleterm",
     config = function()
       require("rc/pluginconfig/term-edit")
+    end,
+  },
+
+  -- Vim syntax for Re:VIEW
+  -- https://github.com/tokorom/vim-review
+  {
+    "tokorom/vim-review",
+    ft = "review",
+    config = function()
+      require("rc/pluginconfig/vim-review")
     end,
   },
 })
