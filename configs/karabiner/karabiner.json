@@ -22,20 +22,26 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": ["^com\\.microsoft\\.teams$"],
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.teams$"
+                    ],
                     "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
                   "key_code": "return_or_enter",
                   "modifiers": {
-                    "optional": ["any"]
+                    "optional": [
+                      "any"
+                    ]
                   }
                 },
                 "to": [
                   {
                     "key_code": "return_or_enter",
-                    "modifiers": ["left_shift"]
+                    "modifiers": [
+                      "left_shift"
+                    ]
                   }
                 ],
                 "type": "basic"
@@ -43,14 +49,18 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": ["^com\\.microsoft\\.teams$"],
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.teams$"
+                    ],
                     "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
                   "key_code": "return_or_enter",
                   "modifiers": {
-                    "mandatory": ["left_command"]
+                    "mandatory": [
+                      "left_command"
+                    ]
                   }
                 },
                 "to": [
@@ -69,7 +79,9 @@
                 "from": {
                   "key_code": "left_command",
                   "modifiers": {
-                    "optional": ["any"]
+                    "optional": [
+                      "any"
+                    ]
                   }
                 },
                 "to": [
@@ -88,7 +100,9 @@
                 "from": {
                   "key_code": "right_command",
                   "modifiers": {
-                    "optional": ["any"]
+                    "optional": [
+                      "any"
+                    ]
                   }
                 },
                 "to": [
@@ -112,8 +126,12 @@
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": ["left_option"],
-                    "optional": ["any"]
+                    "mandatory": [
+                      "left_option"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
                   }
                 },
                 "to": [
@@ -127,8 +145,12 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "mandatory": ["left_option"],
-                    "optional": ["any"]
+                    "mandatory": [
+                      "left_option"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
                   }
                 },
                 "to": [
@@ -142,8 +164,12 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "mandatory": ["left_option"],
-                    "optional": ["any"]
+                    "mandatory": [
+                      "left_option"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
                   }
                 },
                 "to": [
@@ -157,8 +183,12 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": ["left_option"],
-                    "optional": ["any"]
+                    "mandatory": [
+                      "left_option"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
                   }
                 },
                 "to": [
@@ -176,14 +206,19 @@
               {
                 "conditions": [
                   {
-                    "keyboard_types": ["ansi", "iso"],
+                    "keyboard_types": [
+                      "ansi",
+                      "iso"
+                    ],
                     "type": "keyboard_type_if"
                   }
                 ],
                 "from": {
                   "key_code": "open_bracket",
                   "modifiers": {
-                    "mandatory": ["control"]
+                    "mandatory": [
+                      "control"
+                    ]
                   }
                 },
                 "to": [
@@ -199,14 +234,18 @@
               {
                 "conditions": [
                   {
-                    "keyboard_types": ["jis"],
+                    "keyboard_types": [
+                      "jis"
+                    ],
                     "type": "keyboard_type_if"
                   }
                 ],
                 "from": {
                   "key_code": "close_bracket",
                   "modifiers": {
-                    "mandatory": ["control"]
+                    "mandatory": [
+                      "control"
+                    ]
                   }
                 },
                 "to": [
@@ -247,13 +286,17 @@
                 "from": {
                   "key_code": "t",
                   "modifiers": {
-                    "mandatory": ["control"]
+                    "mandatory": [
+                      "control"
+                    ]
                   }
                 },
                 "to": [
                   {
                     "key_code": "t",
-                    "modifiers": ["control"]
+                    "modifiers": [
+                      "control"
+                    ]
                   },
                   {
                     "key_code": "japanese_eisuu"
@@ -329,7 +372,9 @@
                 "from": {
                   "key_code": "right_shift",
                   "modifiers": {
-                    "optional": ["any"]
+                    "optional": [
+                      "any"
+                    ]
                   }
                 },
                 "to": [
@@ -356,108 +401,6 @@
                     {
                       "set_variable": {
                         "name": "right_shift_key",
-                        "value": 0
-                      }
-                    }
-                  ]
-                },
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Double tap 'left_shift' to open Terminal",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.github\\.wez\\.wezterm$",
-                      "^io\\.alacritty$"
-                    ],
-                    "type": "frontmost_application_unless"
-                  },
-                  {
-                    "name": "left_shift_key",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "left_shift"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e 'tell application \"WezTerm\" to activate' &"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.github\\.wez\\.wezterm$",
-                      "^io\\.alacritty$"
-                    ],
-                    "type": "frontmost_application_if"
-                  },
-                  {
-                    "name": "left_shift_key",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "left_shift"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e 'tell application \"Safari\" to activate' &"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "left_shift_key",
-                    "type": "variable_if",
-                    "value": 0
-                  }
-                ],
-                "from": {
-                  "key_code": "left_shift",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "left_shift_key",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "left_shift"
-                  }
-                ],
-                "to_delayed_action": {
-                  "to_if_canceled": [
-                    {
-                      "set_variable": {
-                        "name": "left_shift_key",
-                        "value": 0
-                      }
-                    }
-                  ],
-                  "to_if_invoked": [
-                    {
-                      "set_variable": {
-                        "name": "left_shift_key",
                         "value": 0
                       }
                     }
