@@ -361,7 +361,7 @@ return require("lazy").setup({
     version = "v2.*",
     event = "BufReadPost",
     opt = true,
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("rc/pluginconfig/bufferline")
     end,
