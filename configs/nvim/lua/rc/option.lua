@@ -1,6 +1,6 @@
 vim.opt.imdisable = true -- IME OFF
 vim.opt.cmdheight = 0
-vim.opt.pumheight = 10 -- 補完メニューの高さ
+vim.opt.pumheight = 10   -- 補完メニューの高さ
 vim.opt.history = 10000
 vim.opt.helplang = "ja"
 
@@ -11,10 +11,10 @@ vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 10 -- Normal モードへの切り替えの遅延をなくす
 
 -- Tab
-vim.opt.tabstop = 2 -- タブサイズ
-vim.opt.shiftwidth = 2 -- シフト移動幅
+vim.opt.tabstop = 2      -- タブサイズ
+vim.opt.shiftwidth = 2   -- シフト移動幅
 vim.opt.expandtab = true -- タブの代わりに空白文字を挿入する
-vim.opt.smarttab = true -- 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
+vim.opt.smarttab = true  -- 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 
 -- Clipboard
 if vim.fn.has("clipboard") == 1 then
@@ -27,23 +27,23 @@ vim.opt.formatoptions:append("m")
 vim.opt.formatoptions:append("M")
 
 -- Command
-vim.opt.wildmenu = true -- コマンドライン補完を拡張
+vim.opt.wildmenu = true       -- コマンドライン補完を拡張
 vim.opt.wildignorecase = true -- 補完の時に大文字小文字を無視する
 vim.opt.wildignore = "*.pyc,*.o,*.lo,*.la,*.exe,*.swp,*.db,*.bak,*.old,*.dat,*.,tmp,*.mdb,*~,~*"
 
 -- Search
-vim.opt.wrapscan = false -- 検索をファイルの先頭へループしない
+vim.opt.wrapscan = false  -- 検索をファイルの先頭へループしない
 vim.opt.ignorecase = true -- 検索時の大文字小文字を区別しない
-vim.opt.smartcase = true -- 検索文字列に大文字小文字の両方が含まれる場合、区別する
-vim.opt.incsearch = true -- インクリメンタルサーチを行う
+vim.opt.smartcase = true  -- 検索文字列に大文字小文字の両方が含まれる場合、区別する
+vim.opt.incsearch = true  -- インクリメンタルサーチを行う
 vim.opt.hlsearch = true
 
 -- Window
 vim.opt.splitbelow = true
 
 -- File
-vim.opt.hidden = true -- バッファを保存せずに切り替える
-vim.opt.backup = false -- for coc.nvim
+vim.opt.hidden = true       -- バッファを保存せずに切り替える
+vim.opt.backup = false      -- for coc.nvim
 vim.opt.writebackup = false -- for coc.nvim
 vim.opt.swapfile = false
 
@@ -63,16 +63,16 @@ vim.opt.background = "dark"
 vim.opt.ambiwidth = "single"
 vim.opt.cursorline = true
 vim.opt.display = "lastline" -- 1 行の文字数が多くても表示
-vim.opt.foldenable = false -- 折りたたみを使用しない
-vim.opt.signcolumn = "yes" -- SignColumn を常に表示
-vim.opt.lazyredraw = true -- 再描画のタイミングを遅らせてスクロール速度を速くする
-vim.opt.showmatch = true -- 括弧を入力した時に対応する括弧へ一瞬ジャンプする
+vim.opt.foldenable = false   -- 折りたたみを使用しない
+vim.opt.signcolumn = "yes"   -- SignColumn を常に表示
+vim.opt.lazyredraw = true    -- 再描画のタイミングを遅らせてスクロール速度を速くする
+vim.opt.showmatch = true     -- 括弧を入力した時に対応する括弧へ一瞬ジャンプする
 vim.opt.number = true
-vim.opt.matchtime = 1 -- showmatch の秒数
-vim.opt.list = true -- タブ文字、行末など不可視文字を表示する
-vim.opt.showmode = false -- インサートモードなどの文字を非表示にする
-vim.opt.laststatus = 2 -- 下部のステータスラインを常に表示
-vim.opt.showtabline = 2 -- タブページを常に表示
+vim.opt.matchtime = 1        -- showmatch の秒数
+vim.opt.list = true          -- タブ文字、行末など不可視文字を表示する
+vim.opt.showmode = false     -- インサートモードなどの文字を非表示にする
+vim.opt.laststatus = 3       -- 下部のステータスラインを常に表示
+vim.opt.showtabline = 2      -- タブページを常に表示
 
 -- Bell
 vim.opt.errorbells = false
