@@ -4,9 +4,6 @@ local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
 local sources = {
   null_ls.builtins.formatting.stylua,
-  null_ls.builtins.code_actions.eslint.with({
-    prefer_local = "node_modules/.bin",
-  }),
   null_ls.builtins.diagnostics.eslint.with({
     prefer_local = "node_modules/.bin",
     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
