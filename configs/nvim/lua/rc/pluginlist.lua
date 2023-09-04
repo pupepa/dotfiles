@@ -695,6 +695,7 @@ return require("lazy").setup({
     cmd = { "FuzzyMotion" },
     init = function()
       vim.g.fuzzy_motion_matchers = { "fzf", "kensaku" }
+      vim.g.fuzzy_motion_auto_jump = true
       vim.keymap.set({ "n", "x" }, "<Leader>s", "<Cmd>FuzzyMotion<CR>")
     end,
     config = function()
