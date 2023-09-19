@@ -1,9 +1,9 @@
-require("bufferline").setup {
+require("bufferline").setup({
   options = {
     mode = "buffers",
-    indicator_style = '▎',
-    diagnostics = 'coc',
-    modified_icon = '●',
+    indicator_style = "▎",
+    diagnostics = "nvim_lsp",
+    modified_icon = "●",
     color_icons = true,
     show_buffer_icons = true,
     show_buffer_close_icons = false,
@@ -15,8 +15,8 @@ require("bufferline").setup {
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     numbers = function(opts)
-      return string.format('%s)', opts.id)
-    end
+      return string.format("%s)", opts.id)
+    end,
   },
   -- highlights = {
   --   buffer_selected = {
@@ -32,4 +32,4 @@ require("bufferline").setup {
   --     gui = "bold"
   --   },
   -- },
-}
+})
