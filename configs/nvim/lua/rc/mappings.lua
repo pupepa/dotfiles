@@ -82,4 +82,4 @@ vim.keymap.set("n", "<Leader>pp", ':<C-u>echo expand("%:p")<CR>')
 vim.keymap.set("n", "<Leader>lc", ":<C-u>lcd %:h<CR>", { silent = true })
 
 -- 空行
-vim.keymap.set("n", "<Space><Space>", ":<C-u>put =repeat(nr2char(10), v:count1)<CR>")
+vim.keymap.set("n", "<Enter>", ":<C-u>put =repeat(nr2char(10), v:count1)<CR>")

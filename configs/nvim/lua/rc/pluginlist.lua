@@ -696,7 +696,7 @@ return require("lazy").setup({
     init = function()
       vim.g.fuzzy_motion_matchers = { "fzf", "kensaku" }
       vim.g.fuzzy_motion_auto_jump = true
-      vim.keymap.set({ "n", "x" }, "<Leader>s", "<Cmd>FuzzyMotion<CR>")
+      vim.keymap.set({ "n", "x" }, "<Space><Space>", "<Cmd>FuzzyMotion<CR>")
     end,
     config = function()
       require("denops-lazy").load("fuzzy-motion.vim", { wait_load = false })
