@@ -38,3 +38,14 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end,
   once = true,
 })
+
+--- .env.* は filetype を sh にする
+local dotenv_group = "filetype_dotenv"
+vim.api.nvim_create_augroup(dotenv_group, { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead,BufNewFile" }, {
+  group = dotenv_group,
+  pattern = ".env.*",
+  callback = function()
+    vim.bo.filetype = "sh"
+  end,
+})
