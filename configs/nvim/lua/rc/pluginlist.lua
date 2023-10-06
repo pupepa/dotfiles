@@ -468,13 +468,21 @@ return require("lazy").setup({
     end,
   },
 
-  -- A better user experience for viewing and interacting with Vim marks.
-  -- https://github.com/chentoast/marks.nvim
+  -- Mirror of http://www.vim.org/scripts/script.php?script_id=2142
+  -- https://github.com/jacquesbh/vim-showmarks
   {
-    "chentoast/marks.nvim",
+    "jacquesbh/vim-showmarks",
     event = "VeryLazy",
     config = function()
-      require("rc/pluginconfig/marks")
+      vim.api.nvim_create_augroup("vimrc_showmarks", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+        group = "vimrc_showmarks",
+        pattern = "*",
+        callback = function()
+          vim.cmd("DoShowMarks")
+        end,
+        once = true,
+      })
     end,
   },
 
