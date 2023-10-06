@@ -401,6 +401,7 @@ return require("lazy").setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     opt = true,
+    tag = "v2.20.8",
     event = "BufReadPost",
     config = function()
       require("rc/pluginconfig/indent-blankline")
