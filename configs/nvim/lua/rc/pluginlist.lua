@@ -1024,7 +1024,7 @@ return require("lazy").setup({
     "akinsho/toggleterm.nvim",
     version = "*",
     cmd = { "ToggleTerm" },
-    keys = { "<Leader>tg", "<Leader>tf" },
+    keys = { "<Leader>tg", "<Leader>tf", "<Leader>tt" },
     config = function()
       require("rc/pluginconfig/toggleterm")
     end,
