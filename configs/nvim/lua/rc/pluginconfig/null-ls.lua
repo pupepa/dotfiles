@@ -31,6 +31,11 @@ local sources = {
     end,
     extra_args = { "-A" },
   }),
+  null_ls.builtins.formatting.swift_format.with({
+    condition = function()
+      return vim.fn.executable("swift-format") > 0
+    end,
+  }),
 }
 
 null_ls.setup({
