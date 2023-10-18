@@ -267,7 +267,7 @@ return require("lazy").setup({
   -- https://github.com/nvim-telescope/telescope.nvim
   {
     "nvim-telescope/telescope.nvim",
-    version = "0.1.1",
+    version = "0.1.4",
     event = { "VimEnter" },
     dependencies = {
       "nvim-lua/plenary.nvim",
