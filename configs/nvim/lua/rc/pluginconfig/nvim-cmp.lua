@@ -123,6 +123,11 @@ cmp.setup({
     { name = "spell" },
     { name = "tmux" },
   }),
+
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
 })
 
 -- `/` cmdline setup.
