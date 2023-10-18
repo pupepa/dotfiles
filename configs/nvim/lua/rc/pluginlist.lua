@@ -770,27 +770,20 @@ return require("lazy").setup({
     end,
   },
 
-  -- Directory viewer for Vim
-  -- https://github.com/justinmk/vim-dirvish
   {
-    "justinmk/vim-dirvish",
-    opt = true,
+    "tamago324/lir.nvim",
     keys = { "<C-n>" },
-    cmd = { "Dirvish" },
     dependencies = {
-      { "roginfarrer/vim-dirvish-dovish" },
+      "tamago324/lir-git-status.nvim",
     },
     config = function()
-      require("rc/pluginconfig/vim-dirvish")
+      require("rc/pluginconfig/lir")
     end,
   },
 
   {
-    "roginfarrer/vim-dirvish-dovish",
+    "tamago324/lir-git-status.nvim",
     lazy = true,
-    config = function()
-      require("rc/pluginconfig/vim-dirvish-dovish")
-    end,
   },
 
   --------------------------------------------------------------------------------
