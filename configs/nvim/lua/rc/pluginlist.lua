@@ -770,6 +770,8 @@ return require("lazy").setup({
     end,
   },
 
+  -- Neovim file explorer
+  -- https://github.com/tamago324/lir.nvim
   {
     "tamago324/lir.nvim",
     keys = { "<C-n>" },
@@ -781,6 +783,8 @@ return require("lazy").setup({
     end,
   },
 
+  -- Git status integration of lir.nvim
+  -- https://github.com/tamago324/lir-git-status.nvim
   {
     "tamago324/lir-git-status.nvim",
     lazy = true,
