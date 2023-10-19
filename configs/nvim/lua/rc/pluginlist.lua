@@ -501,66 +501,46 @@ return require("lazy").setup({
   -- textobj
   -----------------------------------------------------------------------------------------
 
-  -- Vim plugin: Create your own text objects
-  -- https://github.com/kana/vim-textobj-user
+  -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
+
+  -- Bundle of two dozen new text objects for Neovim.
+  -- https://github.com/chrisgrieser/nvim-various-textobjs
   {
-    "kana/vim-textobj-user",
-    opt = true,
-    keys = { "y", "c", "d", "v" },
-    dependencies = {
-      -- Vim plugin: Text objects for entire buffer
-      -- https://github.com/kana/vim-textobj-entire
-      { "kana/vim-textobj-entire",            opt = true },
-
-      -- Vim plugin: Text objects for the current line
-      -- https://github.com/kana/vim-textobj-line
-      { "kana/vim-textobj-line",              opt = true },
-
-      -- https://github.com/kana/vim-textobj-indent
-      { "kana/vim-textobj-indent",            opt = true },
-
-      -- The vim textobject plugin to treat function-call regions.
-      -- https://github.com/machakann/vim-textobj-functioncall
-      { "machakann/vim-textobj-functioncall", opt = true },
-
-      -- https://github.com/mattn/vim-textobj-url
-      { "mattn/vim-textobj-url",              opt = true },
-
-      -- https://github.com/osyo-manga/vim-textobj-multiblock
-      {
-        "osyo-manga/vim-textobj-multiblock",
-        opt = true,
-        config = function()
-          require("rc/pluginconfig/vim-textobj-multiblock")
-        end,
-      },
-
-      -- https://github.com/pocke/vim-textobj-markdown
-      { "pocke/vim-textobj-markdown",          opt = true },
-
-      -- A fork of textobj-parameter 0.1.0
-      -- https://github.com/sgur/vim-textobj-parameter
-      { "sgur/vim-textobj-parameter",          opt = true },
-
-      -- A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
-      -- https://github.com/Julian/vim-textobj-variable-segment
-      { "julian/vim-textobj-variable-segment", opt = true },
-
-      -- Vim plugin: Text objects for date and time
-      -- https://github.com/kana/vim-textobj-datetime
-      { "kana/vim-textobj-datetime",           opt = true },
-    },
+    "chrisgrieser/nvim-various-textobjs",
+    event = "VeryLazy",
+    config = function()
+      require("rc/pluginconfig/nvim-various-textobjs")
+    end,
   },
 
-  -- Vim plugin: Operator to replace text with register content
-  -- https://github.com/yuki-yano/vim-operator-replace
+  -- A Neovim plugin to deal with treesitter units
+  -- https://github.com/David-Kunz/treesitter-unit
   {
-    "yuki-yano/vim-operator-replace",
-    dependencies = "kana/vim-operator-user",
-    lazy = true,
-    keys = { "s" },
+    "David-Kunz/treesitter-unit",
+    event = "VeryLazy",
     config = function()
-      require("rc/pluginconfig/vim-operator-replace")
+      require("rc/pluginconfig/treesitter-unit")
+    end,
+  },
+
+  -- Region selection with hints on the AST nodes of a document powered by treesitter
+  -- https://github.com/mfussenegger/nvim-treehopper
+  {
+    "mfussenegger/nvim-treehopper",
+    event = "VeryLazy",
+    config = function()
+      require("rc/pluginconfig/nvim-treehopper")
+    end,
+  },
+
+  -- Neovim plugin introducing a new operators motions to quickly replace and exchange text.
+  -- https://github.com/gbprod/substitute.nvim
+  {
+    "gbprod/substitute.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("rc/pluginconfig/substitute")
     end,
   },
 
