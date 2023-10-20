@@ -497,6 +497,16 @@ return require("lazy").setup({
     end,
   },
 
+  -- Virtual text context for neovim treesitter
+  -- https://github.com/andersevenrud/nvim_context_vt
+  {
+    "haringsrob/nvim_context_vt",
+    event = "BufReadPost",
+    config = function()
+      require("rc/pluginconfig/nvim_context_vt")
+    end,
+  },
+
   -----------------------------------------------------------------------------------------
   -- textobj
   -----------------------------------------------------------------------------------------
