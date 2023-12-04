@@ -28,5 +28,10 @@ require("gitsigns").setup({
       end)
       return "<Ignore>"
     end, { expr = true })
+
+    -- Actions
+    map("n", "<leader>tb", gs.toggle_current_line_blame)
   end,
 })
+
+vim.cmd([[hi! gitsignscurrentlineblame guifg=#a0a0a0]])
