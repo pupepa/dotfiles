@@ -568,7 +568,11 @@ return require("lazy").setup({
   },
 
   -- https://github.com/kana/vim-niceblock
-  { "kana/vim-niceblock",       lazy = true, keys = { "v" } },
+  {
+    "kana/vim-niceblock",
+    lazy = true,
+    keys = { "v" },
+  },
 
   -----------------------------------------------------------------------------------------
   -- Editing
@@ -623,10 +627,10 @@ return require("lazy").setup({
 
   -- repeat.vim: enable repeating supported plugin maps with "."
   -- https://github.com/tpope/vim-repeat
-  {
-    "tpope/vim-repeat",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "tpope/vim-repeat",
+  --   event = "VeryLazy",
+  -- },
 
   -- Use treesitter to auto close and auto rename html tag
   -- https://github.com/windwp/nvim-ts-autotag
@@ -705,8 +709,7 @@ return require("lazy").setup({
     },
     cmd = { "FuzzyMotion" },
     init = function()
-      vim.g.fuzzy_motion_matchers = { "fzf", "kensaku" }
-      vim.g.fuzzy_motion_auto_jump = true
+      vim.g.fuzzy_motion_matchers = { "kensaku", "fzf" }
       vim.keymap.set({ "n", "x" }, "<Space><Space>", "<Cmd>FuzzyMotion<CR>")
     end,
     config = function()
@@ -841,7 +844,7 @@ return require("lazy").setup({
 
   -- A vim plugin to perform diffs on blocks of code
   -- https://github.com/AndrewRadev/linediff.vim
-  { "AndrewRadev/linediff.vim", opt = true,  cmd = { "Linediff" } },
+  { "AndrewRadev/linediff.vim",                    opt = true,        cmd = { "Linediff" } },
 
   -- Efficient Todo.txt management in vim
   -- https://gitlab.com/dbeniamine/todo.txt-vim
