@@ -424,7 +424,7 @@ return require("lazy").setup({
   -- https://github.com/tversteeg/registers.nvim
   {
     "tversteeg/registers.nvim",
-    keys = { { '"', mode = "n" }, { "<C-r", mode = "i" } },
+    keys = { { '"', mode = "n" }, { "<C-r>", mode = "i" } },
     branch = "main",
     config = function()
       require("rc/pluginconfig/registers")
