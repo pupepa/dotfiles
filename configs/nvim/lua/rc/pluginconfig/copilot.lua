@@ -14,6 +14,7 @@ require("copilot").setup({
     todo = true,
     markdown = true,
     yaml = true,
+    gitcommit = true,
   },
 })
 
