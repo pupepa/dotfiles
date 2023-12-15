@@ -1041,4 +1041,14 @@ return require("lazy").setup({
       require("rc/pluginconfig/package-info")
     end,
   },
+
+  -- A fast Neovim http client written in Lua
+  -- https://github.com/rest-nvim/rest.nvim
+  {
+    "rest-nvim/rest.nvim",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+    config = function()
+      require("rc/pluginconfig/rest")
+    end,
+  },
 })
