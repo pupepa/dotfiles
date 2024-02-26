@@ -367,15 +367,14 @@ return require("lazy").setup({
     end,
   },
 
-  -- Minimal plugin allow you to open url under cursor in neovim without netrw with default browser of your system and highlight url
-  -- https://github.com/sontungexpt/url-open
+  --URL highlight everywhere
+  -- https://github.com/itchyny/vim-highlighturl
   {
-    "sontungexpt/url-open",
-    event = "VeryLazy",
-    cmd = "URLOpenUnderCursor",
-    keys = { "gx" },
+    "itchyny/vim-highlighturl",
+    event = "BufEnter",
+
     config = function()
-      require("rc/pluginconfig/url-open")
+      require("rc/pluginconfig/vim-highlighturl")
     end,
   },
 
@@ -825,6 +824,23 @@ return require("lazy").setup({
   -- Utility
   -----------------------------------------------------------------------------------------
 
+  -- Open URI with your favorite browser from your most favorite editor
+  -- https://github.com/tyru/open-browser.vim
+  {
+    "tyru/open-browser.vim",
+    config = function()
+      require("rc/pluginconfig/open-browser")
+    end,
+  },
+
+  -- Open GitHub URL of current file, etc. from Vim editor (supported GitHub Enterprise)
+  -- https://github.com/tyru/open-browser-github.vim
+  {
+    "tyru/open-browser-github.vim",
+    opt = true,
+    cmd = { "OpenGithubFile", "OpenGithubIssue", "OpenGithubPullReq", "OpenGithubProject" },
+  },
+
   {
     "aserowy/tmux.nvim",
     keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
@@ -910,6 +926,9 @@ return require("lazy").setup({
   {
     "previm/previm",
     ft = { "markdown", "asciidoc" },
+    dependencies = {
+      "tyru/open-browser.vim",
+    },
   },
 
   -- Delete Neovim buffers without losing window layout
