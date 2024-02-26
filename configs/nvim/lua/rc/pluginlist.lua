@@ -680,13 +680,14 @@ return require("lazy").setup({
   -- Moving Cursor
   -----------------------------------------------------------------------------------------
 
-  -- 👀 Move faster with unique f/F indicators.
-  -- https://github.com/jinh0/eyeliner.nvim
+  -- Extended f, F, t and T key mappings for Vim.
+  -- https://github.com/rhysd/clever-f.vim
   {
-    "jinh0/eyeliner.nvim",
-    event = "VeryLazy",
+    "rhysd/clever-f.vim",
+    opt = true,
+    event = "BufReadPost",
     config = function()
-      require("rc/pluginconfig/eyeliner")
+      require("rc/pluginconfig/clever-f")
     end,
   },
 
