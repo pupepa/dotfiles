@@ -285,6 +285,12 @@ return require("lazy").setup({
       {
         "tsakirist/telescope-lazy.nvim",
       },
+      {
+        "delphinus/telescope-memo.nvim",
+        config = function()
+          require("telescope").load_extension("memo")
+        end,
+      },
     },
     config = function()
       require("rc/pluginconfig/telescope")
