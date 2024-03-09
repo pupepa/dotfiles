@@ -178,8 +178,15 @@ return require("lazy").setup({
     opt = false,
     dependencies = {
       "glepnir/lspsaga.nvim",
-
       "nvim-lualine/lualine.nvim",
+      {
+        -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+        -- https://github.com/folke/neodev.nvim
+        "folke/neodev.nvim",
+        config = function()
+          require("neodev").setup()
+        end,
+      },
     },
     config = function()
       require("rc/pluginconfig/nvim-lspconfig")
