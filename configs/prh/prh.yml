@@ -7,245 +7,245 @@ version: 1
 
 rules:
   - expected: あらかじめ
-    pattern:  予め
+    pattern: 予め
   - expected: いずれ
-    pattern:  何れ
+    pattern: 何れ
   - expected: すべて
-    pattern:  全て
+    pattern: 全て
   - expected: なお、
-    pattern:  尚、
+    pattern: 尚、
   - expected: きわめて
-    pattern:  極めて
+    pattern: 極めて
   - expected: さらに
-    pattern:  /(変)?更に/
+    pattern: /(変)?更に/
     regexpMustEmpty: $1
     specs:
-        - from: 更に
-          to: さらに
-        - from: 変更に
-          to: 変更に
+      - from: 更に
+        to: さらに
+      - from: 変更に
+        to: 変更に
   - expected: ともに
-    pattern:  共に
+    pattern: 共に
   - expected: たとえば
-    pattern:  例えば
+    pattern: 例えば
   - expected: たびたび
-    pattern:  度々
+    pattern: 度々
   - expected: まったく
-    pattern:  全く
+    pattern: 全く
   - expected: および
-    pattern:  及び
+    pattern: 及び
   - expected: または
-    pattern:  又は
+    pattern: 又は
   - expected: もしくは
-    pattern:  若しくは
+    pattern: 若しくは
   - expected: したがって
-    pattern:  従って
+    pattern: 従って
   - expected: ただし
-    pattern:  但し
+    pattern: 但し
   - expected: 以下のとおり
-    pattern:  以下の通り
+    pattern: 以下の通り
   - expected: 思いのほか
-    pattern:  思いの外
+    pattern: 思いの外
   - expected: ほかならぬ
-    pattern:  他ならぬ|外ならぬ
+    pattern: 他ならぬ|外ならぬ
   - expected: さまざま
-    pattern:  様々
+    pattern: 様々
   - expected: できる
-    pattern:  出来る
+    pattern: 出来る
   - expected: ください
-    pattern:  下さい
+    pattern: 下さい
   - expected: 既に
-    pattern:  すでに
+    pattern: すでに
   - expected: 1カ所
-    pattern:  1箇所|1ヶ所
+    pattern: 1箇所|1ヶ所
   - expected: しがたい
-    pattern:  し難い
+    pattern: し難い
   - expected: してよい
-    pattern:  して良い
+    pattern: して良い
   - expected: してもよい
-    pattern:  しても良い
+    pattern: しても良い
   - expected: しやすい
-    pattern:  し易い
+    pattern: し易い
   - expected: するうえで
-    pattern:  する上で
+    pattern: する上で
   - expected: するごとに
-    pattern:  する毎に
+    pattern: する毎に
   - expected: とよぶ
-    pattern:  と呼ぶ
+    pattern: と呼ぶ
   - expected: において
-    pattern:  に於いて
+    pattern: に於いて
   - expected: にみられる
-    pattern:  に見られる
+    pattern: に見られる
   - expected: に基づく
-    pattern:  にもとづく
+    pattern: にもとづく
   - expected: に沿って
-    pattern:  にそって
+    pattern: にそって
   - expected: のとき
-    pattern:  /の時(?!(間|期|代))/
+    pattern: /の時(?!(間|期|代))/
     specs:
-        - from: の時
-          to: のとき
-        - from: の時間
-          to: の時間
-        - from: の時期
-          to: の時期
+      - from: の時
+        to: のとき
+      - from: の時間
+        to: の時間
+      - from: の時期
+        to: の時期
   - expected: のように
-    pattern:  の様に
+    pattern: の様に
   - expected: の中で
-    pattern:  のなかで
+    pattern: のなかで
   - expected: をはじめに
-    pattern:  (を初めに|を始めに)
+    pattern: (を初めに|を始めに)
   - expected: に当たり
-    pattern:  にあたり
+    pattern: にあたり
   - expected: あるいは
-    pattern:  或いは
+    pattern: 或いは
   - expected: あわせて
-    pattern:  併せて
+    pattern: 併せて
   - expected: いかに
-    pattern:  如何に
+    pattern: 如何に
   - expected: いっそう
-    pattern:  一層
+    pattern: 一層
   - expected: いったん
-    pattern:  一旦
+    pattern: 一旦
   - expected: いわゆる
-    pattern:  所謂
+    pattern: 所謂
   - expected: おのおの
-    pattern:  各々
+    pattern: 各々
   - expected: ごとく
-    pattern:  如く
+    pattern: 如く
   - expected: しだいに
-    pattern:  次第に
+    pattern: 次第に
   - expected: じかに
-    pattern:  直に
+    pattern: 直に
   - expected: すぐに
-    pattern:  直ぐに
+    pattern: 直ぐに
   - expected: その
-    pattern:  其の
+    pattern: 其の
   - expected: それぞれ
-    pattern:  (其々|夫々)
+    pattern: (其々|夫々)
   - expected: たとえば
-    pattern:  例えば
+    pattern: 例えば
   - expected: ため
-    pattern:  /(行)?為/
+    pattern: /(行)?為/
     regexpMustEmpty: $1
   - expected: ついに
-    pattern:  遂に
+    pattern: 遂に
   - expected: とくに
-    pattern:  特に
+    pattern: 特に
   - expected: ない
-    pattern:  無い
+    pattern: 無い
   - expected: なお
-    pattern:  尚
+    pattern: 尚
   - expected: なぜ
-    pattern:  何故
+    pattern: 何故
   - expected: など
-    pattern:  等
+    pattern: 等
   - expected: ほとんど
-    pattern:  殆ど
+    pattern: 殆ど
   - expected: まず
-    pattern:  先ず
+    pattern: 先ず
   - expected: まだ
-    pattern:  未だ
+    pattern: 未だ
   - expected: まとめる
-    pattern:  纏める
+    pattern: 纏める
   - expected: もっとも
-    pattern:  最も
+    pattern: 最も
   - expected: ゆえに
-    pattern:  故に
+    pattern: 故に
   - expected: わずか
-    pattern:  僅か
+    pattern: 僅か
   - expected: 一つ
-    pattern:  ひとつ
+    pattern: ひとつ
   - expected: 二つ
-    pattern:  ふたつ
+    pattern: ふたつ
   - expected: 主に
-    pattern:  おもに
+    pattern: おもに
   - expected: 互いに
-    pattern:  たがいに
+    pattern: たがいに
   - expected: 初めに
-    pattern:  はじめに
+    pattern: はじめに
   - expected: 合わす
-    pattern:  合す
+    pattern: 合す
   - expected: 合わせる
-    pattern:  合せる
+    pattern: 合せる
   - expected: 大変
-    pattern:  たいへん
+    pattern: たいへん
   - expected: 始める
-    pattern:  はじめる
+    pattern: はじめる
   - expected: 少ない
-    pattern:  すくない
+    pattern: すくない
   - expected: 当たる
-    pattern:  当る
+    pattern: 当る
   - expected: 押さえる
-    pattern:  押える
+    pattern: 押える
   - expected: 断る
-    pattern:  断わる
+    pattern: 断わる
   - expected: 明らか
-    pattern:  あきらか
+    pattern: あきらか
   - expected: 果たす
-    pattern:  果す
+    pattern: 果す
   - expected: 次いで
-    pattern:  ついで
+    pattern: ついで
   - expected: 現れる
-    pattern:  現われる
+    pattern: 現われる
   - expected: 積もる
-    pattern:  積る
+    pattern: 積る
   - expected: 終わる
-    pattern:  終る
+    pattern: 終る
   - expected: 続き
-    pattern:  つづき
+    pattern: つづき
   - expected: 聞こえる
-    pattern:  聞える
+    pattern: 聞える
   - expected: 落とす
-    pattern:  落す
+    pattern: 落す
   - expected: 著す
-    pattern:  著わす
+    pattern: 著わす
   - expected: 行う
-    pattern:  行なう
+    pattern: 行なう
   - expected: 表す
-    pattern:  表わす
+    pattern: 表わす
   - expected: 起こる
-    pattern:  起る
-  - expected: サーバ
-    pattern: サーバー
-  - expected: アクセサリ
-    pattern: アクセサリー
-  - expected: アダプタ
-    pattern: アダプター
-  - expected: オペレータ
-    pattern: オペレーター
-  - expected: クリエイタ
-    pattern: クリエイター
+    pattern: 起る
+  - expected: サーバー
+    pattern: /サーバ(?!ー)/
+  - expected: アクセサリー
+    pattern: /アクセサリ(?!ー)/
+  - expected: アダプター
+    pattern: /アダプタ(?!ー)/
+  - expected: オペレーター
+    pattern: /オペレータ(?!ー)/
+  - expected: クリエイター
+    pattern: /クリエイタ(?!ー)/
   - expected: ユーティリティ
     pattern: ユーティリティー
-  - expected: ラスタライザ
-    pattern: ラスタライザー
-  - expected: フォルダ
-    pattern: フォルダー
-  - expected: カウンタ
-    pattern: カウンター
-  - expected: カテゴリ
-    pattern: カテゴリー
-  - expected: ユーザ
-    pattern: ユーザー
-  - expected: ハンバーガ
-    pattern: ハンバーガー
-  - expected: コンピュータ
-    pattern: コンピューター
+  - expected: ラスタライザー
+    pattern: /ラスタライザ(?!ー)/
+  - expected: フォルダー
+    pattern: /フォルダ(?!ー)/
+  - expected: カウンター
+    pattern: /カウンタ(?!ー)/
+  - expected: カテゴリー
+    pattern: /カテゴリ(?!ー)/
+  - expected: ユーザー
+    pattern: /ユーザ(?!ー)/
+  - expected: ハンバーガー
+    pattern: /ハンバーガ(?!ー)/
+  - expected: コンピューター
+    pattern: /コンピュータ(?!ー)/
   - expected: セキュリティ
     pattern: セキュリティー
   - expected: ブラウザ
-    pattern: ブラウザー
-  - expected: プリンタ
-    pattern: プリンター
-  - expected: ライブラリ
-    pattern: ライブラリー
-  - expected: モニタ
-    pattern: モニター
-  - expected: レイヤ
-    pattern: レイヤー
-  - expected: パラメータ
-    pattern: パラメーター
+    pattern: /ブラウザー(?!ー)/
+  - expected: プリンター
+    pattern: /プリンタ(?!ー)/
+  - expected: ライブラリー
+    pattern: /ライブラリ(?!ー)/
+  - expected: モニター
+    pattern: /モニタ(?!ー)/
+  - expected: レイヤー
+    pattern: /レイヤ(?!ー)/
+  - expected: パラメーター
+    pattern: /パラメータ(?!ー)/
   - expected: データ
     pattern: データー
   - expected: ウイルス
@@ -254,4 +254,3 @@ rules:
     pattern: ウェイト
   - expected: インターフェイス
     pattern: インターフェース
-
