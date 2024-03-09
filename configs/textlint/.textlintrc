@@ -23,10 +23,7 @@
       "4.3.2.大かっこ［］": false,
     },
     "no-mix-dearu-desumasu": {
-      "preferInHeader": "である",
-      "preferInBody": "である",
-      "preferInList": "である",
-      "strict": true
+      "strict": false
     },
     "max-ten": {
       "max" : 5
