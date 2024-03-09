@@ -1,5 +1,3 @@
-require("insx.preset.standard").setup()
-
 local insx = require("insx")
 local esc = require("insx.helper.regex").esc
 local fast_wrap = require("insx.recipe.fast_wrap")
@@ -39,7 +37,7 @@ insx.add("<CR>", endwise(endwise.builtin))
 insx.add(">", endwise(auto_tag().builtin))
 
 -- quotes
-for _, quote in ipairs({ '"', "`" }) do
+for _, quote in ipairs({ '"', "'" }) do
   -- jump_out
   insx.add(
     quote,
@@ -76,6 +74,84 @@ for _, quote in ipairs({ '"', "`" }) do
       open_pat = esc(quote),
       close_pat = esc(quote),
       ignore_pat = ([[\\%s\%%#]]):format(esc(quote)),
+    })
+  )
+end
+
+-- pairs
+for open, close in pairs({
+  ["("] = ")",
+  ["["] = "]",
+  ["{"] = "}",
+}) do
+  -- jump_out
+  insx.add(
+    close,
+    require("insx.recipe.jump_next")({
+      jump_pat = {
+        [[\%#]] .. esc(close) .. [[\zs]],
+      },
+    })
+  )
+
+  -- auto_pair
+  insx.add(
+    open,
+    insx.with(
+      require("insx.recipe.auto_pair")({
+        open = open,
+        close = close,
+      }),
+      {
+        insx.with.in_string(false),
+        insx.with.in_comment(false),
+        insx.with.nomatch([[\%#\w]]),
+        insx.with.undopoint(),
+      }
+    )
+  )
+
+  -- delete_pair
+  insx.add(
+    "<BS>",
+    require("insx.recipe.delete_pair")({
+      open_pat = esc(open),
+      close_pat = esc(close),
+    })
+  )
+
+  -- spacing
+  insx.add(
+    "<Space>",
+    require("insx.recipe.pair_spacing").increase({
+      open_pat = esc(open),
+      close_pat = esc(close),
+    })
+  )
+  insx.add(
+    "<BS>",
+    require("insx.recipe.pair_spacing").decrease({
+      open_pat = esc(open),
+      close_pat = esc(close),
+    })
+  )
+
+  -- fast_break
+  insx.add(
+    "<CR>",
+    require("insx.recipe.fast_break")({
+      open_pat = esc(open),
+      close_pat = esc(close),
+      html_attrs = true,
+      arguments = true,
+    })
+  )
+
+  -- fast_wrap
+  insx.add(
+    "<C-]>",
+    require("insx.recipe.fast_wrap")({
+      close = close,
     })
   )
 end
