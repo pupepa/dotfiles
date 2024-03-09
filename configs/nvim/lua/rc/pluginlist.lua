@@ -710,16 +710,12 @@ return require("lazy").setup({
     "yuki-yano/fuzzy-motion.vim",
     dependencies = {
       { "vim-denops/denops.vim" },
-      { "yuki-yano/denops-lazy.nvim" },
       { "lambdalisue/kensaku.vim" },
     },
-    cmd = { "FuzzyMotion" },
     init = function()
       vim.g.fuzzy_motion_matchers = { "kensaku", "fzf" }
       vim.keymap.set({ "n", "x" }, "<Space><Space>", "<Cmd>FuzzyMotion<CR>")
-    end,
-    config = function()
-      require("denops-lazy").load("fuzzy-motion.vim", { wait_load = false })
+      vim.keymap.set({ "n", "x" }, "sl", "<Cmd>FuzzyMotion<CR>")
     end,
   },
 
@@ -729,11 +725,7 @@ return require("lazy").setup({
     "lambdalisue/kensaku.vim",
     dependencies = {
       { "vim-denops/denops.vim" },
-      { "yuki-yano/denops-lazy.nvim" },
     },
-    config = function()
-      require("denops-lazy").load("kensaku.vim", { wait_load = false })
-    end,
   },
 
   {
