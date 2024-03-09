@@ -19,7 +19,6 @@ highlight!  default  link  TodoDueToday   PreProc
 function! DoToggleMarkAsDoneWithSort() abort
   let l:line = line(".")
   silent! call todo#ToggleMarkAsDone('')
-  call repeat#set("\<Plug>DoToggleMarkAsDone")
   silent! sort
   silent! call todo#SortDue()
   call cursor(l:line, 0)
