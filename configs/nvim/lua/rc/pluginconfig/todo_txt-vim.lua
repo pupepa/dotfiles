@@ -9,4 +9,6 @@ au filetype todo setlocal omnifunc=todo#Complete
 " au filetype todo imap <buffer> @ @<C-X><C-O>
 
 au filetype todo setlocal completeopt-=preview
+
+let g:Todo_txt_do_not_map = 1
 ]])
