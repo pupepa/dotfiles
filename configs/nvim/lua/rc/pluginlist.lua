@@ -19,7 +19,10 @@ return require("lazy").setup({
 
   -- [WIP] An implementation of the Popup API from vim in Neovim. Hope to upstream when complete
   -- https://github.com/nvim-lua/popup.nvim
-  { "nvim-lua/popup.nvim",  module = "popup" },
+  {
+    "nvim-lua/popup.nvim",
+    lazy = true,
+  },
 
   -- All the lua functions I don't want to write twice.
   -- https://github.com/nvim-lua/plenary.nvim
@@ -27,11 +30,14 @@ return require("lazy").setup({
 
   -- SQLite LuaJIT binding with a very simple api.
   -- https://github.com/kkharji/sqlite.lua
-  { "kkharji/sqlite.lua",   module = "sqlite" },
+  {
+    "kkharji/sqlite.lua",
+    lazy = true,
+  },
 
   -- UI Component Library for Neovim.
   -- https://github.com/MunifTanjim/nui.nvim
-  { "MunifTanjim/nui.nvim", module = "nui" },
+  { "MunifTanjim/nui.nvim", lazy = true },
 
   -- Better quickfix window in Neovim, polish old quickfix window.
   -- https://github.com/kevinhwang91/nvim-bqf
@@ -120,6 +126,14 @@ return require("lazy").setup({
       -- nvim-cmp source for vim's cmdline
       -- https://github.com/hrsh7th/cmp-cmdline
       { "hrsh7th/cmp-cmdline" },
+
+      "cmp-nvim-lsp",
+
+      -- nvim-cmp comparator function for completion items that start with one or more underlines
+      -- https://github.com/lukas-reineke/cmp-under-comparator
+      {
+        "lukas-reineke/cmp-under-comparator",
+      },
     },
     config = function()
       require("rc/pluginconfig/nvim-cmp")
@@ -130,7 +144,7 @@ return require("lazy").setup({
   -- https://github.com/onsails/lspkind.nvim
   {
     "onsails/lspkind-nvim",
-    module = "lspkind",
+    lazy = true,
     config = function()
       require("rc/pluginconfig/lspkind-nvim")
     end,
@@ -146,7 +160,10 @@ return require("lazy").setup({
 
   -- nvim-cmp source for neovim builtin LSP client
   -- https://github.com/hrsh7th/cmp-nvim-lsp
-  { "hrsh7th/cmp-nvim-lsp",               module = "cmp_nvim_lsp" },
+  {
+    "hrsh7th/cmp-nvim-lsp",
+    lazy = true,
+  },
 
   -- nippet plugin for Neovim
   -- https://github.com/dcampos/nvim-snippy
@@ -157,10 +174,6 @@ return require("lazy").setup({
       require("rc/pluginconfig/nvim-snippy")
     end,
   },
-
-  -- nvim-cmp comparator function for completion items that start with one or more underlines
-  -- https://github.com/lukas-reineke/cmp-under-comparator
-  { "lukas-reineke/cmp-under-comparator", module = "cmp-under-comparator" },
 
   -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
   -- https://github.com/williamboman/mason-lspconfig.nvim
