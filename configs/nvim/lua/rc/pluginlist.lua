@@ -1087,7 +1087,14 @@ return require("lazy").setup({
   -- https://github.com/rest-nvim/rest.nvim
   {
     "rest-nvim/rest.nvim",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+    ft = "http",
+    dependencies = {
+      {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+      },
+    },
     config = function()
       require("rc/pluginconfig/rest")
     end,
