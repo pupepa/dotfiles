@@ -188,7 +188,7 @@ return require("lazy").setup({
   -- https://github.com/neovim/nvim-lspconfig
   {
     "neovim/nvim-lspconfig",
-    opt = false,
+    lazy = false,
     dependencies = {
       "glepnir/lspsaga.nvim",
       "nvim-lualine/lualine.nvim",
@@ -223,7 +223,7 @@ return require("lazy").setup({
   -- https://github.com/folke/trouble.nvim
   {
     "folke/trouble.nvim",
-    opt = true,
+    lazy = true,
     cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
     config = function()
       require("rc/pluginconfig/trouble")
@@ -268,7 +268,7 @@ return require("lazy").setup({
   -- https://github.com/nvim-treesitter/nvim-treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    opt = true,
+    lazy = true,
     event = "BufReadPost",
     build = ":TSUpdate",
     dependencies = {
@@ -376,7 +376,7 @@ return require("lazy").setup({
     "akinsho/bufferline.nvim",
     version = "v2.*",
     event = "BufReadPost",
-    opt = true,
+    lazy = true,
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("rc/pluginconfig/bufferline")
@@ -417,7 +417,7 @@ return require("lazy").setup({
   -- https://github.com/lukas-reineke/indent-blankline.nvim
   {
     "lukas-reineke/indent-blankline.nvim",
-    opt = true,
+    lazy = true,
     tag = "v2.20.8",
     event = "BufReadPost",
     config = function()
@@ -460,7 +460,7 @@ return require("lazy").setup({
   -- https://github.com/RRethy/vim-illuminate
   {
     "RRethy/vim-illuminate",
-    opt = true,
+    lazy = true,
     event = "BufReadPost",
     config = function()
       require("rc/pluginconfig/vim-illuminate")
@@ -660,7 +660,7 @@ return require("lazy").setup({
   -- https://github.com/monaqa/dial.nvim
   {
     "monaqa/dial.nvim",
-    opt = true,
+    lazy = true,
     keys = { "<C-a>", "<C-x>", "+", "-" },
     config = function()
       require("rc/pluginconfig/dial")
@@ -671,7 +671,7 @@ return require("lazy").setup({
   -- https://github.com/abecodes/tabout.nvim
   {
     "abecodes/tabout.nvim",
-    opt = true,
+    lazy = true,
     event = "InsertEnter",
     after = "nvim-cmp",
     wants = { "nvim-treesitter" },
@@ -684,7 +684,7 @@ return require("lazy").setup({
   -- https://github.com/max397574/better-escape.nvim
   {
     "max397574/better-escape.nvim",
-    opt = true,
+    lazy = true,
     event = "BufReadPost",
     config = function()
       require("rc/pluginconfig/better-escape")
@@ -699,7 +699,7 @@ return require("lazy").setup({
   -- https://github.com/rhysd/clever-f.vim
   {
     "rhysd/clever-f.vim",
-    opt = true,
+    lazy = true,
     event = "BufReadPost",
     config = function()
       require("rc/pluginconfig/clever-f")
@@ -765,7 +765,7 @@ return require("lazy").setup({
   -- https://github.com/rgroli/other.nvim
   {
     "rgroli/other.nvim",
-    opt = true,
+    lazy = true,
     cmd = { "Other" },
     config = function()
       require("rc/pluginconfig/other")
@@ -845,7 +845,7 @@ return require("lazy").setup({
   -- https://github.com/tyru/open-browser-github.vim
   {
     "tyru/open-browser-github.vim",
-    opt = true,
+    lazy = true,
     cmd = { "OpenGithubFile", "OpenGithubIssue", "OpenGithubPullReq", "OpenGithubProject" },
   },
 
@@ -869,7 +869,11 @@ return require("lazy").setup({
 
   -- A vim plugin to perform diffs on blocks of code
   -- https://github.com/AndrewRadev/linediff.vim
-  { "AndrewRadev/linediff.vim",                    opt = true,        cmd = { "Linediff" } },
+  {
+    "AndrewRadev/linediff.vim",
+    lazy = true,
+    cmd = { "Linediff" },
+  },
 
   -- Efficient Todo.txt management in vim
   -- https://gitlab.com/dbeniamine/todo.txt-vim
