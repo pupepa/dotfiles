@@ -291,7 +291,6 @@ return require("lazy").setup({
     event = { "VimEnter" },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-frecency.nvim",
       "neanias/telescope-lines.nvim",
       "neanias/telescope-lines.nvim",
       "nvim-telescope/telescope-ghq.nvim",
@@ -299,7 +298,6 @@ return require("lazy").setup({
       "nvim-telescope/telescope-ui-select.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
       "Allianaab2m/telescope-kensaku.nvim",
-      "nvim-telescope/telescope-frecency.nvim",
       -- Telescope extension that provides handy functionality about plugins installed via lazy.nvim
       -- https://github.com/tsakirist/telescope-lazy.nvim
       {
@@ -315,14 +313,6 @@ return require("lazy").setup({
     config = function()
       require("rc/pluginconfig/telescope")
     end,
-  },
-
-  -- A telescope.nvim extension that offers intelligent prioritization when selecting files from your editing history.
-  -- https://github.com/nvim-telescope/telescope-frecency.nvim
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    lazy = true,
-    dependencies = { "kkharji/sqlite.lua" },
   },
 
   {
