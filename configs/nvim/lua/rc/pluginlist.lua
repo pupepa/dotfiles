@@ -188,7 +188,7 @@ return require("lazy").setup({
   -- https://github.com/neovim/nvim-lspconfig
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
+    event = "BufRead",
     dependencies = {
       "glepnir/lspsaga.nvim",
       "nvim-lualine/lualine.nvim",
@@ -305,6 +305,7 @@ return require("lazy").setup({
       },
       {
         "delphinus/telescope-memo.nvim",
+        lazy = true,
         config = function()
           require("telescope").load_extension("memo")
         end,
@@ -364,6 +365,7 @@ return require("lazy").setup({
   -- https://github.com/nvim-lualine/lualine.nvim
   {
     "nvim-lualine/lualine.nvim",
+    event = "VimEnter",
     dependencies = { "EdenEast/nightfox.nvim" },
     config = function()
       require("rc/pluginconfig/lualine")
@@ -398,6 +400,7 @@ return require("lazy").setup({
   -- https://github.com/kevinhwang91/nvim-hlslens
   {
     "kevinhwang91/nvim-hlslens",
+    event = "VeryLazy",
     config = function()
       require("rc/pluginconfig/nvim-hlslens")
     end,
@@ -651,6 +654,7 @@ return require("lazy").setup({
   -- https://github.com/windwp/nvim-ts-autotag
   {
     "windwp/nvim-ts-autotag",
+    lazy = true,
     config = function()
       require("rc/pluginconfig/nvim-ts-autotag")
     end,
@@ -718,6 +722,7 @@ return require("lazy").setup({
   -- https://github.com/yuki-yano/fuzzy-motion.vim
   {
     "yuki-yano/fuzzy-motion.vim",
+    event = "VeryLazy",
     dependencies = {
       { "vim-denops/denops.vim" },
       { "lambdalisue/kensaku.vim" },
@@ -836,6 +841,7 @@ return require("lazy").setup({
   -- https://github.com/tyru/open-browser.vim
   {
     "tyru/open-browser.vim",
+    keys = { "gx" },
     config = function()
       require("rc/pluginconfig/open-browser")
     end,
