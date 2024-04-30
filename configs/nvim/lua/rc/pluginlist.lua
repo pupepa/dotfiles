@@ -817,15 +817,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- Rearrange your windows with ease.
-  -- https://github.com/sindrets/winshift.nvim
-  {
-    "sindrets/winshift.nvim",
-    config = function()
-      require("rc/pluginconfig/winshift")
-    end,
-  },
-
   -- Make your nvim window separators colorful
   -- https://github.com/nvim-zh/colorful-winsep.nvim
   {
