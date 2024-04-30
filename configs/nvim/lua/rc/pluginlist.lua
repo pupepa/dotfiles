@@ -276,10 +276,18 @@ return require("lazy").setup({
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
+      "JoosepAlviste/nvim-ts-context-commentstring",
     },
     config = function()
       require("rc/pluginconfig/nvim-treesitter")
     end,
+  },
+
+  -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
+  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    lazy = true,
   },
 
   -----------------------------------------------------------------------------------------
@@ -604,8 +612,13 @@ return require("lazy").setup({
   {
     "numToStr/Comment.nvim",
     keys = { { "gc", "gcc", mode = { "n", "v" } } },
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     config = function()
-      require("Comment").setup()
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
     end,
   },
 
