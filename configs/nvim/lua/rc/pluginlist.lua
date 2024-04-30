@@ -74,10 +74,13 @@ return require("lazy").setup({
     end,
   },
 
-  -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
-  -- https://github.com/jose-elias-alvarez/null-ls.nvim
+  -- null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+  -- https://github.com/nvimtools/none-ls.nvim
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
     config = function()
       require("rc/pluginconfig/null-ls")
     end,

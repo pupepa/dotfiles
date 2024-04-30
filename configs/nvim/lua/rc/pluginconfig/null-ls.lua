@@ -4,13 +4,8 @@ local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
 local sources = {
   null_ls.builtins.formatting.stylua,
-  null_ls.builtins.diagnostics.eslint.with({
-    prefer_local = "node_modules/.bin",
-    method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-  }),
-  null_ls.builtins.formatting.eslint.with({
-    prefer_local = "node_modules/.bin",
-  }),
+  require("none-ls.diagnostics.eslint"),
+  require("none-ls.formatting.eslint"),
   null_ls.builtins.formatting.prettier.with({
     condition = function()
       return vim.fn.executable("prettier") > 0
