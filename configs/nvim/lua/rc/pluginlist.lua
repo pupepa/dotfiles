@@ -1086,23 +1086,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- A fast Neovim http client written in Lua
-  -- https://github.com/rest-nvim/rest.nvim
-  {
-    "rest-nvim/rest.nvim",
-    ft = "http",
-    dependencies = {
-      {
-        "vhyrro/luarocks.nvim",
-        priority = 1000,
-        config = true,
-      },
-    },
-    config = function()
-      require("rc/pluginconfig/rest")
-    end,
-  },
-
   -- Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
   -- https://github.com/folke/which-key.nvim
   {
