@@ -1,3 +1,7 @@
 require("tmux").setup({
-  sync_registers = false,
+  {
+    copy_sync = {
+      enable = false,
+    },
+  },
 })
