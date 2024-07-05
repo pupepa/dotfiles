@@ -449,17 +449,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- Neovim plugin to preview the contents of the registers
-  -- https://github.com/tversteeg/registers.nvim
-  {
-    "tversteeg/registers.nvim",
-    keys = { { '"', mode = "n" }, { "<C-r>", mode = "i" } },
-    branch = "main",
-    config = function()
-      require("rc/pluginconfig/registers")
-    end,
-  },
-
   -- Neovim plugin for a code outline window
   -- https://github.com/stevearc/aerial.nvim
   {
