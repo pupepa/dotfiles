@@ -102,17 +102,30 @@ require("dial.config").augends:register_group({
   },
 })
 
-vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal())
-vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
-
-vim.keymap.set("n", "+", require("dial.map").inc_normal())
-vim.keymap.set("n", "-", require("dial.map").dec_normal())
-
-vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual("visual"))
-vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual("visual"))
-
-vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual("visual"))
-vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual("visual"))
+vim.keymap.set("n", "<C-a>", function()
+  require("dial.map").manipulate("increment", "normal")
+end)
+vim.keymap.set("n", "<C-x>", function()
+  require("dial.map").manipulate("decrement", "normal")
+end)
+vim.keymap.set("n", "g<C-a>", function()
+  require("dial.map").manipulate("increment", "gnormal")
+end)
+vim.keymap.set("n", "g<C-x>", function()
+  require("dial.map").manipulate("decrement", "gnormal")
+end)
+vim.keymap.set("v", "<C-a>", function()
+  require("dial.map").manipulate("increment", "visual")
+end)
+vim.keymap.set("v", "<C-x>", function()
+  require("dial.map").manipulate("decrement", "visual")
+end)
+vim.keymap.set("v", "g<C-a>", function()
+  require("dial.map").manipulate("increment", "gvisual")
+end)
+vim.keymap.set("v", "g<C-x>", function()
+  require("dial.map").manipulate("decrement", "gvisual")
+end)
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "swift" },
