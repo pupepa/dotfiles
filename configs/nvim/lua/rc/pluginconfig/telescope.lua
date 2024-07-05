@@ -125,6 +125,7 @@ vim.keymap.set("n", "<Space>q", "<Cmd>:Telescope ghq list<CR>", { silent = true 
 vim.keymap.set("n", "<Space>r", "<Cmd>:Telescope oldfiles<CR>", { silent = true })
 vim.keymap.set("n", "<Space>l", "<Cmd>lua require('telescope').extensions.lines.lines()<CR>", { silent = true })
 vim.keymap.set("n", "<Space>s", "<Cmd>:Telescope git_status<CR>", { silent = true })
+vim.keymap.set("n", "<Space>m", "<Cmd>:Telescope memo list<CR>", { silent = true })
 
 require("telescope").load_extension("lines")
 require("telescope").load_extension("fzf")
