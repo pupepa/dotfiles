@@ -387,7 +387,7 @@ return require("lazy").setup({
   -- https://github.com/akinsho/bufferline.nvim
   {
     "akinsho/bufferline.nvim",
-    version = "v2.*",
+    branch = "main",
     event = "BufReadPost",
     lazy = true,
     dependencies = "nvim-tree/nvim-web-devicons",
