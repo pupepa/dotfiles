@@ -1,4 +1,3 @@
-vim.opt.imdisable = true -- IME OFF
 vim.opt.cmdheight = 0
 vim.opt.pumheight = 10   -- 補完メニューの高さ
 vim.opt.history = 10000
@@ -57,7 +56,6 @@ vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 vim.opt.synmaxcol = 200
 
 vim.cmd([[ syntax enable ]])
-vim.o.t_Co = 256
 vim.opt.background = "dark"
 
 vim.opt.ambiwidth = "single"
