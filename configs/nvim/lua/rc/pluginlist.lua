@@ -708,7 +708,7 @@ return require("lazy").setup({
   {
     "max397574/better-escape.nvim",
     lazy = true,
-    event = "BufReadPost",
+    keys = { { "jj", mode = "i" } },
     config = function()
       require("rc/pluginconfig/better-escape")
     end,
