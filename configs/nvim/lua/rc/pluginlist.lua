@@ -1128,4 +1128,12 @@ return require("lazy").setup({
       -- refer to the configuration section below
     },
   },
+
+  -- A plugin to visualise and resolve merge conflicts in neovim
+  -- https://github.com/akinsho/git-conflict.nvim
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = true,
+  },
 })
