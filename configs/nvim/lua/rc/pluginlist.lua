@@ -141,6 +141,13 @@ return require("lazy").setup({
     config = function()
       require("rc/pluginconfig/nvim-cmp")
     end,
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0,
+      })
+    end,
   },
 
   -- vscode-like pictograms for neovim lsp completion items
