@@ -11,7 +11,7 @@ mason_lspconfig.setup({
     "solargraph",
     "lua_ls",
     "tailwindcss",
-    "tsserver",
+    "ts_ls",
     "vimls",
   },
 })
