@@ -23,4 +23,13 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     disable = { "asciidoc", "vim" },
   },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["a,"] = "@parameter.inner",
+        ["i,"] = "@parameter.outer",
+      },
+    },
+  },
 })
