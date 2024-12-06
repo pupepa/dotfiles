@@ -203,7 +203,7 @@ return require("lazy").setup({
       library = {
         {
           path = "luvit-meta/library",
-          words = { "vim%.uv" }
+          words = { "vim%.uv" },
         },
       },
     },
@@ -213,7 +213,7 @@ return require("lazy").setup({
   -- https://github.com/Bilal2453/luvit-meta
   {
     "Bilal2453/luvit-meta",
-    lazy = true
+    lazy = true,
   }, -- optional `vim.uv` typings
 
   -- Quickstart configs for Nvim LSP
