@@ -342,6 +342,9 @@ return require("lazy").setup({
           require("telescope").load_extension("memo")
         end,
       },
+      {
+        "fdschmidt93/telescope-egrepify.nvim",
+      },
     },
     config = function()
       require("rc/pluginconfig/telescope")
