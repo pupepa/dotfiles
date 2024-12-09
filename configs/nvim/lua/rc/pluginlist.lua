@@ -463,16 +463,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- Extensible Neovim Scrollbar
-  -- https://github.com/petertriho/nvim-scrollbar
-  {
-    "petertriho/nvim-scrollbar",
-    event = { "BufReadPost" },
-    config = function()
-      require("rc/pluginconfig/nvim-scrollbar")
-    end,
-  },
-
   -- Neovim plugin for a code outline window
   -- https://github.com/stevearc/aerial.nvim
   {
