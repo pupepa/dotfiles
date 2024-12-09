@@ -965,13 +965,38 @@ return require("lazy").setup({
   },
 
   -- Delete Neovim buffers without losing window layout
-  -- https://github.com/famiu/bufdelete.nvim
+  -- -- https://github.com/famiu/bufdelete.nvim
+  -- {
+  --   "famiu/bufdelete.nvim",
+  --   keys = { "<Leader>bd", "<Leader>bdd" },
+  --   config = function()
+  --     require("rc/pluginconfig/bufdelete")
+  --   end,
+  -- },
+
   {
-    "famiu/bufdelete.nvim",
-    keys = { "<Leader>bd", "<Leader>bdd" },
-    config = function()
-      require("rc/pluginconfig/bufdelete")
-    end,
+    "kazhala/close-buffers.nvim",
+    lazy = true,
+    keys = {
+      {
+        "<leader>bo",
+        ":lua require('close_buffers').delete({ type = 'other', force = true })<cr>",
+        desc = "close other",
+        silent = true,
+      },
+      {
+        "<leader>bd",
+        ":lua require('close_buffers').delete({ type = 'this', force = true })<cr>",
+        desc = "close",
+        silent = true,
+      },
+      {
+        "<leader>bD",
+        ":lua require('close_buffers').delete({ type = 'all', force = true })<cr>",
+        desc = "close all",
+        silent = true,
+      },
+    },
   },
 
   -- Vim plugin for generating images of source code using https://github.com/Aloxaf/silicon
