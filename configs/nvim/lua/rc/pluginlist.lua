@@ -463,16 +463,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- Neovim plugin for a code outline window
-  -- https://github.com/stevearc/aerial.nvim
-  {
-    "stevearc/aerial.nvim",
-    keys = { "<Leader>ae", "<Leader>af" },
-    config = function()
-      require("rc/pluginconfig/aerial")
-    end,
-  },
-
   -- illuminate.vim - (Neo)Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
   -- https://github.com/RRethy/vim-illuminate
   {
