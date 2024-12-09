@@ -543,16 +543,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- A Neovim plugin to deal with treesitter units
-  -- https://github.com/David-Kunz/treesitter-unit
-  {
-    "David-Kunz/treesitter-unit",
-    event = "VeryLazy",
-    config = function()
-      require("rc/pluginconfig/treesitter-unit")
-    end,
-  },
-
   -- Region selection with hints on the AST nodes of a document powered by treesitter
   -- https://github.com/mfussenegger/nvim-treehopper
   {
