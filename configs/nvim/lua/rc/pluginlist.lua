@@ -601,16 +601,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- A Vim alignment plugin
-  -- https://github.com/junegunn/vim-easy-align
-  {
-    "junegunn/vim-easy-align",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("rc/pluginconfig/vim-easy-align")
-    end,
-  },
-
   -- https://github.com/mattn/vim-maketable
   {
     "mattn/vim-maketable",
