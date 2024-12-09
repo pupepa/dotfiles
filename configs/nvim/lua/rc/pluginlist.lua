@@ -474,6 +474,8 @@ return require("lazy").setup({
     end,
   },
 
+  -- A fancy, configurable, notification manager for NeoVim
+  -- https://github.com/rcarriga/nvim-notify
   {
     "rcarriga/nvim-notify",
     event = "BufreadPre",
@@ -617,13 +619,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- repeat.vim: enable repeating supported plugin maps with "."
-  -- https://github.com/tpope/vim-repeat
-  -- {
-  --   "tpope/vim-repeat",
-  --   event = "VeryLazy",
-  -- },
-
   -- Use treesitter to auto close and auto rename html tag
   -- https://github.com/windwp/nvim-ts-autotag
   {
@@ -684,15 +679,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- A vim script to provide CamelCase motion through words
-  -- https://github.com/bkad/CamelCaseMotion
-  -- {
-  --   "bkad/CamelCaseMotion",
-  --   config = function()
-  --     require("rc/pluginconfig/CamelCaseMotion")
-  --   end,
-  -- },
-
   -- https://github.com/yuki-yano/fuzzy-motion.vim
   {
     "yuki-yano/fuzzy-motion.vim",
@@ -717,6 +703,8 @@ return require("lazy").setup({
     },
   },
 
+  -- Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
+  -- https://github.com/zbirenbaum/copilot.lua
   {
     "zbirenbaum/copilot.lua",
     cmd = { "Copilot" },
