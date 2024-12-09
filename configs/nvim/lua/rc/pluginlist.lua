@@ -543,16 +543,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- Region selection with hints on the AST nodes of a document powered by treesitter
-  -- https://github.com/mfussenegger/nvim-treehopper
-  {
-    "mfussenegger/nvim-treehopper",
-    event = "VeryLazy",
-    config = function()
-      require("rc/pluginconfig/nvim-treehopper")
-    end,
-  },
-
   -- Neovim plugin introducing a new operators motions to quickly replace and exchange text.
   -- https://github.com/gbprod/substitute.nvim
   {
