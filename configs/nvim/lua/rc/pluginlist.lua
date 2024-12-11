@@ -319,43 +319,31 @@ return require("lazy").setup({
   -- https://github.com/nvim-telescope/telescope.nvim
   {
     "nvim-telescope/telescope.nvim",
-    event = { "VimEnter" },
     version = "0.1.8",
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "neanias/telescope-lines.nvim",
-      "neanias/telescope-lines.nvim",
-      "nvim-telescope/telescope-ghq.nvim",
-      "nvim-telescope/telescope-github.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-      "nvim-telescope/telescope-fzf-native.nvim",
-      "Allianaab2m/telescope-kensaku.nvim",
-      -- Telescope extension that provides handy functionality about plugins installed via lazy.nvim
-      -- https://github.com/tsakirist/telescope-lazy.nvim
-      {
-        "tsakirist/telescope-lazy.nvim",
-      },
-      {
-        "delphinus/telescope-memo.nvim",
-        lazy = true,
-        config = function()
-          require("telescope").load_extension("memo")
-        end,
-      },
-      {
-        "fdschmidt93/telescope-egrepify.nvim",
-      },
     },
     config = function()
       require("rc/pluginconfig/telescope")
     end,
   },
 
+  -- Variable user customization for telescope.live_grep to set rg flags on-the-fly
+  -- https://github.com/fdschmidt93/telescope-egrepify.nvim
+  {
+    "fdschmidt93/telescope-egrepify.nvim",
+    lazy = true,
+  },
+
+  -- A simple Telescope extension to search through the lines in the current buffer
+  -- https://github.com/neanias/telescope-lines.nvim
   {
     "neanias/telescope-lines.nvim",
     lazy = true,
   },
 
+  -- https://github.com/nvim-telescope/telescope-ghq.nvim
   {
     "nvim-telescope/telescope-ghq.nvim",
     lazy = true,
@@ -365,6 +353,25 @@ return require("lazy").setup({
   -- https://github.com/nvim-telescope/telescope-github.nvim
   {
     "nvim-telescope/telescope-github.nvim",
+    lazy = true,
+  },
+
+  -- kensaku.vim + Telescope live grep
+  -- https://github.com/Allianaab2m/telescope-kensaku.nvim
+  {
+    "Allianaab2m/telescope-kensaku.nvim",
+    lazy = true,
+  },
+
+  -- Telescope extension that provides handy functionality about plugins installed via lazy.nvim
+  -- https://github.com/tsakirist/telescope-lazy.nvim
+  {
+    "tsakirist/telescope-lazy.nvim",
+  },
+
+  -- https://github.com/delphinus/telescope-memo.nvim
+  {
+    "delphinus/telescope-memo.nvim",
     lazy = true,
   },
 

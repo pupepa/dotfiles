@@ -128,6 +128,7 @@ vim.keymap.set("n", "<Space>r", "<Cmd>:Telescope oldfiles<CR>", { silent = true 
 vim.keymap.set("n", "<Space>l", "<Cmd>lua require('telescope').extensions.lines.lines()<CR>", { silent = true })
 vim.keymap.set("n", "<Space>s", "<Cmd>:Telescope git_status<CR>", { silent = true })
 vim.keymap.set("n", "<Space>m", "<Cmd>:Telescope memo list<CR>", { silent = true })
+vim.keymap.set("n", "<Space>e", "<Cmd>:Telescope kensaku<CR>", { silent = true })
 
 require("telescope").load_extension("lines")
 require("telescope").load_extension("fzf")
@@ -137,3 +138,4 @@ require("telescope").load_extension("ui-select")
 require("telescope").load_extension("kensaku")
 require("telescope").load_extension("lazy")
 require("telescope").load_extension("egrepify")
+require("telescope").load_extension("memo")
