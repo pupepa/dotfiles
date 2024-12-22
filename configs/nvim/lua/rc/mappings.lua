@@ -62,7 +62,8 @@ vim.keymap.set({ "n", "v" }, "<Space>k", "10k")
 
 -- Do not set register
 vim.keymap.set("n", "x", '"_x')
-vim.keymap.set("n", "X", '"_X')
+vim.keymap.set("n", "X", '"_D')
+vim.keymap.set("o", "x", "d")
 
 -- " インサートモードで <C-a> <C-e> で行頭と行末にそれぞれ移動
 vim.keymap.set("i", "<C-a>", "<C-o>^")
