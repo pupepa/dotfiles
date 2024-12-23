@@ -10,8 +10,6 @@ alias ..='cd ../'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias tree='pwd;find . | sort | sed "1d;s,[^/]*/,|    ,g;s/..//;s/[^ ]*$/|-- &/"'
-
 alias c=clear
 
 mktdir() {
