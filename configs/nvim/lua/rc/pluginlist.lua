@@ -725,7 +725,7 @@ return require("lazy").setup({
   -- https://github.com/hrsh7th/nvim-insx
   {
     "hrsh7th/nvim-insx",
-    event = "VimEnter",
+    event = "InsertEnter",
     config = function()
       require("rc/pluginconfig/nvim-insx")
     end,
