@@ -16,6 +16,7 @@ local capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_c
 lspconfig.sourcekit.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  cmd = {},
 })
 
 return M
