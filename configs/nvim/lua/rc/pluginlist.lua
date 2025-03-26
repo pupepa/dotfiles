@@ -793,6 +793,20 @@ return require("lazy").setup({
     end,
   },
 
+  -- 🧠 Smart, seamless, directional navigation and resizing of Neovim + terminal multiplexer splits. Supports tmux, Wezterm, and Kitty. Think about splits in terms of "up/down/left/right".
+  -- https://github.com/mrjones2014/smart-splits.nvim
+  {
+    "mrjones2014/smart-splits.nvim",
+    keys = { "<S-Left>", "<S-Down>", "<S-Up>", "<S-Right>" },
+    lazy = true,
+    init = function()
+      vim.keymap.set("n", "<S-Left>", require("smart-splits").resize_left)
+      vim.keymap.set("n", "<S-Down>", require("smart-splits").resize_down)
+      vim.keymap.set("n", "<S-Up>", require("smart-splits").resize_up)
+      vim.keymap.set("n", "<S-Right>", require("smart-splits").resize_right)
+    end,
+  },
+
   -----------------------------------------------------------------------------------------
   -- Utility
   -----------------------------------------------------------------------------------------
@@ -1044,18 +1058,6 @@ return require("lazy").setup({
     config = function()
       require("rc/pluginconfig/vim-review")
     end,
-  },
-
-  -- very simple vim plugin for easy resizing of your vim windows
-  -- https://github.com/simeji/winresizer
-  {
-    "simeji/winresizer",
-    cmd = {
-      "WinResizerStartResize",
-      "WinResizerStartMove",
-      "WinResizerStartFocus",
-    },
-    keys = "<C-e>",
   },
 
   -- ✍️ All the npm/yarn/pnpm commands I don't want to type
