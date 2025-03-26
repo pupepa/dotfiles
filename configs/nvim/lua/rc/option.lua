@@ -79,7 +79,7 @@ vim.opt.visualbell = false
 -- Complete
 vim.opt.complete:append("kspell")
 vim.opt.completeopt = "menuone,noselect"
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = "en,cjk"
 
 -- Undo
