@@ -12,7 +12,6 @@ end
 
 cmp.setup({
   formatting = {
-    -- fields = {'abbr', 'kind', 'menu'},
     format = require("lspkind").cmp_format({
       with_text = true,
       maxwidth = 50,
@@ -84,7 +83,7 @@ cmp.setup({
     end, { "i", "s" }),
 
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<C-y>"] = cmp.config.disable,                     -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-q>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
     ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
@@ -111,7 +110,7 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "snippy" },
     { name = "path" },
-    { name = "emoji", insert = true },
+    { name = "emoji",                  insert = true },
     { name = "nvim_lua" },
     { name = "nvim_lsp_signature_help" },
   }, {
