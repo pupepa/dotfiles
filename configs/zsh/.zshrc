@@ -18,7 +18,8 @@ source $ZDOTDIR/go.zsh
 source $ZDOTDIR/cargo.zsh
 source $ZDOTDIR/zinit.zsh
 
-source $ZDOTDIR/asdf.zsh
+# mise
+eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 emulate zsh -c "$(direnv export zsh)"
 
@@ -27,12 +28,6 @@ emulate zsh -c "$(direnv export zsh)"
 # fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Hook direnv into your shell.
-eval "$(asdf exec direnv hook zsh)"
-
-# A shortcut for asdf managed direnv.
-direnv() { asdf exec direnv "$@"; }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
