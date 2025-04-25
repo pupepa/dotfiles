@@ -4,3 +4,4 @@ vim.keymap.set({ "o", "x" }, "ae", "<Cmd>lua require('various-textobjs').entireB
 vim.keymap.set({ "o", "x" }, "ib", "<Cmd>lua require('various-textobjs').anyQuote('inner')<CR>")
 vim.keymap.set({ "o", "x" }, "ab", "<Cmd>lua require('various-textobjs').anyQuote('outer')<CR>")
 vim.keymap.set({ "o", "x" }, "iu", '<cmd>lua require("various-textobjs").url()<CR>')
+vim.keymap.set({ "o", "x" }, "il", '<cmd>lua require("various-textobjs").lineCharacterwise()<CR>')
