@@ -225,9 +225,6 @@ return require("lazy").setup({
       "glepnir/lspsaga.nvim",
       "nvim-lualine/lualine.nvim",
     },
-    config = function()
-      require("rc/pluginconfig/nvim-lspconfig")
-    end,
   },
 
   -- neovim lsp plugin

@@ -94,3 +94,15 @@ vim.opt.updatetime = 300
 
 vim.g.markdown_fenced_languages =
 { "ruby", "python", "sql", "swift", "typescript", "typescriptreact", "javascript", "javascriptreact", "sh" }
+
+-- Diagnostic
+vim.diagnostic.config({
+  virtual_text = true,
+})
+
+-- LSP
+vim.lsp.config("sourcekit", {
+  filetypes = { "swift", "objective-c" },
+})
+
+vim.lsp.enable("sourcekit")
