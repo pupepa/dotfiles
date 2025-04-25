@@ -58,14 +58,6 @@ return require("lazy").setup({
       -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
       -- https://github.com/williamboman/mason-lspconfig.nvim
       "williamboman/mason-lspconfig.nvim",
-      "nvimtools/none-ls.nvim",
-      -- https://github.com/jay-babu/mason-null-ls.nvim
-      {
-        "jayp0521/mason-null-ls.nvim",
-        config = function()
-          require("mason-null-ls").setup()
-        end,
-      },
       "j-hui/fidget.nvim",
     },
     event = "BufReadPre",
