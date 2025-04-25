@@ -867,9 +867,9 @@ return require("lazy").setup({
   },
 
   -- Control Xcode from Vim
-  -- https://github.com/gonzoooooo/vim-xcode-control
+  -- https://github.com/pupepa/vim-xcode-control
   {
-    "gonzoooooo/vim-xcode-control",
+    "pupepa/vim-xcode-control",
     ft = { "swift", "objc" },
     config = function()
       require("rc/pluginconfig/vim-xcode-control")
