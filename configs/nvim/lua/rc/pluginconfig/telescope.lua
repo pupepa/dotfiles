@@ -119,6 +119,12 @@ vim.keymap.set("n", "<C-p>", function()
 end, { silent = true })
 
 vim.keymap.set("n", "<Space>g", require("telescope").extensions.egrepify.egrepify)
+vim.keymap.set(
+  "n",
+  "<Space>o",
+  "<Cmd>lua require('telescope').extensions.egrepify.egrepify({ default_text = vim.fn.expand('<cword>') })<CR>",
+  { silent = true }
+)
 -- vim.keymap.set("n", "<Space>g", builtin.live_grep, {})
 vim.keymap.set("n", "<Space>b", builtin.buffers, {})
 vim.keymap.set("n", "<Space>c", builtin.command_history, {})
