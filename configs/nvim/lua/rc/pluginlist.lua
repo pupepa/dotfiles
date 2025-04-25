@@ -853,9 +853,9 @@ return require("lazy").setup({
   },
 
   -- Efficient Todo.txt management in vim
-  -- https://gitlab.com/dbeniamine/todo.txt-vim
+  -- https://github.com/pupepa/todo.txt-vim
   {
-    "gonzoooooo/todo.txt-vim",
+    "pupepa/todo.txt-vim",
     ft = { "todo" },
     branch = "weekday-recurrence-support",
     config = function()
