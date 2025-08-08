@@ -485,6 +485,7 @@ return require("lazy").setup({
   {
     "mvllow/modes.nvim",
     event = "ModeChanged",
+    tag = "v0.2.1",
     config = function()
       require("modes").setup()
     end,
