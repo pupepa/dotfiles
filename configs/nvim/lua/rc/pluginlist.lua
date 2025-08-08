@@ -273,6 +273,15 @@ return require("lazy").setup({
     end,
   },
 
+  -- https://github.com/zbirenbaum/copilot-cmp
+  {
+    "zbirenbaum/copilot-cmp",
+    lazy = true,
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+
   -----------------------------------------------------------------------------------------
   -- Treesitter
   -----------------------------------------------------------------------------------------
@@ -721,6 +730,9 @@ return require("lazy").setup({
     "zbirenbaum/copilot.lua",
     cmd = { "Copilot" },
     event = "InsertEnter",
+    dependencies = {
+      { "zbirenbaum/copilot-cmp" },
+    },
     config = function()
       require("rc/pluginconfig/copilot")
     end,
@@ -1098,4 +1110,5 @@ return require("lazy").setup({
     version = "*",
     config = true,
   },
+
 })
