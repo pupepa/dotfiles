@@ -553,6 +553,20 @@ return require("lazy").setup({
     end,
   },
 
+  -- Region selection with hints on the AST nodes of a document powered by treesitter
+  -- https://github.com/mfussenegger/nvim-treehopper
+  {
+    "mfussenegger/nvim-treehopper",
+    event = "VeryLazy",
+    config = function()
+      vim.keymap.set({ "o" }, "m", function()
+        require("tsht").nodes()
+      end, { noremap = false, expr = false, silent = true })
+
+      vim.keymap.set({ "x" }, "m", ":lua require('tsht').nodes()<CR>", { noremap = true, expr = false, silent = true })
+    end,
+  },
+
   -- The set of operator and textobject plugins to search/select/edit sandwiched textobjects.
   -- https://github.com/machakann/vim-sandwich
   {
