@@ -6,19 +6,26 @@ local sources = {
   null_ls.builtins.formatting.stylua,
 
   require("none-ls.diagnostics.eslint").with({
-    condition = function()
-      return vim.fn.executable("node_modules/.bin/eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
-    end,
-
     prefer_local = "node_modules/.bin",
   }),
   require("none-ls.formatting.eslint").with({
-    condition = function()
-      return vim.fn.executable("node_modules/.bin/eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
-    end,
-
     prefer_local = "node_modules/.bin",
   }),
+
+  -- require("none-ls.diagnostics.eslint").with({
+  --   condition = function()
+  --     return vim.fn.executable("./node_modules/.bin/eslint") > 0 or vim.fn.executable("eslint") > 0
+  --   end,
+  --
+  --   prefer_local = "node_modules/.bin",
+  -- }),
+  -- require("none-ls.formatting.eslint").with({
+  --   condition = function()
+  --     return vim.fn.executable("./node_modules/.bin/eslint") > 0 or vim.fn.executable("eslint") > 0
+  --   end,
+  --
+  --   prefer_local = "node_modules/.bin",
+  -- }),
   null_ls.builtins.formatting.prettier.with({
     condition = function()
       return vim.fn.executable("prettier") > 0 or vim.fn.executable("./node_modules/.bin/prettier") > 0
@@ -27,11 +34,11 @@ local sources = {
     extra_filetypes = { "ruby" },
     prefer_local = "node_modules/.bin",
   }),
+
   null_ls.builtins.diagnostics.textlint.with({
     filetypes = { "markdown" },
-    prefer_local = "$HOME/.asdf/shims/",
     timeout = 10000,
-    method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+    method = null_ls.methods.DIAGNOSTICS,
   }),
   null_ls.builtins.formatting.rubocop.with({
     condition = function()
@@ -47,9 +54,21 @@ local sources = {
 }
 
 null_ls.setup({
+  root_dir = require("null-ls.utils").root_pattern(
+    ".null-ls-root",
+    "Makefile",
+    ".git",
+    "package.json",
+    "tsconfig.json",
+    ".eslintrc",
+    ".prettierrc",
+    "deno.json",
+    "Gemfile"
+  ),
   sources = sources,
   on_attach = function(client, bufnr)
-    if client.server_capabilities.documentFormattingProvider then
+    local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+    if filetype ~= "markdown" and client.server_capabilities.documentFormattingProvider then
       vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup_format,
