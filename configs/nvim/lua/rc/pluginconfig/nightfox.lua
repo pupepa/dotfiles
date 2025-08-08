@@ -15,3 +15,5 @@ function! CreateSymlinkForWezTerm()
   endif
 endfunction
 ]])
+
+vim.api.nvim_set_hl(0, "@markup.raw.block", { fg = "#c0c0c0" })
