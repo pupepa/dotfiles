@@ -31,3 +31,15 @@ snippet sat
 # Next Sunday
 snippet sun
   `strftime("%Y/%m/%d (%a)", localtime() + (60 * 60 * 24) * (0 - (strftime("%w")) <= 0 ? (14 - strftime("%w")) : (7 - strftime("%w"))))`
+
+snippet skakko
+  【${1:内容}】
+
+snippet nkakko
+  《${1:内容}》
+
+snippet kagikakko
+	「${1:内容}」
+
+snippet nkagikakko
+	『${1:内容}』
