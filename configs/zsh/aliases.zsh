@@ -38,5 +38,6 @@ if [ -n "$TMUX_PANE" ]; then
 fi
 
 if [ $commands[nvim] ]; then
+  alias v='nvim'
   alias vim='nvim'
 fi
