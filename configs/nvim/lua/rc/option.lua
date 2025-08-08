@@ -105,4 +105,27 @@ vim.lsp.config("sourcekit", {
   filetypes = { "swift", "objective-c" },
 })
 
-vim.lsp.enable("sourcekit")
+vim.lsp.config("ts_ls", {
+  cmd = { "typescript-language-server", "--stdio" },
+  root_markers = { "package.json" },
+  workspace_required = true,
+})
+
+vim.lsp.config("tailwindcss", {
+  cmd = { "tailwindcss-language-server", "--stdio" },
+  filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  root_markers = { "tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts", "tailwind.config.mjs" },
+})
+vim.lsp.enable("tailwindcss")
+
+vim.lsp.config("denols", {
+  cmd = { "deno", "lsp" },
+  root_markers = {
+    "deno.json",
+    "deno.jsonc",
+    "deps.ts",
+  },
+  workspace_required = true,
+})
+
+vim.lsp.enable("sourcekit", "ts_ls", "denols")
