@@ -854,16 +854,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- Changes Vim working directory to project root
-  -- https://github.com/airblade/vim-rooter
-  {
-    "airblade/vim-rooter",
-    cmd = { "Rooter", "RooterToggle" },
-    config = function()
-      require("rc/pluginconfig/vim-rooter")
-    end,
-  },
-
   -- A vim plugin to perform diffs on blocks of code
   -- https://github.com/AndrewRadev/linediff.vim
   {
@@ -1111,4 +1101,14 @@ return require("lazy").setup({
     config = true,
   },
 
+  -- cd project root automatically
+  -- https://github.com/wsdjeg/rooter.nvim
+  {
+    "wsdjeg/rooter.nvim",
+    config = function()
+      require("rooter").setup({
+        root_pattern = { ".git/", "node_modules", "Gemfile", "package.json" },
+      })
+    end,
+  },
 })
