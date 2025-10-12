@@ -102,6 +102,7 @@ vim.diagnostic.config({
 
 -- LSP
 vim.lsp.config("sourcekit", {
+  cmd = { "xcrun", "sourcekit-lsp" },
   filetypes = { "swift", "objective-c" },
 })
 
