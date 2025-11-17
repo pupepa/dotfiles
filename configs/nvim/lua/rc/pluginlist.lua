@@ -1107,9 +1107,23 @@ return require("lazy").setup({
     "wsdjeg/rooter.nvim",
     config = function()
       require("rooter").setup({
-        root_pattern = { ".git/", "node_modules", "Gemfile", "package.json" },
+        root_patterns = { "node_modules/", "Gemfile", "package.json", ".git/" },
+        outermost = false,
       })
     end,
+    dependencies = {
+      {
+        "wsdjeg/logger.nvim",
+        config = function()
+          vim.keymap.set(
+            "n",
+            "<leader>hL",
+            '<cmd>lua require("logger").viewRuntimeLog()<cr>',
+            { silent = true }
+          )
+        end,
+      },
+    },
   },
   {
     "coder/claudecode.nvim",
