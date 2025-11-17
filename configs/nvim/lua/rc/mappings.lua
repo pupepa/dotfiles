@@ -2,7 +2,6 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
 vim.keymap.set("n", ";", ":")
-vim.keymap.set("n", ":", ";")
 
 -- Buffer Operation
 vim.keymap.set("n", "[b", ":bprevious<CR>", { silent = true })
