@@ -495,9 +495,9 @@ return require("lazy").setup({
     "mvllow/modes.nvim",
     event = "ModeChanged",
     tag = "v0.2.1",
-    config = function()
-      require("modes").setup()
-    end,
+    opts = {
+      line_opacity = 0.2,
+    },
   },
 
   -- Rainbow delimiters for Neovim with Tree-sitter
