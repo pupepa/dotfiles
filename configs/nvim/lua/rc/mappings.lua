@@ -76,7 +76,8 @@ vim.keymap.set("i", "<C-f>", "<C-t>")
 vim.keymap.set("n", "<Leader>r", ":NumberToggle<CR>")
 
 -- ファイル名を表示
-vim.keymap.set("n", "<Leader>pp", ':<C-u>echo expand("%:p")<CR>')
+vim.keymap.set("n", "<Leader>pp", ':let @+ = expand("%:p") | echo expand("%:p")<CR>')
+vim.keymap.set("n", "<Leader>pn", ':let @+ = expand("%:t") | echo expand("%:t")<CR>')
 
 -- 開いているファイルのディレクトリに移動
 vim.keymap.set("n", "<Leader>lc", ":<C-u>lcd %:h<CR>", { silent = true })
