@@ -770,22 +770,82 @@ return require("lazy").setup({
 
   -- Neovim file explorer
   -- https://github.com/tamago324/lir.nvim
-  {
-    "tamago324/lir.nvim",
-    keys = { "<C-n>" },
-    dependencies = {
-      "tamago324/lir-git-status.nvim",
-    },
-    config = function()
-      require("rc/pluginconfig/lir")
-    end,
-  },
+  -- {
+  --   "tamago324/lir.nvim",
+  --   keys = { "<C-n>" },
+  --   dependencies = {
+  --     "tamago324/lir-git-status.nvim",
+  --   },
+  --   config = function()
+  --     require("rc/pluginconfig/lir")
+  --   end,
+  -- },
+  --
+  -- -- Git status integration of lir.nvim
+  -- -- https://github.com/tamago324/lir-git-status.nvim
+  -- {
+  --   "tamago324/lir-git-status.nvim",
+  --   lazy = true,
+  -- },
 
-  -- Git status integration of lir.nvim
-  -- https://github.com/tamago324/lir-git-status.nvim
+  -- Neovim file explorer: edit your filesystem like a buffer
+  -- https://github.com/stevearc/oil.nvim
   {
-    "tamago324/lir-git-status.nvim",
-    lazy = true,
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {
+      default_file_explorer = true,
+      delete_to_trash = true,
+      view_optios = {
+        show_hidden = true,
+      },
+      columns = {
+        "icon",
+      },
+      win_options = {
+        wrap = false,
+        signcolumn = "no",
+        cursorcolumn = false,
+        foldcolumn = "0",
+        spell = false,
+        list = false,
+        conceallevel = 3,
+        concealcursor = "nvic",
+      },
+      -- Configuration for the floating window in oil.open_float
+      float = {
+        -- Padding around the floating window
+        padding = 2,
+        -- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
+        max_width = 120,
+        max_height = 0,
+        border = "rounded",
+        win_options = {
+          winblend = 0,
+        },
+        -- optionally override the oil buffers window title with custom function: fun(winid: integer): string
+        get_win_title = nil,
+        -- preview_split: Split direction: "auto", "left", "right", "above", "below".
+        preview_split = "right",
+        -- This is the config that will be passed to nvim_open_win.
+        -- Change values here to customize the layout
+        override = function(conf)
+          return conf
+        end,
+      },
+      keymaps = {
+        ["<BS>"] = { "actions.parent", mode = "n" },
+        ["<C-p>"] = { "actions.preview", mode = "n" },
+      },
+    },
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+    keys = {
+      { "<C-n>", ":lua require('oil').toggle_float()<CR>", { noremap = true, expr = false, silent = true } },
+    },
   },
 
   --------------------------------------------------------------------------------
