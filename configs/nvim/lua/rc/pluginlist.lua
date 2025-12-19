@@ -807,19 +807,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- tabout plugin for neovim
-  -- https://github.com/abecodes/tabout.nvim
-  {
-    "abecodes/tabout.nvim",
-    lazy = true,
-    event = "InsertEnter",
-    after = "nvim-cmp",
-    wants = { "nvim-treesitter" },
-    config = function()
-      require("rc/pluginconfig/tabout")
-    end,
-  },
-
   -- Escape from insert mode without delay when typing
   -- https://github.com/max397574/better-escape.nvim
   {
