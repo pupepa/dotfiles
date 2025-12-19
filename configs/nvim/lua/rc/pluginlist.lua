@@ -1190,16 +1190,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- Integrated reference viewer.
-  -- https://github.com/thinca/vim-ref
-  {
-    "thinca/vim-ref",
-    cmd = { "Ref" },
-    config = function()
-      require("rc/pluginconfig/vim-ref")
-    end,
-  },
-
   -- Show Ex command output in buffer
   -- https://github.com/tyru/capture.vim
   {
