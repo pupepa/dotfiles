@@ -1207,13 +1207,6 @@ return require("lazy").setup({
     cmd = { "Capture" },
   },
 
-  -- w3m plugin for vim
-  -- https://github.com/yuratomo/w3m.vim
-  {
-    "yuratomo/w3m.vim",
-    cmd = { "W3m", "W3mSplit", "W3mVSplit" },
-  },
-
   -- A plugin for profiling Vim and Neovim startup time.
   -- https://github.com/dstein64/vim-startuptime
   {
