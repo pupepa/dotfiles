@@ -713,12 +713,7 @@ return require("lazy").setup({
         require("tsht").nodes()
       end, { noremap = false, expr = false, silent = true })
 
-      vim.keymap.set(
-        { "x" },
-        "m",
-        ":lua require('tsht').nodes()<CR>",
-        { noremap = true, expr = false, silent = true }
-      )
+      vim.keymap.set({ "x" }, "m", ":lua require('tsht').nodes()<CR>", { noremap = true, expr = false, silent = true })
     end,
   },
 
@@ -1308,12 +1303,7 @@ return require("lazy").setup({
       {
         "wsdjeg/logger.nvim",
         config = function()
-          vim.keymap.set(
-            "n",
-            "<leader>hL",
-            '<cmd>lua require("logger").viewRuntimeLog()<cr>',
-            { silent = true }
-          )
+          vim.keymap.set("n", "<leader>hL", '<cmd>lua require("logger").viewRuntimeLog()<cr>', { silent = true })
         end,
       },
     },
