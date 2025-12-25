@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+for ((i = 0; i <= 255; i++)); do
+    printf '\e[38;5;%dm%d ' $i $i
+done
+
+printf '\e[0m'
+
+echo 
