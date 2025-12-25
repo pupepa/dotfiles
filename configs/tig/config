@@ -1,10 +1,11 @@
 ## やけに丁寧なtigの設定ガイド（表示制御編） - Qiita
 ## http://qiita.com/yoshikazusawa/items/d99e8b5d6f6a45aa6e2e
 # main viewの左端にコミットIDを表示する
-set main-view = id date author commit-title:graph=yes,refs=yes
+# set main-view = commit-title:graph=yes,refs=yes date id author 
 # デフォルト
 # set main-view = date author commit-title:graph=yes,refs=yes
 #
+set main-view = line-number:no author:full date:custom,format="%Y-%m-%d %h:%M" id:yes commit-title:yes,graph:v2,refs,overflow=no
 
 # 画面を垂直方向に分割する
 # set vertical-split = yes
@@ -14,7 +15,7 @@ set vertical-split = no
 # set vertical-split = auto
 
 # 水平分割したウィンドウの下画面サイズを % で指定（行数指定も可）
-set split-view-height = 80%
+set split-view-height = 60%
 
 # 差分の前後の表示行数（diff-context)を指定
 set diff-context = 6
@@ -70,3 +71,5 @@ bind log o !@hub browse -- commit/%(commit)
 # diff-view で境界が見やすくなるように変更
 color diff-header default magenta
 color diff-chunk black white
+
+color main-head cyan default bold
