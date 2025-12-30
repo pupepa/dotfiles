@@ -270,9 +270,7 @@ return require("lazy").setup({
         desc = "Quickfix List (Trouble)",
       },
     },
-    config = function()
-      require("trouble").setup()
-    end,
+    opts = {},
   },
 
   -- Standalone UI for nvim-lsp progress
