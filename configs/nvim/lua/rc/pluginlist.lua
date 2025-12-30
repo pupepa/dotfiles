@@ -908,6 +908,21 @@ return require("lazy").setup({
     end,
   },
 
+  {
+    "Bakudankun/BackAndForward.vim",
+    keys = {
+      { "<Plug>(backandforward-back)", mode = { "n" } },
+      { "<Plug>(backandforward-forward)", mode = { "n" } },
+    },
+    init = function()
+      vim.g.backandforward_config = {
+        define_commands = false,
+      }
+      vim.keymap.set({ "n" }, "<C-b>", "<Plug>(backandforward-back)")
+      vim.keymap.set({ "n" }, "<C-f>", "<Plug>(backandforward-forward)")
+    end,
+  },
+
   --------------------------------------------------------------------------------
   -- File Management
   --------------------------------------------------------------------------------
