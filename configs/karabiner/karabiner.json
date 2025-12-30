@@ -190,6 +190,7 @@
                     },
                     {
                         "description": "Double tap 'right_shift' to open Terminal",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
