@@ -48,6 +48,8 @@
 [interactive]
   diffFilter = diff-highlight
 [pull]
-  rebase = false
+  rebase = true
 [init]
   defaultBranch = main
+[rebase]
+  autostash = true
