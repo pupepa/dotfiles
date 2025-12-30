@@ -7,9 +7,11 @@ local sources = {
 
   require("none-ls.diagnostics.eslint").with({
     prefer_local = "node_modules/.bin",
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
   }),
   require("none-ls.formatting.eslint").with({
     prefer_local = "node_modules/.bin",
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
   }),
 
   -- require("none-ls.diagnostics.eslint").with({
