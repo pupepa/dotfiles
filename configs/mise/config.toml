@@ -1,0 +1,12 @@
+[tools]
+node = "latest"
+direnv = "2.28.0"
+ruby = "3.4.3"
+python = "3.11.6"
+hub = "2.14.2"
+rust = "1.84.0"
+deno = "1.42.1"
+uv = "0.6.16"
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
