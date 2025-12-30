@@ -1,5 +1,5 @@
 return {
-  cmd = { "sourcekit-lsp" },
+  cmd = { "xcrun", "sourcekit-lsp" },
   filetypes = { "swift", "objc" },
   root_markers = {
     "buildServer.json",
@@ -8,10 +8,6 @@ return {
     "compile_commands.json",
     "Package.swift",
   },
-  get_language_id = function(_, ftype)
-    local t = { objc = "objective-c" }
-    return t[ftype] or ftype
-  end,
   capabilities = {
     workspace = {
       didChangeWatchedFiles = {
@@ -25,4 +21,8 @@ return {
       },
     },
   },
+  -- settings = {
+  --   serverArguments = { "--log-level", "debug" },
+  --   trace = { server = "messages" },
+  -- },
 }
