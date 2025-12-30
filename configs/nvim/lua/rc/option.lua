@@ -1,5 +1,5 @@
 vim.opt.cmdheight = 0
-vim.opt.pumheight = 10   -- 補完メニューの高さ
+vim.opt.pumheight = 10 -- 補完メニューの高さ
 vim.opt.history = 10000
 vim.opt.helplang = "ja"
 
@@ -101,11 +101,6 @@ vim.diagnostic.config({
 })
 
 -- LSP
-vim.lsp.config("sourcekit", {
-  cmd = { "xcrun", "sourcekit-lsp" },
-  filetypes = { "swift", "objective-c" },
-})
-
 vim.lsp.config("ts_ls", {
   cmd = { "typescript-language-server", "--stdio" },
   root_markers = { "package.json" },
@@ -129,4 +124,4 @@ vim.lsp.config("denols", {
   workspace_required = true,
 })
 
-vim.lsp.enable("sourcekit", "ts_ls", "denols")
+vim.lsp.enable({ "sourcekit", "ts_ls", "denols" })
