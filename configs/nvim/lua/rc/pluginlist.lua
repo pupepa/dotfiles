@@ -892,6 +892,12 @@ return require("lazy").setup({
     "EdenEast/nightfox.nvim",
     event = { "BufReadPre", "BufWinEnter" },
     config = function()
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+        },
+      })
+
       vim.cmd.colorscheme("nightfox")
 
       -- Create symlink for WezTerm colorscheme
@@ -1243,7 +1249,7 @@ return require("lazy").setup({
     event = "ModeChanged",
     tag = "v0.2.1",
     opts = {
-      line_opacity = 0.2,
+      line_opacity = 0.3,
     },
   },
 
@@ -1956,6 +1962,7 @@ return require("lazy").setup({
         list = false,
         conceallevel = 3,
         concealcursor = "nvic",
+        winblend = 0,
       },
       -- Configuration for the floating window in oil.open_float
       float = {
@@ -1967,6 +1974,7 @@ return require("lazy").setup({
         border = "rounded",
         win_options = {
           winblend = 0,
+          winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:FloatBorder",
         },
         -- optionally override the oil buffers window title with custom function: fun(winid: integer): string
         get_win_title = nil,
