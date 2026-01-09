@@ -1941,7 +1941,7 @@ return require("lazy").setup({
     opts = {
       default_file_explorer = true,
       delete_to_trash = true,
-      view_optios = {
+      view_options = {
         show_hidden = true,
       },
       columns = {
