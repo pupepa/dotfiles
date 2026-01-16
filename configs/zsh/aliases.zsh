@@ -12,6 +12,9 @@ alias ....='cd ../../..'
 
 alias c=clear
 
+alias ta='tig --all'
+alias ti='tig'
+
 mktdir() {
   mkdir $HOME/tmp/$(date "+%y%m%d") ; cd $_
 }
