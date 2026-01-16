@@ -89,7 +89,9 @@ return require("lazy").setup({
       local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
       local sources = {
-        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.stylua.with({
+          extra_args = { "--config-path", vim.fn.expand("~/.config/stylua/stylua.toml") },
+        }),
 
         require("none-ls.diagnostics.eslint").with({
           prefer_local = "node_modules/.bin",
