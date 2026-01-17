@@ -507,7 +507,13 @@ return require("lazy").setup({
     },
     keys = {
       { "gn", "<Cmd>Lspsaga code_action<CR>", desc = "Code action", silent = true },
-      { "gn", ":<C-u>Lspsaga range_code_action<CR>", mode = "x", desc = "Range code action", silent = true },
+      {
+        "gn",
+        ":<C-u>Lspsaga range_code_action<CR>",
+        mode = "x",
+        desc = "Range code action",
+        silent = true,
+      },
       { "gh", "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover documentation", silent = true },
       { "go", "<Cmd>Lspsaga goto_definition<CR>", desc = "Go to definition", silent = true },
       { "gr", "<Cmd>Lspsaga finder<CR>", desc = "Find references", silent = true },
