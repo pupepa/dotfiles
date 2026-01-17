@@ -210,6 +210,10 @@ return require("lazy").setup({
       {
         "lukas-reineke/cmp-under-comparator",
       },
+
+      {
+        "dmitmel/cmp-cmdline-history",
+      },
     },
     opts = function()
       local cmp = require("cmp")
@@ -352,6 +356,7 @@ return require("lazy").setup({
         }),
         sources = cmp.config.sources({
           { name = "path" },
+          { name = "cmdline_history" },
         }, {
           {
             name = "cmdline",
