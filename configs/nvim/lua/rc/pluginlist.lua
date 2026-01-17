@@ -1697,11 +1697,6 @@ return require("lazy").setup({
             k = "<Esc>",
           },
         },
-        t = {
-          j = {
-            k = "<C-\\><C-n>",
-          },
-        },
       },
     },
   },
