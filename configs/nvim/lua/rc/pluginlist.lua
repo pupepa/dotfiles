@@ -1185,11 +1185,9 @@ return require("lazy").setup({
   -- https://github.com/lukas-reineke/indent-blankline.nvim
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     event = "BufReadPost",
-    opts = {
-      show_current_context = true,
-      show_current_context_start = true,
-    },
+    opts = {},
   },
 
   -- illuminate.vim - (Neo)Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
