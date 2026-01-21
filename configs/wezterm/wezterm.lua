@@ -45,11 +45,11 @@ config.colors = {
   },
 }
 
-config.leader = {
-  key = "b",
-  mods = "CTRL",
-  timeout_milliseconds = 2000,
-}
+-- config.leader = {
+--   key = "b",
+--   mods = "CTRL",
+--   timeout_milliseconds = 2000,
+-- }
 
 config.keys = {
   {
