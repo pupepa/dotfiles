@@ -2258,6 +2258,13 @@ return require("lazy").setup({
     end,
   },
 
+  -- Show Ex command output in buffer
+  -- https://github.com/tyru/capture.vim
+  {
+    "tyru/capture.vim",
+    cmd = { "Capture" },
+  },
+
   -- A plugin for profiling Vim and Neovim startup time.
   -- https://github.com/dstein64/vim-startuptime
   {
