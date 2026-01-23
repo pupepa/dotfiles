@@ -2008,8 +2008,8 @@ return require("lazy").setup({
   -- https://github.com/nvim-zh/colorful-winsep.nvim
   {
     "nvim-zh/colorful-winsep.nvim",
-    event = "BufReadPost",
-    opt = {},
+    event = "WinLeave",
+    config = true,
   },
 
   -- 🧠 Smart, seamless, directional navigation and resizing of Neovim + terminal multiplexer splits. Supports tmux, Wezterm, and Kitty. Think about splits in terms of "up/down/left/right".
