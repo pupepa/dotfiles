@@ -1842,11 +1842,25 @@ return require("lazy").setup({
         -- spacing
         insx.add(
           "<Space>",
-          require("insx.recipe.pair_spacing").increase({
-            open_pat = esc(open),
-            close_pat = esc(close),
-          })
+          insx.with(
+            require("insx.recipe.pair_spacing").increase({
+              open_pat = esc(open),
+              close_pat = esc(close),
+            }),
+            {
+              {
+                enabled = function(enabled, ctx)
+                  if vim.bo.filetype == "markdown" then
+                    return false
+                  end
+
+                  return enabled(ctx)
+                end,
+              },
+            }
+          )
         )
+
         insx.add(
           "<BS>",
           require("insx.recipe.pair_spacing").decrease({
