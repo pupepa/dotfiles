@@ -9,7 +9,7 @@ fi
 
 bindkey -e
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$HOME/.config/bin:/opt/homebrew/bin:$PATH$
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$HOME/.config/bin:/opt/homebrew/bin:$HOME/.local/bin:$PATH$
 
 HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
 HISTSIZE=1000000
