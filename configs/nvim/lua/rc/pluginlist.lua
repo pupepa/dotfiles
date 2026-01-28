@@ -917,43 +917,20 @@ return require("lazy").setup({
   -- UI
   -----------------------------------------------------------------------------------------
 
-  -- A highly customizable theme for vim and neovim with support for lsp, treesitter and a variety of plugins.
-  -- https://github.com/EdenEast/nightfox.nvim
+  -- 🏙 A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
+  -- https://github.com/folke/tokyonight.nvim
   {
-    "EdenEast/nightfox.nvim",
-    event = { "BufReadPre", "BufWinEnter" },
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require("nightfox").setup({
-        options = {
-          transparent = true,
-        },
+      require("tokyonight").setup({
+        transparent = true,
+        on_colors = function() end,
+        on_highlights = function() end,
       })
 
-      vim.cmd.colorscheme("nightfox")
-
-      -- Create symlink for WezTerm colorscheme
-      -- local function create_symlink_for_wezterm()
-      --   local wezterm_colors_path = vim.env.XDG_CONFIG_HOME .. "/wezterm/colors"
-      --   if vim.fn.isdirectory(wezterm_colors_path) == 0 then
-      --     vim.fn.mkdir(wezterm_colors_path, "p")
-      --   end
-      --
-      --   local wezterm_color_scheme_filename = "nightfox_wezterm.toml"
-      --   local wezterm_color_scheme_path = vim.env.XDG_CONFIG_HOME
-      --     .. "/nvim/plugged/nightfox.nvim/extra/nightfox/"
-      --     .. wezterm_color_scheme_filename
-      --   local target_path = wezterm_colors_path .. "/" .. wezterm_color_scheme_filename
-      --
-      --   if vim.fn.filereadable(target_path) == 0 then
-      --     vim.fn.system("ln -s " .. wezterm_color_scheme_path .. " " .. target_path)
-      --     print("Create symlink for wezterm colorscheme")
-      --   end
-      -- end
-
-      -- Uncomment to create symlink automatically
-      -- create_symlink_for_wezterm()
-
-      vim.api.nvim_set_hl(0, "@markup.raw.block", { fg = "#c0c0c0" })
+      vim.cmd.colorscheme("tokyonight")
     end,
   },
 
