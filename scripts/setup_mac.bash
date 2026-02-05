@@ -47,7 +47,33 @@ defaults write .GlobalPreferences NSAutomaticPeriodSubstitutionEnabled -bool fal
 defaults write .GlobalPreferences NSAutomaticDashSubstitutionEnabled -bool false
 defaults write .GlobalPreferences NSAutomaticQuoteSubstitutionEnabled -bool false
 
+################################################################################
+# トラックパッド
+################################################################################
+
+# 軌跡の速さ
+defaults write -g com.apple.trackpad.scaling 3
+
+# タップでクリック
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 1
+
+# 副ボタンのクリック
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad  TrackpadCornerSecondaryClick -int 0
+
+# ナチュラルなスクロール
+defaults write .GlobalPreferences com.apple.swipescrolldirection -bool false
+
+################################################################################
+# マウス
+################################################################################
+
+# マウスの速度を速くする
+defaults write -g com.apple.mouse.scaling 20
+
+################################################################################
 # Finder
+################################################################################
 
 # すべてのファイル名拡張子を表示
 defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
@@ -72,28 +98,9 @@ chflags nohidden ~/Library
 
 killall Finder
 
-# 時計
-
-# 時計の書式
-defaults write com.apple.menuextra.clock "DateFormat" -string "M\\u6708d\\u65e5(EEE)  H:mm:ss"
-
-# トラックパッド
-
-# 軌跡の速さ
-defaults write -g com.apple.trackpad.scaling 3
-
-# タップでクリック
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 1
-
-# 副ボタンのクリック
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad  TrackpadCornerSecondaryClick -int 0
-
-# ナチュラルなスクロール
-defaults write .GlobalPreferences com.apple.swipescrolldirection -bool false
-
+################################################################################
 # Safari
-#
+################################################################################
 
 # Show Safari's Status Bar （ステータスバーを表示）
 defaults write com.apple.Safari ShowStatusBar -bool true
@@ -101,8 +108,20 @@ defaults write com.apple.Safari ShowStatusBar -bool true
 # アドレスバーに完全なURLを表示
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
-# その他
+################################################################################
+# VS Code
+################################################################################
 
-# .DS_Storeを作らない
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+# VS Code のキーボードリピートを有効化
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+################################################################################
+# その他
+################################################################################
+
+# スクリーンショットの影を無効化
+defaults write com.apple.screencapture disable-shadow -boolean true
+
+# iOSシミュレータでタッチポインタを表示
+defaults write com.apple.iphonesimulator ShowSingleTouches 1
