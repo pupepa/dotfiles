@@ -2452,4 +2452,11 @@ return require("lazy").setup({
       use_oil = true,
     },
   },
+
+  {
+    "hiasr/vim-zellij-navigator.nvim",
+    config = function()
+      require("vim-zellij-navigator").setup()
+    end,
+  },
 })
