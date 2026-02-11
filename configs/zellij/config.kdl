@@ -6,6 +6,9 @@ show_startup_tips false
 
 keybinds {
     unbind "Ctrl b" "Ctrl g" "Ctrl p" "Ctrl n" "Ctrl o" "Ctrl s" "Ctrl q" "Ctrl w"
+    locked {
+      bind "Ctrl t" { SwitchToMode "Normal"; }
+    }
     normal {
         bind "Ctrl t" {
             SwitchToMode "tmux"
@@ -35,6 +38,20 @@ keybinds {
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
         bind "0" { GoToTab 10; SwitchToMode "Normal"; }
         bind "[" { SwitchToMode "Scroll"; }
+        bind "p" {
+          LaunchOrFocusPlugin "plugin-manager" {
+            floating true
+            move_to_focused_tab true
+          };
+          SwitchToMode "Normal"
+        }
+        bind "w" {
+          LaunchOrFocusPlugin "session-manager" {
+            floating true
+            move_to_focused_tab true
+          };
+          SwitchToMode "Normal"
+        }
     }
     scroll {
         bind "Ctrl s" { SwitchToMode "Normal"; }
@@ -130,7 +147,6 @@ plugins {
     filepicker location="zellij:strider" {
         cwd "/"
     }
-    configuration location="zellij:configuration"
     plugin-manager location="zellij:plugin-manager"
     vim-zellij-navigator location="https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"
 }
