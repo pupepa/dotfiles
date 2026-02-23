@@ -114,7 +114,7 @@ return require("lazy").setup({
         null_ls.builtins.diagnostics.textlint.with({
           filetypes = { "markdown" },
           timeout = 10000,
-          method = null_ls.methods.DIAGNOSTICS,
+          method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         }),
         null_ls.builtins.formatting.rubocop.with({
           condition = function()
