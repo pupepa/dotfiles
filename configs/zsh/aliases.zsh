@@ -44,3 +44,5 @@ if [ $commands[nvim] ]; then
   alias v='nvim'
   alias vim='nvim'
 fi
+
+alias lg='lazygit'
