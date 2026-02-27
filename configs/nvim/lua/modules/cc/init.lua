@@ -131,8 +131,11 @@ local function open_input_buffer(tool_name, args)
         )
       end
 
+      -- バッファ内のテキストをクリア
+      vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, {})
+
       -- バッファを閉じる
-      buffer.close_buffer(bufnr)
+      -- buffer.close_buffer(bufnr)
     end,
     on_scroll_down = function()
       -- 最新のペインIDを取得
