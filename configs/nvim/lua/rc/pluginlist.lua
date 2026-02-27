@@ -1796,6 +1796,7 @@ return require("lazy").setup({
   -- https://github.com/lambdalisue/kensaku.vim
   {
     "lambdalisue/kensaku.vim",
+    lazy = true,
     dependencies = {
       { "vim-denops/denops.vim" },
     },
@@ -2144,7 +2145,8 @@ return require("lazy").setup({
         desc = "Resize Window Up",
       },
     },
-    lazy = true,
+    event = "VeryLazy",
+    -- lazy = true,
   },
 
   -----------------------------------------------------------------------------------------
