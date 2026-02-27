@@ -131,7 +131,16 @@ function M.create_input_buffer(config)
   end
 
   if config.name then
-    vim.api.nvim_buf_set_name(bufnr, config.name)
+    local ok, err = pcall(vim.api.nvim_buf_set_name, bufnr, config.name)
+    if not ok then
+      -- 同名のバッファが残っている場合は削除してリトライ
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if buf ~= bufnr and vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_name(buf) == config.name then
+          vim.api.nvim_buf_delete(buf, { force = true })
+        end
+      end
+      pcall(vim.api.nvim_buf_set_name, bufnr, config.name)
+    end
   end
 
   -- 新しいウィンドウを作成してバッファを開く
