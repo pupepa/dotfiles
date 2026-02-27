@@ -84,6 +84,7 @@ config.keys = {
   { key = "c", mods = "LEADER", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
   { key = "n", mods = "LEADER", action = wezterm.action.ActivateTabRelative(1) },
   { key = "p", mods = "LEADER", action = wezterm.action.ActivateTabRelative(-1) },
+  { key = "o", mods = "LEADER", action = wezterm.action.ActivateLastTab },
   {
     key = ",",
     mods = "LEADER",
@@ -168,6 +169,7 @@ config.key_tables = {
     { key = "j", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
 
     { key = "Escape", action = "PopKeyTable" },
+    { key = "Enter", action = "PopKeyTable" },
     { key = "q", action = "PopKeyTable" },
     { key = "c", mod = "CTRL", action = "PopKeyTable" },
   },
