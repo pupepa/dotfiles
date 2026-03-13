@@ -8,6 +8,7 @@ local M = {}
 -- @return string バッファの全テキスト (改行で結合)
 function M.get_buffer_content(bufnr)
   local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
   return table.concat(lines, "\n")
 end
 

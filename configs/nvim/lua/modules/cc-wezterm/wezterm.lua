@@ -21,6 +21,7 @@ local function exec_wezterm(cmd)
       cmd,
       vim.trim(result)
     )
+
     return nil, error_msg
   end
   return vim.trim(result), nil
@@ -78,6 +79,7 @@ function M.pane_exists(pane_id)
       return true
     end
   end
+
   return false
 end
 

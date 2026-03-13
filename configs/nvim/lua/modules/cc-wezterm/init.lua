@@ -6,9 +6,11 @@ local buffer = require("modules.cc-wezterm.buffer")
 
 local M = {}
 
+local claude_pane_title = "✳ Claude Code"
+
 -- 内部状態: ペインIDを保持
 local state = {
-  claude_pane = nil,
+  claude_pane_id = nil,
 }
 
 -- ペインIDを検証し、存在しない場合はクリア
@@ -27,23 +29,23 @@ local function validate_pane(pane_id)
 end
 
 -- ペインを取得または作成
--- @param tool_name string ツール名 ("claude")
+-- @param pane_title string ツール名 ("✳ Claude Code")
 -- @param args string|nil コマンド引数 (例: "-c" や "-r abc123")
 -- @return string|nil ペインID、失敗時は nil
-local function get_or_create_pane(tool_name, args)
+local function get_or_create_pane(pane_title, args)
   -- 状態からペインIDを取得
   local pane_id
-  if tool_name == "claude" then
-    pane_id = validate_pane(state.claude_pane)
+  if pane_title == claude_pane_title then
+    pane_id = validate_pane(state.claude_pane_id)
   end
 
   -- メモリ上にない場合、現在のタブ内でコマンド名で検索して復元
   if not pane_id then
-    pane_id = wezterm.find_pane_by_command(tool_name)
+    pane_id = wezterm.find_pane_by_command(pane_title)
     if pane_id then
       -- 状態を復元
-      if tool_name == "claude" then
-        state.claude_pane = pane_id
+      if pane_title == claude_pane_title then
+        state.claude_pane_id = pane_id
       end
     end
   end
@@ -54,9 +56,9 @@ local function get_or_create_pane(tool_name, args)
   end
 
   -- コマンドを構築 (引数があれば追加)
-  local command = tool_name
+  local command = "claude"
   if args and args ~= "" then
-    command = string.format("%s %s", tool_name, args)
+    command = string.format("%s %s", command, args)
   end
 
   -- 新規ペインを作成 (30%)、ツールを起動
@@ -68,21 +70,22 @@ local function get_or_create_pane(tool_name, args)
       "WezTermペインの作成に失敗しました:\n" .. (err or "不明なエラー"),
       vim.log.levels.ERROR
     )
+
     return nil
   end
 
   -- 状態を更新
-  if tool_name == "claude" then
-    state.claude_pane = pane_id
+  if pane_title == claude_pane_title then
+    state.claude_pane_id = pane_id
   end
 
   return pane_id
 end
 
 -- 入力バッファを開く共通処理
--- @param tool_name string ツール名 ("claude")
+-- @param pane_title string ツール名 ("claude")
 -- @param args string|nil コマンド引数
-local function open_input_buffer(tool_name, args)
+local function open_input_buffer(pane_title, args)
   -- WezTermセッション内かチェック
   if not wezterm.is_in_wezterm() then
     vim.notify(
@@ -93,21 +96,22 @@ local function open_input_buffer(tool_name, args)
   end
 
   -- ペインを取得または作成
-  local pane_id = get_or_create_pane(tool_name, args)
+  local pane_id = get_or_create_pane(pane_title, args)
   if not pane_id then
     return
   end
 
   -- 最新のペインIDを取得する関数
   local function get_current_pane_id()
-    if tool_name == "claude" then
-      return state.claude_pane
+    if pane_title == claude_pane_title then
+      return state.claude_pane_id
     end
+
     return nil
   end
 
   -- 入力バッファを作成
-  local buffer_name = string.format("[%s Input]", tool_name:gsub("^%l", string.upper))
+  local buffer_name = string.format("[%s Input]", pane_title:gsub("^%l", string.upper))
   buffer.create_input_buffer({
     name = buffer_name,
     filetype = "markdown",
@@ -115,7 +119,7 @@ local function open_input_buffer(tool_name, args)
       -- 最新のペインIDを取得
       local current_pane = get_current_pane_id()
       if not current_pane then
-        vim.notify(string.format("%sペインが見つかりません", tool_name), vim.log.levels.ERROR)
+        vim.notify(string.format("%sペインが見つかりません", pane_title), vim.log.levels.ERROR)
         return
       end
 
@@ -128,7 +132,7 @@ local function open_input_buffer(tool_name, args)
         vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, {})
       else
         vim.notify(
-          string.format("%sへの送信に失敗しました:\n%s", tool_name, err or "不明なエラー"),
+          string.format("%sへの送信に失敗しました:\n%s", pane_title, err or "不明なエラー"),
           vim.log.levels.ERROR
         )
       end
@@ -140,20 +144,21 @@ local function open_input_buffer(tool_name, args)
       -- 最新のペインIDを取得
       local current_pane = get_current_pane_id()
       if not current_pane then
-        vim.notify(string.format("%sペインが見つかりません", tool_name), vim.log.levels.ERROR)
+        vim.notify(string.format("%sペインが見つかりません", pane_title), vim.log.levels.ERROR)
         return
       end
 
       local success, err = wezterm.kill_pane(current_pane)
       if success then
         -- ペインを削除したので状態もクリア
-        if tool_name == "claude" then
-          state.claude_pane = nil
+        if pane_title == claude_pane_title then
+          state.claude_pane_id = nil
         end
-        vim.notify(string.format("%sペインを終了しました", tool_name), vim.log.levels.INFO)
+
+        vim.notify(string.format("%sペインを終了しました", pane_title), vim.log.levels.INFO)
       else
         vim.notify(
-          string.format("%sペインの終了に失敗しました:\n%s", tool_name, err or "不明なエラー"),
+          string.format("%sペインの終了に失敗しました:\n%s", pane_title, err or "不明なエラー"),
           vim.log.levels.ERROR
         )
       end
@@ -164,7 +169,7 @@ end
 -- Claudeを開く
 -- @param args string|nil コマンド引数
 function M.open_claude(args)
-  open_input_buffer("claude", args)
+  open_input_buffer(claude_pane_title, args)
 end
 
 -- モジュールを初期化してコマンドとキーマップを登録
