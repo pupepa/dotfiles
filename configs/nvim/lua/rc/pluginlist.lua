@@ -107,6 +107,11 @@ return require("lazy").setup({
           prefer_local = "node_modules/.bin",
           filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
         }),
+
+        require("none-ls.formatting.oxfmt").with({
+          condition = function()
+            return vim.fn.executable("oxfmt") > 0 or vim.fn.executable("./node_modules/.bin/oxfmt") > 0
+          end,
           prefer_local = "node_modules/.bin",
           filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
         }),
