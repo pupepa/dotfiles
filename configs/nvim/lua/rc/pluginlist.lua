@@ -2570,13 +2570,6 @@ return require("lazy").setup({
     },
   },
 
-  {
-    "hiasr/vim-zellij-navigator.nvim",
-    config = function()
-      require("vim-zellij-navigator").setup()
-    end,
-  },
-
   -- Plugin for calling lazygit from within neovim.
   -- https://github.com/kdheepak/lazygit.nvim
   {
