@@ -1,4 +1,4 @@
-export PATH=/usr/local/share/git-core/contrib/diff-highlight:$PATH$
+export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
 
 # git-wt
 eval "$(git wt --init zsh)"
