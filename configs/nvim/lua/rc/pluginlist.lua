@@ -93,10 +93,20 @@ return require("lazy").setup({
         }),
 
         require("none-ls.diagnostics.eslint").with({
+          condition = function()
+            return vim.fn.executable("eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
+          end,
           prefer_local = "node_modules/.bin",
           filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
         }),
+
         require("none-ls.formatting.eslint").with({
+          condition = function()
+            return vim.fn.executable("eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
+          end,
+          prefer_local = "node_modules/.bin",
+          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
+        }),
           prefer_local = "node_modules/.bin",
           filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
         }),
