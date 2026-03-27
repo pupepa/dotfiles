@@ -1578,10 +1578,12 @@ return require("lazy").setup({
     },
   },
 
-  -- https://github.com/mattn/vim-maketable
   {
-    "mattn/vim-maketable",
-    cmd = { "MakeTable" },
+    "pupepa/make-table.nvim",
+    -- dir = "~/.config/nvim/lua/modules/make-table",
+    cmd = { "MakeTable", "UnmakeTable", "RemakeTable" },
+    ---@type makeTable.Config
+    opts = { first_row_as_header = true },
   },
 
   -- Use treesitter to auto close and auto rename html tag
