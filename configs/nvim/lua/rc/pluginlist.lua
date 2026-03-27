@@ -69,7 +69,6 @@ return require("lazy").setup({
           "solargraph",
           "lua_ls",
           "tailwindcss",
-          "ts_ls",
           "vimls",
         },
       })
