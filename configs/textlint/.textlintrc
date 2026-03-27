@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "asciidoctor"
+    "asciidoctor",
+    "review"
   ],
   "rules": {
     "prh": {

@@ -126,7 +126,7 @@ return require("lazy").setup({
         }),
 
         null_ls.builtins.diagnostics.textlint.with({
-          filetypes = { "markdown" },
+          filetypes = { "markdown", "review" },
           timeout = 10000,
           method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         }),
