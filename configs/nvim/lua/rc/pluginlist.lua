@@ -2505,7 +2505,7 @@ return require("lazy").setup({
   {
     "wsdjeg/rooter.nvim",
     opts = {
-      root_patterns = { "node_modules/", "Gemfile", "package.json", ".git/" },
+      root_patterns = { "Gemfile", ".git/" },
       outermost = false,
     },
     dependencies = {
