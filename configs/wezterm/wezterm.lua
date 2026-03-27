@@ -175,6 +175,21 @@ config.key_tables = {
   },
 }
 
+-- Show (z) suffix on tab title when zoomed
+wezterm.on("format-tab-title", function(tab)
+  local index = tab.tab_index + 1
+  local title = tab.tab_title
+  if #title == 0 then
+    title = tab.active_pane.title
+  end
+
+  if tab.active_pane.is_zoomed then
+    title = title .. " (z)"
+  end
+
+  return " " .. index .. ":" .. title .. " "
+end)
+
 -- Show which key table is active in the status area
 wezterm.on("update-right-status", function(window, pane)
   local name = window:active_key_table()
