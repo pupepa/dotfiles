@@ -644,7 +644,7 @@ return require("lazy").setup({
       "JoosepAlviste/nvim-ts-context-commentstring",
     },
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter").setup({
         ensure_installed = {
           "bash",
           "css",
@@ -665,24 +665,11 @@ return require("lazy").setup({
           "tsx",
           "typescript",
         },
-        highlight = {
-          enable = true,
-          disable = { "asciidoc", "vim" },
-        },
-        textobjects = {
-          select = {
-            enable = true,
-            keymaps = {
-              ["a,"] = "@parameter.inner",
-              ["i,"] = "@parameter.outer",
-            },
-          },
-        },
-        ignore_install = {},
+        ignore_install = { "csv" },
         sync_install = false,
         auto_install = true,
-        modules = {},
       })
+      vim.treesitter.language.register("typescript", "tsx")
     end,
   },
 
