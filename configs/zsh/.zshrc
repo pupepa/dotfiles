@@ -6,6 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# mise
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+
 # Customize to your needs...
 
 source $ZDOTDIR/aliases.zsh
@@ -17,9 +20,6 @@ source $ZDOTDIR/git.zsh
 source $ZDOTDIR/go.zsh
 source $ZDOTDIR/cargo.zsh
 source $ZDOTDIR/zinit.zsh
-
-# mise
-eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 emulate zsh -c "$(direnv export zsh)"
 
