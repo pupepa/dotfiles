@@ -1,9 +1,7 @@
-[include]
-    path = .gitconfig.local
 [core]
-  excludesfile = $HOME/.gitignore
   quotepath = false
   editor = nvim
+  pager = delta
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -11,21 +9,22 @@
   process = git-lfs filter-process
 [diff "localizablestrings"]
   textconv = "iconv -f utf-16 -t utf-8"
-[pager]
-  log = diff-highlight | less
-  show = diff-highlight | less
-  diff = diff-highlight | less
 [diff]
-  compactionHeuristic = true
+  algorithm = histogram
+  colorMoved = default
+  tool = nvimdiff
+  guitool = nvimdiff
 [diff "xlsx"]
   binary = true
   textconv = $GOPATH/bin/git-xlsx-textconv
 [merge]
   ff = false
-  tool = vimdiff
+  tool = nvimdiff
   conflictstyle = diff3
 [push]
   default = simple
+  # 初回pushで自動的に --set-upstream (Git 2.37+)
+  autoSetupRemote = true
 [alias]
   a = add
   b = branch
@@ -38,7 +37,6 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
   lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
   purge = !git reset --hard HEAD && git clean -fd
-  pr = pull-request
   ll = lga
   update = pull --ff --ff-only
 [color]
@@ -46,10 +44,22 @@
 [mergetool]
   prompt = false
 [interactive]
-  diffFilter = diff-highlight
+  diffFilter = delta --color-only
 [pull]
+  autostash = true
   rebase = true
 [init]
   defaultBranch = main
 [rebase]
   autostash = true
+[delta]
+  side-by-side = true
+[fetch]
+  # fetch時にリモートで削除済みのブランチを自動削除
+  prune = true
+[rerere]
+  enabled = true
+[branch]
+  sort = -committerdate
+[column]
+  ui = auto
