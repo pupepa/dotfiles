@@ -530,7 +530,8 @@ return require("lazy").setup({
       },
       { "gh", "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover documentation", silent = true },
       { "go", "<Cmd>Lspsaga goto_definition<CR>", desc = "Go to definition", silent = true },
-      { "gr", "<Cmd>Lspsaga finder<CR>", desc = "Find references", silent = true },
+      -- Neovim 0.11 以降のLSPのマッピングと競合するためgrからgRに変更
+      { "gR", "<Cmd>Lspsaga finder<CR>", desc = "Find references", silent = true },
       { "gl", "<Cmd>Lspsaga outline<CR>", desc = "Show outline", silent = true },
       { "gp", "<Cmd>Lspsaga panel<CR>", desc = "Show panel", silent = true },
       { "]g", "<Cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next diagnostic", silent = true },
