@@ -1797,6 +1797,7 @@ return require("lazy").setup({
           rendered = 0,
         },
       },
+      latex = { enabled = false },
     },
   },
 
