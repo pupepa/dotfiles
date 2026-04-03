@@ -97,6 +97,19 @@ config.keys = {
       end),
     }),
   },
+  {
+    key = ".",
+    mods = "LEADER",
+    action = wezterm.action_callback(function(window, pane)
+      local cwd_uri = pane:get_current_working_dir()
+      if cwd_uri then
+        local cwd = cwd_uri.file_path
+        -- パスの最後のディレクトリ名だけ取得
+        local dirname = cwd:match("([^/]+)/?$") or cwd
+        window:active_tab():set_title(dirname)
+      end
+    end),
+  },
   { key = "1", mods = "LEADER", action = wezterm.action.ActivateTab(0) },
   { key = "2", mods = "LEADER", action = wezterm.action.ActivateTab(1) },
   { key = "3", mods = "LEADER", action = wezterm.action.ActivateTab(2) },
