@@ -2613,4 +2613,23 @@ return require("lazy").setup({
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@class snacks.image.Config
+    opts = {
+      image = {
+        enabled = true,
+        formats = {
+          "png",
+          "jpg",
+          "jpeg",
+          "gif",
+          "webp",
+          "heic",
+        },
+      },
+    },
+  },
 })
