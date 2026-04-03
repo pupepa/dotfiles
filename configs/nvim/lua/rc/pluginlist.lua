@@ -2114,6 +2114,7 @@ return require("lazy").setup({
       keymaps = {
         ["<BS>"] = { "actions.parent", mode = "n" },
         ["<C-p>"] = { "actions.preview", mode = "n" },
+        ["H"] = { "actions.parent", mode = "n" },
       },
     },
     -- Optional dependencies
