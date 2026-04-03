@@ -117,4 +117,8 @@ vim.lsp.config("denols", {
   workspace_required = true,
 })
 
-vim.lsp.enable({ "sourcekit", "ts_ls", "denols" })
+vim.lsp.config("oxlint", {
+  root_markers = { ".oxlintrc.json", "oxlint.config.ts", "vite.config.ts", "vite.config.mts" },
+})
+
+vim.lsp.enable({ "sourcekit", "denols", "oxlint" })
