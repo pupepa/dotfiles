@@ -2578,6 +2578,12 @@ return require("lazy").setup({
         desc = "Yank Path",
         silent = true,
       },
+      {
+        "<Leader>yc",
+        ":YankPathCwd<CR>",
+        desc = "Yank Path from Cwd",
+        silent = true,
+      },
     },
     opts = {
       default_mapping = false,
