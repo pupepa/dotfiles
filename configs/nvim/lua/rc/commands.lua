@@ -1,7 +1,7 @@
 -- 一時ファイルを作成して開く
 vim.api.nvim_create_user_command(
   "Tempfile",
-  ':edit `=expand("~/.vimtmp/" . strftime("%Y-%m-%d_%H%M%S"))` | setf markdown',
+  ':edit `=expand("~/.vimtmp/" . strftime("%Y-%m-%d_%H%M%S") . ".md")` | setf markdown',
   { force = true }
 )
 
