@@ -2147,22 +2147,22 @@ return require("lazy").setup({
     keys = {
       -- focus windows
       {
-        "<C-h>",
+        "<C-S-h>",
         "<cmd>lua require('smart-splits').move_cursor_left()<cr>",
         desc = "Focus Window Left",
       },
       {
-        "<C-l>",
+        "<C-S-l>",
         "<cmd>lua require('smart-splits').move_cursor_right()<cr>",
         desc = "Focus Window Right",
       },
       {
-        "<C-j>",
+        "<C-S-j>",
         "<cmd>lua require('smart-splits').move_cursor_down()<cr>",
         desc = "Focus Window Down",
       },
       {
-        "<C-k>",
+        "<C-S-k>",
         "<cmd>lua require('smart-splits').move_cursor_up()<cr>",
         desc = "Focus Window Up",
       },
