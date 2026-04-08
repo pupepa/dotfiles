@@ -80,7 +80,7 @@ config.keys = {
     action = wezterm.action.QuickSelect,
   },
 
-  { key = "x", mods = "CTRL",   action = wezterm.action.ActivateCopyMode },
+  { key = "x", mods = "CTRL", action = wezterm.action.ActivateCopyMode },
 
   -- Tab operations
   { key = "c", mods = "LEADER", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
@@ -168,25 +168,25 @@ config.keys = {
       window:perform_action(wezterm.action.ActivateKeyTable({ name = "setting_mode", one_shot = false }), pane)
     end),
   },
-  { key = "{",     mods = "LEADER|SHIFT", action = wezterm.action.RotatePanes("CounterClockwise") },
-  { key = "}",     mods = "LEADER|SHIFT", action = wezterm.action.RotatePanes("Clockwise") },
-  { key = "Space", mods = "LEADER",       action = wezterm.action.RotatePanes("Clockwise") },
+  { key = "{", mods = "LEADER|SHIFT", action = wezterm.action.RotatePanes("CounterClockwise") },
+  { key = "}", mods = "LEADER|SHIFT", action = wezterm.action.RotatePanes("Clockwise") },
+  { key = "Space", mods = "LEADER", action = wezterm.action.RotatePanes("Clockwise") },
 
-  { key = "[",     mods = "LEADER",       action = wezterm.action.ActivateCopyMode }, -- enter copy mode
-  { key = "]",     mods = "LEADER",       action = wezterm.action.PasteFrom("Clipboard") },
+  { key = "[", mods = "LEADER", action = wezterm.action.ActivateCopyMode }, -- enter copy mode
+  { key = "]", mods = "LEADER", action = wezterm.action.PasteFrom("Clipboard") },
 }
 
 config.key_tables = {
   setting_mode = {
-    { key = "h",      action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },
-    { key = "l",      action = wezterm.action.AdjustPaneSize({ "Right", 1 }) },
-    { key = "k",      action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
-    { key = "j",      action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
+    { key = "h", action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },
+    { key = "l", action = wezterm.action.AdjustPaneSize({ "Right", 1 }) },
+    { key = "k", action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
+    { key = "j", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
 
     { key = "Escape", action = "PopKeyTable" },
-    { key = "Enter",  action = "PopKeyTable" },
-    { key = "q",      action = "PopKeyTable" },
-    { key = "c",      mod = "CTRL",                                          action = "PopKeyTable" },
+    { key = "Enter", action = "PopKeyTable" },
+    { key = "q", action = "PopKeyTable" },
+    { key = "c", mod = "CTRL", action = "PopKeyTable" },
   },
 }
 
