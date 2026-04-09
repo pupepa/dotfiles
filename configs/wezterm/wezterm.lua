@@ -87,6 +87,8 @@ config.keys = {
   { key = "n", mods = "LEADER", action = wezterm.action.ActivateTabRelative(1) },
   { key = "p", mods = "LEADER", action = wezterm.action.ActivateTabRelative(-1) },
   { key = "o", mods = "LEADER", action = wezterm.action.ActivateLastTab },
+  { key = "m", mods = "LEADER", action = wezterm.action.MoveTabRelative(1) },
+  { key = "M", mods = "LEADER", action = wezterm.action.MoveTabRelative(-1) },
   {
     key = ",",
     mods = "LEADER",
