@@ -1561,19 +1561,15 @@ return require("lazy").setup({
   -- Editing
   -----------------------------------------------------------------------------------------
 
-  --  🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
-  -- https://github.com/numToStr/Comment.nvim
+  -- https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-comment.md
   {
-    "numToStr/Comment.nvim",
-    keys = { { "gc", "gcc", mode = { "n", "v" } } },
-    dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
+    "nvim-mini/mini.comment",
+    version = "*",
+    opts = {
+      custom_commentstring = function()
+        return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
+      end,
     },
-    config = function()
-      require("Comment").setup({
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-      })
-    end,
   },
 
   -- This plugin trims trailing whitespace and lines.
