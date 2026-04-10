@@ -2156,6 +2156,37 @@ return require("lazy").setup({
     },
   },
 
+  -- Async Git status integration for oil.nvim
+  -- https://github.com/malewicz1337/oil-git.nvim
+  {
+    "malewicz1337/oil-git.nvim",
+    dependencies = { "stevearc/oil.nvim" },
+    opts = {
+      symbols = {
+        file = {
+          added = "󰐗",
+          modified = "󰰐",
+          renamed = "󰰟",
+          deleted = "󰯵",
+          copied = "󰯲",
+          conflict = "󰀨",
+          untracked = "󰋗",
+          ignored = "",
+        },
+        directory = {
+          added = "󰐗",
+          modified = "󰰐",
+          renamed = "󰰟",
+          deleted = "󰯵",
+          copied = "󰯲",
+          conflict = "󰀨",
+          untracked = "󰋗",
+          ignored = "",
+        },
+      },
+    },
+  },
+
   --------------------------------------------------------------------------------
   -- Window
   --------------------------------------------------------------------------------
