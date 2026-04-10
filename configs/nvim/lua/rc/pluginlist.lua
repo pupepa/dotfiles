@@ -231,9 +231,16 @@ return require("lazy").setup({
     },
     opts = function()
       local cmp = require("cmp")
+      local luasnip = require("snippy")
 
       local t = function(str)
         return vim.api.nvim_replace_termcodes(str, true, true, true)
+      end
+
+      local has_words_before = function()
+        local unpack = unpack or table.unpack ---@diagnostic disable-line: deprecated
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
 
       return {
@@ -264,6 +271,7 @@ return require("lazy").setup({
         mapping = {
           ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
           ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+          ---@diagnostic disable-next-line: unused-local
           ["<Up>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
@@ -272,6 +280,7 @@ return require("lazy").setup({
             end
           end, { "i" }),
 
+          ---@diagnostic disable-next-line: unused-local
           ["<Down>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
@@ -285,6 +294,18 @@ return require("lazy").setup({
               require("copilot.suggestion").accept()
             elseif cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
             else
               fallback()
             end
@@ -353,32 +374,36 @@ return require("lazy").setup({
 
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline({
-          ["<Down>"] = { c = cmp.mapping.select_next_item() },
-          ["<Up>"] = { c = cmp.mapping.select_prev_item() },
-        }),
-        sources = {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "nvim_lsp_document_symbol" },
           { name = "buffer" },
-        },
+        }, {}),
       })
 
       -- `:` cmdline setup.
       cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline({
-          ["<Down>"] = { c = cmp.mapping.select_next_item() },
-          ["<Up>"] = { c = cmp.mapping.select_prev_item() },
-        }),
-        sources = cmp.config.sources({
-          { name = "path" },
-          { name = "cmdline_history" },
-        }, {
-          {
-            name = "cmdline",
-            option = {
-              ignore_cmds = { "Man", "!" },
-            },
-          },
-        }),
+        mapping = {
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end, { "c" }),
+
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end, { "c" }),
+
+          ["<C-y>"] = { c = cmp.mapping.confirm({ select = false }) },
+          ["<C-q>"] = { c = cmp.mapping.abort() },
+        },
+        sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { { name = "cmdline_history" } } }),
       })
 
       vim.lsp.config("*", {
@@ -1409,6 +1434,13 @@ return require("lazy").setup({
       },
       messages = {
         view_search = false, -- use hlslens
+      },
+      cmdline = {
+        view = "cmdline_popup",
+      },
+      popupmenu = {
+        enabled = true,
+        backend = "cmp",
       },
       views = {
         cmdline_popup = {
