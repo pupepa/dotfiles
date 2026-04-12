@@ -75,100 +75,85 @@ return require("lazy").setup({
     end,
   },
 
-  -- null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
-  -- https://github.com/nvimtools/none-ls.nvim
+  -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
+  --https://github.com/mfussenegger/nvim-lint
   {
-    "nvimtools/none-ls.nvim",
-    dependencies = {
-      "nvimtools/none-ls-extras.nvim",
-    },
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
     config = function()
-      local null_ls = require("null-ls")
+      local lint = require("lint")
 
-      local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
+      local function pick_linters(linters)
+        for _, l in ipairs(linters) do
+          if lint.linters[l] and vim.fn.executable(lint.linters[l].cmd()) == 1 then
+            return { l }
+          end
+        end
 
-      local sources = {
-        null_ls.builtins.formatting.stylua.with({
-          extra_args = { "--config-path", vim.fn.expand("~/.config/stylua/stylua.toml") },
-        }),
+        return {}
+      end
 
-        require("none-ls.diagnostics.eslint").with({
-          condition = function()
-            return vim.fn.executable("eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
-          end,
-          prefer_local = "node_modules/.bin",
-          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
-        }),
+      lint.linters.textlint = require("rc.lint.textlint")
 
-        require("none-ls.formatting.eslint").with({
-          condition = function()
-            return vim.fn.executable("eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
-          end,
-          prefer_local = "node_modules/.bin",
-          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
-        }),
+      local function make_linters_by_ft()
+        return {
+          lua = { "selene" },
+          sh = { "shellcheck" },
+          bash = { "shellcheck" },
+          zsh = { "shellcheck" },
+          python = { "ruff" },
+          javascript = pick_linters({ "oxlint", "eslint" }),
+          javascriptreact = pick_linters({ "oxlint", "eslint" }),
+          typescript = pick_linters({ "oxlint", "eslint" }),
+          typescriptreact = pick_linters({ "oxlint", "eslint" }),
+          deno = { "deno" },
+          ruby = { "rubocop" },
+          markdown = { "textlint" },
+          review = { "textlint" },
+          text = { "textlint" },
+        }
+      end
 
-        require("none-ls.formatting.oxfmt").with({
-          condition = function()
-            return vim.fn.executable("oxfmt") > 0 or vim.fn.executable("./node_modules/.bin/oxfmt") > 0
-          end,
-          prefer_local = "node_modules/.bin",
-          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
-        }),
+      lint.linters_by_ft = make_linters_by_ft()
 
-        null_ls.builtins.formatting.prettier.with({
-          condition = function()
-            return vim.fn.executable("prettier") > 0 or vim.fn.executable("./node_modules/.bin/prettier") > 0
-          end,
-          disabled_filetypes = { "markdown" },
-          extra_filetypes = { "ruby" },
-          prefer_local = "node_modules/.bin",
-        }),
+      lint.try_lint()
 
-        null_ls.builtins.diagnostics.textlint.with({
-          filetypes = { "markdown", "review" },
-          timeout = 10000,
-          method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-        }),
-        null_ls.builtins.formatting.rubocop.with({
-          condition = function()
-            return vim.fn.executable("rubocop") > 0
-          end,
-          extra_args = { "-A" },
-        }),
-        null_ls.builtins.formatting.swift_format.with({
-          condition = function()
-            return vim.fn.executable("swift-format") > 0
-          end,
-        }),
-      }
+      local lint_augroup = vim.api.nvim_create_augroup("nvim_lint", { clear = true })
 
-      null_ls.setup({
-        root_dir = require("null-ls.utils").root_pattern(
-          ".null-ls-root",
-          "Makefile",
-          ".git",
-          "package.json",
-          "tsconfig.json",
-          ".eslintrc",
-          ".prettierrc",
-          "deno.json",
-          "Gemfile"
-        ),
-        sources = sources,
-        on_attach = function(client, bufnr)
-          local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-          if filetype ~= "markdown" and client.server_capabilities.documentFormattingProvider then
-            vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              group = augroup_format,
-              buffer = 0,
-              callback = function()
-                vim.lsp.buf.format({ timeout_ms = 5000 })
-              end,
-            })
+      vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
+        group = lint_augroup,
+        callback = function()
+          require("lint").try_lint()
+
+          if vim.fn.filereadable(".vale.ini") > 0 then
+            require("lint").try_lint({ "vale" })
           end
         end,
+      })
+    end,
+  },
+
+  -- Lightweight yet powerful formatter plugin for Neovim
+  -- https://github.com/stevearc/conform.nvim
+  {
+    "stevearc/conform.nvim",
+    event = "VeryLazy",
+    config = function()
+      local javascript_formatters = { "oxfmt", "prettier", stop_after_first = true, lsp_format = "fallback" }
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          javascript = javascript_formatters,
+          javascriptreact = javascript_formatters,
+          python = { "ruff_format", lsp_format = "fallback" },
+          swift = { "swift_format" },
+          typescript = javascript_formatters,
+          typescriptreact = javascript_formatters,
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_format = "fallback",
+        },
       })
     end,
   },
