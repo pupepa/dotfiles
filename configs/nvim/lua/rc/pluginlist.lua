@@ -2136,7 +2136,7 @@ return require("lazy").setup({
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    lazy = false,
+    lazy = true,
     keys = {
       { "<C-n>", ":lua require('oil').toggle_float()<CR>", { noremap = true, expr = false, silent = true } },
     },
