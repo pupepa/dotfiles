@@ -2147,6 +2147,7 @@ return require("lazy").setup({
   {
     "malewicz1337/oil-git.nvim",
     dependencies = { "stevearc/oil.nvim" },
+    event = "VeryLazy",
     opts = {
       symbols = {
         file = {
