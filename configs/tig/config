@@ -5,7 +5,7 @@
 # デフォルト
 # set main-view = date author commit-title:graph=yes,refs=yes
 #
-set main-view = line-number:no author:full date:custom,format="%Y-%m-%d %h:%M" id:yes commit-title:yes,graph:v2,refs,overflow=no
+set main-view = line-number:no author:full date:custom,format="%Y-%m-%d %H:%M" id:yes commit-title:yes,graph:v2,refs,overflow=no
 
 # 画面を垂直方向に分割する
 # set vertical-split = yes
