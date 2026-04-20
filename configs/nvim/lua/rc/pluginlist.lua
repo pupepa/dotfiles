@@ -650,9 +650,11 @@ return require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     build = ":TSUpdate",
+    branch = "main",
     dependencies = {
       "windwp/nvim-ts-autotag",
       "JoosepAlviste/nvim-ts-context-commentstring",
+      "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
       require("nvim-treesitter").setup({
@@ -682,13 +684,6 @@ return require("lazy").setup({
       })
       vim.treesitter.language.register("typescript", "tsx")
     end,
-  },
-
-  -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
-  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    lazy = true,
   },
 
   -- Highlight arguments' definitions and usages, using Treesitter
