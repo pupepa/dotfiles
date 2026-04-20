@@ -1452,6 +1452,13 @@ return require("lazy").setup({
     },
   },
 
+  -- A Neovim plugin that provides VSCode-style diff rendering with two-tier highlighting (line + character level) in side-by-side and inline layouts, using VSCode's algorithm implemented in C.
+  -- https://github.com/esmuellert/codediff.nvim
+  {
+    "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
+  },
+
   -----------------------------------------------------------------------------------------
   -- textobj
   -----------------------------------------------------------------------------------------
