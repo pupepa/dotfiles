@@ -63,9 +63,9 @@ bind branch [ !@hub compare %(branch)
 bind main { !hub pull-request
 
 # open commit at github
-bind main o !@hub browse -- commit/%(commit)
-bind diff o !@hub browse -- commit/%(commit)
-bind log o !@hub browse -- commit/%(commit)
+bind main o !gh browse %(commit)
+bind diff o !gh browse %(commit)
+bind log  o !gh browse %(commit)
 
 # カラー設定
 # diff-view で境界が見やすくなるように変更
