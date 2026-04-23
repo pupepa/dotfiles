@@ -1459,7 +1459,11 @@ return require("lazy").setup({
   -----------------------------------------------------------------------------------------
 
   -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-  { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+    event = "VeryLazy",
+  },
 
   -- Bundle of two dozen new text objects for Neovim.
   -- https://github.com/chrisgrieser/nvim-various-textobjs
