@@ -184,17 +184,11 @@ return require("lazy").setup({
       -- https://github.com/hrsh7th/cmp-calc
       "hrsh7th/cmp-calc",
 
-      -- spell source for nvim-cmp based on vim's spellsuggest.
-      -- https://github.com/f3fora/cmp-spell
-      "f3fora/cmp-spell",
-
       -- cmp source for treesitter
       -- https://github.com/ray-x/cmp-treesitter
       "ray-x/cmp-treesitter",
 
       "dcampos/cmp-snippy",
-
-      "andersevenrud/cmp-tmux",
 
       "roobert/tailwindcss-colorizer-cmp.nvim",
 
@@ -240,15 +234,12 @@ return require("lazy").setup({
               nvim_lua = "[NeovimLua]",
               path = "[Path]",
               omni = "[Omni]",
-              spell = "[Spell]",
               emoji = "[Emoji]",
               calc = "[Calc]",
               rg = "[Rg]",
               treesitter = "[TS]",
               dictionary = "[Dictionary]",
-              mocword = "[mocword]",
               cmdline_history = "[History]",
-              tmux = "[tmux]",
             },
             before = require("tailwindcss-colorizer-cmp").formatter,
           }),
@@ -341,10 +332,6 @@ return require("lazy").setup({
           { name = "buffer" },
           { name = "calc" },
           { name = "treesitter" },
-          { name = "dictionary" },
-          { name = "mocword" },
-          { name = "spell" },
-          { name = "tmux" },
         }),
 
         window = {
