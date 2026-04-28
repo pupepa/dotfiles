@@ -2141,6 +2141,9 @@ return require("lazy").setup({
   -- https://github.com/mrjones2014/smart-splits.nvim
   {
     "mrjones2014/smart-splits.nvim",
+    opts = {
+      at_edge = "stop",
+    },
     keys = {
       -- focus windows
       {
