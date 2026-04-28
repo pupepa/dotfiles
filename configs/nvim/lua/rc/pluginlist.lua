@@ -502,56 +502,6 @@ return require("lazy").setup({
   {
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
-    dependencies = {
-      "glepnir/lspsaga.nvim",
-      "nvim-lualine/lualine.nvim",
-    },
-  },
-
-  -- neovim lsp plugin
-  -- https://github.com/glepnir/lspsaga.nvim
-  {
-    "glepnir/lspsaga.nvim",
-    event = "BufReadPre",
-    dependencies = {
-      "nvim-lualine/lualine.nvim",
-    },
-    keys = {
-      { "gn", "<Cmd>Lspsaga code_action<CR>", desc = "Code action", silent = true },
-      {
-        "gn",
-        ":<C-u>Lspsaga range_code_action<CR>",
-        mode = "x",
-        desc = "Range code action",
-        silent = true,
-      },
-      { "gh", "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover documentation", silent = true },
-      { "go", "<Cmd>Lspsaga goto_definition<CR>", desc = "Go to definition", silent = true },
-      -- Neovim 0.11 以降のLSPのマッピングと競合するためgrからgRに変更
-      { "gR", "<Cmd>Lspsaga finder<CR>", desc = "Find references", silent = true },
-      { "gl", "<Cmd>Lspsaga outline<CR>", desc = "Show outline", silent = true },
-      { "gp", "<Cmd>Lspsaga panel<CR>", desc = "Show panel", silent = true },
-      { "]g", "<Cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next diagnostic", silent = true },
-      { "[g", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous diagnostic", silent = true },
-    },
-    opts = {
-      lightbulb = {
-        enable = false,
-      },
-      outline = {
-        win_position = "right",
-        auto_preview = true,
-        detail = true,
-        auto_close = true,
-        close_after_jump = true,
-        layout = "float",
-        keys = {
-          toggle_or_jump = "<cr>",
-          quit = { "q", "<ESC>" },
-          jump = "e",
-        },
-      },
-    },
   },
 
   -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
@@ -589,6 +539,11 @@ return require("lazy").setup({
         "<leader>xQ",
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
+      },
+      {
+        "gr",
+        "<Cmd>Trouble lsp_references toggle focus=true<CR>",
+        desc = "Find references (Trouble)",
       },
     },
     opts = {},

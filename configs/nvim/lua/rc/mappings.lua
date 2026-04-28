@@ -87,3 +87,18 @@ vim.keymap.set("n", "<Enter>", ":<C-u>put =repeat(nr2char(10), v:count1)<CR>")
 
 vim.keymap.set("n", "]t", ":tabnext<CR>")
 vim.keymap.set("n", "[t", ":tabprevious<CR>")
+
+-- hover (Neovim標準ではKがデフォルトで割り当て済)
+vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Hover documentation", silent = true })
+
+-- goto definition
+vim.keymap.set("n", "go", vim.lsp.buf.definition, { desc = "Go to definition", silent = true })
+
+-- diagnostic jump (Neovim 0.11+ では vim.diagnostic.jump を推奨)
+vim.keymap.set("n", "]g", function()
+  vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Next diagnostic", silent = true })
+
+vim.keymap.set("n", "[g", function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Previous diagnostic", silent = true })
