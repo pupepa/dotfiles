@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 require("rc/base")
 require("rc/autocommands")
 require("rc/commands")
