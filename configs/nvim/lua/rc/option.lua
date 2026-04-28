@@ -98,6 +98,9 @@ vim.g.markdown_fenced_languages =
 -- Diagnostic
 vim.diagnostic.config({
   virtual_text = true,
+  float = {
+    border = "rounded",
+  },
 })
 
 vim.lsp.config("tailwindcss", {
