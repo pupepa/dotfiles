@@ -103,7 +103,7 @@ vim.diagnostic.config({
   },
 })
 
-vim.lsp.config("tailwindcss", {
+vim.lsp.config("tailwindcss-language-server", {
   cmd = { "tailwindcss-language-server", "--stdio" },
   filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
   root_markers = { "tailwind.config.js", "tailwind.config.cjs", "tailwind.config.ts", "tailwind.config.mjs" },
@@ -124,4 +124,39 @@ vim.lsp.config("oxlint", {
   root_markers = { ".oxlintrc.json", "oxlint.config.ts", "vite.config.ts", "vite.config.mts" },
 })
 
-vim.lsp.enable({ "sourcekit", "denols", "oxlint" })
+vim.lsp.config("lua-language-server", {
+  cmd = { "lua-language-server" },
+  filetypes = { "lua" },
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+
+vim.lsp.config("bash-language-server", {
+  cmd = { "bash-language-server", "start" },
+  filetypes = { "sh", "bash" },
+})
+
+vim.lsp.config("sourcekit", {
+  cmd = { "sourcekit-lsp" },
+  filetypes = { "swift", "objective-c", "objective-cpp" },
+})
+
+vim.lsp.config("dockerfile-language-server", {
+  cmd = { "docker-langserver", "--stdio" },
+  filetypes = { "Dockerfile" },
+})
+
+vim.lsp.enable({
+  "sourcekit",
+  "denols",
+  "oxlint",
+  "lua-language-server",
+  "bash-language-server",
+  "dockerfile-language-server",
+  "tailwindcss-language-server",
+})
