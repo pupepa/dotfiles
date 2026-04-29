@@ -44,37 +44,6 @@ return require("lazy").setup({
   -- LSP & Completion
   --------------------------------------------------------------------------------
 
-  -- External package Installer
-  -- https://github.com/williamboman/mason.nvim
-  {
-    "williamboman/mason.nvim",
-    dependencies = {
-      -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
-      -- https://github.com/williamboman/mason-lspconfig.nvim
-      "williamboman/mason-lspconfig.nvim",
-      "j-hui/fidget.nvim",
-    },
-    event = "BufReadPre",
-    config = function()
-      require("mason").setup()
-
-      local mason_lspconfig = require("mason-lspconfig")
-      mason_lspconfig.setup({
-        ensure_installed = {
-          "bashls",
-          "cssls",
-          "dockerls",
-          "html",
-          "jsonls",
-          "solargraph",
-          "lua_ls",
-          "tailwindcss",
-          "vimls",
-        },
-      })
-    end,
-  },
-
   -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
   --https://github.com/mfussenegger/nvim-lint
   {
@@ -470,10 +439,6 @@ return require("lazy").setup({
     lazy = true,
     opts = { snippet_dirs = { "~/.config/nvim/snippets", "~/.config/nvim/snippets_private" } },
   },
-
-  -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
-  -- https://github.com/williamboman/mason-lspconfig.nvim
-  { "williamboman/mason-lspconfig.nvim" },
 
   -- Faster LuaLS setup for Neovim
   -- https://github.com/folke/lazydev.nvim
