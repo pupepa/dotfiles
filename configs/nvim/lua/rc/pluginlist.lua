@@ -536,6 +536,7 @@ return require("lazy").setup({
   -- https://github.com/pmizio/typescript-tools.nvim
   {
     "pmizio/typescript-tools.nvim",
+    ft = { "typescript", "typescriptreact", "typescript.tsx" },
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
