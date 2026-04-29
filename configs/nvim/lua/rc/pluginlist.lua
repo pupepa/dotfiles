@@ -462,13 +462,6 @@ return require("lazy").setup({
     lazy = true,
   }, -- optional `vim.uv` typings
 
-  -- Quickstart configs for Nvim LSP
-  -- https://github.com/neovim/nvim-lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    event = "BufReadPre",
-  },
-
   -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
   -- https://github.com/folke/trouble.nvim
   {
@@ -543,7 +536,7 @@ return require("lazy").setup({
   -- https://github.com/pmizio/typescript-tools.nvim
   {
     "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
 
