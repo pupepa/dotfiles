@@ -532,9 +532,9 @@ return require("lazy").setup({
     },
   },
 
-  -- https://github.com/zbirenbaum/copilot-cmp
+  -- https://github.com/pupepa/copilot-cmp
   {
-    "zbirenbaum/copilot-cmp",
+    "pupepa/copilot-cmp",
     lazy = true,
     opts = {},
   },
@@ -1782,7 +1782,7 @@ return require("lazy").setup({
     cmd = { "Copilot" },
     event = "InsertEnter",
     dependencies = {
-      { "zbirenbaum/copilot-cmp" },
+      { "pupepa/copilot-cmp" },
     },
     opts = {
       suggestion = { enabled = false },
