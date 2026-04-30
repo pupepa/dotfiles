@@ -77,3 +77,10 @@ color diff-chunk black white
 
 color main-head cyan default bold
 color cursor yellow default reverse
+
+# View diffs using delta
+bind main D >sh -c "git show %(commit) | delta --paging always"
+bind diff D >sh -c "git show %(commit) | delta --paging always"
+bind stage  D >sh -c "git diff HEAD -- %(file) | delta --paging always"
+bind status D >sh -c "git diff HEAD -- %(file) | delta --paging always"
+
