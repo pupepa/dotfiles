@@ -67,6 +67,9 @@ bind main o !gh browse %(commit)
 bind diff o !gh browse %(commit)
 bind log  o !gh browse %(commit)
 
+# Amend
+bind main A !git commit --amend
+
 # カラー設定
 # diff-view で境界が見やすくなるように変更
 color diff-header default magenta
