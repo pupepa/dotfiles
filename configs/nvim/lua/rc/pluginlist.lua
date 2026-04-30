@@ -2061,6 +2061,12 @@ return require("lazy").setup({
         ["<BS>"] = { "actions.parent", mode = "n" },
         ["<C-p>"] = { "actions.preview", mode = "n" },
         ["H"] = { "actions.parent", mode = "n" },
+        ["g~"] = {
+          desc = "Change home dir",
+          callback = function()
+            require("oil").open(vim.env.HOME)
+          end,
+        },
       },
     },
     -- Optional dependencies
