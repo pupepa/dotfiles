@@ -70,6 +70,10 @@ bind log  o !gh browse %(commit)
 # Amend
 bind main A !git commit --amend
 
+# View diffs using delta
+bind main <Enter> >sh -c "git show %(commit) | delta --paging always"
+bind status D >sh -c "git diff -- %(file) | delta --paging always"
+
 # カラー設定
 # diff-view で境界が見やすくなるように変更
 color diff-header default magenta
@@ -77,10 +81,3 @@ color diff-chunk black white
 
 color main-head cyan default bold
 color cursor yellow default reverse
-
-# View diffs using delta
-bind main D >sh -c "git show %(commit) | delta --paging always"
-bind diff D >sh -c "git show %(commit) | delta --paging always"
-bind stage  D >sh -c "git diff HEAD -- %(file) | delta --paging always"
-bind status D >sh -c "git diff HEAD -- %(file) | delta --paging always"
-
