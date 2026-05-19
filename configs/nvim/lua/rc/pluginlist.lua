@@ -2620,6 +2620,9 @@ return require("lazy").setup({
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
+
+  -- 🍿 A collection of QoL plugins for Neovim
+  -- https://github.com/folke/snacks.nvim
   {
     "folke/snacks.nvim",
     priority = 1000,
