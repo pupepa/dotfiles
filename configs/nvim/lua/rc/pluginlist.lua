@@ -925,7 +925,7 @@ return require("lazy").setup({
           return icon, hl
         end,
         show_close_icon = false,
-        show_tab_indicators = false,
+        show_tab_indicators = true,
         persist_buffer_sort = false,
         separator_style = "thin",
         enforce_regular_tabs = false,
