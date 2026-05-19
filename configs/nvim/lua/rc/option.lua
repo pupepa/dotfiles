@@ -132,6 +132,16 @@ vim.lsp.config("lua-language-server", {
       diagnostics = {
         globals = { "vim" },
       },
+      format = {
+        enable = true,
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "2",
+          align_continuous_rect_table_field = "false",
+          align_continuous_inline_comment = "false",
+          align_array_table = "false",
+        },
+      }
     },
   },
 })
