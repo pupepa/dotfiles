@@ -1351,11 +1351,50 @@ return require("lazy").setup({
     },
   },
 
-  -- A Neovim plugin that provides VSCode-style diff rendering with two-tier highlighting (line + character level) in side-by-side and inline layouts, using VSCode's algorithm implemented in C.
-  -- https://github.com/esmuellert/codediff.nvim
+  -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev (actively maintained fork).
+  -- https://github.com/dlyongemallo/diffview.nvim
   {
-    "esmuellert/codediff.nvim",
-    cmd = "CodeDiff",
+    "dlyongemallo/diffview.nvim",
+    version = "*",
+    keys = {
+      {
+        "<leader>gd",
+        "<Cmd>DiffviewOpen<CR>",
+        desc = "Diffview Open",
+        silent = true,
+      },
+      {
+        "<leader>gt",
+        "<Cmd>DiffviewToggle<CR>",
+        desc = "Diffview Toggle",
+        silent = true,
+      },
+      {
+        "<leader>gh",
+        "<Cmd>DiffviewFileHistory<CR>",
+        desc = "Diffview File History",
+        silent = true,
+      },
+      {
+        "<leader>gf",
+        "<Cmd>DiffviewDiffFiles<CR>",
+        desc = "Diffview Diff Files",
+        silent = true,
+      },
+      {
+        "<leader>gl",
+        "<Cmd>DiffviewLog<CR>",
+        desc = "Diffview Log",
+        silent = true,
+      }
+    },
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewToggle",
+      "DiffviewFileHistory",
+      "DiffviewDiffFiles",
+      "DiffviewLog",
+    },
   },
 
   -- Extensible Neovim Scrollbar
