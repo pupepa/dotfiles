@@ -2710,6 +2710,7 @@ return require("lazy").setup({
         desc = "Browse File",
       },
     },
+    config = true
   },
 
   -- WezTerm Lua config types for LuaLS, with Neovim and VSCode support. Also supperts various WezTerm plugins.
