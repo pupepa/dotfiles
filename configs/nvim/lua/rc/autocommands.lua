@@ -40,14 +40,31 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 -- AIによるコミットメッセージ生成 (<Leader>ai: 英語, <Leader>aj: 日本語)
+local ai_commit_message_backend = nil
+
 if vim.fn.executable("claude") == 1 then
+  ai_commit_message_backend = "claude"
+elseif vim.fn.executable("codex") == 1 then
+  ai_commit_message_backend = "codex"
+end
+
+if ai_commit_message_backend ~= nil then
   local function generate_commit_message(prompt)
     local bufnr = vim.api.nvim_get_current_buf()
     local output = {}
+    local command
 
-    vim.notify("コミットメッセージを生成中...", vim.log.levels.INFO)
+    if ai_commit_message_backend == "codex" then
+      command = "git diff --cached | codex exec --model gpt-5.3-codex --skip-git-repo-check --ephemeral '"
+        .. prompt
+        .. "'"
+    else
+      command = "git diff --cached | claude --no-session-persistence --print --model haiku '" .. prompt .. "'"
+    end
 
-    vim.fn.jobstart("git diff --cached | claude --no-session-persistence --print --model haiku '" .. prompt .. "'", {
+    vim.notify(ai_commit_message_backend .. "でコミットメッセージを生成中...", vim.log.levels.INFO)
+
+    vim.fn.jobstart(command, {
       stdout_buffered = true,
       on_stdout = function(_, data)
         if data then
