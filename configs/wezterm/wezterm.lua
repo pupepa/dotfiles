@@ -63,9 +63,41 @@ config.colors = {
   },
 }
 
+wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
+  local scrollback = pane:get_lines_as_text(pane:get_dimensions().scrollback_rows)
+  local name = os.tmpname()
+  local f = io.open(name, "w+")
+
+  if f == nil then
+    return
+  end
+
+  f:write(scrollback)
+  f:flush()
+  f:close()
+
+  window:perform_action(
+    wezterm.action({
+      SpawnCommandInNewTab = {
+        args = { os.getenv("HOME") .. "/.local/share/mise/shims/nvim", name },
+        -- args = { os.getenv("HOME") .. "/.local/share/zsh/zinit/polaris/bin/nvim", name },
+      },
+    }),
+    pane
+  )
+
+  wezterm.sleep_ms(1000)
+  os.remove(name)
+end)
+
 config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 2000 }
 
 config.keys = {
+  {
+    key = "e",
+    mods = "LEADER",
+    action = wezterm.action({ EmitEvent = "trigger-nvim-with-scrollback" })
+  },
   {
     key = "O",
     mods = "CTRL|SHIFT",
