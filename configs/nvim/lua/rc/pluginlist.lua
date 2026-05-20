@@ -2709,6 +2709,11 @@ return require("lazy").setup({
         end,
         desc = "Browse File",
       },
+      {
+        "<Leader>gc",
+        "<Cmd>Git commit<CR>",
+        desc = "Git Commit",
+      },
     },
     config = true
   },
