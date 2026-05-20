@@ -54,6 +54,14 @@
   autostash = true
 [delta]
   side-by-side = true
+  minus-style = syntax "#4b2a3d"
+  minus-non-emph-style = syntax "#4b2a3d"
+  minus-emph-style = syntax "#e26a75"
+  minus-empty-line-marker-style = normal "#4b2a3d"
+  plus-style = syntax "#2a4556"
+  plus-non-emph-style = syntax "#2a4556"
+  plus-emph-style = syntax "#65bcff"
+  plus-empty-line-marker-style = normal "#2a4556"
 [fetch]
   # fetch時にリモートで削除済みのブランチを自動削除
   prune = true
