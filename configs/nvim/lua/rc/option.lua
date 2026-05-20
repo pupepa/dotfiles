@@ -93,7 +93,7 @@ vim.fn.mkdir(undodir, "p")
 vim.opt.updatetime = 300
 
 vim.g.markdown_fenced_languages =
-  { "ruby", "python", "sql", "swift", "typescript", "typescriptreact", "javascript", "javascriptreact", "sh" }
+{ "ruby", "python", "sql", "swift", "typescript", "typescriptreact", "javascript", "javascriptreact", "sh" }
 
 -- Diagnostic
 vim.diagnostic.config({
