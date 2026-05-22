@@ -58,7 +58,6 @@ return require("lazy").setup({
     { import = "rc.plugins.vim-highlighturl" },
     { import = "rc.plugins.nvim-hlslens" },
     { import = "rc.plugins.gitsigns" },
-    { import = "rc.plugins.indent-blankline" },
     { import = "rc.plugins.aerial" },
     { import = "rc.plugins.vim-illuminate" },
     { import = "rc.plugins.nvim-notify" },

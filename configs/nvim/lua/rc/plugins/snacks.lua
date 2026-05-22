@@ -7,6 +7,10 @@ return {
     lazy = false,
     ---@class snacks.image.Config
     opts = {
+      indent = {
+        enabled = true,
+        scope = { enabled = false }
+      },
       image = {
         enabled = true,
         formats = {
