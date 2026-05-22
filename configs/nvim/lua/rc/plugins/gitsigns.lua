@@ -5,49 +5,46 @@ return {
     "lewis6991/gitsigns.nvim",
     event = { "FocusLost", "CursorHold" },
     opts = {
-      on_attach = function(bufnr)
+      on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
-        local function map(mode, l, r, opts)
-          opts = opts or {}
-          opts.buffer = bufnr
-          vim.keymap.set(mode, l, r, opts)
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
         end
+
 
         -- Navigation
         map("n", "]c", function()
           if vim.wo.diff then
-            return "]c"
+            vim.cmd.normal({ "]c", bang = true })
+          else
+            gs.nav_hunk("next")
           end
-          vim.schedule(function()
-            gs.next_hunk()
-          end)
-          return "<Ignore>"
-        end, { expr = true })
+        end, "Next Hunk")
 
         map("n", "[c", function()
           if vim.wo.diff then
-            return "[c"
+            vim.cmd.normal({ "[c", bang = true })
+          else
+            gs.nav_hunk("prev")
           end
-          vim.schedule(function()
-            gs.prev_hunk()
-          end)
-          return "<Ignore>"
-        end, { expr = true })
+        end, "Prev Hunk")
 
         -- Actions
-        map("n", "<leader>gb", gs.toggle_current_line_blame)
+        map("n", "<leader>gb", gs.toggle_current_line_blame, "Blame Line")
 
-        map("n", "<leader>hs", gs.stage_hunk)
-        map("n", "<leader>hr", gs.reset_hunk)
+        map("n", "<leader>ghs", gs.stage_hunk, "Stage Hunk")
+        map("n", "<leader>ghr", gs.reset_hunk, "Reset Hunk")
 
-        map("v", "<leader>hs", function()
+        map("v", "<leader>ghs", function()
           gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-        end)
+        end, "Stage Hunk")
 
-        map("v", "<leader>hr", function()
+        map("v", "<leader>ghr", function()
           gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-        end)
+        end, "Reset Hunk")
+
+        map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
       end,
     },
   },
