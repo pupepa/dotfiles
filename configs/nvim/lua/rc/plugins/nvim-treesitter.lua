@@ -8,7 +8,6 @@ return {
     branch = "main",
     dependencies = {
       "windwp/nvim-ts-autotag",
-      "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
