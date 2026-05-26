@@ -56,6 +56,14 @@ vim.lsp.config("dockerfile-language-server", {
   filetypes = { "dockerfile" },
 })
 
+vim.lsp.config("ruby_lsp", {
+  cmd = { "ruby-lsp" },
+  cmd_env = {
+    BUNDLE_GEMFILE = vim.loop.cwd() .. "/.ruby-lsp/Gemfile"
+  },
+  filetypes = { "ruby" },
+})
+
 vim.lsp.enable({
   "sourcekit",
   "denols",
@@ -64,4 +72,5 @@ vim.lsp.enable({
   "bash-language-server",
   "dockerfile-language-server",
   "tailwindcss-language-server",
+  "ruby_lsp",
 })
