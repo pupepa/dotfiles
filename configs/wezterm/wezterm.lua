@@ -329,5 +329,6 @@ table.insert(config.hyperlink_rules, {
 })
 
 require("edit_scrollback").apply_to_config(config)
+require("session_restore").apply_to_config(config)
 
 return config
