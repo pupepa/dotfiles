@@ -39,6 +39,7 @@
   purge = !git reset --hard HEAD && git clean -fd
   ll = lga
   update = pull --ff --ff-only
+  browse = !gh browse
 [color]
   ui = true
 [mergetool]
