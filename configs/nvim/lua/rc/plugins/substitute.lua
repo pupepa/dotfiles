@@ -8,9 +8,9 @@ return {
       require("substitute").setup()
 
       -- keysで定義するとエラーが発生するため、ここで設定する
-      vim.keymap.set("n", "s", require("substitute").operator, { noremap = true })
-      vim.keymap.set("n", "S", require("substitute").eol, { noremap = true })
-      vim.keymap.set("x", "s", require("substitute").visual, { noremap = true })
+      vim.keymap.set("n", "gs", require("substitute").operator, { noremap = true })
+      vim.keymap.set("n", "gS", require("substitute").eol, { noremap = true })
+      vim.keymap.set("x", "gs", require("substitute").visual, { noremap = true })
     end,
   },
 }
