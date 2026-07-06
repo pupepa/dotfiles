@@ -17,11 +17,6 @@ vim.api.nvim_create_user_command("PrettyXML", ":%s/></>\r</g | setf xml | normal
 -- Open Trf
 vim.api.nvim_create_user_command("Trf", "call system(\"tmux splitw -vf 'trf'\")", { force = true })
 
--- Open Mutt
-if vim.fn.executable("mutt") then
-  vim.api.nvim_create_user_command("Mutt", "call system(\"tmux splitw -vf 'mutt'\")", { force = true })
-end
-
 vim.api.nvim_create_user_command("NumberToggle", function()
   vim.opt.relativenumber = not vim.opt.relativenumber._value
 end, { force = true })
