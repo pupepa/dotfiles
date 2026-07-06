@@ -18,7 +18,7 @@ return {
         silent = true,
       },
       {
-        "<leader>gh",
+        "<leader>gH",
         "<Cmd>DiffviewFileHistory<CR>",
         desc = "Diffview File History",
         silent = true,
@@ -34,7 +34,7 @@ return {
         "<Cmd>DiffviewLog<CR>",
         desc = "Diffview Log",
         silent = true,
-      }
+      },
     },
     cmd = {
       "DiffviewOpen",
