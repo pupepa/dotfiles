@@ -216,7 +216,7 @@ return {
           ["<C-y>"] = { c = cmp.mapping.confirm({ select = false }) },
           ["<C-q>"] = { c = cmp.mapping.abort() },
         },
-        sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { { name = "cmdline_history" } } }),
+        sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { name = "cmdline_history" } }),
       })
 
       vim.lsp.config("*", {
