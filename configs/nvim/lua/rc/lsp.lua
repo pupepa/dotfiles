@@ -46,11 +46,6 @@ vim.lsp.config("bash-language-server", {
   filetypes = { "sh", "bash" },
 })
 
-vim.lsp.config("sourcekit", {
-  cmd = { "sourcekit-lsp" },
-  filetypes = { "swift" },
-})
-
 vim.lsp.config("dockerfile-language-server", {
   cmd = { "docker-langserver", "--stdio" },
   filetypes = { "dockerfile" },
