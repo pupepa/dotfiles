@@ -1,5 +1,6 @@
 [tools]
 node = "latest"
+"npm:@antfu/ni" = "latest"
 direnv = "2.36.0"
 ruby = "4.0.2"
 python = "3.11.6"
