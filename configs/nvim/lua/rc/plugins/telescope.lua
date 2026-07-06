@@ -3,7 +3,7 @@ return {
   -- https://github.com/nvim-telescope/telescope.nvim
   {
     "nvim-telescope/telescope.nvim",
-    tag = "v0.2.0",
+    version = "*",
     event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
