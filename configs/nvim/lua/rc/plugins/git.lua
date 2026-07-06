@@ -8,15 +8,7 @@ return {
       {
         "<leader>go",
         function()
-          local status, git = pcall(require, "git")
-          if status then
-            git.setup({
-              default_mappings = false,
-              keymaps = {
-                browse = "<Leader>go",
-              },
-            })
-          end
+          require("git.browse").open(false)
         end,
         desc = "Browse File",
       },
@@ -26,6 +18,8 @@ return {
         desc = "Git Commit",
       },
     },
-    config = true
+    opts = {
+      default_mappings = false,
+    },
   },
 }
