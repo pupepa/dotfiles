@@ -3,7 +3,7 @@ return {
   -- https://github.com/max397574/better-escape.nvim
   {
     "max397574/better-escape.nvim",
-    keys = { { "jj", mode = "i" } },
+    keys = { { "jj", mode = "i" }, { "jk", mode = "i" } },
     opts = {
       timeout = vim.o.timeoutlen,
       default_mappings = false,
