@@ -10,7 +10,10 @@ return {
     opts = {
       options = {
         mode = "buffers",
-        indicator_style = "▎",
+        indicator = {
+          icon = "▎",
+          style = "icon",
+        },
         diagnostics = "nvim_lsp",
         modified_icon = "●",
         color_icons = true,
