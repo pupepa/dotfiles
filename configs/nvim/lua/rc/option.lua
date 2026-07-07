@@ -5,7 +5,7 @@ vim.opt.helplang = "ja"
 
 -- Timeout
 vim.opt.timeout = true
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 300
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 10 -- Normal モードへの切り替えの遅延をなくす
 
