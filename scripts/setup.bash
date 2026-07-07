@@ -31,7 +31,6 @@ ln -sfnv "$XDG_CONFIG_HOME/w3m" "$HOME/.w3m"
 
 ln -sfv "$XDG_CONFIG_HOME/vim/vimrc" "$XDG_CONFIG_HOME/nvim/init.vim"
 ln -sfv "$XDG_CONFIG_HOME/vim/vimrc.plugins" "$XDG_CONFIG_HOME/nvim/vimrc.plugins"
-ln -sfnv "$XDG_CONFIG_HOME/vim/after" "$XDG_CONFIG_HOME/nvim/after"
 ln -sfnv "$XDG_CONFIG_HOME/vim/plugged" "$XDG_CONFIG_HOME/nvim/plugged"
 
 /bin/bash "$CURRENT_DIR/setup_zinit.bash"

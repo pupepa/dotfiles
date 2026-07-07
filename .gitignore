@@ -16,7 +16,6 @@
 /configs/nvim/plugged
 /configs/nvim/plugged_dev
 /configs/nvim/vim-plug
-/configs/nvim/after
 /configs/nvim/init.vim
 /configs/nvim/vimrc.plugins
 /configs/nvim/plugin/**
