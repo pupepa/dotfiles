@@ -74,7 +74,13 @@ function cdd() {
 }
 
 function gco() {
-  git branch -a | fzf | xargs git checkout
+  git rev-parse HEAD > /dev/null 2>&1 || return
+  local branch=$(git for-each-ref --sort=-creatordate --format='%(refname:short)' refs/heads/ |
+    fzf --prompt="Branch > " --no-multi --preview-window=right:65% \
+      --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" {}')
+  if [ -n "${branch}" ]; then
+    git checkout "${branch}"
+  fi
 }
 
 function ql() {
