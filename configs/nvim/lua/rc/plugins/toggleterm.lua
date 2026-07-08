@@ -38,20 +38,14 @@ return {
       local Terminal = require("toggleterm.terminal").Terminal
 
       local tig = Terminal:new({ cmd = "tig", hidden = true, direction = "float" })
-
-      function _tig_toggle()
+      vim.keymap.set("n", "<leader>tg", function()
         tig:toggle()
-      end
-
-      vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _tig_toggle()<CR>", { noremap = true, silent = true })
+      end, { noremap = true, silent = true })
 
       local trf = Terminal:new({ cmd = "trf", hidden = true, direction = "float" })
-
-      function _trf_toggle()
+      vim.keymap.set("n", "<leader>tf", function()
         trf:toggle()
-      end
-
-      vim.api.nvim_set_keymap("n", "<leader>tf", "<cmd>lua _trf_toggle()<CR>", { noremap = true, silent = true })
+      end, { noremap = true, silent = true })
 
       vim.keymap.set("n", "<Leader>tt", ":ToggleTerm size=30<CR>")
     end,
