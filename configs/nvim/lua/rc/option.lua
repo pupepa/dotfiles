@@ -42,8 +42,8 @@ vim.opt.splitbelow = true
 
 -- File
 vim.opt.hidden = true -- バッファを保存せずに切り替える
-vim.opt.backup = false -- for coc.nvim
-vim.opt.writebackup = false -- for coc.nvim
+vim.opt.backup = false
+vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 -- Display
