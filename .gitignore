@@ -17,6 +17,7 @@
 /configs/nvim/snippets_private
 /configs/nvim/spell
 /configs/nvim/lazy-lock.json
+/configs/nvim/lua/rc/local.lua
 
 # tmux
 /configs/tmux/plugins

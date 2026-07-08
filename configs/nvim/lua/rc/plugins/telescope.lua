@@ -146,6 +146,15 @@ return {
       vim.keymap.set("n", "<Space>s", "<Cmd>:Telescope git_status<CR>", { silent = true })
       vim.keymap.set("n", "<Space>m", "<Cmd>:Telescope memo list<CR>", { silent = true })
       vim.keymap.set("n", "<Space>e", "<Cmd>:Telescope kensaku<CR>", { silent = true })
+      vim.keymap.set("n", "<Space>d", function()
+        local ok, local_config = pcall(require, "rc.local")
+        local root = ok and local_config.daily_notes_root
+          or vim.fn.stdpath("data") .. "/daily-notes"
+        builtin.find_files({
+          cwd = vim.fn.expand(root .. "/"),
+          find_command = { "rg", "--files", "--color", "never", "--sortr", "path" },
+        })
+      end, { silent = true })
 
       require("telescope").load_extension("lines")
       require("telescope").load_extension("fzf")
