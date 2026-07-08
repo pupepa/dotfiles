@@ -5,7 +5,7 @@ return {
     "onsails/lspkind-nvim",
     lazy = true,
     config = function()
-      require("lspkind").init({
+      require("lspkind").setup({
         -- enables text annotations
         --
         -- default: true
