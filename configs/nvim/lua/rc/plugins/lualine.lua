@@ -4,7 +4,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VimEnter",
-    dependencies = { "EdenEast/nightfox.nvim" },
     config = function()
       -- +-------------------------------------------------+
       -- | A | B | C                             X | Y | Z |
