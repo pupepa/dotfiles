@@ -3,7 +3,7 @@ return {
   -- https://github.com/vuki656/package-info.nvim
   {
     "vuki656/package-info.nvim",
-    event = "VeryLazy",
+    event = "BufRead package.json",
     opts = {},
   },
 }
