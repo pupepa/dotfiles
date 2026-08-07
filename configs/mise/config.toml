@@ -45,3 +45,25 @@ yt-dlp = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
+
+[dotfiles]
+"~/bin" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/bin" }
+"~/prh.yml" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/prh/prh.yml" }
+"~/.swift-format" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/swift-format/.swift-format" }
+"~/.textlintrc" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/textlint/.textlintrc" }
+"~/.vim" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/vim" }
+"~/.zshenv" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/zsh/.zshenv" }
+"~/.config/bundle" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/bundle" }
+"~/.config/ctags" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/ctags" }
+"~/.config/git" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/git" }
+"~/.config/mise" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/mise" }
+"~/.config/nvim" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/nvim" }
+"~/.config/prh" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/prh" }
+"~/.config/rubocop" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/rubocop" }
+"~/.config/textlint" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/textlint" }
+"~/.config/tig" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/tig" }
+"~/.config/tmux" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/tmux" }
+"~/.config/trf" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/trf" }
+"~/.config/vim" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/vim" }
+"~/.config/wezterm" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/wezterm" }
+"~/.config/zsh" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/zsh" }
