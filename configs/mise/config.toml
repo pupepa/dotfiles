@@ -2,6 +2,7 @@
 "cargo:mergiraf" = "latest"
 "cargo:selene" = "latest"
 "github:docker/docker-language-server" = "latest"
+"aqua:modem-dev/hunk" = "latest"
 "github:simonwhitaker/gibo" = "latest"
 "github:sqls-server/sqls" = "latest"
 "npm:@antfu/ni" = "latest"
@@ -56,6 +57,7 @@ idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
 "~/.config/bundle" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/bundle" }
 "~/.config/ctags" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/ctags" }
 "~/.config/git" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/git" }
+"~/.config/hunk" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/hunk" }
 "~/.config/mise" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/mise" }
 "~/.config/nvim" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/nvim" }
 "~/.config/prh" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/prh" }
