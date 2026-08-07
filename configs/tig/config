@@ -71,8 +71,8 @@ bind log  o !gh browse %(commit)
 bind main A !git commit --amend
 
 # View diffs using delta
-bind main <Enter> >sh -c "git show %(commit) | delta --paging always"
-bind status D >sh -c "git diff -- %(file) | delta --paging always"
+bind main V >sh -c "git show %(commit) | hunk pager"
+bind status V >sh -c "git diff -- %(file) | hunk pager"
 
 # カラー設定
 # diff-view で境界が見やすくなるように変更
