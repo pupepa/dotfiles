@@ -69,6 +69,12 @@ vim.lsp.config("dockerfile-language-server", {
   },
 })
 
+vim.lsp.config("sqls", {
+  cmd = { "sqls" },
+  filetypes = { "sql", "mysql" },
+  root_markers = { "config.yml" },
+})
+
 vim.lsp.config("ruby_lsp", {
   cmd = { "ruby-lsp" },
   cmd_env = {
@@ -85,5 +91,6 @@ vim.lsp.enable({
   "bash-language-server",
   "dockerfile-language-server",
   "tailwindcss-language-server",
+  "sqls",
   "ruby_lsp",
 })

@@ -3,10 +3,10 @@
 "cargo:selene" = "latest"
 "github:docker/docker-language-server" = "latest"
 "github:simonwhitaker/gibo" = "latest"
+"github:sqls-server/sqls" = "latest"
 "npm:@antfu/ni" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "npm:bash-language-server" = "latest"
-"npm:sql-language-server" = "latest"
 "pipx:neovim-remote" = "latest"
 act = "latest"
 aws-cli = { version = "latest", symlink_bins = "true" }
