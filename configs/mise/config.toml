@@ -69,3 +69,104 @@ idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
 "~/.config/vim" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/vim" }
 "~/.config/wezterm" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/wezterm" }
 "~/.config/zsh" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/zsh" }
+
+
+[bootstrap.macos.dock]
+# Dockの自動表示
+autohide = true
+# Dockのアイコンサイズ
+tilesize = 60
+# Dockのアイコン拡大表示
+magnification = false
+# Dockに最近使ったアプリを表示
+show_recents = false
+# 使用状況に応じた操作スペースの自動並び替え
+mru_spaces = false
+# Dockの表示位置
+orientation = "bottom"
+
+
+[bootstrap.macos.finder]
+# Finderにパスバーを表示
+show_pathbar = true
+# Finderにステータスバーを表示
+show_status_bar = true
+# ファイルの拡張子を変更した時に警告を表示
+show_extensions_warning = false
+# Finderのデフォルトの表示形式
+preferred_view_style = "list"
+
+
+[bootstrap.macos.keyboard]
+# キーリピートの速度
+key_repeat = 2
+# キーリピート開始までの待ち時間
+initial_key_repeat = 15
+# キー長押し時のアクセント文字入力
+press_and_hold = false
+# F1〜F12キーの標準ファンクションキー動作
+fn_state = false
+
+
+[bootstrap.macos.trackpad]
+# トラックパッドのタップによるクリック
+tap_to_click = true
+
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+# システムの外観
+AppleInterfaceStyle = "Dark"
+# ライトモードとダークモードの自動切り替え
+AppleInterfaceStyleSwitchesAutomatically = false
+# 時刻の24時間表記
+AppleICUForce24HourTime = true
+# ファイルの拡張子を表示
+AppleShowAllExtensions = true
+# スクロールバーの表示方法
+AppleShowScrollBars = "WhenScrolling"
+# 文頭の自動大文字化
+NSAutomaticCapitalizationEnabled = false
+# ダッシュ記号への自動変換
+NSAutomaticDashSubstitutionEnabled = false
+# ピリオドの自動入力
+NSAutomaticPeriodSubstitutionEnabled = false
+# スマート引用符への自動変換
+NSAutomaticQuoteSubstitutionEnabled = false
+# スペルの自動修正
+NSAutomaticSpellingCorrectionEnabled = false
+# 保存ダイアログの詳細表示
+NSNavPanelExpandedStateForSaveMode = true
+# 保存ダイアログの詳細表示
+NSNavPanelExpandedStateForSaveMode2 = true
+# プリントダイアログの詳細表示
+PMPrintingExpandedStateForPrint = true
+# プリントダイアログの詳細表示
+PMPrintingExpandedStateForPrint2 = true
+# スクロール方向
+"com.apple.swipescrolldirection" = false
+# トラックパッドのポインタ移動速度
+"com.apple.trackpad.scaling" = "3"
+
+
+[bootstrap.macos.defaults."com.apple.finder"]
+# 外付けディスクのデスクトップ表示
+ShowExternalHardDrivesOnDesktop = true
+# リムーバブルメディアのデスクトップ表示
+ShowRemovableMediaOnDesktop = true
+
+
+[bootstrap.macos.defaults."com.apple.dock"]
+# Dockの自動表示・非表示アニメーション時間
+"autohide-time-modifier" = 0.7
+# Mission Control / Exposéのアニメーション時間
+"expose-animation-duration" = 0.0
+# アプリ起動時のDockアイコンのアニメーション
+launchanim = false
+# ウインドウ最小化時のエフェクト
+mineffect = "scale"
+# 最小化したウインドウの格納先
+"minimize-to-application" = true
+# 起動中アプリのインジケータ表示
+"show-process-indicators" = true
+# Dockに表示するアプリの範囲
+"static-only" = true
