@@ -43,6 +43,7 @@ tree-sitter = "latest"
 uv = "latest"
 xcodes = "latest"
 yt-dlp = "latest"
+pnpm = "11.5.0"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
