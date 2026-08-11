@@ -70,6 +70,9 @@ bind log  o !gh browse %(commit)
 # Amend
 bind main A !git commit --amend
 
+# 選択したコミットのメッセージを変更する (子孫のコミットも書き換わる)
+bind main M !sh -c '"${XDG_CONFIG_HOME:-$HOME/.config}/tig/reword-commit" "$1"' - %(commit)
+
 # View diffs using delta
 bind main V >sh -c "git show %(commit) | hunk pager"
 bind status V >sh -c "git diff -- %(file) | hunk pager"

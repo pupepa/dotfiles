@@ -1,0 +1,60 @@
+#!/bin/sh
+
+set -eu
+
+edit_todo() {
+  todo_file=$1
+  temporary_file=$(mktemp "${todo_file}.XXXXXX")
+  trap 'rm -f "$temporary_file"' EXIT HUP INT TERM
+
+  if ! awk -v target="$TIG_REWORD_COMMIT" '
+    $1 ~ /^(pick|reword|edit|squash|fixup|drop)$/ && index(target, $2) == 1 {
+      $1 = "reword"
+      found++
+    }
+    $1 == "merge" && $2 == "-C" && index(target, $3) == 1 {
+      $2 = "-c"
+      found++
+    }
+    { print }
+    END { if (found != 1) exit 1 }
+  ' "$todo_file" >"$temporary_file"; then
+    echo "error: rebase todo で対象コミットを一意に特定できませんでした" >&2
+    exit 1
+  fi
+
+  mv "$temporary_file" "$todo_file"
+  trap - EXIT HUP INT TERM
+}
+
+if [ "${1:-}" = "--edit-todo" ]; then
+  [ "$#" -eq 2 ] || exit 2
+  edit_todo "$2"
+  exit
+fi
+
+if [ "$#" -ne 1 ]; then
+  echo "usage: reword-commit <commit>" >&2
+  exit 2
+fi
+
+target=$(git rev-parse --verify "$1^{commit}") || exit 1
+head=$(git rev-parse --verify HEAD) || exit 1
+
+if ! git merge-base --is-ancestor "$target" "$head"; then
+  echo "error: 選択したコミットは現在の HEAD の祖先ではありません" >&2
+  exit 1
+fi
+
+if [ "$target" = "$head" ]; then
+  exec git commit --amend --allow-empty
+fi
+
+export TIG_REWORD_COMMIT="$target"
+export GIT_SEQUENCE_EDITOR="\"$0\" --edit-todo"
+
+if parent=$(git rev-parse --verify "$target^" 2>/dev/null); then
+  exec git rebase --interactive --rebase-merges "$parent"
+else
+  exec git rebase --interactive --rebase-merges --root
+fi
