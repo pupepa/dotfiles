@@ -1,0 +1,84 @@
+#!/bin/sh
+
+set -eu
+
+if [ "$#" -ne 1 ]; then
+  echo "usage: checkout-commit-branch <commit>" >&2
+  exit 2
+fi
+
+target=$(git rev-parse --verify "$1^{commit}") || exit 1
+candidate_file=$(mktemp "${TMPDIR:-/tmp}/tig-checkout-branch.XXXXXX")
+tracked_remote_file=$(mktemp "${TMPDIR:-/tmp}/tig-tracked-remote.XXXXXX")
+trap 'rm -f "$candidate_file" "$tracked_remote_file"' EXIT HUP INT TERM
+
+git for-each-ref \
+  --sort=refname \
+  --contains="$target" \
+  --format='local%09%(refname:short)' \
+  refs/heads >"$candidate_file"
+
+# 対応するローカルブランチがあるリモートブランチは重複表示しない。
+git for-each-ref --format='%(upstream)' refs/heads |
+  sed '/^$/d' >"$tracked_remote_file"
+
+tab=$(printf '\t')
+git for-each-ref \
+  --sort=refname \
+  --contains="$target" \
+  --format='%(refname:short)%09%(refname)%09%(symref)' \
+  refs/remotes |
+  while IFS="$tab" read -r branch full_ref symref; do
+    # origin/HEAD のような symbolic ref は候補に含めない。
+    [ -z "$symref" ] || continue
+    if grep -Fqx "$full_ref" "$tracked_remote_file"; then
+      continue
+    fi
+    printf 'remote\t%s\n' "$branch"
+  done >>"$candidate_file"
+
+candidate_count=$(wc -l <"$candidate_file" | tr -d ' ')
+
+if [ "$candidate_count" -eq 0 ]; then
+  echo "error: 選択したコミットを含むブランチがありません" >&2
+  exit 1
+fi
+
+if [ "$candidate_count" -eq 1 ]; then
+  IFS="$tab" read -r branch_type branch <"$candidate_file"
+else
+  echo "選択したコミットを含むブランチ:"
+  awk -F '\t' '{ printf "  %d: [%s] %s\n", NR, $1, $2 }' "$candidate_file"
+
+  while :; do
+    printf "番号を入力してください [1-%s] (q: キャンセル): " "$candidate_count"
+    IFS= read -r choice || exit 1
+
+    case "$choice" in
+      q|Q)
+        exit
+        ;;
+      ''|*[!0-9]*)
+        echo "1 から $candidate_count までの番号を入力してください。" >&2
+        continue
+        ;;
+    esac
+
+    if [ "$choice" -lt 1 ] || [ "$choice" -gt "$candidate_count" ]; then
+      echo "1 から $candidate_count までの番号を入力してください。" >&2
+      continue
+    fi
+
+    selected=$(sed -n "${choice}p" "$candidate_file")
+    IFS="$tab" read -r branch_type branch <<EOF
+$selected
+EOF
+    break
+  done
+fi
+
+if [ "$branch_type" = "local" ]; then
+  exec git switch "$branch"
+fi
+
+exec git switch --track "$branch"

@@ -58,6 +58,9 @@ bind main T !git tag %(prompt) %(commit)
 
 bind main O !git checkout %(commit)
 
+# 選択したコミットを含むブランチにチェックアウトする
+bind main X !sh -c '"${XDG_CONFIG_HOME:-$HOME/.config}/tig/checkout-commit-branch" "$1"' - %(commit)
+
 # github
 bind branch [ !@hub compare %(branch)
 bind main { !hub pull-request
