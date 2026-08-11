@@ -55,7 +55,7 @@ if ai_commit_message_backend ~= nil then
     local command
 
     if ai_commit_message_backend == "codex" then
-      command = "git diff --cached | codex exec --model gpt-5.3-codex --skip-git-repo-check --ephemeral '"
+      command = "git diff --cached | codex exec --model gpt-5.4-mini --skip-git-repo-check --ephemeral '"
         .. prompt
         .. "'"
     else
