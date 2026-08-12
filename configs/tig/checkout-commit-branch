@@ -81,4 +81,32 @@ if [ "$branch_type" = "local" ]; then
   exec git switch "$branch"
 fi
 
+remote_name=${branch%%/*}
+remote_branch=${branch#*/}
+local_branch=$remote_branch
+
+if git show-ref --verify --quiet "refs/heads/$local_branch"; then
+  default_local_branch=$(printf '%s-%s' "$remote_name" "$remote_branch" | tr '/' '-')
+
+  while :; do
+    printf 'ローカルブランチ名 [%s]: ' "$default_local_branch"
+    IFS= read -r local_branch || exit 1
+    local_branch=${local_branch:-$default_local_branch}
+
+    if ! git check-ref-format --branch "$local_branch" >/dev/null 2>&1; then
+      echo "error: 有効なブランチ名を入力してください" >&2
+      continue
+    fi
+
+    if git show-ref --verify --quiet "refs/heads/$local_branch"; then
+      echo "error: ローカルブランチ '$local_branch' は既に存在します" >&2
+      continue
+    fi
+
+    break
+  done
+
+  exec git switch --track -c "$local_branch" "$branch"
+fi
+
 exec git switch --track "$branch"
