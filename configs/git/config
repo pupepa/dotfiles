@@ -28,7 +28,6 @@
   co = checkout
   cb = checkout -b
   c = commit -v
-  commit = commit -v
   pr = pull-request
   l = log --decorate --stat
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
