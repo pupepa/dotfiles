@@ -47,7 +47,6 @@ bind status D ?git clean -d -f -- %(file)
 bind generic S ?git stash push -m "%(prompt Enter stash comment: )"
 
 # Y で stash pop
-bind diff Y ?git stash pop %(stash)
 bind stash Y ?git stash pop %(stash)
 
 bind generic P ?git push -u %(remote) %(repo:head)
