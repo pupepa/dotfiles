@@ -28,7 +28,7 @@
   co = checkout
   cb = checkout -b
   c = commit -v
-  pr = pull-request
+  pr = !gh pr create --web
   l = log --decorate --stat
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
   lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
