@@ -38,7 +38,11 @@ if [ "$#" -ne 1 ]; then
   exit 2
 fi
 
-target=$(git rev-parse --verify "$1^{commit}") || exit 1
+if ! target=$(git rev-parse --verify "$1^{commit}" 2>/dev/null); then
+  echo "error: 対象コミットを解決できませんでした: $1" >&2
+  exit 1
+fi
+
 head=$(git rev-parse --verify HEAD) || exit 1
 
 if ! git merge-base --is-ancestor "$target" "$head"; then
