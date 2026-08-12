@@ -7,4 +7,3 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share:$HOME/bin:$PATH
