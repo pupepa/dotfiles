@@ -14,7 +14,10 @@ config.font_rules = {
 }
 config.warn_about_missing_glyphs = false
 config.font_size = 14
-config.color_scheme = "tokyonight"
+config.color_schemes = {
+  Houston = require("houston"),
+}
+config.color_scheme = "Houston"
 config.use_ime = true
 config.hide_tab_bar_if_only_one_tab = true
 config.adjust_window_size_when_changing_font_size = false
@@ -37,30 +40,6 @@ config.inactive_pane_hsb = {
   hue = 1.0,
   saturation = 0.1,
   brightness = 1.0,
-}
-
-config.colors = {
-  tab_bar = {
-    background = "rgba(0, 0, 0, 80%)",
-
-    active_tab = {
-      bg_color = "#0c0b0f",
-      fg_color = "#bea3c7",
-      intensity = "Bold",
-      underline = "None",
-      italic = false,
-      strikethrough = false,
-    },
-
-    inactive_tab = {
-      bg_color = "#0c0b0f",
-      fg_color = "#f8f2f5",
-      intensity = "Half",
-      underline = "None",
-      italic = false,
-      strikethrough = false,
-    },
-  },
 }
 
 wezterm.on("trigger-nvim-with-scrollback", function(window, pane)

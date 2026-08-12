@@ -52,7 +52,6 @@ return require("lazy").setup({
     -----------------------------------------------------------------------------------------
     -- UI
     -----------------------------------------------------------------------------------------
-    { import = "rc.plugins.tokyonight" },
     { import = "rc.plugins.lualine" },
     { import = "rc.plugins.bufferline" },
     { import = "rc.plugins.vim-highlighturl" },
@@ -68,6 +67,7 @@ return require("lazy").setup({
     { import = "rc.plugins.diffview" },
     { import = "rc.plugins.nvim-scrollbar" },
     { import = "rc.plugins.cellwidths" },
+    { import = "rc.plugins.houston" },
 
     -----------------------------------------------------------------------------------------
     -- textobj
