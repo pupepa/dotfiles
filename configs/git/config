@@ -14,9 +14,6 @@
   colorMoved = default
   tool = nvimdiff
   guitool = nvimdiff
-[diff "xlsx"]
-  binary = true
-  textconv = $GOPATH/bin/git-xlsx-textconv
 [merge]
   ff = false
   tool = nvimdiff
