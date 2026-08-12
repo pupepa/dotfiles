@@ -34,7 +34,7 @@
   lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
   purge = !git reset --hard HEAD && git clean -fd
   ll = lga
-  update = pull --ff --ff-only
+  update = pull --ff-only
   browse = !gh browse
 [color]
   ui = true
