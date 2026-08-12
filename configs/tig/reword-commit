@@ -61,7 +61,14 @@ export TIG_REWORD_COMMIT="$target"
 export GIT_SEQUENCE_EDITOR="\"$0\" --edit-todo"
 
 if parent=$(git rev-parse --verify "$target^" 2>/dev/null); then
-  exec git rebase --interactive --rebase-merges "$parent"
+  if git rebase --interactive --rebase-merges "$parent"; then
+    exit 0
+  fi
 else
-  exec git rebase --interactive --rebase-merges --root
+  if git rebase --interactive --rebase-merges --root; then
+    exit 0
+  fi
 fi
+
+echo "error: rebase の開始または実行中に失敗しました。git status を確認してください" >&2
+exit 1
