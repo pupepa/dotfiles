@@ -60,7 +60,7 @@ bind main O !git checkout %(commit)
 bind main X !sh -c '"${XDG_CONFIG_HOME:-$HOME/.config}/tig/checkout-commit-branch" "$1"' - %(commit)
 
 # github
-bind branch [ !@hub compare %(branch)
+bind branch [ !gh browse --branch %(branch)
 bind main { !hub pull-request
 
 # open commit at github
