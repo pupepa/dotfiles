@@ -17,7 +17,7 @@
 [merge]
   ff = false
   tool = nvimdiff
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [push]
   default = simple
   # 初回pushで自動的に --set-upstream (Git 2.37+)
