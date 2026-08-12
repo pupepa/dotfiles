@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -eu
+
+git rev-parse --is-inside-work-tree >/dev/null
+
+echo "Changes that will be discarded:"
+git status --short
+echo
+echo "Untracked files that will be removed:"
+git clean -nd
+echo
+printf 'Type "yes" to continue: '
+IFS= read -r answer || exit 1
+
+if [ "$answer" != "yes" ]; then
+  echo "Cancelled."
+  exit 0
+fi
+
+git reset --hard HEAD
+git clean -fd

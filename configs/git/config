@@ -32,7 +32,7 @@
   l = log --decorate --stat
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
   lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
-  purge = !git reset --hard HEAD && git clean -fd
+  purge = !"${XDG_CONFIG_HOME:-$HOME/.config}/git/purge"
   ll = lga
   update = pull --ff-only
   browse = !gh browse
