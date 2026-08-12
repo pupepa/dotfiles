@@ -25,10 +25,6 @@ cdt() {
   command mkdir -p -- "$target_dir" && builtin cd -- "$target_dir"
 }
 
-alias ssh='SHELL=/bin/bash ssh'
-
-alias sudo='sudo -E '
-
 case ${OSTYPE} in
   darwin*)
     alias o='open'
