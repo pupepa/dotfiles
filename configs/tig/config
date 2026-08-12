@@ -61,7 +61,7 @@ bind main X !sh -c '"${XDG_CONFIG_HOME:-$HOME/.config}/tig/checkout-commit-branc
 
 # github
 bind branch [ !gh browse --branch %(branch)
-bind main { !hub pull-request
+bind main { !gh pr create --web
 
 # open commit at github
 bind main o !gh browse %(commit)
