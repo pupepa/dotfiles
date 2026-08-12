@@ -43,8 +43,8 @@ bind status + !git commit -v --amend
 # トラッキングされていないファイルを削除
 bind status D ?git clean -d -f -- %(file)
 
-# S で stash save
-bind generic S ?git stash save "%(prompt Enter stash comment: )"
+# S で stash push
+bind generic S ?git stash push -m "%(prompt Enter stash comment: )"
 
 # Y で stash pop
 bind diff Y ?git stash pop %(stash)
