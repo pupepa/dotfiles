@@ -16,14 +16,13 @@ alias ta='tig --all'
 alias ti='tig'
 
 mktdir() {
-  mkdir $HOME/tmp/$(date "+%y%m%d") ; cd $_
+  local target_dir="$HOME/tmp/$(date '+%y%m%d')"
+  command mkdir -p -- "$target_dir" && builtin cd -- "$target_dir"
 }
 
 cdt() {
-  if [ -d $HOME/tmp/$(date "+%y%m%d") ]; then
-    mkdir $HOME/tmp/$(date "+%y%m%d")
-  fi
-  cd $HOME/tmp/$(date "+%y%m%d")
+  local target_dir="$HOME/tmp/$(date '+%y%m%d')"
+  command mkdir -p -- "$target_dir" && builtin cd -- "$target_dir"
 }
 
 alias ssh='SHELL=/bin/bash ssh'
