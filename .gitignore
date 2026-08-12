@@ -5,8 +5,7 @@
 /configs/bundle/cache
 
 # Git
-/configs/git/*
-!/configs/git/config
+/configs/git/.gitconfig.local
 
 # Karabiner-Elements
 /configs/karabiner/assets/*
