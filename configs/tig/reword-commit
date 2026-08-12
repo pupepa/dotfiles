@@ -43,7 +43,10 @@ if ! target=$(git rev-parse --verify "$1^{commit}" 2>/dev/null); then
   exit 1
 fi
 
-head=$(git rev-parse --verify HEAD) || exit 1
+if ! head=$(git rev-parse --verify HEAD 2>/dev/null); then
+  echo "error: 現在の HEAD を解決できませんでした" >&2
+  exit 1
+fi
 
 if ! git merge-base --is-ancestor "$target" "$head"; then
   echo "error: 選択したコミットは現在の HEAD の祖先ではありません" >&2
