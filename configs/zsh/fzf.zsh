@@ -30,7 +30,7 @@ function fzf-select-ghq() {
   local selected_dir repository_dir
   selected_dir=$(ghq list | fzf --query "$LBUFFER" --prompt="Repository > ") || return
 
-  if [ -n "$selected_dir" ]; then
+  if [[ -n $selected_dir ]]; then
     repository_dir="$(ghq root)/$selected_dir"
     BUFFER="cd ${(q)repository_dir}"
     zle accept-line
@@ -45,7 +45,7 @@ function fzf-cdr() {
   local selected_dir
   selected_dir=$(cdr -l | perl -pne 's@^[0-9]+ +@@' | awk '!x[$0]++{print $0}' | fzf) || return
 
-  if [ -n "$selected_dir" ]; then
+  if [[ -n $selected_dir ]]; then
     BUFFER="cd ${(q)selected_dir}"
     zle accept-line
   fi
@@ -83,7 +83,7 @@ function cdd() {
   local selected_dir
   selected_dir=$(find . -type d | fzf) || return
 
-  if [ -n "$selected_dir" ]; then
+  if [[ -n $selected_dir ]]; then
     builtin cd -- "$selected_dir"
   fi
 }
