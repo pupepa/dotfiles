@@ -27,11 +27,12 @@ bindkey '^r' fzf-select-history
 
 # ghq
 function fzf-select-ghq() {
-  local selected_dir
+  local selected_dir repository_dir
   selected_dir=$(ghq list | fzf --query "$LBUFFER" --prompt="Repository > ") || return
 
   if [ -n "$selected_dir" ]; then
-    BUFFER="cd `ghq root`/${selected_dir}"
+    repository_dir="$(ghq root)/$selected_dir"
+    BUFFER="cd ${(q)repository_dir}"
     zle accept-line
   fi
   zle clear-screen
@@ -45,7 +46,7 @@ function fzf-cdr() {
   selected_dir=$(cdr -l | perl -pne 's@^[0-9]+ +@@' | awk '!x[$0]++{print $0}' | fzf) || return
 
   if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
+    BUFFER="cd ${(q)selected_dir}"
     zle accept-line
   fi
   zle clear-screen
@@ -58,7 +59,7 @@ function __fzf() {
   selected_file=$(rg --files --hidden --follow --glob "!.git/*" | fzf) || return
   [[ -n $selected_file ]] || return
 
-  BUFFER=$selected_file
+  BUFFER=${(q)selected_file}
   CURSOR=$#BUFFER
 }
 zle -N __fzf
@@ -83,7 +84,7 @@ function cdd() {
   selected_dir=$(find . -type d | fzf) || return
 
   if [ -n "$selected_dir" ]; then
-    cd ${selected_dir}
+    builtin cd -- "$selected_dir"
   fi
 }
 
