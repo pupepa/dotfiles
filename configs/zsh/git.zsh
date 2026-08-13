@@ -11,6 +11,10 @@ if (( $+commands[git-wt] )); then
 fi
 
 wcd() {
-  cd $(git-wt | fzf --header-lines=1 | awk '{if ($1 == "*") print $2; else print $1}')
+  local selected_dir
+  selected_dir=$(git-wt | fzf --header-lines=1 | awk '{if ($1 == "*") print $2; else print $1}')
+  [[ -n $selected_dir ]] || return
+
+  cd ${selected_dir}
 }
 
