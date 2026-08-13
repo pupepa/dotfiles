@@ -98,7 +98,7 @@ function gco() {
       --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" {}') || return
   [[ -n $branch ]] || return
 
-  git checkout "${branch}"
+  git switch "${branch}"
 }
 
 function ql() {
