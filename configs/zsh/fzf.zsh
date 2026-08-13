@@ -20,7 +20,7 @@ function fzf-select-history() {
   [[ -n $selected_history ]] || return
 
   BUFFER=$selected_history
-  CURSOR=$#BUFFER
+  CURSOR=${#BUFFER}
 }
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
@@ -60,7 +60,7 @@ function __fzf() {
   [[ -n $selected_file ]] || return
 
   BUFFER=${(q)selected_file}
-  CURSOR=$#BUFFER
+  CURSOR=${#BUFFER}
 }
 zle -N __fzf
 bindkey '^p' __fzf
