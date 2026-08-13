@@ -78,7 +78,7 @@ function ghpr() {
   selected_pr_id=$(gh pr list | fzf | awk '{ print $1 }')
   [[ -n $selected_pr_id ]] || return
 
-  gh pr checkout ${selected_pr_id}
+  gh pr checkout "${selected_pr_id}"
 }
 
 function cdd() {
