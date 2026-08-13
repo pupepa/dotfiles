@@ -102,5 +102,9 @@ function gco() {
 }
 
 function ql() {
-  fzf | xargs -I {} qlmanage -p {} > /dev/null 2>&1
+  local selected_file
+  selected_file=$(fzf) || return
+  [[ -n $selected_file ]] || return
+
+  print -r -- "$selected_file" | xargs -I {} qlmanage -p {} > /dev/null 2>&1
 }
