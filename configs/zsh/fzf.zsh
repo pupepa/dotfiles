@@ -66,10 +66,11 @@ zle -N __fzf
 bindkey '^p' __fzf
 
 function ghi() {
-  local selected_pr_id=$(gh issue list --state=all | fzf | awk '{ print $1 }')
-  if [ -n "${selected_pr_id}" ]; then
-    gh issue view "${selected_pr_id}"
-  fi
+  local selected_pr_id
+  selected_pr_id=$(gh issue list --state=all | fzf | awk '{ print $1 }')
+  [[ -n $selected_pr_id ]] || return
+
+  gh issue view "${selected_pr_id}"
 }
 
 function ghpr() {
