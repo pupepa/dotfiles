@@ -10,7 +10,7 @@ zstyle ':chpwd:*' recent-dirs-file "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/chpwd-re
 
 function rename_tmux_window() {
   if [[ -n $TMUX ]]; then
-    current_dir=${PWD##/*/}
+    local current_dir=${PWD##/*/}
     tmux rename-window "${current_dir}"
   fi
 }
