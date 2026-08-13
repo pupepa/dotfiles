@@ -106,5 +106,5 @@ function ql() {
   selected_file=$(fzf) || return
   [[ -n $selected_file ]] || return
 
-  print -r -- "$selected_file" | xargs -I {} qlmanage -p {} > /dev/null 2>&1
+  qlmanage -p "$selected_file" > /dev/null 2>&1
 }
