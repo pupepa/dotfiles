@@ -102,5 +102,5 @@ function gco() {
 }
 
 function ql() {
-  fzf | xargs -I {} qlmanage -p {} > /dev/null 2&>1
+  fzf | xargs -I {} qlmanage -p {} > /dev/null 2>&1
 }
