@@ -1,4 +1,9 @@
-export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
+typeset git_prefix
+if (( $+commands[brew] )) && git_prefix=$(brew --prefix git 2>/dev/null) &&
+  [[ -d $git_prefix/share/git-core/contrib/diff-highlight ]]; then
+  export PATH="$git_prefix/share/git-core/contrib/diff-highlight:$PATH"
+fi
+unset git_prefix
 
 # git-wt
 if (( $+commands[git-wt] )); then
