@@ -74,10 +74,11 @@ function ghi() {
 }
 
 function ghpr() {
-  local selected_pr_id=$(gh pr list | fzf | awk '{ print $1 }')
-  if [ -n "${selected_pr_id}" ]; then
-    gh pr checkout ${selected_pr_id}
-  fi
+  local selected_pr_id
+  selected_pr_id=$(gh pr list | fzf | awk '{ print $1 }')
+  [[ -n $selected_pr_id ]] || return
+
+  gh pr checkout ${selected_pr_id}
 }
 
 function cdd() {
