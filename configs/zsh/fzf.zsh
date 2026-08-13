@@ -15,7 +15,11 @@ export FZF_TMUX_OPTS='-p'
 
 # history
 function fzf-select-history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  local selected_history
+  selected_history=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ") || return
+  [[ -n $selected_history ]] || return
+
+  BUFFER=$selected_history
   CURSOR=$#BUFFER
 }
 zle -N fzf-select-history
@@ -23,7 +27,9 @@ bindkey '^r' fzf-select-history
 
 # ghq
 function fzf-select-ghq() {
-  local selected_dir=$(ghq list | fzf --query "$LBUFFER" --prompt="Repository > ")
+  local selected_dir
+  selected_dir=$(ghq list | fzf --query "$LBUFFER" --prompt="Repository > ") || return
+
   if [ -n "$selected_dir" ]; then
     BUFFER="cd `ghq root`/${selected_dir}"
     zle accept-line
@@ -35,7 +41,9 @@ bindkey '^]' fzf-select-ghq
 
 # cdr
 function fzf-cdr() {
-  local selected_dir=$(cdr -l | perl -pne 's@^[0-9]+ +@@' | awk '!x[$0]++{print $0}' | fzf)
+  local selected_dir
+  selected_dir=$(cdr -l | perl -pne 's@^[0-9]+ +@@' | awk '!x[$0]++{print $0}' | fzf) || return
+
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
@@ -46,7 +54,11 @@ zle -N fzf-cdr
 bindkey '^f' fzf-cdr
 
 function __fzf() {
-  BUFFER=$(rg --files --hidden --follow --glob "!.git/*" | fzf)
+  local selected_file
+  selected_file=$(rg --files --hidden --follow --glob "!.git/*" | fzf) || return
+  [[ -n $selected_file ]] || return
+
+  BUFFER=$selected_file
   CURSOR=$#BUFFER
 }
 zle -N __fzf
@@ -67,7 +79,9 @@ function ghpr() {
 }
 
 function cdd() {
-  local selected_dir=$(find . -type d | fzf)
+  local selected_dir
+  selected_dir=$(find . -type d | fzf) || return
+
   if [ -n "$selected_dir" ]; then
     cd ${selected_dir}
   fi
