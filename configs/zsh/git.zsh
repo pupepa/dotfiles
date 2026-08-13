@@ -15,6 +15,6 @@ wcd() {
   selected_dir=$(git-wt | fzf --header-lines=1 | awk '{if ($1 == "*") print $2; else print $1}')
   [[ -n $selected_dir ]] || return
 
-  cd ${selected_dir}
+  builtin cd -- "$selected_dir"
 }
 
