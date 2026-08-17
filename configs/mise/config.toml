@@ -147,6 +147,10 @@ PMPrintingExpandedStateForPrint2 = true
 "com.apple.swipescrolldirection" = false
 # トラックパッドのポインタ移動速度
 "com.apple.trackpad.scaling" = "3"
+# マウスのポインタ移動速度
+"com.apple.mouse.scaling" = 3
+# マウスポインタの直線的な移動 (加速の無効化)
+"com.apple.mouse.linear" = 0
 
 
 [bootstrap.macos.defaults."com.apple.finder"]
