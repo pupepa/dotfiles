@@ -12,7 +12,9 @@ fi
 mkdir -p \
   "$XDG_CONFIG_HOME" \
   "$XDG_STATE_HOME" \
-  "$XDG_DATA_HOME"
+  "$XDG_DATA_HOME" \
+  "$XDG_CACHE_HOME/zsh" \
+  "$XDG_DATA_HOME/zsh"
 
 CONFIG_DIRS=(`ls -1 $DOTFILES_DIR/configs`)
 for config_dir in ${CONFIG_DIRS[@]}
