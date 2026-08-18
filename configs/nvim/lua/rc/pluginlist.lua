@@ -142,6 +142,7 @@ return require("lazy").setup({
     { import = "rc.plugins.git" },
     { import = "rc.plugins.wezterm-types" },
     { import = "rc.plugins.daily-notes" },
+    { import = "rc.plugins.gitlinker" },
   },
 }, {
   rocks = {
