@@ -1,0 +1,224 @@
+onboarding = false
+
+[theme]
+name = ""
+auto_switch = false
+
+# Houston (Astro) ベースのカラーパレット
+#
+# サイドバーの各ロールの用途 (実際に描画させて確認した結果):
+#   surface_dim … 選択中のワークスペース行・エージェント行の背景、区切り線と枠線
+#   surface0    … prefix / ナビゲートモード中の選択行の背景
+#   text        … 選択行のラベル / subtext0 … 未選択行のラベル
+#   overlay0    … セクション見出し (spaces / agents / new / menu) とエージェント名
+#   overlay1    … タブバーの「+」 / panel_bg … タブバーの背景
+#   accent      … アクティブなタブの背景、prefix / ナビゲートモード中の枠線
+#   green / yellow / red … エージェントの状態アイコン (idle / working / blocked)
+[theme.custom]
+# 背景。surface_dim は WezTerm の背景 (#17191e) と同色にすると選択行が消えるため
+# 一段明るい bg_float を割り当てる。surface0 はさらに明るくして操作中の選択行を強調する
+surface_dim = "#343841" # Houston: bg_float
+panel_bg = "#23262d"    # Houston: bg_panel
+surface0 = "#545864"    # Houston: fg_subtle
+surface1 = "#343841"    # Houston: bg_float
+# 前景
+overlay0 = "#858b98" # Houston: fg_muted
+overlay1 = "#858b98" # Houston: fg_muted
+subtext0 = "#bfc1c9" # Houston: fg_dim
+text = "#eef0f9"     # Houston: fg
+# アクセント
+accent = "#00daef" # Houston: cyan (これがあるため [ui] accent は無効になる)
+blue = "#54b9ff"   # Houston: blue
+teal = "#00daef"   # Houston: cyan
+green = "#4bf3c8"  # Houston: mint
+yellow = "#ffd493" # Houston: peach (Houston に yellow はないため peach を流用)
+peach = "#ffd493"  # Houston: peach
+mauve = "#cc75f4"  # Houston: magenta
+red = "#f44747"    # Houston: red
+
+[terminal]
+default_shell = "" # Empty means $SHELL, then /bin/sh.
+shell_mode = "auto"
+new_cwd = "follow"
+
+[update]
+channel = "stable" # For Nix management
+version_check = false # For Nix management
+manifest_check = true # Keep only agent detection rules up-to-date
+
+[keys]
+prefix = "ctrl+t"                # tmux: set-option -g prefix C-t
+help = "prefix+?"                # tmux: prefix+? (list-keys)
+settings = "prefix+shift+s"      # tmux に対応なし
+detach = "prefix+d"              # tmux: prefix+d (detach-client)
+# reload_config = "prefix+shift+r" # tmux: bind-key r source-file
+open_notification_target = "prefix+shift+o" # tmux に対応なし
+
+# workspace (tmux の session 相当)
+workspace_picker = "prefix+w"       # tmux: prefix+w (choose-tree)
+goto = "prefix+g"                   # tmux に対応なし
+new_workspace = "prefix+shift+n"    # tmux に対応なし
+rename_workspace = "prefix+shift+r" # tmux: prefix+$ (rename-session) 相当
+close_workspace = "prefix+shift+d"  # tmux に対応なし
+previous_workspace = "prefix+["     # tmux: prefix+( (switch-client -p)
+next_workspace = "prefix+]"         # tmux: prefix+) (switch-client -n)
+switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
+
+# worktree
+new_worktree = "prefix+shift+g"
+open_worktree = ""    # optional, unset by default
+remove_worktree = ""  # optional, unset by default; opens confirmation
+
+# agent
+previous_agent = "prefix+("     # optional, unset by default
+next_agent = "prefix+)"         # optional, unset by default
+# previous_agent = "cmd+ctrl+p"     # optional, unset by default
+# next_agent = "cmd+ctrl+n"         # optional, unset by default
+focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
+
+remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
+
+# tab (tmux の window 相当)
+new_tab = "prefix+c"        # tmux: bind c new-window
+rename_tab = "prefix+,"     # tmux: prefix+, (rename-window)
+previous_tab = "prefix+p"   # tmux: prefix+p (previous-window)
+next_tab = "prefix+n"       # tmux: prefix+n (next-window)
+switch_tab = "prefix+1..9"  # tmux: prefix+1..9 (select-window)
+close_tab = "prefix+&"      # tmux: prefix+& (kill-window)
+
+# Pane
+rename_pane = "prefix+shift+p"  # tmux に対応なし
+edit_scrollback = "prefix+e"    # tmux に対応なし
+copy_mode = "prefix+y"          # tmux: bind y copy-mode
+# ctrl+h/j/k/l は下部の [[keys.command]] で herdr-nav にディスパッチする。
+# Herdr のネイティブバインドはペインにキーを転送しないため、ここは prefix 付きのフォールバックにする
+focus_pane_left = ""
+focus_pane_down = ""
+focus_pane_up = ""
+focus_pane_right = ""
+cycle_pane_next = "prefix+o"    # tmux: prefix+o (select-pane -t :.+)
+cycle_pane_previous = ""        # tmux に対応なし
+last_pane = "prefix+;"          # tmux: prefix+; (last-pane) / bind C-t 相当。herdr は prefix 二度押しを予約済み
+split_vertical = "prefix+|"     # tmux: bind | split-window -h (左右分割)
+split_horizontal = "prefix+minus" # tmux: bind - split-window -v (上下分割)
+close_pane = "prefix+x"         # tmux: prefix+x (kill-pane)
+zoom = "prefix+z"               # tmux: prefix+z (resize-pane -Z)
+resize_mode = "prefix+shift+h"   # tmux: bind -r C-h/C-j/C-k/C-l resize-pane に相当
+
+toggle_sidebar = "prefix+shift+b" # tmux に対応なし (prefix+b は previous-window)
+
+# Navigate-mode
+navigate_workspace_up = "ctrl+p"
+navigate_workspace_down = "ctrl+n"
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+
+# Copy the previous command line + output of the focused pane to the clipboard
+# tmux に対応なし (prefix+y は copy_mode に譲った)
+[[keys.command]]
+key = "prefix+shift+y"
+type = "shell"
+command = "$HOME/ghq/github.com/pupepa/dotfiles/configs/herdr/bin/herdr-copy-last-output"
+
+[[keys.command]]
+key = "prefix+shift+i"
+type = "popup"
+command = "tig"
+
+[[keys.command]]
+key = "prefix+shift+v"
+type = "pane"
+command = "nvim"
+
+# Neovim の分割と Herdr のペインを ctrl+h/j/k/l で行き来する。
+# tmux: bind-key -n C-h/C-j/C-k/C-l if -F "#{@pane-is-vim}" 'send-keys ...' 'select-pane ...'
+# Herdr には if -F 相当が無いので、smart-splits.nvim 同梱の scripts/herdr-navigate.sh が
+# herdr pane process-info でフォーカス中のペインが Vim/Neovim かを判定して振り分ける。
+#
+#   herdr plugin link ~/.local/share/nvim/lazy/smart-splits.nvim
+#
+# で登録済み。type は "shell" ではなく "plugin_action" でなければならない。
+# スクリプトが参照する HERDR_PANE_ID は plugin_action にしか渡らず、
+# type = "shell" では HERDR_ACTIVE_PANE_ID になるため空になって何も起きない
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "smart-splits.nvim.left"
+description = "navigate left (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "smart-splits.nvim.down"
+description = "navigate down (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "smart-splits.nvim.up"
+description = "navigate up (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "smart-splits.nvim.right"
+description = "navigate right (vim/herdr)"
+
+# [worktrees]
+# directory = "~/.herdr/worktrees"
+
+[ui]
+# Sidebar width (auto-scaled based on workspace names, this sets the default)
+sidebar_width = 26
+sidebar_min_width = 18
+sidebar_max_width = 36
+mobile_width_threshold = 64
+mouse_capture = true
+right_click_passthrough_modifier = ""
+redraw_on_focus_gained = true
+mouse_scroll_lines = 3
+confirm_close = true
+prompt_new_tab_name = true
+pane_borders = true
+pane_gaps = false
+show_agent_labels_on_pane_borders = true
+agent_panel_sort = "spaces"
+# theme.custom.accent が優先されるため、こちらは効かない
+# accent = "cyan"
+
+[ui.toast]
+delay_seconds = 1
+delivery = "herdr"
+
+[ui.toast.herdr]
+position = "bottom-right"
+
+[ui.toast.clipboard]
+enabled = true
+position = "bottom-center"
+
+[ui.sound]
+enabled = true
+
+[ui.sound.agents]
+droid = "off" # By default, droid is muted.
+
+[session]
+resume_agents_on_restore = true
+
+[remote]
+manage_ssh_config = true
+
+[experimental]
+allow_nested = false
+kitty_graphics = true
+pane_history = true
+switch_ascii_input_source_in_prefix = true # default false
+reveal_hidden_cursor_for_cjk_ime = false
+cjk_ime_agents = []
+cjk_ime_cursor_shape = "steady_block" # Values: block, steady_block (default), underline, steady_underline, bar, steady_bar.
+
+[advanced]
+scrollback_limit_bytes = 10000000
