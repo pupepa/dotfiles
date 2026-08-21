@@ -10,38 +10,11 @@ return {
       "windwp/nvim-ts-autotag",
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
+    -- 新環境で入れ直すときのリスト:
+    --   :TSInstall bash css diff dockerfile git_rebase gitattributes gitcommit
+    --   gitignore html javascript json lua python regex ruby sql swift toml tsx
+    --   typescript vim vimdoc xml yaml
     config = function()
-      require("nvim-treesitter").setup({
-        ensure_installed = {
-          "bash",
-          "css",
-          "diff",
-          "dockerfile",
-          "git_rebase",
-          "gitattributes",
-          "gitcommit",
-          "gitignore",
-          "html",
-          "javascript",
-          "json",
-          "lua",
-          "python",
-          "regex",
-          "ruby",
-          "sql",
-          "swift",
-          "toml",
-          "tsx",
-          "typescript",
-          "vim",
-          "vimdoc",
-          "xml",
-          "yaml",
-        },
-        ignore_install = { "csv" },
-        sync_install = false,
-        auto_install = true,
-      })
       vim.treesitter.language.register("typescript", "tsx")
     end,
   },
