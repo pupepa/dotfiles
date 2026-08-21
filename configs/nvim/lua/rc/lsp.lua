@@ -77,10 +77,8 @@ vim.lsp.config("sqls", {
 
 vim.lsp.config("ruby_lsp", {
   cmd = { "ruby-lsp" },
-  cmd_env = {
-    BUNDLE_GEMFILE = vim.loop.cwd() .. "/.ruby-lsp/Gemfile"
-  },
   filetypes = { "ruby" },
+  root_markers = { "Gemfile", ".git" },
 })
 
 vim.lsp.enable({
