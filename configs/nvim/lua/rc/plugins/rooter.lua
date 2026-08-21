@@ -4,7 +4,7 @@ return {
   {
     "wsdjeg/rooter.nvim",
     opts = {
-      root_patterns = { "Gemfile", ".git/" },
+      root_patterns = { "Gemfile", ".git/", "package.json" },
       outermost = false,
     },
     dependencies = {
