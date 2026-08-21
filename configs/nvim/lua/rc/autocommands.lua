@@ -56,8 +56,8 @@ if ai_commit_message_backend ~= nil then
 
     if ai_commit_message_backend == "codex" then
       command = "git diff --cached | codex exec --model gpt-5.4-mini --skip-git-repo-check --ephemeral '"
-        .. prompt
-        .. "'"
+          .. prompt
+          .. "'"
     else
       command = "git diff --cached | claude --no-session-persistence --print --model haiku '" .. prompt .. "'"
     end
@@ -99,16 +99,16 @@ if ai_commit_message_backend ~= nil then
       vim.keymap.set("n", "<Leader>ai", function()
         generate_commit_message(
           "Generate ONLY a one-line Git commit message following Conventional Commits format "
-            .. "(type(scope): description). Types: feat, fix, docs, style, refactor, test, chore. "
-            .. "Based strictly on the diff from stdin. Output ONLY the message, nothing else."
+          .. "(type(scope): description). Types: feat, fix, docs, style, refactor, test, chore. "
+          .. "Based strictly on the diff from stdin. Output ONLY the message, nothing else."
         )
       end, { buffer = true, desc = "AI commit message (English)" })
 
       vim.keymap.set("n", "<Leader>aj", function()
         generate_commit_message(
           "Generate ONLY a one-line Git commit message in Japanese following Conventional Commits format "
-            .. "(type(scope): 日本語の説明). Types: feat, fix, docs, style, refactor, test, chore. "
-            .. "Based strictly on the diff from stdin. Output ONLY the message, nothing else."
+          .. "(type(scope): 日本語の説明). Types: feat, fix, docs, style, refactor, test, chore. "
+          .. "Based strictly on the diff from stdin. Output ONLY the message, nothing else."
         )
       end, { buffer = true, desc = "AI commit message (Japanese)" })
     end,
@@ -123,5 +123,34 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = ".env.*",
   callback = function()
     vim.bo.filetype = "sh"
+  end,
+})
+
+--- パーサが導入済みの filetype で treesitter ハイライトを有効にする
+local treesitter_group = "treesitter_highlight"
+vim.api.nvim_create_augroup(treesitter_group, { clear = true })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = treesitter_group,
+  pattern = "*",
+  callback = function(ev)
+    -- Neovim 本体の ftplugin が既に有効化している場合は二重に起動しない
+    if vim.b[ev.buf].ts_highlight then
+      return
+    end
+
+    -- `vim.treesitter.start()` は未ロードバッファに `:edit` を走らせる分岐を持つ
+    -- そのため、プラグインが未ロードバッファに filetype を設定した場合に意図しない読み込みが発生しないようにする
+    if not vim.api.nvim_buf_is_loaded(ev.buf) then
+      return
+    end
+
+    local lang = vim.treesitter.language.get_lang(vim.bo[ev.buf].filetype)
+
+    -- `add()` はパーサ未導入なら `nil, errmsg` を返す (例外は投げない)
+    if lang == nil or not vim.treesitter.language.add(lang) then
+      return
+    end
+
+    vim.treesitter.start(ev.buf, lang)
   end,
 })
