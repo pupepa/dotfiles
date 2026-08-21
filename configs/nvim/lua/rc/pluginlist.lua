@@ -13,13 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
   spec = {
-    { import = "rc.plugins.popup" },
-
     ------------------------------------------------------------------------------
     -- Lua Library
     ------------------------------------------------------------------------------
     { import = "rc.plugins.plenary" },
-    { import = "rc.plugins.sqlite" },
     { import = "rc.plugins.nui" },
     { import = "rc.plugins.nvim-bqf" },
 
