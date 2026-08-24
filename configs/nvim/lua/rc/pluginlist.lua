@@ -78,7 +78,6 @@ return require("lazy").setup({
     -----------------------------------------------------------------------------------------
     -- Editing
     -----------------------------------------------------------------------------------------
-    { import = "rc.plugins.mini-comment" },
     { import = "rc.plugins.trim" },
     { import = "rc.plugins.make-table" },
     { import = "rc.plugins.nvim-ts-autotag" },
