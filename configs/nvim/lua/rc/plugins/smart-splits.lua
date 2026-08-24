@@ -51,6 +51,5 @@ return {
         desc = "Resize Window Up",
       },
     },
-    event = "VeryLazy",
   },
 }

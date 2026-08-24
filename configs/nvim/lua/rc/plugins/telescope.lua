@@ -145,11 +145,14 @@ return {
       vim.keymap.set("n", "<Space>l", "<Cmd>lua require('telescope').extensions.lines.lines()<CR>", { silent = true })
       vim.keymap.set("n", "<Space>s", "<Cmd>:Telescope git_status<CR>", { silent = true })
       vim.keymap.set("n", "<Space>m", "<Cmd>:Telescope memo list<CR>", { silent = true })
-      vim.keymap.set("n", "<Space>e", "<Cmd>:Telescope kensaku<CR>", { silent = true })
+      vim.keymap.set("n", "<Space>e", function()
+        require("telescope").load_extension("kensaku")
+        vim.cmd("Telescope kensaku")
+      end, { silent = true, desc = "Telescope kensaku" })
       vim.keymap.set("n", "<Space>d", function()
         local ok, local_config = pcall(require, "rc.local")
         local root = ok and local_config.daily_notes_root
-          or vim.fn.stdpath("data") .. "/daily-notes"
+            or vim.fn.stdpath("data") .. "/daily-notes"
         builtin.find_files({
           cwd = vim.fn.expand(root .. "/"),
           find_command = { "rg", "--files", "--color", "never", "--sortr", "path" },
@@ -161,7 +164,6 @@ return {
       require("telescope").load_extension("ghq")
       require("telescope").load_extension("gh")
       require("telescope").load_extension("ui-select")
-      require("telescope").load_extension("kensaku")
       require("telescope").load_extension("lazy")
       require("telescope").load_extension("egrepify")
       require("telescope").load_extension("memo")
@@ -200,6 +202,7 @@ return {
   {
     "Allianaab2m/telescope-kensaku.nvim",
     lazy = true,
+    dependencies = { "lambdalisue/kensaku.vim" },
   },
 
   -- Telescope extension that provides handy functionality about plugins installed via lazy.nvim

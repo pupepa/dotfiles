@@ -3,7 +3,6 @@ return {
   -- https://github.com/chrisgrieser/nvim-various-textobjs
   {
     "chrisgrieser/nvim-various-textobjs",
-    event = "VeryLazy",
     keys = {
       {
         "ae",
