@@ -4,10 +4,96 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     version = "*",
-    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    cmd = "Telescope",
+    keys = {
+      {
+        "<C-p>",
+        function()
+          require("telescope.builtin").find_files({ hidden = true })
+        end,
+        desc = "Find files (hidden)",
+      },
+      {
+        "<Space>g",
+        function()
+          require("telescope").extensions.egrepify.egrepify()
+        end,
+        desc = "Live grep (egrepify)",
+      },
+      {
+        "<Space>o",
+        function()
+          require("telescope").extensions.egrepify.egrepify({ default_text = vim.fn.expand("<cword>") })
+        end,
+        desc = "Live grep cword (egrepify)",
+      },
+      {
+        "<Space>b",
+        function()
+          require("telescope.builtin").buffers()
+        end,
+        desc = "Buffers",
+      },
+      {
+        "<Space>c",
+        function()
+          require("telescope.builtin").command_history()
+        end,
+        desc = "Command history",
+      },
+      {
+        "<Space>p",
+        function()
+          require("telescope.builtin").resume()
+        end,
+        desc = "Resume last picker",
+      },
+      { "<Space>q", "<Cmd>Telescope ghq list<CR>", desc = "ghq list" },
+      { "<Space>r", "<Cmd>Telescope oldfiles<CR>", desc = "Old files" },
+      {
+        "<Space>l",
+        function()
+          require("telescope").extensions.lines.lines()
+        end,
+        desc = "Lines in buffer",
+      },
+      { "<Space>s", "<Cmd>Telescope git_status<CR>", desc = "Git status" },
+      { "<Space>m", "<Cmd>Telescope memo list<CR>", desc = "Memo list" },
+      {
+        -- kensaku拡張は kensaku.vim → denops.vim (Deno) を引き連れてくるため、
+        -- `config` の一括 `load_extension` には含めず押下時にロードする
+        "<Space>e",
+        function()
+          require("telescope").load_extension("kensaku")
+          vim.cmd("Telescope kensaku")
+        end,
+        desc = "Telescope kensaku",
+      },
+      {
+        "<Space>d",
+        function()
+          local ok, local_config = pcall(require, "rc.local")
+          local root = ok and local_config.daily_notes_root or vim.fn.stdpath("data") .. "/daily-notes"
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.expand(root .. "/"),
+            find_command = { "rg", "--files", "--color", "never", "--sortr", "path" },
+          })
+        end,
+        desc = "Daily notes",
+      },
+    },
+    -- telescope-ui-select は `vim.ui.select` を差し替えるが、本体を遅延させると
+    -- 初回の `vim.lsp.buf.code_action()` 等で素の選択UIが出てしまう。
+    -- 初回呼び出し時に telescope をロードし、差し替え後の実装へ委譲する
+    init = function()
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "telescope.nvim" } })
+        return vim.ui.select(...)
+      end
+    end,
     config = function()
       local status, telescope = pcall(require, "telescope")
 
@@ -123,42 +209,6 @@ return {
         },
       })
 
-      local builtin = require("telescope.builtin")
-
-      vim.keymap.set("n", "<C-p>", function()
-        builtin.find_files({ hidden = true })
-      end, { silent = true })
-
-      vim.keymap.set("n", "<Space>g", require("telescope").extensions.egrepify.egrepify)
-      vim.keymap.set(
-        "n",
-        "<Space>o",
-        "<Cmd>lua require('telescope').extensions.egrepify.egrepify({ default_text = vim.fn.expand('<cword>') })<CR>",
-        { silent = true }
-      )
-      -- vim.keymap.set("n", "<Space>g", builtin.live_grep, {})
-      vim.keymap.set("n", "<Space>b", builtin.buffers, {})
-      vim.keymap.set("n", "<Space>c", builtin.command_history, {})
-      vim.keymap.set("n", "<Space>p", builtin.resume, {})
-      vim.keymap.set("n", "<Space>q", "<Cmd>:Telescope ghq list<CR>", { silent = true })
-      vim.keymap.set("n", "<Space>r", "<Cmd>:Telescope oldfiles<CR>", { silent = true })
-      vim.keymap.set("n", "<Space>l", "<Cmd>lua require('telescope').extensions.lines.lines()<CR>", { silent = true })
-      vim.keymap.set("n", "<Space>s", "<Cmd>:Telescope git_status<CR>", { silent = true })
-      vim.keymap.set("n", "<Space>m", "<Cmd>:Telescope memo list<CR>", { silent = true })
-      vim.keymap.set("n", "<Space>e", function()
-        require("telescope").load_extension("kensaku")
-        vim.cmd("Telescope kensaku")
-      end, { silent = true, desc = "Telescope kensaku" })
-      vim.keymap.set("n", "<Space>d", function()
-        local ok, local_config = pcall(require, "rc.local")
-        local root = ok and local_config.daily_notes_root
-            or vim.fn.stdpath("data") .. "/daily-notes"
-        builtin.find_files({
-          cwd = vim.fn.expand(root .. "/"),
-          find_command = { "rg", "--files", "--color", "never", "--sortr", "path" },
-        })
-      end, { silent = true })
-
       require("telescope").load_extension("lines")
       require("telescope").load_extension("fzf")
       require("telescope").load_extension("ghq")
@@ -209,6 +259,7 @@ return {
   -- https://github.com/tsakirist/telescope-lazy.nvim
   {
     "tsakirist/telescope-lazy.nvim",
+    lazy = true,
   },
 
   -- https://github.com/delphinus/telescope-memo.nvim
