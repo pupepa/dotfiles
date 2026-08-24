@@ -81,8 +81,5 @@ return {
         hlslens.start()
       end)
     end,
-    -- config = function()
-    --   require("rc/pluginconfig/nvim-hlslens")
-    -- end,
   },
 }

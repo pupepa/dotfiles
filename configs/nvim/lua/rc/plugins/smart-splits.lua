@@ -52,6 +52,5 @@ return {
       },
     },
     event = "VeryLazy",
-    -- lazy = true,
   },
 }
