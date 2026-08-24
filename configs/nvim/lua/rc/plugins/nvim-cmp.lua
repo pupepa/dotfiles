@@ -51,10 +51,17 @@ return {
     },
     opts = function()
       local cmp = require("cmp")
-      local luasnip = require("snippy")
+      local snippy = require("snippy")
 
       local t = function(str)
         return vim.api.nvim_replace_termcodes(str, true, true, true)
+      end
+
+      -- copilot.lua と nvim-cmp はどちらも `event = "InsertEnter"` で、同一イベント内のロード順は保証されない。
+      -- copilotが未ロード/未導入でも <Tab> が壊れないようガードする。
+      local function copilot_suggestion()
+        local ok, suggestion = pcall(require, "copilot.suggestion")
+        return ok and suggestion or nil
       end
 
       local has_words_before = function()
@@ -107,8 +114,9 @@ return {
           end, { "i" }),
 
           ["<Tab>"] = cmp.mapping(function(fallback)
-            if require("copilot.suggestion").is_visible() then
-              require("copilot.suggestion").accept()
+            local copilot = copilot_suggestion()
+            if copilot and copilot.is_visible() then
+              copilot.accept()
             elseif cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             elseif has_words_before() then
@@ -121,8 +129,8 @@ return {
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
+            elseif snippy.can_jump(-1) then
+              snippy.previous()
             else
               fallback()
             end
