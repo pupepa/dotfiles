@@ -61,10 +61,10 @@ return require("lazy").setup({
     { import = "rc.plugins.rainbow-delimiters" },
     { import = "rc.plugins.nvim_context_vt" },
     { import = "rc.plugins.noice" },
-    { import = "rc.plugins.diffview" },
     { import = "rc.plugins.nvim-scrollbar" },
     { import = "rc.plugins.cellwidths" },
     { import = "rc.plugins.houston" },
+    { import = "rc.plugins.codediff" },
 
     -----------------------------------------------------------------------------------------
     -- textobj
