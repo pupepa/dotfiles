@@ -121,7 +121,6 @@ return require("lazy").setup({
     { import = "rc.plugins.previm" },
     { import = "rc.plugins.close-buffers" },
     { import = "rc.plugins.vim-qfreplace" },
-    { import = "rc.plugins.vim-quickrun" },
     { import = "rc.plugins.capture" },
     { import = "rc.plugins.vim-startuptime" },
     { import = "rc.plugins.toggleterm" },
