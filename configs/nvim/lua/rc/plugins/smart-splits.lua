@@ -3,6 +3,7 @@ return {
   -- https://github.com/mrjones2014/smart-splits.nvim
   {
     "mrjones2014/smart-splits.nvim",
+    event = "VeryLazy",
     opts = {
       at_edge = "stop",
     },
