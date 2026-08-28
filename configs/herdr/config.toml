@@ -26,7 +26,7 @@ rename_workspace = "prefix+shift+r"
 close_workspace = "prefix+shift+d"
 previous_workspace = "prefix+["
 next_workspace = "prefix+]"
-switch_workspace = ""
+switch_workspace = "prefix+1..9"
 
 # worktree
 new_worktree = "prefix+shift+g"
@@ -45,7 +45,7 @@ new_tab = "prefix+c"
 rename_tab = "prefix+,"
 previous_tab = "prefix+p"
 next_tab = "prefix+n"
-switch_tab = "prefix+1..9"
+switch_tab = ""
 close_tab = "prefix+&"
 
 # Pane
