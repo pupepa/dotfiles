@@ -30,5 +30,10 @@ return {
         desc = "CodeDiff Diff Files",
       },
     },
+    opts = {
+      highlights = {
+        char_brightness = 2.0
+      }
+    }
   },
 }
