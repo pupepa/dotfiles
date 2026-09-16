@@ -42,11 +42,13 @@ bindkey '^]' fzf-select-ghq
 
 # cdr
 function fzf-cdr() {
-  local selected_dir
+  local selected_dir target_dir
   selected_dir=$(cdr -l | perl -pne 's@^[0-9]+ +@@' | awk '!x[$0]++{print $0}' | fzf) || return
 
   if [[ -n $selected_dir ]]; then
-    BUFFER="cd ${(q)selected_dir}"
+    # cdr -l は `~` で短縮したパスを返すので、quote する前に展開しておく
+    target_dir=${~selected_dir}
+    BUFFER="cd ${(q)target_dir}"
     zle accept-line
   fi
   zle clear-screen
