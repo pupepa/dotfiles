@@ -9,6 +9,7 @@
 "npm:@tailwindcss/language-server" = "latest"
 "npm:bash-language-server" = "latest"
 "pipx:neovim-remote" = "latest"
+"aqua:itchyny/mmv" = "latest"
 act = "latest"
 aws-cli = { version = "latest", symlink_bins = "true" }
 bat = "latest"
@@ -27,8 +28,10 @@ go = "latest"
 herdr = "latest"
 jq = "latest"
 lua-language-server = "latest"
+luajit = "latest"
 marp-cli = "latest"
 mas = "latest"
+mosh = "latest"
 neovim = "latest"
 node = "22.22.0"
 postgres = "15"
@@ -43,7 +46,7 @@ tree-sitter = "latest"
 uv = "latest"
 xcodes = "latest"
 yt-dlp = "latest"
-pnpm = "11.5.0"
+pnpm = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
