@@ -115,7 +115,6 @@ command = "smart-splits.nvim.right"
 description = "navigate right (vim/herdr)"
 
 [theme]
-name = ""
 auto_switch = false
 
 # Houston (Astro) ベースのカラーパレット
