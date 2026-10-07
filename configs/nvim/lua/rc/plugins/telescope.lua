@@ -61,6 +61,28 @@ return {
         desc = "Lines in buffer",
       },
       { "<Space>s", "<Cmd>Telescope git_status<CR>", desc = "Git status" },
+      {
+        "<Space>S",
+        function()
+          require("telescope.builtin").find_files({
+            -- 直近のコミットで変更されたファイル (削除を除く) をcwd基準のパスで列挙する
+            find_command = {
+              "git",
+              "diff-tree",
+              "--no-commit-id",
+              "--name-only",
+              "-r",
+              "--root",
+              "--relative",
+              "--diff-filter=d",
+              "HEAD",
+            },
+            -- 変更ファイルは docs/ や .github/ 配下でも漏れなく表示する
+            file_ignore_patterns = {},
+          })
+        end,
+        desc = "Files changed in last commit",
+      },
       { "<Space>m", "<Cmd>Telescope memo list<CR>", desc = "Memo list" },
       {
         -- kensaku拡張は kensaku.vim → denops.vim (Deno) を引き連れてくるため、
