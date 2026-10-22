@@ -33,7 +33,6 @@ return require("lazy").setup({
     { import = "rc.plugins.trouble" },
     { import = "rc.plugins.fidget" },
     { import = "rc.plugins.tailwindcss-colorizer-cmp" },
-    { import = "rc.plugins.typescript-tools" },
 
     -----------------------------------------------------------------------------------------
     -- Treesitter

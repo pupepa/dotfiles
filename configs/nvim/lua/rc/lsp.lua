@@ -81,6 +81,72 @@ vim.lsp.config("ruby_lsp", {
   root_markers = { "Gemfile", ".git" },
 })
 
+-- rootから上方向に `node_modules/typescript`を探す (モノレポでルートに巻き上げられている場合に対応)
+local function find_typescript(root)
+  local dir = root
+
+  while true do
+    local path = dir .. "/node_modules/typescript"
+
+    if vim.uv.fs_stat(path .. "/package.json") then
+      return path
+    end
+
+    local parent = vim.fs.dirname(dir)
+
+    if parent == dir then
+      return nil
+    end
+
+    dir = parent
+  end
+end
+
+-- TypeScriptパッケージのメジャーバージョンを返す
+local function ts_major(ts_dir)
+  local ok, pkg = pcall(function()
+    return vim.json.decode(table.concat(vim.fn.readfile(ts_dir .. "/package.json"), "\n"))
+  end)
+
+  if not ok or type(pkg.version) ~= "string" then
+    return nil
+  end
+
+  return tonumber(pkg.version:match("^(%d+)"))
+end
+
+-- `match(major)` が真になるTypeScriptがインストールされたプロジェクトでのみ起動する
+local function root_for(match)
+  return function(bufnr, on_dir)
+    local root = vim.fs.root(bufnr, { "tsconfig.json", "package.json" })
+    local ts_dir = root and find_typescript(root)
+    local major = ts_dir and ts_major(ts_dir)
+
+    if major and match(major) then
+      on_dir(root)
+    end
+  end
+end
+
+local ts_filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" }
+
+-- TypeScript 6以下 (tsserver) 用。tsserverはプロジェクトのtypescriptを上方向に探して使う
+vim.lsp.config("ts6_ls", {
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = ts_filetypes,
+  root_dir = root_for(function(major) return major <= 6 end),
+})
+
+vim.lsp.config("ts7_ls", {
+  cmd = function(dispatchers, config)
+    local bin = vim.fs.dirname(find_typescript(config.root_dir)) .. "/.bin/tsc"
+
+    return vim.lsp.rpc.start({ bin, "--lsp", "--stdio" }, dispatchers, { cwd = config.root_dir })
+  end,
+  filetypes = ts_filetypes,
+  root_dir = root_for(function(major) return major >= 7 end),
+})
+
 vim.lsp.enable({
   "sourcekit",
   "denols",
@@ -91,4 +157,6 @@ vim.lsp.enable({
   "tailwindcss-language-server",
   "sqls",
   "ruby_lsp",
+  "ts6_ls",
+  "ts7_ls",
 })
