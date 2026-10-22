@@ -4,6 +4,7 @@ return {
   {
     "mrjones2014/smart-splits.nvim",
     event = "VeryLazy",
+    tag = "v2.1.1-final",
     opts = {
       at_edge = "stop",
     },
