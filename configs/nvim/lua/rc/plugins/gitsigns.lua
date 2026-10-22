@@ -5,6 +5,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = { "FocusLost", "CursorHold" },
     opts = {
+      attach_to_untracked = true,
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
