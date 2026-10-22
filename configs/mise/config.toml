@@ -5,9 +5,11 @@
 "aqua:modem-dev/hunk" = "latest"
 "github:simonwhitaker/gibo" = "latest"
 "github:sqls-server/sqls" = "latest"
+"go:github.com/k1LoW/git-wt" = "latest"
 "npm:@antfu/ni" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "npm:bash-language-server" = "latest"
+"npm:typescript-language-server" = "latest"
 "pipx:neovim-remote" = "latest"
 "aqua:itchyny/mmv" = "latest"
 act = "latest"
@@ -47,6 +49,7 @@ uv = "latest"
 xcodes = "latest"
 yt-dlp = "latest"
 pnpm = "latest"
+yq = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
