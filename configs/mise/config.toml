@@ -52,7 +52,7 @@ pnpm = "latest"
 yq = "latest"
 
 [settings]
-idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
+idiomatic_version_file_enable_tools = ["bun", "node", "npm", "pnpm", "python", "ruby"]
 
 [dotfiles]
 "~/bin" = { source = "~/ghq/github.com/pupepa/dotfiles/configs/bin" }
