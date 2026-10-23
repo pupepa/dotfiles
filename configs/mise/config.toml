@@ -184,3 +184,15 @@ mineffect = "scale"
 "show-process-indicators" = true
 # Dockに表示するアプリの範囲
 "static-only" = true
+
+
+[tasks.upgrade-all]
+description = "Upgrade all packages"
+run = [
+  "mise outdated",
+  "mise upgrade",
+  "mise bootstrap packages upgrade --manager mas", 
+  "mise bootstrap packages upgrade --manager brew", 
+  "mise bootstrap packages upgrade --manager brew-cask", 
+  "mise prune --yes",
+]
