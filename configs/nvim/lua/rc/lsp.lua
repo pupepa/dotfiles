@@ -131,13 +131,13 @@ end
 local ts_filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" }
 
 -- TypeScript 6以下 (tsserver) 用。tsserverはプロジェクトのtypescriptを上方向に探して使う
-vim.lsp.config("ts6_ls", {
+vim.lsp.config("ts_ls", {
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = ts_filetypes,
   root_dir = root_for(function(major) return major <= 6 end),
 })
 
-vim.lsp.config("ts7_ls", {
+vim.lsp.config("tsgo", {
   cmd = function(dispatchers, config)
     local bin = vim.fs.dirname(find_typescript(config.root_dir)) .. "/.bin/tsc"
 
@@ -157,6 +157,6 @@ vim.lsp.enable({
   "tailwindcss-language-server",
   "sqls",
   "ruby_lsp",
-  "ts6_ls",
-  "ts7_ls",
+  "ts_ls",
+  "tsgo",
 })
