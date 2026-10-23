@@ -45,3 +45,6 @@
 
 # etc
 /tmp
+
+# mise
+configs/mise/miserc.local.toml

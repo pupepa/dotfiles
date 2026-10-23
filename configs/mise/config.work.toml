@@ -1,0 +1,12 @@
+[bootstrap.packages]
+"brew-cask:drawio" = "latest"
+"brew-cask:figma" = "latest"
+"brew-cask:radix" = "latest"
+"brew-cask:pgadmin4" = "latest"
+"brew-cask:postman" = "latest"
+"brew-cask:shottr" = "latest"
+"brew-cask:unicodechecker" = "latest"
+"brew-cask:visual-studio-code" = "latest"
+"mas:1553936137" = "latest" # Azure VPN Client
+"mas:985367838"  = "latest" # Microsoft Outlook
+"mas:1295203466" = "latest" # Microsoft Remote Desktop
