@@ -119,6 +119,8 @@ fn_state = false
 [bootstrap.macos.trackpad]
 # トラックパッドのタップによるクリック
 tap_to_click = true
+# 3本指ドラッグの有効化
+three_finger_drag = true
 
 
 [bootstrap.macos.defaults.NSGlobalDomain]
