@@ -1,2 +1,26 @@
 [bootstrap.packages]
+"brew-cask:balenaetcher" = "latest"
+"brew-cask:calibre" = "latest"
+"brew-cask:cleanshot" = "latest"
+"brew-cask:discord" = "latest"
+"brew-cask:handbrake-app" = "latest"
+"brew-cask:iina" = "latest"
+"brew-cask:obs" = "latest"
+"brew-cask:quicklook-video" = "latest"
+"mas:1287239339" = "latest" # ColorSlurp
+"mas:411643860"  = "latest" # DaisyDisk
+"mas:1526651672" = "latest" # Eagle for Safari
+"mas:6753110395" = "latest" # Folder Quick Look
+"mas:1444383602" = "latest" # Goodnotes
+"mas:1528095640" = "latest" # Interactful
+"mas:6504801865" = "latest" # JuxtaText
 "mas:472226235"  = "latest" # LanScan
+"mas:302584613"  = "latest" # Kindle
+"mas:1289583905" = "latest" # Pixelmator Pro
+"mas:1529448980" = "latest" # Reeder 2
+"mas:6477720316" = "latest" # Supercopy
+"mas:1496833156" = "latest" # Swift Playground
+"mas:899247664"  = "latest" # TestFlight
+"mas:494803304"  = "latest" # WiFi Explorer
+"mas:1295203466" = "latest" # Windows App
+"mas:1380563956" = "latest" # 辞書 by 物書堂
