@@ -7,6 +7,10 @@
 # Git
 /configs/git/.gitconfig.local
 
+# Homebrew
+/configs/homebrew/trust.json
+/configs/homebrew/trust.json.lock
+
 # Karabiner-Elements
 /configs/karabiner/assets/*
 /configs/karabiner/automatic_backups/*
