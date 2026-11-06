@@ -6,17 +6,17 @@ return {
     branch = "v1",
     event = { "BufNewFile", "BufReadPre" },
     config = function()
-      local colors = require("tokyonight.colors").setup()
+      local colors = require("houston.palette")
       require("scrollbar").setup({
         handle = {
-          color = colors.fg,
+          color = colors.fg_dim,
         },
       })
     end,
     dependencies = {
       "kevinhwang91/nvim-hlslens",
       "lewis6991/gitsigns.nvim",
-      "folke/tokyonight.nvim",
+      "devbydaniel/houston.nvim",
     },
   },
 }
