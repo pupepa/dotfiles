@@ -130,7 +130,6 @@ return require("lazy").setup({
     { import = "rc.plugins.rooter" },
     { import = "rc.plugins.kulala" },
     { import = "rc.plugins.yank-path" },
-    { import = "rc.plugins.lazygit" },
     { import = "rc.plugins.snacks" },
     { import = "rc.plugins.octo" },
     { import = "rc.plugins.git" },
