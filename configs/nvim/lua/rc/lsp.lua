@@ -28,10 +28,6 @@ vim.lsp.config("denols", {
   workspace_required = true,
 })
 
-vim.lsp.config("oxlint", {
-  root_markers = { ".oxlintrc.json", "oxlint.config.ts", "vite.config.ts", "vite.config.mts" },
-})
-
 vim.lsp.config("lua-language-server", {
   cmd = { "lua-language-server" },
   filetypes = { "lua" },
@@ -163,7 +159,6 @@ vim.lsp.config("tsgo", {
 vim.lsp.enable({
   "sourcekit",
   "denols",
-  "oxlint",
   "lua-language-server",
   "bash-language-server",
   "dockerfile-language-server",
