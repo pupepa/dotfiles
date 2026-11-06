@@ -49,6 +49,13 @@ return {
         "dmitmel/cmp-cmdline-history",
       },
     },
+    -- LSPはファイルを開いた時点で起動するため、InsertEnterで実行されるconfigではなく起動時に実行されるinitで設定する
+    -- cmp-nvim-lspは読み込まれてもInsertEnterのautocmdを登録するだけで、nvim-cmp本体は読み込まない
+    init = function()
+      vim.lsp.config("*", {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+    end,
     opts = function()
       local cmp = require("cmp")
       local snippy = require("snippy")
@@ -225,10 +232,6 @@ return {
           ["<C-q>"] = { c = cmp.mapping.abort() },
         },
         sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { name = "cmdline_history" } }),
-      })
-
-      vim.lsp.config("*", {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
     end,
   },

@@ -1,3 +1,16 @@
+-- 全サーバー共通のcapabilities
+-- ファイル名の変更をLSPに通知できるようにして、oil.nvimなどでリネームしたときにimportを更新可能にする
+vim.lsp.config("*", {
+  capabilities = {
+    workspace = {
+      fileOperations = {
+        didRename = true,
+        willRename = true,
+      },
+    },
+  },
+})
+
 vim.lsp.config("tailwindcss-language-server", {
   cmd = { "tailwindcss-language-server", "--stdio" },
   filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
