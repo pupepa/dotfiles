@@ -3,6 +3,7 @@ return {
   -- https://github.com/petertriho/nvim-scrollbar
   {
     "petertriho/nvim-scrollbar",
+    branch = "v1",
     event = { "BufNewFile", "BufReadPre" },
     config = function()
       local colors = require("tokyonight.colors").setup()
