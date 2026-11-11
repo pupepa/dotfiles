@@ -51,7 +51,6 @@ return {
         end,
         desc = "Resume last picker",
       },
-      { "<Space>q", "<Cmd>Telescope ghq list<CR>", desc = "ghq list" },
       { "<Space>r", "<Cmd>Telescope oldfiles<CR>", desc = "Old files" },
       {
         "<Space>l",
@@ -229,10 +228,7 @@ return {
 
       require("telescope").load_extension("lines")
       require("telescope").load_extension("fzf")
-      require("telescope").load_extension("ghq")
-      require("telescope").load_extension("gh")
       require("telescope").load_extension("ui-select")
-      require("telescope").load_extension("lazy")
       require("telescope").load_extension("egrepify")
       require("telescope").load_extension("memo")
     end,
@@ -252,32 +248,12 @@ return {
     lazy = true,
   },
 
-  -- https://github.com/nvim-telescope/telescope-ghq.nvim
-  {
-    "nvim-telescope/telescope-ghq.nvim",
-    lazy = true,
-  },
-
-  -- Integration with github cli
-  -- https://github.com/nvim-telescope/telescope-github.nvim
-  {
-    "nvim-telescope/telescope-github.nvim",
-    lazy = true,
-  },
-
   -- kensaku.vim + Telescope live grep
   -- https://github.com/Allianaab2m/telescope-kensaku.nvim
   {
     "Allianaab2m/telescope-kensaku.nvim",
     lazy = true,
     dependencies = { "lambdalisue/kensaku.vim" },
-  },
-
-  -- Telescope extension that provides handy functionality about plugins installed via lazy.nvim
-  -- https://github.com/tsakirist/telescope-lazy.nvim
-  {
-    "tsakirist/telescope-lazy.nvim",
-    lazy = true,
   },
 
   -- https://github.com/delphinus/telescope-memo.nvim

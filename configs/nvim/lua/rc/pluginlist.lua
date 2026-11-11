@@ -29,7 +29,6 @@ return require("lazy").setup({
     { import = "rc.plugins.lspkind-nvim" },
     { import = "rc.plugins.nvim-snippy" },
     { import = "rc.plugins.lazydev" },
-    { import = "rc.plugins.luvit-meta" },
     { import = "rc.plugins.trouble" },
     { import = "rc.plugins.fidget" },
     { import = "rc.plugins.tailwindcss-colorizer-cmp" },
@@ -38,7 +37,6 @@ return require("lazy").setup({
     -- Treesitter
     -----------------------------------------------------------------------------------------
     { import = "rc.plugins.nvim-treesitter" },
-    { import = "rc.plugins.hlargs" },
 
     -----------------------------------------------------------------------------------------
     -- Fuzzy Finder
@@ -69,7 +67,6 @@ return require("lazy").setup({
     -- textobj
     -----------------------------------------------------------------------------------------
     { import = "rc.plugins.substitute" },
-    { import = "rc.plugins.nvim-treehopper" },
     { import = "rc.plugins.mini-surround" },
     { import = "rc.plugins.mini-ai" },
     { import = "rc.plugins.vim-niceblock" },
@@ -92,12 +89,10 @@ return require("lazy").setup({
     { import = "rc.plugins.kensaku" },
     { import = "rc.plugins.copilot" },
     { import = "rc.plugins.nvim-insx" },
-    { import = "rc.plugins.BackAndForward" },
 
     --------------------------------------------------------------------------------
     -- File Management
     --------------------------------------------------------------------------------
-    { import = "rc.plugins.other" },
     { import = "rc.plugins.oil" },
 
     --------------------------------------------------------------------------------
@@ -128,10 +123,8 @@ return require("lazy").setup({
     { import = "rc.plugins.which-key" },
     { import = "rc.plugins.git-conflict" },
     { import = "rc.plugins.rooter" },
-    { import = "rc.plugins.kulala" },
     { import = "rc.plugins.yank-path" },
     { import = "rc.plugins.snacks" },
-    { import = "rc.plugins.octo" },
     { import = "rc.plugins.git" },
     { import = "rc.plugins.wezterm-types" },
     { import = "rc.plugins.daily-notes" },

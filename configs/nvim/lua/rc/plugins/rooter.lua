@@ -7,13 +7,5 @@ return {
       root_patterns = { "Gemfile", ".git/", "package.json" },
       outermost = false,
     },
-    dependencies = {
-      {
-        "wsdjeg/logger.nvim",
-        config = function()
-          vim.keymap.set("n", "<leader>hL", '<cmd>lua require("logger").viewRuntimeLog()<cr>', { silent = true })
-        end,
-      },
-    },
   },
 }

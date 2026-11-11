@@ -25,10 +25,6 @@ return {
       -- https://github.com/hrsh7th/cmp-calc
       "hrsh7th/cmp-calc",
 
-      -- cmp source for treesitter
-      -- https://github.com/ray-x/cmp-treesitter
-      "ray-x/cmp-treesitter",
-
       "dcampos/cmp-snippy",
 
       "roobert/tailwindcss-colorizer-cmp.nvim",
@@ -187,7 +183,6 @@ return {
         }, {
           { name = "buffer" },
           { name = "calc" },
-          { name = "treesitter" },
         }),
 
         window = {
