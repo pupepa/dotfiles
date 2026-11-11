@@ -68,10 +68,10 @@ return require("lazy").setup({
     -----------------------------------------------------------------------------------------
     -- textobj
     -----------------------------------------------------------------------------------------
-    { import = "rc.plugins.nvim-various-textobjs" },
     { import = "rc.plugins.substitute" },
     { import = "rc.plugins.nvim-treehopper" },
     { import = "rc.plugins.mini-surround" },
+    { import = "rc.plugins.mini-ai" },
     { import = "rc.plugins.vim-niceblock" },
 
     -----------------------------------------------------------------------------------------
