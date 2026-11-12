@@ -17,6 +17,11 @@ return {
         for _, group in ipairs(groups) do
           highlights[group].bg = highlights.Normal.bg
         end
+
+        -- snacks.nvimのwordsが使う参照箇所のハイライトを、旧vim-illuminateと同じVisualに揃える
+        for _, group in ipairs({ "LspReferenceText", "LspReferenceRead", "LspReferenceWrite" }) do
+          highlights[group] = { link = "Visual" }
+        end
       end,
     })
     vim.cmd.colorscheme("houston")
