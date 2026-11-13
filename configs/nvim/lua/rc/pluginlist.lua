@@ -102,7 +102,6 @@ return require("lazy").setup({
     -- Utility
     -----------------------------------------------------------------------------------------
     { import = "rc.plugins.open-browser" },
-    { import = "rc.plugins.open-browser-github" },
     { import = "rc.plugins.linediff" },
     { import = "rc.plugins.todo-txt" },
     { import = "rc.plugins.vim-xcode-control" },
