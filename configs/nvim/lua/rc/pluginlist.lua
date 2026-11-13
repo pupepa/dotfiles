@@ -73,7 +73,7 @@ return require("lazy").setup({
     -----------------------------------------------------------------------------------------
     -- Editing
     -----------------------------------------------------------------------------------------
-    { import = "rc.plugins.trim" },
+    { import = "rc.plugins.mini-trailspace" },
     { import = "rc.plugins.make-table" },
     { import = "rc.plugins.nvim-ts-autotag" },
     { import = "rc.plugins.dial" },
