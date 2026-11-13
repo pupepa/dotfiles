@@ -30,7 +30,6 @@ return require("lazy").setup({
     { import = "rc.plugins.nvim-snippy" },
     { import = "rc.plugins.lazydev" },
     { import = "rc.plugins.trouble" },
-    { import = "rc.plugins.fidget" },
     { import = "rc.plugins.tailwindcss-colorizer-cmp" },
 
     -----------------------------------------------------------------------------------------
