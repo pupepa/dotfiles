@@ -83,7 +83,6 @@ return require("lazy").setup({
     -----------------------------------------------------------------------------------------
     -- Moving Cursor
     -----------------------------------------------------------------------------------------
-    { import = "rc.plugins.clever-f" },
     { import = "rc.plugins.fuzzy-motion" },
     { import = "rc.plugins.kensaku" },
     { import = "rc.plugins.copilot" },
