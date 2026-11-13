@@ -21,6 +21,28 @@ return {
         end,
         desc = "Prev reference",
       },
+      -- バッファの削除 (旧close-buffers.nvimと同じく、未保存の変更は確認せずに破棄する)
+      {
+        "<leader>bd",
+        function()
+          Snacks.bufdelete({ force = true })
+        end,
+        desc = "close",
+      },
+      {
+        "<leader>bo",
+        function()
+          Snacks.bufdelete.other({ force = true })
+        end,
+        desc = "close other",
+      },
+      {
+        "<leader>bD",
+        function()
+          Snacks.bufdelete.all({ force = true })
+        end,
+        desc = "close all",
+      },
     },
     ---@class snacks.image.Config
     opts = {
