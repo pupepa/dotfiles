@@ -6,7 +6,6 @@ return {
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "hrsh7th/nvim-cmp",
     },
     opts = {
       lsp = {
@@ -14,7 +13,6 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
         },
       },
       -- you can enable a preset for easier configuration
@@ -39,7 +37,8 @@ return {
       },
       popupmenu = {
         enabled = true,
-        backend = "cmp",
+        -- コマンドラインの補完はblink.cmpが表示する。標準の補完 (wildmenu) を使うときはnuiで表示する
+        backend = "nui",
       },
       views = {
         cmdline_popup = {

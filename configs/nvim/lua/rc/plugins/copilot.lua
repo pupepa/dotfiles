@@ -4,10 +4,8 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = { "Copilot" },
+    -- 補完候補への表示はblink.cmpのソース (blink-copilot) で行う
     event = "InsertEnter",
-    dependencies = {
-      { "pupepa/copilot-cmp" },
-    },
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },

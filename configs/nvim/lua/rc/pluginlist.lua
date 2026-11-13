@@ -25,12 +25,14 @@ return require("lazy").setup({
     --------------------------------------------------------------------------------
     { import = "rc.plugins.nvim-lint" },
     { import = "rc.plugins.conform" },
-    { import = "rc.plugins.nvim-cmp" },
-    { import = "rc.plugins.lspkind-nvim" },
+    -- nvim-cmpはblink.cmpに移行したため無効化している (設定ファイルは残している)
+    { import = "rc.plugins.nvim-cmp", enabled = false },
+    { import = "rc.plugins.blink-cmp" },
     { import = "rc.plugins.nvim-snippy" },
     { import = "rc.plugins.lazydev" },
     { import = "rc.plugins.trouble" },
-    { import = "rc.plugins.tailwindcss-colorizer-cmp" },
+    -- nvim-cmp専用のため無効化している (Tailwind CSSの色見本はblink.cmpの標準機能で表示される)
+    { import = "rc.plugins.tailwindcss-colorizer-cmp", enabled = false },
 
     -----------------------------------------------------------------------------------------
     -- Treesitter
