@@ -51,7 +51,6 @@ return require("lazy").setup({
     { import = "rc.plugins.nvim-hlslens" },
     { import = "rc.plugins.gitsigns" },
     { import = "rc.plugins.aerial" },
-    { import = "rc.plugins.nvim-notify" },
     { import = "rc.plugins.modes" },
     { import = "rc.plugins.rainbow-delimiters" },
     { import = "rc.plugins.nvim_context_vt" },

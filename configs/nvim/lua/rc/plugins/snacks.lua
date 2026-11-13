@@ -29,6 +29,14 @@ return {
         enabled = true,
         debounce = 100,
       },
+      -- vim.notifyの表示先。noiceの通知もsnacksが有効ならこちらで表示される
+      notifier = {
+        enabled = true,
+        -- 以下は旧nvim-notifyの設定に合わせる
+        timeout = 5000,
+        width = { min = 50, max = 0.4 },
+        top_down = false,
+      },
       indent = {
         enabled = true,
         scope = { enabled = false }
