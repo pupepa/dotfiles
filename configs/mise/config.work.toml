@@ -1,3 +1,6 @@
+[tools]
+"npm:@vivliostyle/cli" = "latest"
+
 [bootstrap.packages]
 "brew-cask:drawio" = "latest"
 "brew-cask:figma" = "latest"
