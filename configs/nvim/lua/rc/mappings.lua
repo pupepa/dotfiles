@@ -102,3 +102,25 @@ end, { desc = "Next diagnostic", silent = true })
 vim.keymap.set("n", "[g", function()
   vim.diagnostic.jump({ count = -1, float = true })
 end, { desc = "Previous diagnostic", silent = true })
+
+-- Like vim-niceblock
+-- https://github.com/kana/vim-niceblock
+local function get_niceblock(map_v, map_V, fallback)
+  return ({ v = map_v, V = map_V })[vim.fn.mode()] or fallback
+end
+
+vim.keymap.set("x", "I", function()
+  return get_niceblock("<C-v>I", "<C-v>^o^I", "I")
+end, { expr = true, desc = "Visual block insert at selection start" })
+
+vim.keymap.set("x", "A", function()
+  return get_niceblock("<C-v>A", "<C-v>0o$A", "A")
+end, { expr = true, desc = "Visual block append at selection end" })
+
+vim.keymap.set("x", "gI", function()
+  return get_niceblock("<C-v>0I", "<C-v>0o$I", "0I")
+end, { expr = true, desc = "Visual block insert at line start" })
+
+vim.keymap.set("x", "r", function()
+  return get_niceblock("<C-v>r", "<C-v>0o$r", "r")
+end, { expr = true, desc = "Visual block replace at selection" })

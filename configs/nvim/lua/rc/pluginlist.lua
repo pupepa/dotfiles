@@ -68,7 +68,6 @@ return require("lazy").setup({
     { import = "rc.plugins.substitute" },
     { import = "rc.plugins.mini-surround" },
     { import = "rc.plugins.mini-ai" },
-    { import = "rc.plugins.vim-niceblock" },
 
     -----------------------------------------------------------------------------------------
     -- Editing
