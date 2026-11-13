@@ -60,7 +60,7 @@ return {
       },
     },
     -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    dependencies = { "malewicz1337/oil-git.nvim", "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = true,
     keys = {
@@ -72,8 +72,7 @@ return {
   -- https://github.com/malewicz1337/oil-git.nvim
   {
     "malewicz1337/oil-git.nvim",
-    dependencies = { "stevearc/oil.nvim" },
-    event = "VeryLazy",
+    lazy = true,
     opts = {
       symbols = {
         file = {
